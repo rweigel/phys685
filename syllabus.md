@@ -33,10 +33,10 @@
 * Introductions
 * Syllabus
 * Notation
-* The Dirac Delta Function
+* The Dirac Delta Function; see email or Discord for information on accessing [additional references](https://drive.google.com/drive/folders/0013X5HELBJvBlCsQGFauVVDEFczCLV0y9D). I recommend starting with Dennery, 1967, if needed.
 * The Divergence Theorem
 * Work on in-class problems
-* Assign HW #1
+* Assign HW #1. I will post problems after class. I may want to change assignment based on progress with in--class problems.
 
 %* Work on [in-class problems](S2020/problems#IC_1)
 %* Assign [HW1](problems#HW1)
