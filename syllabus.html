@@ -1,0 +1,553 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>syllabus</title>
+    <link id="favicon" rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%220.9em%22 font-size=%22100%22>📖</text></svg>">
+
+    <style>
+        body { background-color: white; }
+        #toc { font-size: 85%; width: 14em; position: fixed; min-height: 95%; max-height: 95%; overflow: hidden auto; padding-left: 0.75em; padding-right: 1em; margin-right: 1em; font-family: "Open Sans"; }
+        #toc ol { list-style-type: decimal; padding-inline-start: 1em; }
+        #toc a { text-decoration: none; }
+        #display a { text-decoration: none black; text-underline-offset: 2px; }
+        #display { width: 100%; margin-left: 15em; max-height: 100%; min-height: 100%; overflow: hidden auto; padding-left: 1em; padding-right: 1em; border-left: 1px solid rgb(240, 240, 240); font-family: "Open Sans"; }
+        .title { text-align: center; font-size: 250%; font-weight: bold; color: black; margin-bottom: 0px; }
+        .subtitle { text-align: center; font-size: 150%; font-weight: bold; color: black; margin-top: 0.2em; }
+        .hanchor { text-decoration: none; color: inherit; }
+        h1 { color: darkblue; border-bottom: 2px solid darkblue; }
+        h2 { border-bottom: 1px solid black; }
+        h3 { border-bottom: 1px dotted black; }
+        h1, h2, h3, h4, h5, h6 { width: 100%; margin-block: 0.5em; }
+        #display .block ul { width: 100%; margin-left: 1em; padding-left: 1em; }
+        #display .block ol { width: 100%; margin-left: 1em; padding-left: 1em; }
+        code { width: 100%; background-color: rgba(0, 0, 0, 0.03); border-radius: 0px; font-size: 1.2em; white-space: pre-wrap; margin-top: 3px; margin-right: 3px; }
+        pre code { border-right: 1px solid black; }
+        code.language-Python { background-color: rgba(0, 0, 0, 0); font-size: 1.2em; }
+        pre { width: 100%; text-indent: 0.75em; padding-left: 0.5em; margin-left: 1em; white-space: pre-wrap; border-left: 3px solid black; background-color: rgba(0, 0, 0, 0.03); line-height: 1.5; overflow-x: clip; }
+        pre.language-Python { border-left: 5px solid blue; padding: 0.5em; margin-left: 1em; margin-right: 1em; line-height: 1.5; overflow-x: auto; }
+        .block { display: flex; }
+        .block.inline-html { display: block; }
+        .hr { width: 100%; height: 1px; display: block; margin: 0.5em; margin-block: 0.5em; border-top: 1px solid black; }
+        #display li > div { display: flex; }
+        p { width: 100%; display: block; margin-block: 0.5em; }
+        #display li { width: 100%; }
+        li .block p { width: 100%; display: block; margin-top: 0.5em; margin-bottom: 0.5em; }
+        li .block:first-of-type p { width: 100%; display: block; margin-top: 0em; margin-bottom: 0em; }
+        .section > .block ol ~ .line-number { display: none; }
+        .section > .block ul ~ .line-number { display: none; }
+        .section > .block pre ~ .line-number { display: none; }
+        .section > .block code ~ .line-number { }
+        pre .line-number { float: right; font-size: 8px; text-align: center; text-indent: 0px; }
+        .line-number { float: right; white-space: pre-wrap; font-size: 10%; }
+        p + .line-number { margin-block-start: 8px; }
+        .block > div.linenumber { margin-block-start: -0.5em; }
+        .blockquote + div.line-number { margin-top: 1rem; }
+        h1 + .line-number { margin-block-start: 20em; }
+        h2 + .line-number { margin-block-start: 15em; }
+        h3 + .line-number { margin-block-start: 15em; }
+        h4 + .line-number { margin-block-start: 15em; }
+        h5 + .line-number { margin-block-start: 15em; }
+        h6 + .line-number { margin-block-start: 15em; }
+        .blockquote { width: 100%; display: block; margin: 1em; border: 1px solid black; padding: 1em; border-radius: 0.5em; }
+        details > summary { font-weight: bold; }
+        details { padding-left: 0.5em; }
+        details[open] { border: 1px solid black; padding: 0em 0em 0em 0.5em; }
+        table { padding: 0px; }
+        table tr { border-top: 1px solid rgb(204, 204, 204); background-color: white; margin: 0px; padding: 0px; }
+        table tr:nth-child(2n) { background-color: rgb(248, 248, 248); }
+        table tr th { font-weight: bold; border: 1px solid rgb(204, 204, 204); text-align: left; margin: 0px; padding: 6px 13px; }
+        table tr td { border: 1px solid rgb(204, 204, 204); text-align: left; margin: 0px; padding: 6px 13px; }
+        table tr th :first-child, table tr td :first-child { margin-top: 0px; }
+        table tr th :last-child, table tr td :last-child { margin-bottom: 0px; }
+        .katex { font-size: inherit !important; }
+        .katex-display { text-align: center; margin: 0.5em; font-size: 1.1em !important; }
+        @media print {
+          body, html { margin: 0in; color: rgb(0, 0, 0); height: auto; background-color: rgb(255, 255, 255); border: none; display: inline; }
+          h1, h2, h3, h4, h5, h6 { break-after: avoid; }
+          h1, h2, h3, h4, h5, h6 { width: 100%; margin-block: 0.1em; }
+          h1 { font-size: 1.25em; border-bottom: 1px solid darkblue; }
+          h2 { font-size: 1.15em; border-bottom: 1px solid darkblue; }
+          h3 { font-size: 1.1em; }
+          h4, h5, h6 { font-size: 1.05em; }
+          p { margin-top: 0px; margin-bottom: 0.5em; }
+          .title { break-before: page; margin-top: 0px; }
+          #toc { display: none; font-size: 100%; margin: 0px; width: 100%; overflow-y: hidden; padding-left: 0px; padding-right: 0px; }
+          #display { margin-left: 0em; width: 100%; padding-left: 0px; padding-right: 0px; border: none; overflow-wrap: break-word; }
+          .katex { font: 1em / 1 KaTeX_Main, "Times New Roman", serif; white-space: nowrap; text-indent: 0px; text-rendering: auto; }
+          .katex-display { margin-top: 0px; }
+        }
+        #toc > ol ol { display: none; }
+        body { background-image: url("https://rweigel.github.io/biedit/img/paper.png"); }
+        #toc > ol ol { display: none; }
+        body { background-image: url("https://rweigel.github.io/biedit/img/paper.png"); }
+        #toc > ol ol { display: none; }
+        body { background-image: url("https://rweigel.github.io/biedit/img/paper.png"); }
+        #toc > ol ol { display: none; }
+        body { background-image: url("https://rweigel.github.io/biedit/img/paper.png"); }
+        #toc > ol ol { display: none; }
+        body { background-image: url("https://rweigel.github.io/biedit/img/paper.png"); }
+        #toc > ol ol { display: none; }
+        body { background-image: url("https://rweigel.github.io/biedit/img/paper.png"); }
+        #toc > ol ol { display: none; }
+        body { background-image: url("https://rweigel.github.io/biedit/img/paper.png"); }
+        #toc > ol ol { display: none; }
+        body { background-image: url("https://rweigel.github.io/biedit/img/paper.png"); }
+        #toc > ol ol { display: none; }
+        body { background-image: url("https://rweigel.github.io/biedit/img/paper.png"); }
+        #toc > ol ol { display: none; }
+        body { background-image: url("https://rweigel.github.io/biedit/img/paper.png"); }
+        #toc > ol ol { display: none; }
+        body { background-image: url("https://rweigel.github.io/biedit/img/paper.png"); }
+        
+    </style>
+
+
+    <script>
+        function tocClickListen() {
+            // No jQuery b/c also used in stand-alone HTML.
+            hs = document.querySelectorAll('#toc > ol ol');
+            for (var i = 0; i < hs.length; i++) {
+              if (hs[i].previousElementSibling) {
+                var el = hs[i].previousElementSibling.firstElementChild;
+                if (el.length == 0) {
+                  continue;
+                }
+                el.addEventListener('click', event => {
+                  var ns = event.target.parentNode.nextElementSibling;
+                  if (ns.style.display === 'none') {
+        ns.style.display = 'block';
+                  } else {
+        ns.style.display = 'none';
+                  }
+                });
+              }
+            }
+          }
+        if (
+            document.readyState === "complete" ||
+            (document.readyState !== "loading" && 
+              !document.documentElement.doScroll)
+        ) {
+          tocClickListen();
+        } else {
+          document.addEventListener("DOMContentLoaded", tocClickListen);
+        }
+    </script>
+
+</head>
+
+<body style="display: flex;min-width: 50%;max-height:100%;">
+
+    <div id="toc">
+        <ol>
+            <li><a number="1" href="#class-schedule">Class Schedule</a></li>
+            <ol style="display: none;">
+                <li><a number="1.1" href="#jan-26th" class="highlighted">Jan. 26th</a></li>
+            </ol>
+            <li><a number="2" href="#syllabus">Syllabus</a></li>
+            <ol style="display: none;">
+                <li><a number="2.1" href="#course-material">Course Material</a></li>
+                <li><a number="2.2" href="#office-hours">Office Hours</a></li>
+                <li><a number="2.3" href="#discord">Discord</a></li>
+                <li><a number="2.4" href="#format">Format</a></li>
+                <li><a number="2.5" href="#grading">Grading</a></li>
+                <li><a number="2.6" href="#topics">Topics</a></li>
+                <li><a number="2.7" href="#textbook">Textbook</a></li>
+                <li><a number="2.8" href="#important-dates">Important Dates</a></li>
+                <li><a number="2.9" href="#university-policy">University Policy</a></li>
+                <li><a number="2.10" href="#disability-accommodations">Disability Accommodations</a></li>
+                <li><a number="2.11" href="#counseling-and-student-support">Counseling and Student Support</a></li>
+            </ol>
+        </ol>
+    </div>
+    <div id="display">
+        <div class="section">
+
+            <div class="block inline-html">
+
+                <div style="text-align:center;font-size:150%">
+                    <div class="block">
+                        <p><b>PHYS 685 – Electromagnetic Theory</b></p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="block">
+                <ul>
+                    <li>
+                        <div class="block">
+                            <p>Location: Innovation Hall, room 330</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="block">
+                            <p>Day and Time: Wednesday from 4:30 – 7:10 pm</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="block">
+                            <p>Office Hours: Wednesday from 3:00 – 4:00 pm </p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="block">
+                            <p>Discord URL: See email</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="block">
+                            <p>Instructor: Bob Weigel</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="block">
+                            <p>Email: <a href="mailto:rweigel@gmu.edu">rweigel@gmu.edu</a></p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="block">
+                            <p>Office: 259 Planetary Hall</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="block">
+                            <p>Course URL: <a href="http://rweigel.github.io/phys685/">http://rweigel.github.io/phys685/</a></p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="section">
+
+            <div class="block">
+                <h1><a name="class-schedule" number="1" class="hanchor" href="#class-schedule"><span class="hnumber">1 </span> <span class="htext">Class Schedule</span></a></h1>
+
+            </div>
+            <!--
+%15. ## May 11th (final exam)
+%14. ## May 4th (last class)
+%13. ## April 27th
+%12. ## April 20th
+%11. ## April 13th
+%10. ## April 6th
+%9. ## March 30th
+%8. ## March 23rd
+%7. ## March 9th
+%6. ## March 2nd
+%5. ## Feb 23rd
+%4. ## Feb 16th
+%3. ## Feb 9th
+%2. ## Feb. 2nd
+-->
+        </div>
+        <div class="section">
+
+            <div class="block">
+                <h2 class="highlighted"><a name="jan-26th" number="1.1" class="hanchor" href="#jan-26th"><span class="hnumber">1.1 </span> <span class="htext">Jan. 26th</span></a></h2>
+
+            </div>
+            <div class="block">
+                <ul>
+                    <li>
+                        <div class="block">
+                            <p>Introductions</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="block">
+                            <p>Syllabus</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="block">
+                            <p>Notation</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="block">
+                            <p>The Dirac Delta Function</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="block">
+                            <p>The Divergence Theorem</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="block">
+                            <p>Work on in-class problems</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="block">
+                            <p>Assign HW #1</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!--
+%* Work on <a href="S2020/problems#IC_1">in-class problems</a>
+%* Assign <a href="problems#HW1">HW1</a>
+-->
+        </div>
+        <div class="section">
+
+            <div class="block">
+                <h1><a name="syllabus" number="2" class="hanchor" href="#syllabus"><span class="hnumber">2 </span> <span class="htext">Syllabus</span></a></h1>
+
+            </div>
+        </div>
+        <div class="section">
+
+            <div class="block">
+                <h2><a name="course-material" number="2.1" class="hanchor" href="#course-material"><span class="hnumber">2.1 </span> <span class="htext">Course Material</span></a></h2>
+
+            </div>
+            <div class="block">
+                <p>All course information is posted on this page, and this page is updated throughout the semester. I do not use Blackboard for this course.</p>
+
+            </div>
+
+        </div>
+        <div class="section">
+
+            <div class="block">
+                <h2><a name="office-hours" number="2.2" class="hanchor" href="#office-hours"><span class="hnumber">2.2 </span> <span class="htext">Office Hours</span></a></h2>
+
+            </div>
+            <div class="block">
+                <p>My official office hours are Wednesday from 3:00-4:00 pm.</p>
+
+            </div>
+            <div class="block">
+                <p>I will also generally be in my office on the days of class from 11 am – 3 pm. <em>Feel free to stop in without an appointment.</em> If I leave for an extended period of time during these unofficial office hours, I’ll put a note on my door stating when I will return. I can also meet at other times – just send me an email with suggested days and times, and we’ll work something out.</p>
+
+            </div>
+            <div class="block">
+                <p>Please do feel free to meet me outside of class. The jump in the difficulty of this class from the typical undergraduate E&amp;M course is large, and I recognize and expect that many students may need help in catching up.</p>
+
+            </div>
+
+        </div>
+        <div class="section">
+
+            <div class="block">
+                <h2><a name="discord" number="2.3" class="hanchor" href="#discord"><span class="hnumber">2.3 </span> <span class="htext">Discord</span></a></h2>
+
+            </div>
+            <div class="block">
+                <p>I have sent an invite to a Discord server for this course. You should have received an email on Saturday, January 22nd.</p>
+
+            </div>
+            <div class="block">
+                <p>If you have a question that is relevant to other students, please post it to Discord. Your questions can be about anything and don’t need to be only about homework problems. I encourage you to attempt to answer other students’ questions. </p>
+
+            </div>
+
+        </div>
+        <div class="section">
+
+            <div class="block">
+                <h2><a name="format" number="2.4" class="hanchor" href="#format"><span class="hnumber">2.4 </span> <span class="htext">Format</span></a></h2>
+
+            </div>
+            <div class="block">
+                <ul>
+                    <li>
+                        <div class="block">
+                            <p>Weekly homework problems turned in at the start of class</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="block">
+                            <p>~60 minutes of lecture</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="block">
+                            <p>~70 minutes of students working on in-class problems at the whiteboard</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="block">
+                            <p>~30 minutes going over solutions</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="block">
+                <p>In-class work may be unfamiliar to you. I do this for two reasons: (1) I find that after about 60 minutes of lecturing, the retention rate approaches zero, especially for a class at the end of a day; (2) I have found this format to work better for concept retention.</p>
+
+            </div>
+            <div class="block">
+                <p>The in-class problems are extensions of lecture topics, and many of the homework problems are extensions of the in-class problems or previous homework problems. I encourage you to review past homework and lecture notes before starting a homework assignment.</p>
+
+            </div>
+
+        </div>
+        <div class="section">
+
+            <div class="block">
+                <h2><a name="grading" number="2.5" class="hanchor" href="#grading"><span class="hnumber">2.5 </span> <span class="htext">Grading</span></a></h2>
+
+            </div>
+            <div class="block">
+                <p>The course grade is based on the following weighting.</p>
+
+            </div>
+            <div class="block">
+                <ul>
+                    <li>
+                        <div class="block">
+                            <p>Homeworks: 20% (Weekly)</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="block">
+                            <p>Midterm: 40% (in–class; 90 minutes)</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="block">
+                            <p>Final: 40% (in–class; 165 minutes)</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="block">
+                <p>The final exam is comprehensive, so if your final exam score is higher than your midterm score, your final exam average is 80% of your grade. That is, your final exam score replaces your midterm score if this improves your final grade.</p>
+
+            </div>
+
+        </div>
+        <div class="section">
+
+            <div class="block">
+                <h2><a name="topics" number="2.6" class="hanchor" href="#topics"><span class="hnumber">2.6 </span> <span class="htext">Topics</span></a></h2>
+
+            </div>
+            <div class="block">
+                <p>The topics include those covered in Chapters 1-5 of Jackson (also covered in Chapters 2-6 of Griffiths). In my class notes, I’ll mention the sections of Jackson that will not be covered.</p>
+
+            </div>
+
+        </div>
+        <div class="section">
+
+            <div class="block">
+                <h2><a name="textbook" number="2.7" class="hanchor" href="#textbook"><span class="hnumber">2.7 </span> <span class="htext">Textbook</span></a></h2>
+
+            </div>
+            <div class="block">
+                <p>The textbook for this course is <a href="https://www.amazon.ca/Classical-Electrodynamics-John-David-Jackson/dp/047130932X">Classical Electrodynamics 3rd Edition by J.D. Jackson</a>.</p>
+
+            </div>
+            <div class="block">
+                <p>I will reference both Jackson and <a href="https://www.amazon.com/Introduction-Electrodynamics-David-J-Griffiths/dp/1108420419">Introduction to Electrodynamics 4th Edition by D.J. Griffiths</a>.</p>
+
+            </div>
+            <div class="block">
+                <p>Another useful graduate-level textbook is <a href="https://www.amazon.com/Modern-Electrodynamics-Andrew-Zangwill/dp/0521896975">Zangwill</a>.</p>
+
+            </div>
+            <div class="block">
+                <p>Jackson provides brief reviews of mathematical topics that usually require a review of a more detailed treatment in a mathematical physics textbook. He typically references these at the end of each chapter, and the reader is expected to use these references for review. Other books that may be used as a reference are <a href="https://www.amazon.com/Mathematical-Methods-Physicists-Comprehensive-Guide/dp/0123846544"> Arfken, Weber, and Harris</a>, and <a href="https://www.amazon.ca/gp/product/0387985794/702-5452703-9881659">Hassani</a>.</p>
+
+            </div>
+            <div class="block">
+                <p>A somewhat important part of this course is becoming familiar with related mathematical physics and E&amp;M books and literature and using them as–needed for additional background on the topics covered in Jackson. In many respects, Jackson is more of a high-level reference to important topics in E&amp;M – as an example, consider his 1-page description of Gauss’ law (Ch 1.3) and then refer back to how this topic was covered in your undergraduate E&amp;M course.</p>
+
+            </div>
+            <div class="block">
+                <p>On homework assignments, I’ll sometimes link to references that may be useful for background reading if the topic is something that is not well–covered in Jackson or Griffiths.</p>
+
+            </div>
+
+        </div>
+        <div class="section">
+
+            <div class="block">
+                <h2><a name="important-dates" number="2.8" class="hanchor" href="#important-dates"><span class="hnumber">2.8 </span> <span class="htext">Important Dates</span></a></h2>
+
+            </div>
+            <div class="block">
+                <p>See also <a href="https://registrar.gmu.edu/calendars/spring_2022-1/">https://registrar.gmu.edu/calendars/spring_2022-1/</a></p>
+
+            </div>
+            <div class="block">
+                <ul>
+                    <li>
+                        <div class="block">
+                            <p>Exam I: March 23rd</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="block">
+                            <p>No Class: Wednesday, March 16th (Spring Recess)</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="block">
+                            <p>Last Day of Class: Wednesday, May 4th</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="block">
+                            <p>Final Exam: Wednesday, May 11th from 4:30 – 7:10 pm in the regular classroom. (Based on <a href="https://registrar.gmu.edu/wp-content/uploads/Spring-2022-Final-Exam-Schedule.pdf">Final Exam Schedule</a>).</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="section">
+
+            <div class="block">
+                <h2><a name="university-policy" number="2.9" class="hanchor" href="#university-policy"><span class="hnumber">2.9 </span> <span class="htext">University Policy</span></a></h2>
+
+            </div>
+            <div class="block">
+                <p>University Policies: <a href="http://universitypolicy.gmu.edu/">http://universitypolicy.gmu.edu/</a></p>
+
+            </div>
+
+        </div>
+        <div class="section">
+
+            <div class="block">
+                <h2><a name="disability-accommodations" number="2.10" class="hanchor" href="#disability-accommodations"><span class="hnumber">2.10 </span> <span class="htext">Disability Accommodations</span></a></h2>
+
+            </div>
+            <div class="block">
+                <p>If you have a learning disability or other condition that may affect academic performance, please: a) make sure documentation is on file with Office of Disability Services (<a href="http://ods.gmu.edu">http://ods.gmu.edu</a>) to determine the accommodations you need; and b) talk with me to discuss your accommodation needs.</p>
+
+            </div>
+
+        </div>
+        <div class="section">
+
+            <div class="block">
+                <h2><a name="counseling-and-student-support" number="2.11" class="hanchor" href="#counseling-and-student-support"><span class="hnumber">2.11 </span> <span class="htext">Counseling and Student Support</span></a></h2>
+
+            </div>
+            <div class="block">
+                <ul>
+                    <li>
+                        <div class="block">
+                            <p>Counseling and Psychological Services provides confidential psychological services, including 24/7 crisis intervention and consultation to faculty and staff: <a href="http://caps.gmu.edu/">http://caps.gmu.edu/</a></p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="block">
+                            <p>Student Support helps students negotiate life situations by connecting them with appropriate on- and off-campus resources <a href="http://studentsupport.gmu.edu/referral-form/">http://studentsupport.gmu.edu/referral-form/</a></p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
