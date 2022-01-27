@@ -1,5 +1,6 @@
-
 # HW 1.
+
+Due on Feb. 2nd at 4:30 pm. Please turn in a physical copy unless you are absent, in which case you may send me an electronic copy.
 
 ## Notation and Delta Function
 
@@ -9,12 +10,12 @@ $$\mathbf{E}(\mathbf{r})=\frac{1}{4\pi\epsilon_o}\int\frac{\hat{\textbf{\char"05
 
 where $\textbf{\char"0509}=\mathbf{r}-\mathbf{r}'$ and $\mathbf{r}'$ is the location of a charge.
 
-1. For a point charge $Q$ at the origin, $\rho(\mathbf{r})=Q\delta(x)\delta(y)\delta(z)$. Evaluate the above integral using cartesian differentials and this $\rho$.
-2. For a point charge $Q$ at $\mathbf{r}'$, $\rho(\mathbf{r})=Q\delta(x-x')\delta(y-y')\delta(z-z')$. Evaluate the above integral using cartesian differentials and this $\rho$.
+1. For a point charge $Q$ at the origin, $\rho(\mathbf{r})=Q\delta(x)\delta(y)\delta(z)$. Evaluate the above integral using cartesian coordinates and unit vectors and this $\rho$.
+2. For a point charge $Q$ at $\mathbf{r}'$, $\rho(\mathbf{r})=Q\delta(x-x')\delta(y-y')\delta(z-z')$. Evaluate the above integral using cartesian coordinates and unit vectors and this $\rho$.
 
 ## Delta Function I
 
-1. Suppose $I = \int_{-2}^{2}g(x)dx$. Compute $\int_{-1}^{1}g(2x)dx$ and $\int_{-1}^{1}g(-2x)dx$ in terms of $I$. Show graphically why the result makes sense
+1. Suppose $I = \int_{-2}^{2}g(x)dx$. Find $\int_{-1}^{1}g(2x)dx$ and $\int_{-1}^{1}g(-2x)dx$ in terms of $I$. Show graphically why the result makes sense
 using $g(x)=x^2$.
 
 2. Show that $\int \delta(bx)f(x)dx = \frac{f(0)}{|b|}$. (That is, show that $\delta(bx)=\delta(x)/|b|$).
@@ -25,9 +26,13 @@ using $g(x)=x^2$.
    1. identity 5. on page 26 of Jackson, 3rd Edition or
    2. using the substition $u=ax+b$.
 
-2. Prove identity 5. on Page 26 of Jackson 3rd edition by either
+2. Prove identity 5. on Page 26 of Jackson 3rd edition
+
+   $\displaystyle \delta(f(x))=\sum_i\frac{\delta(x-x_i)}{\left|\frac{df}{dx}(x_i)\right|}$
+
+   where $f(x)$ is assumed to have only simple zeros, located at $x=x_i$. Do this by either
    1. explaing the omitted explanations in [Dennery 1967, page 237](https://drive.google.com/drive/folders/0013X5HELBJvBlCsQGFauVVDEFczCLV0y9D) or
-   2. Taylor series expanding $y(x)$ around the points $x_i$ where $y(x_i)=0$.
+   2. Taylor series expanding $f(x)$ around the points $x_i$ where $y(x_i)=0$.
 
 ## Divergence Theorem
 
@@ -45,7 +50,10 @@ using $g(x)=x^2$.
 
 ## Related Problems
 
-These are problems that either I discussed in class or are related to the topic covered in class. You do not need to turn these problems in. I place them here for your reference. Some of the problems listed may not have been covered in class but may serve as exam practice problems.
+You do not need to turn these problems in. If you turn in these problems, I'll provide feedback.
+
+These are problems that either I discussed in class or are related to the topic covered in class. I place them here for your reference. Some of the problems listed may not have been covered in class but may serve as exam practice problems.
+
 
 ###
 
@@ -62,6 +70,7 @@ D_n(x) = \begin{cases}
 \end{cases}
 $
 
+Repeat this problem using $D_n$ = \sqrt{n}{\pi}e
 ###
 
 Evaluate
@@ -77,7 +86,7 @@ D_n(x) = \begin{cases}
 \end{cases}
 $
 
-by writing $f(x)$ as a Taylor series expansion to order $x^2$ around $x=0$.
+by writing $f(x)$ as a Taylor series expansion around $x=0$.
 
 ###
 
@@ -91,6 +100,7 @@ Find the moment of inertia about the $y$--axis of the rod in the previous proble
 
 $\displaystyle I\_n = \int_{\text{rod}} x^2\lambda_n(x)dx$
 
+Explain why the value of $I_n$ for $n\to \infty$ makes sense.
 
 ###
 
