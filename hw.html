@@ -1,0 +1,1641 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>hw</title>
+    <link id="favicon" rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%220.9em%22 font-size=%22100%22>📖</text></svg>">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.12/dist/katex.min.css" />
+    <style>
+        body { background-color: white; }
+        #toc { font-size: 85%; width: 14em; position: fixed; min-height: 95%; max-height: 95%; overflow: hidden auto; padding-left: 0.75em; padding-right: 1em; margin-right: 1em; font-family: "Open Sans"; }
+        #toc ol { list-style-type: decimal; padding-inline-start: 1em; }
+        #toc a { text-decoration: none; }
+        #display a { text-decoration: none black; text-underline-offset: 2px; }
+        #display { width: 100%; margin-left: 15em; max-height: 100%; min-height: 100%; overflow: hidden auto; padding-left: 1em; padding-right: 1em; border-left: 1px solid rgb(240, 240, 240); font-family: "Open Sans"; }
+        .title { text-align: center; font-size: 250%; font-weight: bold; color: black; margin-bottom: 0px; }
+        .subtitle { text-align: center; font-size: 150%; font-weight: bold; color: black; margin-top: 0.2em; }
+        .hanchor { text-decoration: none; color: inherit; }
+        h1 { color: darkblue; border-bottom: 2px solid darkblue; }
+        h2 { border-bottom: 1px solid black; }
+        h3 { border-bottom: 1px dotted black; }
+        h1, h2, h3, h4, h5, h6 { width: 100%; margin-block: 0.5em; }
+        #display .block ul { width: 100%; margin-left: 1em; padding-left: 1em; }
+        #display .block ol { width: 100%; margin-left: 1em; padding-left: 1em; }
+        code { width: 100%; background-color: rgba(0, 0, 0, 0.03); border-radius: 0px; font-size: 1.2em; white-space: pre-wrap; margin-top: 3px; margin-right: 3px; }
+        pre code { border-right: 1px solid black; }
+        code.language-Python { background-color: rgba(0, 0, 0, 0); font-size: 1.2em; }
+        pre { width: 100%; text-indent: 0.75em; padding-left: 0.5em; margin-left: 1em; white-space: pre-wrap; border-left: 3px solid black; background-color: rgba(0, 0, 0, 0.03); line-height: 1.5; overflow-x: clip; }
+        pre.language-Python { border-left: 5px solid blue; padding: 0.5em; margin-left: 1em; margin-right: 1em; line-height: 1.5; overflow-x: auto; }
+        .block { display: flex; }
+        .block.inline-html { display: block; }
+        .hr { width: 100%; height: 1px; display: block; margin: 0.5em; margin-block: 0.5em; border-top: 1px solid black; }
+        #display li > div { display: flex; }
+        p { width: 100%; display: block; margin-block: 0.5em; }
+        #display li { width: 100%; }
+        li .block p { width: 100%; display: block; margin-top: 0.5em; margin-bottom: 0.5em; }
+        li .block:first-of-type p { width: 100%; display: block; margin-top: 0em; margin-bottom: 0em; }
+        .section > .block ol ~ .line-number { display: none; }
+        .section > .block ul ~ .line-number { display: none; }
+        .section > .block pre ~ .line-number { display: none; }
+        .section > .block code ~ .line-number { }
+        pre .line-number { float: right; font-size: 8px; text-align: center; text-indent: 0px; }
+        .line-number { float: right; white-space: pre-wrap; font-size: 10%; }
+        p + .line-number { margin-block-start: 8px; }
+        .block > div.linenumber { margin-block-start: -0.5em; }
+        .blockquote + div.line-number { margin-top: 1rem; }
+        h1 + .line-number { margin-block-start: 20em; }
+        h2 + .line-number { margin-block-start: 15em; }
+        h3 + .line-number { margin-block-start: 15em; }
+        h4 + .line-number { margin-block-start: 15em; }
+        h5 + .line-number { margin-block-start: 15em; }
+        h6 + .line-number { margin-block-start: 15em; }
+        .blockquote { width: 100%; display: block; margin: 1em; border: 1px solid black; padding: 1em; border-radius: 0.5em; }
+        details > summary { font-weight: bold; }
+        details { padding-left: 0.5em; }
+        details[open] { border: 1px solid black; padding: 0em 0em 0em 0.5em; }
+        table { padding: 0px; }
+        table tr { border-top: 1px solid rgb(204, 204, 204); background-color: white; margin: 0px; padding: 0px; }
+        table tr:nth-child(2n) { background-color: rgb(248, 248, 248); }
+        table tr th { font-weight: bold; border: 1px solid rgb(204, 204, 204); text-align: left; margin: 0px; padding: 6px 13px; }
+        table tr td { border: 1px solid rgb(204, 204, 204); text-align: left; margin: 0px; padding: 6px 13px; }
+        table tr th :first-child, table tr td :first-child { margin-top: 0px; }
+        table tr th :last-child, table tr td :last-child { margin-bottom: 0px; }
+        .katex { font-size: inherit !important; }
+        .katex-display { text-align: center; margin: 0.5em; font-size: 1.1em !important; }
+        @media print {
+          body, html { margin: 0in; color: rgb(0, 0, 0); height: auto; background-color: rgb(255, 255, 255); border: none; display: inline; }
+          h1, h2, h3, h4, h5, h6 { break-after: avoid; }
+          h1, h2, h3, h4, h5, h6 { width: 100%; margin-block: 0.1em; }
+          h1 { font-size: 1.25em; border-bottom: 1px solid darkblue; }
+          h2 { font-size: 1.15em; border-bottom: 1px solid darkblue; }
+          h3 { font-size: 1.1em; }
+          h4, h5, h6 { font-size: 1.05em; }
+          p { margin-top: 0px; margin-bottom: 0.5em; }
+          .title { break-before: page; margin-top: 0px; }
+          #toc { display: none; font-size: 100%; margin: 0px; width: 100%; overflow-y: hidden; padding-left: 0px; padding-right: 0px; }
+          #display { margin-left: 0em; width: 100%; padding-left: 0px; padding-right: 0px; border: none; overflow-wrap: break-word; }
+          .katex { font: 1em / 1 KaTeX_Main, "Times New Roman", serif; white-space: nowrap; text-indent: 0px; text-rendering: auto; }
+          .katex-display { margin-top: 0px; }
+        }
+        #toc > ol ol { display: none; }
+        body { background-image: url("https://rweigel.github.io/biedit/img/paper.png"); }
+        #toc > ol ol { display: none; }
+        body { background-image: url("https://rweigel.github.io/biedit/img/paper.png"); }
+        #toc > ol ol { display: none; }
+        body { background-image: url("https://rweigel.github.io/biedit/img/paper.png"); }
+        #toc > ol ol { display: none; }
+        body { background-image: url("https://rweigel.github.io/biedit/img/paper.png"); }
+        #toc > ol ol { display: none; }
+        body { background-image: url("https://rweigel.github.io/biedit/img/paper.png"); }
+        #toc > ol ol { display: none; }
+        body { background-image: url("https://rweigel.github.io/biedit/img/paper.png"); }
+        #toc > ol ol { display: none; }
+        body { background-image: url("https://rweigel.github.io/biedit/img/paper.png"); }
+        #toc > ol ol { display: none; }
+        body { background-image: url("https://rweigel.github.io/biedit/img/paper.png"); }
+        #toc > ol ol { display: none; }
+        body { background-image: url("https://rweigel.github.io/biedit/img/paper.png"); }
+        #toc > ol ol { display: none; }
+        body { background-image: url("https://rweigel.github.io/biedit/img/paper.png"); }
+        #toc > ol ol { display: none; }
+        body { background-image: url("https://rweigel.github.io/biedit/img/paper.png"); }
+        #toc > ol ol { display: none; }
+        body { background-image: url("https://rweigel.github.io/biedit/img/paper.png"); }
+        #toc > ol ol { display: none; }
+        body { background-image: url("https://rweigel.github.io/biedit/img/paper.png"); }
+        #toc > ol ol { display: none; }
+        body { background-image: url("https://rweigel.github.io/biedit/img/paper.png"); }
+        #toc > ol ol { display: none; }
+        body { background-image: url("https://rweigel.github.io/biedit/img/paper.png"); }
+        #toc > ol ol { display: none; }
+        body { background-image: url("https://rweigel.github.io/biedit/img/paper.png"); }
+        #toc > ol ol { display: none; }
+        body { background-image: url("https://rweigel.github.io/biedit/img/paper.png"); }
+        #toc > ol ol { display: none; }
+        body { background-image: url("https://rweigel.github.io/biedit/img/paper.png"); }
+        #toc > ol ol { display: none; }
+        body { background-image: url("https://rweigel.github.io/biedit/img/paper.png"); }
+        #toc > ol ol { display: none; }
+        body { background-image: url("https://rweigel.github.io/biedit/img/paper.png"); }
+        
+    </style>
+
+
+    <script>
+        function tocClickListen() {
+            // No jQuery b/c also used in stand-alone HTML.
+            hs = document.querySelectorAll('#toc > ol ol');
+            for (var i = 0; i < hs.length; i++) {
+              if (hs[i].previousElementSibling) {
+                var el = hs[i].previousElementSibling.firstElementChild;
+                if (el.length == 0) {
+                  continue;
+                }
+                el.addEventListener('click', event => {
+                  var ns = event.target.parentNode.nextElementSibling;
+                  if (ns.style.display === 'none') {
+        ns.style.display = 'block';
+                  } else {
+        ns.style.display = 'none';
+                  }
+                });
+              }
+            }
+          }
+        if (
+            document.readyState === "complete" ||
+            (document.readyState !== "loading" && 
+              !document.documentElement.doScroll)
+        ) {
+          tocClickListen();
+        } else {
+          document.addEventListener("DOMContentLoaded", tocClickListen);
+        }
+    </script>
+
+</head>
+
+<body style="display: flex;min-width: 50%;max-height:100%;">
+
+    <div id="toc">
+        <ol>
+            <li><a number="1" href="#hw-1">HW 1.</a></li>
+            <ol style="display: none;">
+                <li><a number="1.1" href="#notation-and-delta-function" class="">Notation and Delta Function</a></li>
+                <li><a number="1.2" href="#delta-function-i" class="highlighted">Delta Function I</a></li>
+                <li><a number="1.3" href="#delta-function-ii">Delta Function II</a></li>
+                <li><a number="1.4" href="#divergence-theorem" class="">Divergence Theorem</a></li>
+                <li><a number="1.5" href="#related-problems">Related Problems</a></li>
+                <ol style="display: none;">
+                    <li><a number="1.5.1" href="#1.5.1">&nbsp;&nbsp;</a></li>
+                    <li><a number="1.5.2" href="#1.5.2">&nbsp;&nbsp;</a></li>
+                    <li><a number="1.5.3" href="#1.5.3">&nbsp;&nbsp;</a></li>
+                    <li><a number="1.5.4" href="#1.5.4">&nbsp;&nbsp;</a></li>
+                    <li><a number="1.5.5" href="#1.5.5">&nbsp;&nbsp;</a></li>
+                    <li><a number="1.5.6" href="#divergence-theorem" class="">Divergence Theorem</a></li>
+                    <li><a number="1.5.7" href="#divergence-theorem" class="">Divergence Theorem</a></li>
+                </ol>
+            </ol>
+        </ol>
+    </div>
+    <div id="display">
+        <div class="section">
+
+        </div>
+        <div class="section">
+
+            <div class="block">
+                <h1><a name="hw-1" number="1" class="hanchor" href="#hw-1"><span class="hnumber">1 </span> <span class="htext">HW 1.</span></a></h1>
+
+            </div>
+        </div>
+        <div class="section">
+
+            <div class="block">
+                <h2 class=""><a name="notation-and-delta-function" number="1.1" class="hanchor" href="#notation-and-delta-function"><span class="hnumber">1.1 </span> <span class="htext">Notation and Delta Function</span></a></h2>
+
+            </div>
+            <div class="block">
+                <p class="">For a volume charge density <span len="6" class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                <semantics>
+                                    <mrow>
+                                        <mi>ρ</mi>
+                                    </mrow>
+                                    <annotation encoding="application/x-tex">\rho</annotation>
+                                </semantics>
+                            </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">ρ</span></span></span></span>, the electric field at <span len="12" class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                <semantics>
+                                    <mrow>
+                                        <mi mathvariant="bold">r</mi>
+                                    </mrow>
+                                    <annotation encoding="application/x-tex">\mathbf{r}</annotation>
+                                </semantics>
+                            </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.44444em;vertical-align:0em;"></span><span class="mord mathbf">r</span></span></span></span> is given by</p>
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div class="block">
+                <p><span len="135" class="katex-display"><span class="katex katex-display" style="display: block"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                                    <semantics>
+                                        <mrow>
+                                            <mi mathvariant="bold">E</mi>
+                                            <mo stretchy="false">(</mo>
+                                            <mi mathvariant="bold">r</mi>
+                                            <mo stretchy="false">)</mo>
+                                            <mo>=</mo>
+                                            <mfrac>
+                                                <mn>1</mn>
+                                                <mrow>
+                                                    <mn>4</mn>
+                                                    <mi>π</mi>
+                                                    <msub>
+                                                        <mi>ϵ</mi>
+                                                        <mi>o</mi>
+                                                    </msub>
+                                                </mrow>
+                                            </mfrac>
+                                            <mo>∫</mo>
+                                            <mfrac>
+                                                <mover accent="true">
+                                                    <mtext mathvariant="bold">ԉ</mtext>
+                                                    <mo>^</mo>
+                                                </mover>
+                                                <msup>
+                                                    <mi mathvariant="normal">ԉ</mi>
+                                                    <mn>2</mn>
+                                                </msup>
+                                            </mfrac>
+                                            <mi>ρ</mi>
+                                            <mo stretchy="false">(</mo>
+                                            <msup>
+                                                <mi mathvariant="bold">r</mi>
+                                                <mo mathvariant="normal" lspace="0em" rspace="0em">′</mo>
+                                            </msup>
+                                            <mo stretchy="false">)</mo>
+                                            <mtext> </mtext>
+                                            <mi>d</mi>
+                                            <msup>
+                                                <mi>τ</mi>
+                                                <mo mathvariant="normal" lspace="0em" rspace="0em">′</mo>
+                                            </msup>
+                                        </mrow>
+                                        <annotation encoding="application/x-tex">\mathbf{E}(\mathbf{r})=\frac{1}{4\pi\epsilon_o}\int\frac{\hat{\textbf{\char"0509}}}{\char"0509^2}\rho(\mathbf{r}')\thinspace d\tau'</annotation>
+                                    </semantics>
+                                </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathbf">E</span><span class="mopen">(</span><span class="mord mathbf">r</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.23369em;vertical-align:-0.86225em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.32144em;"><span style="top:-2.3139999999999996em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">4</span><span class="mord mathnormal" style="margin-right:0.03588em;">π</span><span class="mord"><span class="mord mathnormal">ϵ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">o</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.8360000000000001em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop op-symbol large-op" style="margin-right:0.44445em;position:relative;top:-0.0011249999999999316em;">∫</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.37144em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord">ԉ</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.740108em;"><span style="top:-2.9890000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.69444em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord text"><span class="mord textbf">ԉ</span></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.25em;"><span class="mord">^</span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mord mathnormal">ρ</span><span class="mopen">(</span><span class="mord"><span class="mord mathbf">r</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.801892em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">d</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.1132em;">τ</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.801892em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span></span></span></span></span></p>
+
+            </div>
+            <div class="block">
+                <p>where <span len="44" class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                <semantics>
+                                    <mrow>
+                                        <mtext mathvariant="bold">ԉ</mtext>
+                                        <mo>=</mo>
+                                        <mi mathvariant="bold">r</mi>
+                                        <mo>−</mo>
+                                        <msup>
+                                            <mi mathvariant="bold">r</mi>
+                                            <mo mathvariant="normal" lspace="0em" rspace="0em">′</mo>
+                                        </msup>
+                                    </mrow>
+                                    <annotation encoding="application/x-tex">\textbf{\char"0509}=\mathbf{r}-\mathbf{r}'</annotation>
+                                </semantics>
+                            </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mord text"><span class="mord textbf">ԉ</span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathbf">r</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.751892em;vertical-align:0em;"></span><span class="mord"><span class="mord mathbf">r</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span></span></span></span> and <span len="13" class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                <semantics>
+                                    <mrow>
+                                        <msup>
+                                            <mi mathvariant="bold">r</mi>
+                                            <mo mathvariant="normal" lspace="0em" rspace="0em">′</mo>
+                                        </msup>
+                                    </mrow>
+                                    <annotation encoding="application/x-tex">\mathbf{r}'</annotation>
+                                </semantics>
+                            </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.751892em;vertical-align:0em;"></span><span class="mord"><span class="mord mathbf">r</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span></span></span></span> is the location of a charge.</p>
+
+            </div>
+            <div class="block">
+                <ol>
+                    <li>
+                        <div class="block">
+                            <p>For a point charge <span len="3" class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                            <semantics>
+                                                <mrow>
+                                                    <mi>Q</mi>
+                                                </mrow>
+                                                <annotation encoding="application/x-tex">Q</annotation>
+                                            </semantics>
+                                        </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">Q</span></span></span></span> at the origin, <span len="47" class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                            <semantics>
+                                                <mrow>
+                                                    <mi>ρ</mi>
+                                                    <mo stretchy="false">(</mo>
+                                                    <mi mathvariant="bold">r</mi>
+                                                    <mo stretchy="false">)</mo>
+                                                    <mo>=</mo>
+                                                    <mi>Q</mi>
+                                                    <mi>δ</mi>
+                                                    <mo stretchy="false">(</mo>
+                                                    <mi>x</mi>
+                                                    <mo stretchy="false">)</mo>
+                                                    <mi>δ</mi>
+                                                    <mo stretchy="false">(</mo>
+                                                    <mi>y</mi>
+                                                    <mo stretchy="false">)</mo>
+                                                    <mi>δ</mi>
+                                                    <mo stretchy="false">(</mo>
+                                                    <mi>z</mi>
+                                                    <mo stretchy="false">)</mo>
+                                                </mrow>
+                                                <annotation encoding="application/x-tex">\rho(\mathbf{r})=Q\delta(x)\delta(y)\delta(z)</annotation>
+                                            </semantics>
+                                        </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">ρ</span><span class="mopen">(</span><span class="mord mathbf">r</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">Q</span><span class="mord mathnormal" style="margin-right:0.03785em;">δ</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mord mathnormal" style="margin-right:0.03785em;">δ</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mclose">)</span><span class="mord mathnormal" style="margin-right:0.03785em;">δ</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="mclose">)</span></span></span></span>. Evaluate the above integral using cartesian differentials and this <span len="6" class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                            <semantics>
+                                                <mrow>
+                                                    <mi>ρ</mi>
+                                                </mrow>
+                                                <annotation encoding="application/x-tex">\rho</annotation>
+                                            </semantics>
+                                        </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">ρ</span></span></span></span>.</p>
+                        </div>
+                    </li>
+                    <li class="">
+                        <div class="block">
+                            <p>For a point charge <span len="3" class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                            <semantics>
+                                                <mrow>
+                                                    <mi>Q</mi>
+                                                </mrow>
+                                                <annotation encoding="application/x-tex">Q</annotation>
+                                            </semantics>
+                                        </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">Q</span></span></span></span> at <span len="13" class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                            <semantics>
+                                                <mrow>
+                                                    <msup>
+                                                        <mi mathvariant="bold">r</mi>
+                                                        <mo mathvariant="normal" lspace="0em" rspace="0em">′</mo>
+                                                    </msup>
+                                                </mrow>
+                                                <annotation encoding="application/x-tex">\mathbf{r}'</annotation>
+                                            </semantics>
+                                        </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.751892em;vertical-align:0em;"></span><span class="mord"><span class="mord mathbf">r</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span></span></span></span>, <span len="56" class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                            <semantics>
+                                                <mrow>
+                                                    <mi>ρ</mi>
+                                                    <mo stretchy="false">(</mo>
+                                                    <mi mathvariant="bold">r</mi>
+                                                    <mo stretchy="false">)</mo>
+                                                    <mo>=</mo>
+                                                    <mi>Q</mi>
+                                                    <mi>δ</mi>
+                                                    <mo stretchy="false">(</mo>
+                                                    <mi>x</mi>
+                                                    <mo>−</mo>
+                                                    <msup>
+                                                        <mi>x</mi>
+                                                        <mo mathvariant="normal" lspace="0em" rspace="0em">′</mo>
+                                                    </msup>
+                                                    <mo stretchy="false">)</mo>
+                                                    <mi>δ</mi>
+                                                    <mo stretchy="false">(</mo>
+                                                    <mi>y</mi>
+                                                    <mo>−</mo>
+                                                    <msup>
+                                                        <mi>y</mi>
+                                                        <mo mathvariant="normal" lspace="0em" rspace="0em">′</mo>
+                                                    </msup>
+                                                    <mo stretchy="false">)</mo>
+                                                    <mi>δ</mi>
+                                                    <mo stretchy="false">(</mo>
+                                                    <mi>z</mi>
+                                                    <mo>−</mo>
+                                                    <msup>
+                                                        <mi>z</mi>
+                                                        <mo mathvariant="normal" lspace="0em" rspace="0em">′</mo>
+                                                    </msup>
+                                                    <mo stretchy="false">)</mo>
+                                                </mrow>
+                                                <annotation encoding="application/x-tex">\rho(\mathbf{r})=Q\delta(x-x')\delta(y-y')\delta(z-z')</annotation>
+                                            </semantics>
+                                        </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">ρ</span><span class="mopen">(</span><span class="mord mathbf">r</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">Q</span><span class="mord mathnormal" style="margin-right:0.03785em;">δ</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.001892em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mclose">)</span><span class="mord mathnormal" style="margin-right:0.03785em;">δ</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.001892em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mclose">)</span><span class="mord mathnormal" style="margin-right:0.03785em;">δ</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.001892em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>. Evaluate the above integral using cartesian differentials and this <span len="6" class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                            <semantics>
+                                                <mrow>
+                                                    <mi>ρ</mi>
+                                                </mrow>
+                                                <annotation encoding="application/x-tex">\rho</annotation>
+                                            </semantics>
+                                        </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">ρ</span></span></span></span>.</p>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+        </div>
+        <div class="section">
+
+            <div class="block">
+                <h2 class="highlighted"><a name="delta-function-i" number="1.2" class="hanchor" href="#delta-function-i"><span class="hnumber">1.2 </span> <span class="htext">Delta Function I</span></a></h2>
+
+            </div>
+            <div class="block">
+                <ol>
+                    <li>
+                        <div class="block">
+                            <p class="">Suppose <span len="25" class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                            <semantics>
+                                                <mrow>
+                                                    <mi>I</mi>
+                                                    <mo>=</mo>
+                                                    <msubsup>
+                                                        <mo>∫</mo>
+                                                        <mrow>
+                                                            <mo>−</mo>
+                                                            <mn>2</mn>
+                                                        </mrow>
+                                                        <mn>2</mn>
+                                                    </msubsup>
+                                                    <mi>g</mi>
+                                                    <mo stretchy="false">(</mo>
+                                                    <mi>x</mi>
+                                                    <mo stretchy="false">)</mo>
+                                                    <mi>d</mi>
+                                                    <mi>x</mi>
+                                                </mrow>
+                                                <annotation encoding="application/x-tex">I = \int_{-2}^{2}g(x)dx</annotation>
+                                            </semantics>
+                                        </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">I</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.423159em;vertical-align:-0.41415100000000005em;"></span><span class="mop"><span class="mop op-symbol small-op" style="margin-right:0.19445em;position:relative;top:-0.0005599999999999772em;">∫</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.0090080000000001em;"><span style="top:-2.34418em;margin-left:-0.19445em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">2</span></span></span></span><span style="top:-3.2579000000000002em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.41415100000000005em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mord mathnormal">d</span><span class="mord mathnormal">x</span></span></span></span>. Compute <span len="22" class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                            <semantics>
+                                                <mrow>
+                                                    <msubsup>
+                                                        <mo>∫</mo>
+                                                        <mrow>
+                                                            <mo>−</mo>
+                                                            <mn>1</mn>
+                                                        </mrow>
+                                                        <mn>1</mn>
+                                                    </msubsup>
+                                                    <mi>g</mi>
+                                                    <mo stretchy="false">(</mo>
+                                                    <mn>2</mn>
+                                                    <mi>x</mi>
+                                                    <mo stretchy="false">)</mo>
+                                                    <mi>d</mi>
+                                                    <mi>x</mi>
+                                                </mrow>
+                                                <annotation encoding="application/x-tex">\int_{-1}^{1}g(2x)dx</annotation>
+                                            </semantics>
+                                        </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.423159em;vertical-align:-0.41415100000000005em;"></span><span class="mop"><span class="mop op-symbol small-op" style="margin-right:0.19445em;position:relative;top:-0.0005599999999999772em;">∫</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.0090080000000001em;"><span style="top:-2.34418em;margin-left:-0.19445em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2579000000000002em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.41415100000000005em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord">2</span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mord mathnormal">d</span><span class="mord mathnormal">x</span></span></span></span> and <span len="23" class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                            <semantics>
+                                                <mrow>
+                                                    <msubsup>
+                                                        <mo>∫</mo>
+                                                        <mrow>
+                                                            <mo>−</mo>
+                                                            <mn>1</mn>
+                                                        </mrow>
+                                                        <mn>1</mn>
+                                                    </msubsup>
+                                                    <mi>g</mi>
+                                                    <mo stretchy="false">(</mo>
+                                                    <mo>−</mo>
+                                                    <mn>2</mn>
+                                                    <mi>x</mi>
+                                                    <mo stretchy="false">)</mo>
+                                                    <mi>d</mi>
+                                                    <mi>x</mi>
+                                                </mrow>
+                                                <annotation encoding="application/x-tex">\int_{-1}^{1}g(-2x)dx</annotation>
+                                            </semantics>
+                                        </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.423159em;vertical-align:-0.41415100000000005em;"></span><span class="mop"><span class="mop op-symbol small-op" style="margin-right:0.19445em;position:relative;top:-0.0005599999999999772em;">∫</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.0090080000000001em;"><span style="top:-2.34418em;margin-left:-0.19445em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2579000000000002em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.41415100000000005em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord">−</span><span class="mord">2</span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mord mathnormal">d</span><span class="mord mathnormal">x</span></span></span></span> in terms of <span len="3" class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                            <semantics>
+                                                <mrow>
+                                                    <mi>I</mi>
+                                                </mrow>
+                                                <annotation encoding="application/x-tex">I</annotation>
+                                            </semantics>
+                                        </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">I</span></span></span></span>. Show graphically why the result makes sense
+                                using <span len="10" class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                            <semantics>
+                                                <mrow>
+                                                    <mi>g</mi>
+                                                    <mo stretchy="false">(</mo>
+                                                    <mi>x</mi>
+                                                    <mo stretchy="false">)</mo>
+                                                    <mo>=</mo>
+                                                    <msup>
+                                                        <mi>x</mi>
+                                                        <mn>2</mn>
+                                                    </msup>
+                                                </mrow>
+                                                <annotation encoding="application/x-tex">g(x)=x^2</annotation>
+                                            </semantics>
+                                        </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span>.</p>
+
+                        </div>
+                    </li>
+                    <li>
+                        <div class="block">
+                            <p>Show that <span len="42" class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                            <semantics>
+                                                <mrow>
+                                                    <mo>∫</mo>
+                                                    <mi>δ</mi>
+                                                    <mo stretchy="false">(</mo>
+                                                    <mi>b</mi>
+                                                    <mi>x</mi>
+                                                    <mo stretchy="false">)</mo>
+                                                    <mi>f</mi>
+                                                    <mo stretchy="false">(</mo>
+                                                    <mi>x</mi>
+                                                    <mo stretchy="false">)</mo>
+                                                    <mi>d</mi>
+                                                    <mi>x</mi>
+                                                    <mo>=</mo>
+                                                    <mfrac>
+                                                        <mrow>
+                                                            <mi>f</mi>
+                                                            <mo stretchy="false">(</mo>
+                                                            <mn>0</mn>
+                                                            <mo stretchy="false">)</mo>
+                                                        </mrow>
+                                                        <mrow>
+                                                            <mi mathvariant="normal">∣</mi>
+                                                            <mi>b</mi>
+                                                            <mi mathvariant="normal">∣</mi>
+                                                        </mrow>
+                                                    </mfrac>
+                                                </mrow>
+                                                <annotation encoding="application/x-tex">\int \delta(bx)f(x)dx = \frac{f(0)}{|b|}</annotation>
+                                            </semantics>
+                                        </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.11112em;vertical-align:-0.30612em;"></span><span class="mop op-symbol small-op" style="margin-right:0.19445em;position:relative;top:-0.0005599999999999772em;">∫</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.03785em;">δ</span><span class="mopen">(</span><span class="mord mathnormal">b</span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mord mathnormal">d</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.53em;vertical-align:-0.52em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.01em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">∣</span><span class="mord mathnormal mtight">b</span><span class="mord mtight">∣</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.485em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.10764em;">f</span><span class="mopen mtight">(</span><span class="mord mtight">0</span><span class="mclose mtight">)</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.52em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span>. (That is, show that <span len="26" class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                            <semantics>
+                                                <mrow>
+                                                    <mi>δ</mi>
+                                                    <mo stretchy="false">(</mo>
+                                                    <mi>b</mi>
+                                                    <mi>x</mi>
+                                                    <mo stretchy="false">)</mo>
+                                                    <mo>=</mo>
+                                                    <mi>δ</mi>
+                                                    <mo stretchy="false">(</mo>
+                                                    <mi>x</mi>
+                                                    <mo stretchy="false">)</mo>
+                                                    <mi mathvariant="normal">/</mi>
+                                                    <mi mathvariant="normal">∣</mi>
+                                                    <mi>b</mi>
+                                                    <mi mathvariant="normal">∣</mi>
+                                                </mrow>
+                                                <annotation encoding="application/x-tex">\delta(bx)=\delta(x)/|b|</annotation>
+                                            </semantics>
+                                        </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03785em;">δ</span><span class="mopen">(</span><span class="mord mathnormal">b</span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03785em;">δ</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mord">/∣</span><span class="mord mathnormal">b</span><span class="mord">∣</span></span></span></span>).</p>
+
+                        </div>
+                    </li>
+                </ol>
+            </div>
+        </div>
+        <div class="section">
+
+            <div class="block">
+                <h2><a name="delta-function-ii" number="1.3" class="hanchor" href="#delta-function-ii"><span class="hnumber">1.3 </span> <span class="htext">Delta Function II</span></a></h2>
+
+            </div>
+            <div class="block">
+                <ol>
+                    <li>
+                        <div class="block">
+                            <p>Find <span len="27" class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                            <semantics>
+                                                <mrow>
+                                                    <mo>∫</mo>
+                                                    <mi>δ</mi>
+                                                    <mo stretchy="false">(</mo>
+                                                    <mi>a</mi>
+                                                    <mo>+</mo>
+                                                    <mi>b</mi>
+                                                    <mi>x</mi>
+                                                    <mo stretchy="false">)</mo>
+                                                    <mi>f</mi>
+                                                    <mo stretchy="false">(</mo>
+                                                    <mi>x</mi>
+                                                    <mo stretchy="false">)</mo>
+                                                    <mi>d</mi>
+                                                    <mi>x</mi>
+                                                </mrow>
+                                                <annotation encoding="application/x-tex">\int \delta(a + bx)f(x)dx</annotation>
+                                            </semantics>
+                                        </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.11112em;vertical-align:-0.30612em;"></span><span class="mop op-symbol small-op" style="margin-right:0.19445em;position:relative;top:-0.0005599999999999772em;">∫</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.03785em;">δ</span><span class="mopen">(</span><span class="mord mathnormal">a</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">b</span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mord mathnormal">d</span><span class="mord mathnormal">x</span></span></span></span> using either</p>
+
+                        </div>
+                        <div class="block">
+                            <ol>
+                                <li>
+                                    <div class="block">
+                                        <p>identity 5. on page 26 of Jackson, 3rd Edition or</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="block">
+                                        <p>using the substition <span len="8" class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                                        <semantics>
+                                                            <mrow>
+                                                                <mi>u</mi>
+                                                                <mo>=</mo>
+                                                                <mi>a</mi>
+                                                                <mi>x</mi>
+                                                                <mo>+</mo>
+                                                                <mi>b</mi>
+                                                            </mrow>
+                                                            <annotation encoding="application/x-tex">u=ax+b</annotation>
+                                                        </semantics>
+                                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">u</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal">a</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">b</span></span></span></span>.</p>
+                                    </div>
+                                </li>
+                            </ol>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="block">
+                            <p>Prove identity 5. on Page 26 of Jackson 3rd edition by either</p>
+
+                        </div>
+                        <div class="block">
+                            <ol>
+                                <li>
+                                    <div class="block">
+                                        <p>explaing the omitted explanations in <a href="https://drive.google.com/drive/folders/0013X5HELBJvBlCsQGFauVVDEFczCLV0y9D">Dennery 1967, page 237</a> or</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="block">
+                                        <p>Taylor series expanding <span len="6" class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                                        <semantics>
+                                                            <mrow>
+                                                                <mi>y</mi>
+                                                                <mo stretchy="false">(</mo>
+                                                                <mi>x</mi>
+                                                                <mo stretchy="false">)</mo>
+                                                            </mrow>
+                                                            <annotation encoding="application/x-tex">y(x)</annotation>
+                                                        </semantics>
+                                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span></span></span></span> around the points <span len="5" class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                                        <semantics>
+                                                            <mrow>
+                                                                <msub>
+                                                                    <mi>x</mi>
+                                                                    <mi>i</mi>
+                                                                </msub>
+                                                            </mrow>
+                                                            <annotation encoding="application/x-tex">x_i</annotation>
+                                                        </semantics>
+                                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> where <span len="10" class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                                        <semantics>
+                                                            <mrow>
+                                                                <mi>y</mi>
+                                                                <mo stretchy="false">(</mo>
+                                                                <msub>
+                                                                    <mi>x</mi>
+                                                                    <mi>i</mi>
+                                                                </msub>
+                                                                <mo stretchy="false">)</mo>
+                                                                <mo>=</mo>
+                                                                <mn>0</mn>
+                                                            </mrow>
+                                                            <annotation encoding="application/x-tex">y(x_i)=0</annotation>
+                                                        </semantics>
+                                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>.</p>
+                                    </div>
+                                </li>
+                            </ol>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+        </div>
+        <div class="section">
+
+            <div class="block">
+                <h2 class=""><a name="divergence-theorem" number="1.4" class="hanchor" href="#divergence-theorem"><span class="hnumber">1.4 </span> <span class="htext">Divergence Theorem</span></a></h2>
+
+            </div>
+            <div class="block">
+                <ol>
+                    <li>
+                        <div class="block">
+                            <p>Find the electric field <span len="12" class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                            <semantics>
+                                                <mrow>
+                                                    <mi mathvariant="bold">E</mi>
+                                                </mrow>
+                                                <annotation encoding="application/x-tex">\mathbf{E}</annotation>
+                                            </semantics>
+                                        </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68611em;vertical-align:0em;"></span><span class="mord mathbf">E</span></span></span></span> due to a non-conducting sphere with a uniform volume charge density <span len="8" class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                            <semantics>
+                                                <mrow>
+                                                    <msub>
+                                                        <mi>ρ</mi>
+                                                        <mi>o</mi>
+                                                    </msub>
+                                                </mrow>
+                                                <annotation encoding="application/x-tex">\rho_o</annotation>
+                                            </semantics>
+                                        </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathnormal">ρ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">o</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> and radius <span len="3" class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                            <semantics>
+                                                <mrow>
+                                                    <mi>b</mi>
+                                                </mrow>
+                                                <annotation encoding="application/x-tex">b</annotation>
+                                            </semantics>
+                                        </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">b</span></span></span></span> that is centered on the origin.</p>
+
+                        </div>
+                    </li>
+                    <li>
+                        <div class="block">
+                            <p class="">Show by direct calculation that</p>
+
+                        </div>
+                        <div class="block">
+                            <p class=""><span len="125" class="katex-display"><span class="katex katex-display" style="display: block"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                                                <semantics>
+                                                    <mrow>
+                                                        <msub>
+                                                            <mo>∮</mo>
+                                                            <mi mathvariant="script">S</mi>
+                                                        </msub>
+                                                        <mi mathvariant="bold">E</mi>
+                                                        <mo mathvariant="bold-italic" lspace="0.22em" rspace="0.22em">⋅</mo>
+                                                        <mi>d</mi>
+                                                        <mi mathvariant="bold">a</mi>
+                                                        <mo>=</mo>
+                                                        <msub>
+                                                            <mo>∫</mo>
+                                                            <mi mathvariant="script">V</mi>
+                                                        </msub>
+                                                        <mi mathvariant="bold">∇</mi>
+                                                        <mo>⋅</mo>
+                                                        <mi mathvariant="bold">E</mi>
+                                                        <mtext> </mtext>
+                                                        <msup>
+                                                            <mi>d</mi>
+                                                            <mn>3</mn>
+                                                        </msup>
+                                                        <mi>x</mi>
+                                                    </mrow>
+                                                    <annotation encoding="application/x-tex">\oint_{\mathcal{S}}\mathbf{E}\boldsymbol{\cdot} d\mathbf{a} = \int_{\mathcal{V}} \boldsymbol{\nabla} \cdot \mathbf{E}\thinspace d^3x</annotation>
+                                                </semantics>
+                                            </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:2.27195em;vertical-align:-0.9119499999999999em;"></span><span class="mop"><span class="mop op-symbol large-op" style="margin-right:0.44445em;position:relative;top:-0.0011249999999999316em;">∮</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:-0.433619em;"><span style="top:-1.7880500000000001em;margin-left:-0.44445em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathcal mtight" style="margin-right:0.075em;">S</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.9119499999999999em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathbf">E</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin"><span class="mord"><span class="mord mathbf">⋅</span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">d</span><span class="mord mathbf">a</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.27195em;vertical-align:-0.9119499999999999em;"></span><span class="mop"><span class="mop op-symbol large-op" style="margin-right:0.44445em;position:relative;top:-0.0011249999999999316em;">∫</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:-0.433619em;"><span style="top:-1.7880500000000001em;margin-left:-0.44445em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathcal mtight" style="margin-right:0.08222em;">V</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.9119499999999999em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord"><span class="mord mathbf">∇</span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8641079999999999em;vertical-align:0em;"></span><span class="mord mathbf">E</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathnormal">d</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641079999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span></span></span></span></span><span class="mord mathnormal">x</span></span></span></span></span></p>
+
+                        </div>
+                        <div class="block">
+                            <p>when the volume of integration <span len="13" class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                            <semantics>
+                                                <mrow>
+                                                    <mi mathvariant="script">V</mi>
+                                                </mrow>
+                                                <annotation encoding="application/x-tex">\mathcal{V}</annotation>
+                                            </semantics>
+                                        </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathcal" style="margin-right:0.08222em;">V</span></span></span></span> is a sphere centered on the origin with</p>
+
+                        </div>
+                        <div class="block">
+                            <ol>
+                                <li>
+                                    <div class="block">
+                                        <p>radius <span len="5" class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                                        <semantics>
+                                                            <mrow>
+                                                                <mi>b</mi>
+                                                                <mi mathvariant="normal">/</mi>
+                                                                <mn>2</mn>
+                                                            </mrow>
+                                                            <annotation encoding="application/x-tex">b/2</annotation>
+                                                        </semantics>
+                                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">b</span><span class="mord">/2</span></span></span></span></p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="block">
+                                        <p>radius <span len="4" class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                                        <semantics>
+                                                            <mrow>
+                                                                <mn>2</mn>
+                                                                <mi>b</mi>
+                                                            </mrow>
+                                                            <annotation encoding="application/x-tex">2b</annotation>
+                                                        </semantics>
+                                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord">2</span><span class="mord mathnormal">b</span></span></span></span></p>
+                                    </div>
+                                </li>
+                            </ol>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+            <div style="font-size:0px;page-break-after: always;">&nbsp;</div>
+            <div style="font-size:0px;page-break-before: always;">&nbsp;</div>
+        </div>
+        <div class="section">
+
+            <div class="block">
+                <h2><a name="related-problems" number="1.5" class="hanchor" href="#related-problems"><span class="hnumber">1.5 </span> <span class="htext">Related Problems</span></a></h2>
+
+            </div>
+            <div class="block">
+                <p>These are problems that either I discussed in class or are related to the topic covered in class. You do not need to turn these problems in. I place them here for your reference. Some of the problems listed may not have been covered in class but may serve as exam practice problems.</p>
+
+            </div>
+
+        </div>
+        <div class="section">
+
+            <div class="block">
+                <h3><a name="1.5.1" number="1.5.1" class="hanchor" href="#1.5.1"><span class="hnumber">1.5.1 </span> <span class="htext">&nbsp;&nbsp;</span></a></h3>
+
+            </div>
+            <div class="block">
+                <p>Evaluate</p>
+
+            </div>
+            <div class="block">
+                <p><span len="62" class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                <semantics>
+                                    <mrow>
+                                        <mstyle scriptlevel="0" displaystyle="true">
+                                            <munder>
+                                                <mrow>
+                                                    <mi>lim</mi>
+                                                    <mo>⁡</mo>
+                                                </mrow>
+                                                <mrow>
+                                                    <mi>n</mi>
+                                                    <mo>→</mo>
+                                                    <mi mathvariant="normal">∞</mi>
+                                                </mrow>
+                                            </munder>
+                                            <mo fence="false" stretchy="true" minsize="3em" maxsize="3em">[</mo>
+                                            <mo>∫</mo>
+                                            <mi>x</mi>
+                                            <msub>
+                                                <mi>D</mi>
+                                                <mi>n</mi>
+                                            </msub>
+                                            <mo stretchy="false">(</mo>
+                                            <mi>x</mi>
+                                            <mo>−</mo>
+                                            <mn>1</mn>
+                                            <mo stretchy="false">)</mo>
+                                            <mi>d</mi>
+                                            <mi>x</mi>
+                                            <mo fence="false" stretchy="true" minsize="3em" maxsize="3em">]</mo>
+                                        </mstyle>
+                                    </mrow>
+                                    <annotation encoding="application/x-tex">\displaystyle\lim_{n \to \infty}\Bigg[\int xD_n(x-1)dx\Bigg]</annotation>
+                                </semantics>
+                            </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:3.0000299999999998em;vertical-align:-1.25003em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.69444em;"><span style="top:-2.4em;margin-left:0em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="mrel mtight">→</span><span class="mord mtight">∞</span></span></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span><span class="mop">lim</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.7em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="delimsizing size4">[</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop op-symbol large-op" style="margin-right:0.44445em;position:relative;top:-0.0011249999999999316em;">∫</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">x</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:3.0000299999999998em;vertical-align:-1.25003em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mord mathnormal">d</span><span class="mord mathnormal">x</span><span class="mord"><span class="delimsizing size4">]</span></span></span></span></span></p>
+
+            </div>
+            <div class="block">
+                <p>using</p>
+
+            </div>
+            <div class="block">
+                <p><span len="124" class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                <semantics>
+                                    <mrow>
+                                        <mstyle scriptlevel="0" displaystyle="true">
+                                            <msub>
+                                                <mi>D</mi>
+                                                <mi>n</mi>
+                                            </msub>
+                                            <mo stretchy="false">(</mo>
+                                            <mi>x</mi>
+                                            <mo stretchy="false">)</mo>
+                                            <mo>=</mo>
+                                            <mrow>
+                                                <mo fence="true">{</mo>
+                                                <mtable rowspacing="0.3600em" columnalign="left left" columnspacing="1em">
+                                                    <mtr>
+                                                        <mtd>
+                                                            <mstyle scriptlevel="0" displaystyle="false">
+                                                                <mi>n</mi>
+                                                            </mstyle>
+                                                        </mtd>
+                                                        <mtd>
+                                                            <mstyle scriptlevel="0" displaystyle="false">
+                                                                <mrow>
+                                                                    <mtext>if&nbsp;</mtext>
+                                                                    <mi mathvariant="normal">∣</mi>
+                                                                    <mi>x</mi>
+                                                                    <mi mathvariant="normal">∣</mi>
+                                                                    <mo>&lt;</mo>
+                                                                    <mfrac>
+                                                                        <mn>1</mn>
+                                                                        <mrow>
+                                                                            <mn>2</mn>
+                                                                            <mi>n</mi>
+                                                                        </mrow>
+                                                                    </mfrac>
+                                                                </mrow>
+                                                            </mstyle>
+                                                        </mtd>
+                                                    </mtr>
+                                                    <mtr>
+                                                        <mtd>
+                                                            <mstyle scriptlevel="0" displaystyle="false">
+                                                                <mn>0</mn>
+                                                            </mstyle>
+                                                        </mtd>
+                                                        <mtd>
+                                                            <mstyle scriptlevel="0" displaystyle="false">
+                                                                <mtext>&nbsp;otherwise</mtext>
+                                                            </mstyle>
+                                                        </mtd>
+                                                    </mtr>
+                                                </mtable>
+                                            </mrow>
+                                        </mstyle>
+                                    </mrow>
+                                    <annotation encoding="application/x-tex">\displaystyle
+                                        D_n(x) = \begin{cases}
+                                        n &amp;\text{if } |x| \lt \frac{1}{2n} \\
+                                        0 &amp;\text{ otherwise}
+                                        \end{cases}
+                                    </annotation>
+                                </semantics>
+                            </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:3.0000299999999998em;vertical-align:-1.25003em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size4">{</span></span><span class="mord"><span class="mtable"><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.69em;"><span style="top:-3.69em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="mord mathnormal">n</span></span></span><span style="top:-2.25em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="mord">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.19em;"><span></span></span></span></span></span><span class="arraycolsep" style="width:1em;"></span><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.69em;"><span style="top:-3.69em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="mord text"><span class="mord">if&nbsp;</span></span><span class="mord">∣</span><span class="mord mathnormal">x</span><span class="mord">∣</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.845108em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span><span class="mord mathnormal mtight">n</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span><span style="top:-2.25em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="mord text"><span class="mord">&nbsp;otherwise</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.19em;"><span></span></span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></p>
+
+            </div>
+
+        </div>
+        <div class="section">
+
+            <div class="block">
+                <h3><a name="1.5.2" number="1.5.2" class="hanchor" href="#1.5.2"><span class="hnumber">1.5.2 </span> <span class="htext">&nbsp;&nbsp;</span></a></h3>
+
+            </div>
+            <div class="block">
+                <p>Evaluate</p>
+
+            </div>
+            <div class="block">
+                <p><span len="63" class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                <semantics>
+                                    <mrow>
+                                        <mstyle scriptlevel="0" displaystyle="true">
+                                            <munder>
+                                                <mrow>
+                                                    <mi>lim</mi>
+                                                    <mo>⁡</mo>
+                                                </mrow>
+                                                <mrow>
+                                                    <mi>n</mi>
+                                                    <mo>→</mo>
+                                                    <mi mathvariant="normal">∞</mi>
+                                                </mrow>
+                                            </munder>
+                                            <mo fence="false" stretchy="true" minsize="3em" maxsize="3em">[</mo>
+                                            <mo>∫</mo>
+                                            <mi>f</mi>
+                                            <mo stretchy="false">(</mo>
+                                            <mi>x</mi>
+                                            <mo stretchy="false">)</mo>
+                                            <msub>
+                                                <mi>D</mi>
+                                                <mi>n</mi>
+                                            </msub>
+                                            <mo stretchy="false">(</mo>
+                                            <mi>x</mi>
+                                            <mo stretchy="false">)</mo>
+                                            <mi>d</mi>
+                                            <mi>x</mi>
+                                            <mo fence="false" stretchy="true" minsize="3em" maxsize="3em">]</mo>
+                                        </mstyle>
+                                    </mrow>
+                                    <annotation encoding="application/x-tex">\displaystyle\lim_{n \to \infty}\Bigg[\int f(x)D_n(x)dx\Bigg]</annotation>
+                                </semantics>
+                            </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:3.0000299999999998em;vertical-align:-1.25003em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.69444em;"><span style="top:-2.4em;margin-left:0em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="mrel mtight">→</span><span class="mord mtight">∞</span></span></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span><span class="mop">lim</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.7em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="delimsizing size4">[</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop op-symbol large-op" style="margin-right:0.44445em;position:relative;top:-0.0011249999999999316em;">∫</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mord mathnormal">d</span><span class="mord mathnormal">x</span><span class="mord"><span class="delimsizing size4">]</span></span></span></span></span></p>
+
+            </div>
+            <div class="block">
+                <p>using</p>
+
+            </div>
+            <div class="block">
+                <p><span len="124" class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                <semantics>
+                                    <mrow>
+                                        <mstyle scriptlevel="0" displaystyle="true">
+                                            <msub>
+                                                <mi>D</mi>
+                                                <mi>n</mi>
+                                            </msub>
+                                            <mo stretchy="false">(</mo>
+                                            <mi>x</mi>
+                                            <mo stretchy="false">)</mo>
+                                            <mo>=</mo>
+                                            <mrow>
+                                                <mo fence="true">{</mo>
+                                                <mtable rowspacing="0.3600em" columnalign="left left" columnspacing="1em">
+                                                    <mtr>
+                                                        <mtd>
+                                                            <mstyle scriptlevel="0" displaystyle="false">
+                                                                <mi>n</mi>
+                                                            </mstyle>
+                                                        </mtd>
+                                                        <mtd>
+                                                            <mstyle scriptlevel="0" displaystyle="false">
+                                                                <mrow>
+                                                                    <mtext>if&nbsp;</mtext>
+                                                                    <mi mathvariant="normal">∣</mi>
+                                                                    <mi>x</mi>
+                                                                    <mi mathvariant="normal">∣</mi>
+                                                                    <mo>&lt;</mo>
+                                                                    <mfrac>
+                                                                        <mn>1</mn>
+                                                                        <mrow>
+                                                                            <mn>2</mn>
+                                                                            <mi>n</mi>
+                                                                        </mrow>
+                                                                    </mfrac>
+                                                                </mrow>
+                                                            </mstyle>
+                                                        </mtd>
+                                                    </mtr>
+                                                    <mtr>
+                                                        <mtd>
+                                                            <mstyle scriptlevel="0" displaystyle="false">
+                                                                <mn>0</mn>
+                                                            </mstyle>
+                                                        </mtd>
+                                                        <mtd>
+                                                            <mstyle scriptlevel="0" displaystyle="false">
+                                                                <mtext>&nbsp;otherwise</mtext>
+                                                            </mstyle>
+                                                        </mtd>
+                                                    </mtr>
+                                                </mtable>
+                                            </mrow>
+                                        </mstyle>
+                                    </mrow>
+                                    <annotation encoding="application/x-tex">\displaystyle
+                                        D_n(x) = \begin{cases}
+                                        n &amp;\text{if } |x| \lt \frac{1}{2n} \\
+                                        0 &amp;\text{ otherwise}
+                                        \end{cases}
+                                    </annotation>
+                                </semantics>
+                            </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:3.0000299999999998em;vertical-align:-1.25003em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size4">{</span></span><span class="mord"><span class="mtable"><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.69em;"><span style="top:-3.69em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="mord mathnormal">n</span></span></span><span style="top:-2.25em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="mord">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.19em;"><span></span></span></span></span></span><span class="arraycolsep" style="width:1em;"></span><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.69em;"><span style="top:-3.69em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="mord text"><span class="mord">if&nbsp;</span></span><span class="mord">∣</span><span class="mord mathnormal">x</span><span class="mord">∣</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.845108em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span><span class="mord mathnormal mtight">n</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span><span style="top:-2.25em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="mord text"><span class="mord">&nbsp;otherwise</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.19em;"><span></span></span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></p>
+
+            </div>
+            <div class="block">
+                <p>by writing <span len="6" class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                <semantics>
+                                    <mrow>
+                                        <mi>f</mi>
+                                        <mo stretchy="false">(</mo>
+                                        <mi>x</mi>
+                                        <mo stretchy="false">)</mo>
+                                    </mrow>
+                                    <annotation encoding="application/x-tex">f(x)</annotation>
+                                </semantics>
+                            </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span></span></span></span> as a Taylor series expansion to order <span len="5" class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                <semantics>
+                                    <mrow>
+                                        <msup>
+                                            <mi>x</mi>
+                                            <mn>2</mn>
+                                        </msup>
+                                    </mrow>
+                                    <annotation encoding="application/x-tex">x^2</annotation>
+                                </semantics>
+                            </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span> around <span len="5" class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                <semantics>
+                                    <mrow>
+                                        <mi>x</mi>
+                                        <mo>=</mo>
+                                        <mn>0</mn>
+                                    </mrow>
+                                    <annotation encoding="application/x-tex">x=0</annotation>
+                                </semantics>
+                            </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>.</p>
+
+            </div>
+
+        </div>
+        <div class="section">
+
+            <div class="block">
+                <h3><a name="1.5.3" number="1.5.3" class="hanchor" href="#1.5.3"><span class="hnumber">1.5.3 </span> <span class="htext">&nbsp;&nbsp;</span></a></h3>
+
+            </div>
+            <div class="block">
+                <p>A straight 1-D rod of mass <span len="3" class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                <semantics>
+                                    <mrow>
+                                        <mi>M</mi>
+                                    </mrow>
+                                    <annotation encoding="application/x-tex">M</annotation>
+                                </semantics>
+                            </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span> with a uniform mass density and length <span len="5" class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                <semantics>
+                                    <mrow>
+                                        <mi>a</mi>
+                                        <mi mathvariant="normal">/</mi>
+                                        <mi>n</mi>
+                                    </mrow>
+                                    <annotation encoding="application/x-tex">a/n</annotation>
+                                </semantics>
+                            </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">a</span><span class="mord">/</span><span class="mord mathnormal">n</span></span></span></span> (<span len="11" class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                <semantics>
+                                    <mrow>
+                                        <mi>n</mi>
+                                        <mo>=</mo>
+                                        <mn>1</mn>
+                                        <mo separator="true">,</mo>
+                                        <mn>2</mn>
+                                        <mo separator="true">,</mo>
+                                        <mo>…</mo>
+                                    </mrow>
+                                    <annotation encoding="application/x-tex">n=1, 2, …</annotation>
+                                </semantics>
+                            </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">2</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="minner">…</span></span></span></span>) is aligned with the <span len="3" class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                <semantics>
+                                    <mrow>
+                                        <mi>x</mi>
+                                    </mrow>
+                                    <annotation encoding="application/x-tex">x</annotation>
+                                </semantics>
+                            </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">x</span></span></span></span>–axis and centered on <span len="5" class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                <semantics>
+                                    <mrow>
+                                        <mi>x</mi>
+                                        <mo>=</mo>
+                                        <mi>a</mi>
+                                    </mrow>
+                                    <annotation encoding="application/x-tex">x=a</annotation>
+                                </semantics>
+                            </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">a</span></span></span></span>. Find the center of mass by evaluating</p>
+
+            </div>
+            <div class="block">
+                <p><span len="78" class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                <semantics>
+                                    <mrow>
+                                        <mstyle scriptlevel="0" displaystyle="true">
+                                            <msub>
+                                                <mover accent="true">
+                                                    <mi>x</mi>
+                                                    <mo stretchy="true">‾</mo>
+                                                </mover>
+                                                <mi>n</mi>
+                                            </msub>
+                                            <mo>=</mo>
+                                            <mfrac>
+                                                <mn>1</mn>
+                                                <mi>M</mi>
+                                            </mfrac>
+                                            <msub>
+                                                <mo>∫</mo>
+                                                <mtext>rod</mtext>
+                                            </msub>
+                                            <mi>x</mi>
+                                            <msub>
+                                                <mi>λ</mi>
+                                                <mi>n</mi>
+                                            </msub>
+                                            <mo stretchy="false">(</mo>
+                                            <mi>x</mi>
+                                            <mo stretchy="false">)</mo>
+                                            <mi>d</mi>
+                                            <mi>x</mi>
+                                        </mstyle>
+                                    </mrow>
+                                    <annotation encoding="application/x-tex">\displaystyle \overline{x}_n = \frac{1}{M}\int_{\text{rod}} x\lambda_n(x) dx</annotation>
+                                </semantics>
+                            </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.78056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord overline"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.63056em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">x</span></span></span><span style="top:-3.55056em;"><span class="pstrut" style="height:3em;"></span><span class="overline-line" style="border-bottom-width:0.04em;"></span></span></span></span></span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.27195em;vertical-align:-0.9119499999999999em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.32144em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop"><span class="mop op-symbol large-op" style="margin-right:0.44445em;position:relative;top:-0.0011249999999999316em;">∫</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:-0.425842em;"><span style="top:-1.7880500000000001em;margin-left:-0.44445em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">rod</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.9119499999999999em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">x</span><span class="mord"><span class="mord mathnormal">λ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mord mathnormal">d</span><span class="mord mathnormal">x</span></span></span></span></p>
+
+            </div>
+
+        </div>
+        <div class="section">
+
+            <div class="block">
+                <h3><a name="1.5.4" number="1.5.4" class="hanchor" href="#1.5.4"><span class="hnumber">1.5.4 </span> <span class="htext">&nbsp;&nbsp;</span></a></h3>
+
+            </div>
+            <div class="block">
+                <p>Find the moment of inertia about the <span len="3" class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                <semantics>
+                                    <mrow>
+                                        <mi>y</mi>
+                                    </mrow>
+                                    <annotation encoding="application/x-tex">y</annotation>
+                                </semantics>
+                            </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span>–axis of the rod in the previous problem in terms of <span len="3" class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                <semantics>
+                                    <mrow>
+                                        <mi>a</mi>
+                                    </mrow>
+                                    <annotation encoding="application/x-tex">a</annotation>
+                                </semantics>
+                            </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">a</span></span></span></span>, <span len="3" class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                <semantics>
+                                    <mrow>
+                                        <mi>n</mi>
+                                    </mrow>
+                                    <annotation encoding="application/x-tex">n</annotation>
+                                </semantics>
+                            </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">n</span></span></span></span>, and <span len="3" class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                <semantics>
+                                    <mrow>
+                                        <mi>M</mi>
+                                    </mrow>
+                                    <annotation encoding="application/x-tex">M</annotation>
+                                </semantics>
+                            </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span> by evaluating</p>
+
+            </div>
+            <div class="block">
+                <p><span len="57" class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                <semantics>
+                                    <mrow>
+                                        <mstyle scriptlevel="0" displaystyle="true">
+                                            <msub>
+                                                <mi>I</mi>
+                                                <mi>n</mi>
+                                            </msub>
+                                            <mo>=</mo>
+                                            <msub>
+                                                <mo>∫</mo>
+                                                <mtext>rod</mtext>
+                                            </msub>
+                                            <msup>
+                                                <mi>x</mi>
+                                                <mn>2</mn>
+                                            </msup>
+                                            <msub>
+                                                <mi>λ</mi>
+                                                <mi>n</mi>
+                                            </msub>
+                                            <mo stretchy="false">(</mo>
+                                            <mi>x</mi>
+                                            <mo stretchy="false">)</mo>
+                                            <mi>d</mi>
+                                            <mi>x</mi>
+                                        </mstyle>
+                                    </mrow>
+                                    <annotation encoding="application/x-tex">\displaystyle I_n = \int_{\text{rod}} x^2\lambda_n(x)dx</annotation>
+                                </semantics>
+                            </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07847em;">I</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.07847em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.27195em;vertical-align:-0.9119499999999999em;"></span><span class="mop"><span class="mop op-symbol large-op" style="margin-right:0.44445em;position:relative;top:-0.0011249999999999316em;">∫</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:-0.425842em;"><span style="top:-1.7880500000000001em;margin-left:-0.44445em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">rod</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.9119499999999999em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641079999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mord"><span class="mord mathnormal">λ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mord mathnormal">d</span><span class="mord mathnormal">x</span></span></span></span></p>
+
+            </div>
+
+        </div>
+        <div class="section">
+
+            <div class="block">
+                <h3><a name="1.5.5" number="1.5.5" class="hanchor" href="#1.5.5"><span class="hnumber">1.5.5 </span> <span class="htext">&nbsp;&nbsp;</span></a></h3>
+
+            </div>
+            <div class="block">
+                <p>A spherical shell has a net charge <span len="3" class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                <semantics>
+                                    <mrow>
+                                        <mi>Q</mi>
+                                    </mrow>
+                                    <annotation encoding="application/x-tex">Q</annotation>
+                                </semantics>
+                            </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">Q</span></span></span></span> uniformly distributed on its surface.</p>
+
+            </div>
+            <div class="block">
+                <p>Find <span len="6" class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                <semantics>
+                                    <mrow>
+                                        <mi>ρ</mi>
+                                    </mrow>
+                                    <annotation encoding="application/x-tex">\rho</annotation>
+                                </semantics>
+                            </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">ρ</span></span></span></span> in terms of the delta function.</p>
+
+            </div>
+
+        </div>
+        <div class="section">
+
+            <div class="block">
+                <h3 class=""><a name="divergence-theorem" number="1.5.6" class="hanchor" href="#divergence-theorem"><span class="hnumber">1.5.6 </span> <span class="htext">Divergence Theorem</span></a></h3>
+
+            </div>
+            <div class="block">
+                <p class="">Show by direct calculation that</p>
+
+            </div>
+            <div class="block">
+                <p class=""><span len="125" class="katex-display"><span class="katex katex-display" style="display: block"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                                    <semantics>
+                                        <mrow>
+                                            <msub>
+                                                <mo>∮</mo>
+                                                <mi mathvariant="script">S</mi>
+                                            </msub>
+                                            <mi mathvariant="bold">A</mi>
+                                            <mo mathvariant="bold-italic" lspace="0.22em" rspace="0.22em">⋅</mo>
+                                            <mi>d</mi>
+                                            <mi mathvariant="bold">a</mi>
+                                            <mo>=</mo>
+                                            <msub>
+                                                <mo>∫</mo>
+                                                <mi mathvariant="script">V</mi>
+                                            </msub>
+                                            <mi mathvariant="bold">∇</mi>
+                                            <mo>⋅</mo>
+                                            <mi mathvariant="bold">A</mi>
+                                            <mtext> </mtext>
+                                            <msup>
+                                                <mi>d</mi>
+                                                <mn>3</mn>
+                                            </msup>
+                                            <mi>x</mi>
+                                        </mrow>
+                                        <annotation encoding="application/x-tex">\oint_{\mathcal{S}}\mathbf{A}\boldsymbol{\cdot} d\mathbf{a} = \int_{\mathcal{V}} \boldsymbol{\nabla} \cdot \mathbf{A}\thinspace d^3x</annotation>
+                                    </semantics>
+                                </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:2.27195em;vertical-align:-0.9119499999999999em;"></span><span class="mop"><span class="mop op-symbol large-op" style="margin-right:0.44445em;position:relative;top:-0.0011249999999999316em;">∮</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:-0.433619em;"><span style="top:-1.7880500000000001em;margin-left:-0.44445em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathcal mtight" style="margin-right:0.075em;">S</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.9119499999999999em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathbf">A</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin"><span class="mord"><span class="mord mathbf">⋅</span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">d</span><span class="mord mathbf">a</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.27195em;vertical-align:-0.9119499999999999em;"></span><span class="mop"><span class="mop op-symbol large-op" style="margin-right:0.44445em;position:relative;top:-0.0011249999999999316em;">∫</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:-0.433619em;"><span style="top:-1.7880500000000001em;margin-left:-0.44445em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathcal mtight" style="margin-right:0.08222em;">V</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.9119499999999999em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord"><span class="mord mathbf">∇</span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8641079999999999em;vertical-align:0em;"></span><span class="mord mathbf">A</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathnormal">d</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641079999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span></span></span></span></span><span class="mord mathnormal">x</span></span></span></span></span></p>
+
+            </div>
+            <div class="block">
+                <p class="">is satisfied when <span len="24" class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                <semantics>
+                                    <mrow>
+                                        <mi mathvariant="bold">A</mi>
+                                        <mo>=</mo>
+                                        <msub>
+                                            <mi>A</mi>
+                                            <mi>x</mi>
+                                        </msub>
+                                        <mo stretchy="false">(</mo>
+                                        <mi>x</mi>
+                                        <mo stretchy="false">)</mo>
+                                        <mover accent="true">
+                                            <mi mathvariant="bold">x</mi>
+                                            <mo>^</mo>
+                                        </mover>
+                                    </mrow>
+                                    <annotation encoding="application/x-tex">\mathbf{A}=A_x(x)\mathbf{\hat{x}}</annotation>
+                                </semantics>
+                            </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68611em;vertical-align:0em;"></span><span class="mord mathbf">A</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">x</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.70788em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathbf">x</span></span><span style="top:-3.01344em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.2875em;"><span class="mord mathbf">^</span></span></span></span></span></span></span></span></span></span> and <span len="13" class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                <semantics>
+                                    <mrow>
+                                        <mi mathvariant="script">V</mi>
+                                    </mrow>
+                                    <annotation encoding="application/x-tex">\mathcal{V}</annotation>
+                                </semantics>
+                            </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathcal" style="margin-right:0.08222em;">V</span></span></span></span> is an origin–centered cube of side length <span len="3" class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                <semantics>
+                                    <mrow>
+                                        <mi>b</mi>
+                                    </mrow>
+                                    <annotation encoding="application/x-tex">b</annotation>
+                                </semantics>
+                            </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">b</span></span></span></span> with its sides parallel to the coordinate planes.</p>
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+        <div class="section">
+
+            <div class="block">
+                <h3 class=""><a name="divergence-theorem" number="1.5.7" class="hanchor" href="#divergence-theorem"><span class="hnumber">1.5.7 </span> <span class="htext">Divergence Theorem</span></a></h3>
+
+            </div>
+            <div class="block">
+                <p class="">Solve II-27 and II-28 of <a href="https://drive.google.com/drive/folders/001s8T-MO_G7YfPuAiHesVK3yFNy82noAsg?usp=sharing">Schey, 2005</a>.</p>
+
+            </div>
+
+
+
+        </div>
+    </div>
+
+</body>
+
+</html>
