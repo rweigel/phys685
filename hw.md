@@ -70,7 +70,8 @@ D_n(x) = \begin{cases}
 \end{cases}
 $
 
-Repeat this problem using $D_n$ = \sqrt{n}{\pi}e
+Repeat this problem using $D_n = \sqrt{\frac{n}{\pi}}e^{-nx^2}$
+
 ###
 
 Evaluate
