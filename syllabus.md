@@ -11,6 +11,8 @@
 * Office: 259 Planetary Hall
 * Course URL: http://rweigel.github.io/phys685/
 
+Homeworks: [1](hw.html#hw-1) | [2](hw.html#hw-2)
+
 # Class Schedule
 
 %15. ## May 11th (final exam)
@@ -26,7 +28,14 @@
 %5. ## Feb 23rd
 %4. ## Feb 16th
 %3. ## Feb 9th
-%2. ## Feb. 2nd
+
+## Feb. 2nd
+
+* Discuss [HW #1](hw.html)
+* Additional discussion of divergence and HW 1.4
+* Reciprocity
+* Reciprocity problems
+* Assign [HW #2](hw.html)
 
 ## Jan. 26th
 
