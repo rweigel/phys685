@@ -154,7 +154,7 @@ $\displaystyle\int\rho(\mathbf{x})\thinspace d^3x=Q$
 1. Write the piecewise function $
 f(x) = \begin{cases} 1 & |x| \lt b\\ 0 & |x| \ge b\end{cases}$ using one or more $\Theta$ functions.
 1. Find the volume charge density $\rho$ in cylindrical coordinates in terms of $\delta$ and/or $\Theta$ for an infinitely long cylinder of radius $b$ with a charge density per unit length of $\lambda_o$ uniformly distributed on its surface. Assume that the cylinder's centerline is along the $z$-axis.
-2. Repeat 1. assuming the cylinder is finite and extends from $z=-h/2$ to $z=h/2$.
+2. Repeat 2. assuming the cylinder is finite and extends from $z=-h/2$ to $z=h/2$.
 
 ## Green's Reciprocity Theorem
 
