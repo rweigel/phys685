@@ -82,8 +82,8 @@ is zero everywhere except at the origin ($r=0$) where it is indeterminate in the
 
 $$
 \displaystyle \boldsymbol{\nabla}\cdot \mathbf{E}_p = \frac{q}{4\pi\epsilon_o} \boldsymbol{\nabla}\cdot \frac{\hat{\mathbf{r}}}{r^2} = \frac{q}{4\pi\epsilon_o}\frac{1}{r^2}\frac{\partial}{\partial r}\left(1\right) = \begin{cases}
-0/0 & \text{if $r = 0$} \\ 
-0 & \text{if $r\ne 0$}
+0/0 & \text{if } r = 0 \\ 
+0 & \text{if }r\ne 0
 \end{cases}
 $$
 
@@ -93,7 +93,7 @@ $$\oint_{\mathcal{S}}\mathbf{E}_p\cdot \hat{\mathbf{n}}\thinspace da =\frac{q}{\
 
 does not have an indeterminacy. Therefore, the divergence theorem
 
-$$\int_{\mathcal{V}} \boldsymbol{\nabla} \cdot \mathbf{E}_p\thinspace d^3x=\oint_{\mathcal{S}}\mathbf{E}_p\cdot \hat{\mathbf{n}}\thinspace da$$
+$$\int\_{\mathcal{V}} \boldsymbol{\nabla} \cdot \mathbf{E}\_p\thinspace d^3x=\oint\_{\mathcal{S}}\mathbf{E}\_p\cdot \hat{\mathbf{n}}\thinspace da$$
 
 applied to $\mathbf{E}$ for a point charge gives
 
@@ -164,17 +164,18 @@ $$\int_{\mathcal{V}} f(\mathbf{r})\boldsymbol{\nabla} \cdot \mathbf{E}\thinspace
 
 The second integral is identically zero because $\boldsymbol{\nabla}\cdot\mathbf{E}_b=0$ for $r\gt b$. If $f(\mathbf{r})$ can be expanded as a Taylor series
 
-$$f(\mathbf{r})\simeq f(\mathbf{0}) + \mathbf{r}\cdot\left[\boldsymbol{\nabla}f\thinspace \right]_{\mathbf{r}=0}\;+\;...$$
+$$f(\mathbf{r})\simeq f(\mathbf{0}) + \mathbf{r}\cdot\left[\boldsymbol{\nabla}f\thinspace \right]_{\mathbf{r}=0}\thickspace+\thickspace...$$
 
 then
 
+$$
 \begin{array}{ll}
-\displaystyle\int_{\mathcal{V_{r\le b}}} f(\mathbf{r})\boldsymbol{\nabla} \cdot \mathbf{E}\thinspace d^3x & = & \displaystyle\int_{\mathcal{V_{r\le b}}} \left(f(\mathbf{0})+\mathbf{r}\cdot\left[\boldsymbol{\nabla}f\thinspace \right]_{\mathbf{r}=0}\;+\;...\right)\boldsymbol{\nabla} \cdot \mathbf{E}\thinspace d^3x\\
-& = & \displaystyle\int_{\mathcal{V_{r\le b}}} f(\mathbf{0})\boldsymbol{\nabla} \cdot \mathbf{E}\thinspace d^3x+\displaystyle\int_{\mathcal{V_{r\le b}}} (\mathbf{r}\cdot\left[\boldsymbol{\nabla}f\thinspace \right]_{\mathbf{r}=0}\;+\;...)\boldsymbol{\nabla} \cdot \mathbf{E}\thinspace d^3x\\
-& = & f(\mathbf{0})\displaystyle\int_{\mathcal{V_{r\le b}}} \boldsymbol{\nabla} \cdot \mathbf{E}\thinspace d^3x+\displaystyle\int_{\mathcal{V_{r\le b}}} \left(\mathbf{r}\cdot\left[\boldsymbol{\nabla}f\thinspace \right]_{\mathbf{r}=0}\;+\;...\right)\boldsymbol{\nabla} \cdot \mathbf{E}\thinspace d^3x\\
-& = & \frac{q}{\epsilon_o}f(\mathbf{0})\;+\;\frac{q}{\epsilon_o}\displaystyle\int_{\mathcal{V_{r\le b}}} \left(\mathbf{r}\cdot\left[\boldsymbol{\nabla}f\thinspace \right]_{\mathbf{r}=0}\;+\;...\right)d^3x\\
+\displaystyle\int\_{\mathcal{V\_{r\le b}}} f(\mathbf{r})\boldsymbol{\nabla} \cdot \mathbf{E}\thinspace d^3x & = & \displaystyle\int\_{\mathcal{V\_{r\le b}}} \left(f(\mathbf{0})+\mathbf{r}\cdot\left[\boldsymbol{\nabla}f\thinspace \right]\_{\mathbf{r}=0}\thickspace+\thickspace...\right)\boldsymbol{\nabla} \cdot \mathbf{E}\thinspace d^3x\\\\
+& = & \displaystyle\int\_{\mathcal{V_{r\le b}}} f(\mathbf{0})\boldsymbol{\nabla} \cdot \mathbf{E}\thinspace d^3x+\displaystyle\int\_{\mathcal{V\_{r\le b}}} (\mathbf{r}\cdot\left[\boldsymbol{\nabla}f\thinspace \right]\_{\mathbf{r}=0}\thickspace+\thickspace...)\boldsymbol{\nabla} \cdot \mathbf{E}\thinspace d^3x\\\\
+& = & f(\mathbf{0})\displaystyle\int\_{\mathcal{V\_{r\le b}}} \boldsymbol{\nabla} \cdot \mathbf{E}\thinspace d^3x+\displaystyle\int\_{\mathcal{V\_{r\le b}}} \left(\mathbf{r}\cdot\left[\boldsymbol{\nabla}f\thinspace \right]\_{\mathbf{r}=0}\thickspace+\thickspace ...\right)\boldsymbol{\nabla} \cdot \mathbf{E}\thinspace d^3x\\\\
+& = & \frac{q}{\epsilon_o}f(\mathbf{0})\thickspace+\thickspace\frac{q}{\epsilon_o}\displaystyle\int_{\mathcal{V_{r\le b}}} \left(\mathbf{r}\cdot\left[\boldsymbol{\nabla}f\thinspace \right]_{\mathbf{r}=0}\thickspace+\thickspace ...\right)d^3x
 \end{array}
-
+$$
 The second and higher-order terms in the last equation approach zero as $b\rightarrow 0$.  To see this, note that for small enough $b$,
 
 $$\frac{q}{\epsilon_o}\displaystyle\int_{\mathcal{V_{r\le b}}} f(\mathbf{r})\thinspace d^3x\rightarrow \frac{4\pi}{3}b^3\left<f(\mathbf{0})\right>$$
@@ -222,20 +223,18 @@ $$I.\quad \int_{\mathcal{V_{r \le b}}} \boldsymbol{\nabla} \cdot \mathbf{E}_b\th
 
 Next, consider the application of the divergence theorem for the volume between $r=b$ and $r=2b$ (the result will apply to any $r\gt b$).
 
-$$\int_{\mathcal{V_{b \le r \le 2b}}} \boldsymbol{\nabla} \cdot \mathbf{E}_b\thinspace d^3x= \oint_\mathcal{S_{r=b}} \mathbf{E}_b\cdot \hat{\mathbf{n}}\thinspace da + \oint_\mathcal{S_{r=2b}} \mathbf{E}_b\cdot \hat{\mathbf{n}}\thinspace da$$
+$$\int_{\mathcal{V_{b \le r \le 2b}}} \boldsymbol{\nabla} \cdot \mathbf{E}\_b\thinspace d^3x= \oint\_\mathcal{S\_{r=b}} \mathbf{E}_b\cdot \hat{\mathbf{n}}\thinspace da + \oint_\mathcal{S_{r=2b}} \mathbf{E}_b\cdot \hat{\mathbf{n}}\thinspace da$$
 
 The outward normal to $\mathcal{S_{r=b}}$ for this volume is $-\hat{\mathbf{r}}$ and the outward normal to $\mathcal{S_{r=2b}}$ is $+\hat{\mathbf{r}}$, so
 
-$$II.\quad \int_{\mathcal{V_{b \le r \le 2b}}} \boldsymbol{\nabla} \cdot \mathbf{E}_b\thinspace d^3x=-\oint_\mathcal{S_{r=b}} \mathbf{E}_b\cdot \hat{\mathbf{r}}\thinspace da + \oint_\mathcal{S_{r=2b}} \mathbf{E}_b\cdot \hat{\mathbf{r}}\thinspace da$$
+$$II.\quad \int\_{\mathcal{V\_{b \le r \le 2b}}} \boldsymbol{\nabla} \cdot \mathbf{E}\_b\thinspace d^3x=-\oint\_\mathcal{S_{r=b}} \mathbf{E}_b\cdot \hat{\mathbf{r}}\thinspace da + \oint_\mathcal{S_{r=2b}} \mathbf{E}_b\cdot \hat{\mathbf{r}}\thinspace da$$
 
 Using $I.$ and $II.$ with
 
-$$\int_{\mathcal{V_{r \le 2b}}} \boldsymbol{\nabla} \cdot \mathbf{E}_b\thinspace d^3x=\int_{\mathcal{V_{r \le b}}} \boldsymbol{\nabla} \cdot \mathbf{E}_b\thinspace d^3x + \int_{\mathcal{V_{\thinspace b \le r \le 2b}}} \boldsymbol{\nabla} \cdot \mathbf{E}_b\thinspace d^3x $$
+$$\int\_{\mathcal{V\_{r \le 2b}}} \boldsymbol{\nabla} \cdot \mathbf{E}\_b\thinspace d^3x=\int\_{\mathcal{V\_{r \le b}}} \boldsymbol{\nabla} \cdot \mathbf{E}\_b\thinspace d^3x + \int\_{\mathcal{V\_{\thinspace b \le r \le 2b}}} \boldsymbol{\nabla} \cdot \mathbf{E}\_b\thinspace d^3x $$
 
 gives
 
-$$\int_{\mathcal{V_{r \le 2b}}} \boldsymbol{\nabla} \cdot \mathbf{E}_b\thinspace d^3x = \int_{\mathcal{S_{r=2b}}}\mathbf{E}_b\cdot \hat{\mathbf{n}}\thinspace da$$
+$$\int\_{\mathcal{V\_{r \le 2b}}} \boldsymbol{\nabla} \cdot \mathbf{E}\_b\thinspace d^3x = \int\_{\mathcal{S\_{r=2b}}}\mathbf{E}\_b\cdot \hat{\mathbf{n}}\thinspace da$$
 
 (The surface integrals at $r=b$ cancel because their normal directions are in opposite directions.)
-|}
-.
