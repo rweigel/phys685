@@ -27,7 +27,12 @@ Homeworks: [1](hw.html#hw-1) | [2](hw.html#hw-2)
 %6. ## March 2nd
 %5. ## Feb 23rd
 %4. ## Feb 16th
-%3. ## Feb 9th
+## Feb 9th
+
+* Discuss [HW #2](hw.html), problem 4.
+* Derive 1.35
+* Review solving 1-D cartesian boundary value problems with $\rho=0$ using Laplace's equation and Gauss's law.
+* Solve parts of [HW #3](hw.html) problem 1.
 
 ## Feb. 2nd
 
