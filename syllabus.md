@@ -11,7 +11,7 @@
 * Office: 259 Planetary Hall
 * Course URL: http://rweigel.github.io/phys685/
 
-Homeworks: [1](hw.html#hw-1) | [2](hw.html#hw-2)
+Homeworks: [1](hw.html#hw-1) | [2](hw.html#hw-2) | [3](hw.html#hw-3) | [4](hw.html#hw-4)
 
 # Class Schedule
 
@@ -26,7 +26,13 @@ Homeworks: [1](hw.html#hw-1) | [2](hw.html#hw-2)
 %7. ## March 9th
 %6. ## March 2nd
 %5. ## Feb 23rd
-%4. ## Feb 16th
+
+## Feb 16th
+
+* Discuss [HW #3](hw.html), problem 1 and 4.
+* Compute $\Phi$ for case when two infinite grounded conducting planes have a slab of uniform charge denstiy $\rho_o$ that fills the space between them.
+* Review method of images and relationship of their potentials to Green's functions.
+
 ## Feb 9th
 
 * Discuss [HW #2](hw.html), problem 4.
