@@ -22,16 +22,38 @@ Homeworks: [1](hw.html#hw-1) | [2](hw.html#hw-2) | [3](hw.html#hw-3) | [4](hw.ht
 %11. ## April 13th
 %10. ## April 6th
 %9. ## March 30th
-%8. ## March 23rd
-%7. ## March 9th
-%6. ## March 2nd
-%5. ## Feb 23rd
+
+## March 23rd
+
+Midterm
+
+## March 9th
+
+3.7-3.12
+
+## March 2nd
+
+3.3, 3.5, 3.6 
+
+## Feb 23rd
+
+1. Overview of Chapters 2 and 3 of Jackson
+    * Chapter 2
+      1. Solving BV problems using Green function found from method of images.
+      2. Solving BV problems using orthogonal expansion and without Green function (similar to Ch. 3 of Griffiths)
+    * Chapter 3
+      1. Solving BV problems using Green function found from orthogonal expansion. A systematic way of computing Green function. Requires expressing $1/|\mathbf{x}-\mathbf{x}'|$ in terms of sum of Legendre polynomials.
+      2. Solving BV problems using the azimuthal symmetry trick
+
+2. Discuss problems related to chapters 3.1 and 3.2 of Jackson from orthogonal function expansion with and without Green function. 
+
 
 ## Feb 16th
 
 * Discuss [HW #3](hw.html), problem 1 and 4.
 * Compute $\Phi$ for case when two infinite grounded conducting planes have a slab of uniform charge denstiy $\rho_o$ that fills the space between them.
 * Review method of images and relationship of their potentials to Green's functions.
+* Assign [HW #4](hw.html)
 
 ## Feb 9th
 
@@ -39,6 +61,7 @@ Homeworks: [1](hw.html#hw-1) | [2](hw.html#hw-2) | [3](hw.html#hw-3) | [4](hw.ht
 * Derive 1.35
 * Review solving 1-D cartesian boundary value problems with $\rho=0$ using Laplace's equation and Gauss's law.
 * Solve parts of [HW #3](hw.html) problem 1.
+* Assign [HW #3](hw.html)
 
 ## Feb. 2nd
 
@@ -121,7 +144,7 @@ On homework assignments, I'll sometimes link to references that may be useful fo
 
 See also https://registrar.gmu.edu/calendars/spring_2022-1/
 
-* Exam I: March 23rd
+* Midterm Exam: March 23rd
 * No Class: Wednesday, March 16th (Spring Recess)
 * Last Day of Class: Wednesday, May 4th
 * Final Exam: Wednesday, May 11th from 4:30 -- 7:10 pm in the regular classroom. (Based on [Final Exam Schedule](https://registrar.gmu.edu/wp-content/uploads/Spring-2022-Final-Exam-Schedule.pdf)).
