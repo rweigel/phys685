@@ -11,7 +11,7 @@
 * Office: 259 Planetary Hall
 * Course URL: http://rweigel.github.io/phys685/
 
-Homeworks: [1](hw.html#hw-1) | [2](hw.html#hw-2) | [3](hw.html#hw-3) | [4](hw.html#hw-4)
+Homeworks: [1](hw.html#hw-1) | [2](hw.html#hw-2) | [3](hw.html#hw-3) | [4](hw.html#hw-4) | [5](hw.html#hw-5)
 
 # Class Schedule
 
@@ -23,30 +23,31 @@ Homeworks: [1](hw.html#hw-1) | [2](hw.html#hw-2) | [3](hw.html#hw-3) | [4](hw.ht
 %10. ## April 6th
 %9. ## March 30th
 
-## March 23rd
+%## March 23rd
 
-Midterm
+%Midterm
 
-## March 9th
+%## March 9th
 
-3.7-3.12
+%3.7-3.12
 
-## March 2nd
+%## March 2nd
 
-3.3, 3.5, 3.6 
+%3.3, 3.5, 3.6 
 
 ## Feb 23rd
 
-1. Overview of Chapters 2 and 3 of Jackson
+* Overview of Chapters 2 and 3 of Jackson
     * Chapter 2
       1. Solving BV problems using Green function found from method of images.
       2. Solving BV problems using orthogonal expansion and without Green function (similar to Ch. 3 of Griffiths)
     * Chapter 3
       1. Solving BV problems using Green function found from orthogonal expansion. A systematic way of computing Green function. Requires expressing $1/|\mathbf{x}-\mathbf{x}'|$ in terms of sum of Legendre polynomials.
       2. Solving BV problems using the azimuthal symmetry trick
-
-2. Discuss problems related to chapters 3.1 and 3.2 of Jackson from orthogonal function expansion with and without Green function. 
-
+* Discuss first problem on HW #4 and the meaning of grounding. Review using Gauss' law to find surface charge densities on two uncharged infinite conducting slabs with a non--conducting charged sheet between them. Discuss what happens when the conductors are grounded. Repeat for shell case.
+* Discuss second problem on HW #4 and some tricks for quickly getting a solution for 2--D cartesion problems.
+* Start problem #1 on HW #5.
+* Assign [HW #5](hw.html)
 
 ## Feb 16th
 
