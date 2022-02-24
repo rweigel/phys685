@@ -6,7 +6,426 @@
   <title>hw</title>
   <link id="favicon" rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%220.9em%22 font-size=%22100%22>📖</text></svg>">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.12/dist/katex.min.css" />
-  <link rel="stylesheet" href="hw.css" />
+  <style>
+    #display .block ol {
+      width: 100%;
+      margin-left: 1em;
+      padding-left: 1em;
+    }
+
+    #display .block ul {
+      width: 100%;
+      margin-left: 1em;
+      padding-left: 1em;
+    }
+
+    #display a {
+      text-decoration: none black;
+      text-underline-offset: 2px;
+    }
+
+    #display li>div {
+      display: flex;
+    }
+
+    #display li {
+      width: 100%;
+    }
+
+    #display {
+      width: 100%;
+      margin-left: 15em;
+      max-height: 100%;
+      min-height: 100%;
+      overflow: hidden auto;
+      padding-left: 1em;
+      padding-right: 1em;
+      border-left: 1px solid rgb(240, 240, 240);
+      font-family: "Open Sans";
+    }
+
+    #toc>ol ol {
+      display: none;
+    }
+
+    #toc a {
+      text-decoration: none;
+    }
+
+    #toc ol {
+      list-style-type: decimal;
+      padding-inline-start: 1em;
+    }
+
+    #toc {
+      font-size: 85%;
+      width: 14em;
+      position: fixed;
+      min-height: 95%;
+      max-height: 95%;
+      overflow: hidden auto;
+      padding-left: 0.75em;
+      padding-right: 1em;
+      margin-right: 1em;
+      font-family: "Open Sans";
+    }
+
+    .block>div.linenumber {
+      margin-block-start: -0.5em;
+    }
+
+    .block {
+      display: flex;
+    }
+
+    .block.inline-html {
+      display: block;
+    }
+
+    .blockquote+div.line-number {
+      margin-top: 1rem;
+    }
+
+    .blockquote {
+      width: 100%;
+      display: block;
+      margin: 1em;
+      border: 1px solid black;
+      padding: 1em;
+      border-radius: 0.5em;
+    }
+
+    .hanchor {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .hr {
+      width: 100%;
+      height: 1px;
+      display: block;
+      margin: 0.5em;
+      margin-block: 0.5em;
+      border-top: 1px solid black;
+    }
+
+    .katex {
+      font-size: inherit !important;
+    }
+
+    .katex-display {
+      text-align: center;
+      margin: 0.5em;
+      font-size: 1.1em !important;
+    }
+
+    .line-number {
+      float: right;
+      white-space: pre-wrap;
+      font-size: 10%;
+    }
+
+    .section>.block code~.line-number {}
+
+    .section>.block ol~.line-number {
+      display: none;
+    }
+
+    .section>.block pre~.line-number {
+      display: none;
+    }
+
+    .section>.block ul~.line-number {
+      display: none;
+    }
+
+    .subtitle {
+      text-align: center;
+      font-size: 150%;
+      font-weight: bold;
+      color: black;
+      margin-top: 0.2em;
+    }
+
+    .title {
+      text-align: center;
+      font-size: 250%;
+      font-weight: bold;
+      color: black;
+      margin-bottom: 0px;
+    }
+
+    @media print {
+
+      body,
+      html {
+        margin: 0in;
+        color: rgb(0, 0, 0);
+        height: auto;
+        background-color: rgb(255, 255, 255);
+        border: none;
+        display: inline;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        break-after: avoid;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        width: 100%;
+        margin-block: 0.1em;
+      }
+
+      h1 {
+        font-size: 1.25em;
+        border-bottom: 1px solid darkblue;
+      }
+
+      h2 {
+        font-size: 1.15em;
+        border-bottom: 1px solid darkblue;
+      }
+
+      h3 {
+        font-size: 1.1em;
+      }
+
+      h4,
+      h5,
+      h6 {
+        font-size: 1.05em;
+      }
+
+      p {
+        margin-top: 0px;
+        margin-bottom: 0.5em;
+      }
+
+      .title {
+        break-before: page;
+        margin-top: 0px;
+      }
+
+      #toc {
+        display: none;
+        font-size: 100%;
+        margin: 0px;
+        width: 100%;
+        overflow-y: hidden;
+        padding-left: 0px;
+        padding-right: 0px;
+      }
+
+      #display {
+        margin-left: 0em;
+        width: 100%;
+        padding-left: 0px;
+        padding-right: 0px;
+        border: none;
+        overflow-wrap: break-word;
+      }
+
+      .katex {
+        font: 1em / 1 KaTeX_Main, "Times New Roman", serif;
+        white-space: nowrap;
+        text-indent: 0px;
+        text-rendering: auto;
+      }
+
+      .katex-display {
+        margin-top: 0px;
+      }
+    }
+
+    body {
+      background-color: white;
+    }
+
+    body {
+      background-image: url("https://rweigel.github.io/biedit/img/paper.png");
+    }
+
+    code {
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.03);
+      border-radius: 0px;
+      font-size: 1.2em;
+      white-space: pre-wrap;
+      margin-top: 3px;
+      margin-right: 3px;
+    }
+
+    code.language-Python {
+      background-color: rgba(0, 0, 0, 0);
+      font-size: 1.2em;
+    }
+
+    details>summary {
+      font-weight: bold;
+    }
+
+    details {
+      padding-left: 0.5em;
+    }
+
+    details[open] {
+      border: 1px solid black;
+      padding: 0em 0em 0em 0.5em;
+    }
+
+    h1+.line-number {
+      margin-block-start: 20em;
+    }
+
+    h1 {
+      color: darkblue;
+      border-bottom: 2px solid darkblue;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      width: 100%;
+      margin-block: 0.5em;
+    }
+
+    h2+.line-number {
+      margin-block-start: 15em;
+    }
+
+    h2 {
+      border-bottom: 1px solid black;
+    }
+
+    h3+.line-number {
+      margin-block-start: 15em;
+    }
+
+    h3 {
+      border-bottom: 1px dotted black;
+    }
+
+    h4+.line-number {
+      margin-block-start: 15em;
+    }
+
+    h5+.line-number {
+      margin-block-start: 15em;
+    }
+
+    h6+.line-number {
+      margin-block-start: 15em;
+    }
+
+    li .block p {
+      width: 100%;
+      display: block;
+      margin-top: 0.5em;
+      margin-bottom: 0.5em;
+    }
+
+    li .block:first-of-type p {
+      width: 100%;
+      display: block;
+      margin-top: 0em;
+      margin-bottom: 0em;
+    }
+
+    p+.line-number {
+      margin-block-start: 8px;
+    }
+
+    p {
+      width: 100%;
+      display: block;
+      margin-block: 0.5em;
+    }
+
+    pre .line-number {
+      float: right;
+      font-size: 8px;
+      text-align: center;
+      text-indent: 0px;
+    }
+
+    pre code {
+      border-right: 1px solid black;
+    }
+
+    pre {
+      width: 100%;
+      text-indent: 0.75em;
+      padding-left: 0.5em;
+      margin-left: 1em;
+      white-space: pre-wrap;
+      border-left: 3px solid black;
+      background-color: rgba(0, 0, 0, 0.03);
+      line-height: 1.5;
+      overflow-x: clip;
+    }
+
+    pre.language-Python {
+      border-left: 5px solid blue;
+      padding: 0.5em;
+      margin-left: 1em;
+      margin-right: 1em;
+      line-height: 1.5;
+      overflow-x: auto;
+    }
+
+    table tr td {
+      border: 1px solid rgb(204, 204, 204);
+      text-align: left;
+      margin: 0px;
+      padding: 6px 13px;
+    }
+
+    table tr th :first-child,
+    table tr td :first-child {
+      margin-top: 0px;
+    }
+
+    table tr th :last-child,
+    table tr td :last-child {
+      margin-bottom: 0px;
+    }
+
+    table tr th {
+      font-weight: bold;
+      border: 1px solid rgb(204, 204, 204);
+      text-align: left;
+      margin: 0px;
+      padding: 6px 13px;
+    }
+
+    table tr {
+      border-top: 1px solid rgb(204, 204, 204);
+      background-color: white;
+      margin: 0px;
+      padding: 0px;
+    }
+
+    table tr:nth-child(2n) {
+      background-color: rgb(248, 248, 248);
+    }
+
+    table {
+      padding: 0px;
+    }
+  </style>
   <script>
     function tocClickListen() {
         // No jQuery b/c also used in stand-alone HTML.
@@ -116,14 +535,14 @@
         <li><a number="3.3" href="#jackson-equation-1-42">Jackson Equation 1.42</a></li>
       </ol>
       <li><a number="4" href="#hw-4">HW 4</a></li>
-      <ol style="display: block;">
+      <ol style="display: none;">
         <li><a number="4.1" href="#green-function-for-infinite-dome">Green function for infinite dome</a></li>
         <li><a number="4.2" href="#2-d-cartesian-boundary-value-problem" class="highlighted">2–D Cartesian Boundary Value Problem</a></li>
         <li><a number="4.3" href="#2-d-spherical-boundary-value-problem">2–D Spherical Boundary Value Problem</a></li>
       </ol>
       <li><a number="5" href="#hw-5">HW 5</a></li>
-      <ol style="display: block;">
-        <li><a number="5.1" href="#limit-check" class="">Limit Check</a></li>
+      <ol style="display: none;">
+        <li><a number="5.1" href="#limit-check">Limit Check</a></li>
         <li><a number="5.2" href="#long-rectangular-tube-with-sheet-of-charge">Long Rectangular Tube with Sheet of Charge</a></li>
         <li><a number="5.3" href="#2-d-cylindrical-boundary-value-problem">2-D Cylindrical Boundary Value Problem</a></li>
       </ol>
@@ -14754,7 +15173,7 @@ M1001 80h400000v40h-400000z"></path>
               </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.22222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">o</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> and the other three are grounded. See also <a href="https://rweigel.github.io/phys305/boundary_value_problems.html">my PHYS 305 notes</a>.</p>
       </div>
       <div class="block">
-        <p>Suppose the sides of Figure 3.20 of Griffiths 3rd or 4th edition are held at <span len="5" class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+        <p class="">Suppose the sides of Figure 3.20 of Griffiths 3rd or 4th edition are held at <span len="5" class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
                 <semantics>
                   <mrow>
                     <msub>
@@ -14829,11 +15248,11 @@ M1001 80h400000v40h-400000z"></path>
               </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">b</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span></span></span></span>bottom. Find the potential inside the rectangular pipe.</p>
       </div>
       <div class="block">
-        <p class="">Hints:</p>
+        <p>Hints:</p>
       </div>
       <div class="block">
         <ol>
-          <li class="">
+          <li>
             <div class="block">
               <p>The total potential will be the the sum of the potentials from four different problems (1) <span len="5" class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
                       <semantics>
@@ -14902,7 +15321,7 @@ M1001 80h400000v40h-400000z"></path>
     </div>
     <div class="section">
       <div class="block">
-        <h2 class=""><a name="limit-check" number="5.1" class="hanchor" href="#limit-check"><span class="hnumber">5.1 </span> <span class="htext">Limit Check</span></a></h2>
+        <h2><a name="limit-check" number="5.1" class="hanchor" href="#limit-check"><span class="hnumber">5.1 </span> <span class="htext">Limit Check</span></a></h2>
       </div>
       <div class="block">
         <p>The potential inside of the long (in <span len="3" class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
