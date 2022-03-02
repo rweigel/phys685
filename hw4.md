@@ -119,9 +119,9 @@ The geometry for the $V_l$ case is
 
 <img src="figures/square_duct2.svg"/>
 
-The choice of coordinate system for $I.$ was arbitrary and we can translate the duct used for $I.$ to the left and down so that the position of the duct is the same as that in Figure 3.20 of Griffiths.
+The choice of coordinate system for $I.$ was arbitrary and we can translate the duct used for $I.$ to the left by $b/2$ and down by $a/2$ so that the position of the duct is the same as that in Figure 3.20 of Griffiths.
 
-This is effected by replacing $x$ with $x+b/2$ and $y$ with $y+a/2$ in the equation for $V(x,y)$:
+This is effected by replacing $x$ with $x+b/2$ and $y$ with $y+a/2$ in $I.$:
 
 $\qquad\displaystyle \psi_l(x,y)=\frac{4V_l}{\pi}\sum_{n=1,3,...}^\infty\left(\frac{\sinh[n\pi (b/2-x)/a]}{n\sinh(n\pi b/a)}\right)\sin(n\pi (y/a-1/2))$
 

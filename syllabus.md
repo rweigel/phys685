@@ -31,9 +31,11 @@ Homeworks: [1](hw.html#hw-1) | [2](hw.html#hw-2) | [3](hw.html#hw-3) | [4](hw.ht
 
 %3.7-3.12
 
-%## March 2nd
+## March 2nd
 
-%3.3, 3.5, 3.6 
+* Review of Boundary Value and Green (reciprocity) methods
+* Azimuthal Symmetry (3.5 of Jackson)
+* 3.5, 3.6 
 
 ## Feb 23rd
 
