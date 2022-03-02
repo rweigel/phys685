@@ -20,7 +20,7 @@ Note that a related problem (but with a different Green function) considered in 
 
 $\displaystyle\psi = \frac{kq}{\sqrt{(x-x')^2+(y-y')^2+(z-z')^2}}-\frac{kq}{\sqrt{(x-x')^2+(y-y')^2+(z+z')^2}}$
 
-This equation was derived using the method of images in class and is the same equation that solves the problem for a point charge at $\mathbf{x}'$ above an infinite grounded plane that lies in the $x$-$y$ plane. $\phi$ satisfies the boundary conditions that when $z=0$, $\psi(x,y,0)=0$ and when $r'\gg r$, $\psi=0$ (showing the latter requires re--writing the denominators in terms of $r'$ and $r$).
+This equation was derived using the method of images in class and is the same equation that solves the problem for a point charge at $\mathbf{x}'$ above an infinite grounded plane in the $x$-$y$ plane. $\psi$ satisfies the boundary conditions that when $z=0$, $\psi(x,y,0)=0$ and when $r'\gg r$, $\psi=0$ (showing the latter requires re--writing the denominators in terms of $r'$ and $r$).
 
 Given that we are only interested in the potential along the $z$--axis, we can set $x'=y'=0$. (In 2.6 of Jackson, he does this after the integral required to find $\Phi(x,y,z)$ is found.) We then have
 
@@ -34,15 +34,16 @@ In this problem $\mathcal{V}$ is the volume of the dome and $\mathcal{S}$ has tw
 
 The Laplacian of $\psi$ can be written down by inspection. The charge density is that for point charges at $(x,y,z)=(0,y,\pm z')$, so
 
-$\nabla^2\psi=-kq\delta(x)\delta(y)\delta(z-z')+kq\delta(x)\delta(y)\delta(z+z')$
+$\displaystyle\nabla^2\psi=-\frac{q}{\epsilon_o}\big[\delta(x)\delta(y)\delta(z-z')+\delta(x)\delta(y)\delta(z+z')\big]$
 
-$\displaystyle\int_\mathcal{V} \Phi\nabla^2\psi d^3x=\int_\mathcal{V} \Phi\left[-kq\delta(x)\delta(y)\delta(z-z')+kq\delta(x)\delta(y)\delta(z+z')\right]d^3x$
 
-$\delta(z+z')$ is zero in $\mathcal{V}$, for which $z$ is always positive and $z'$ was given to be above the $x$-$y$ plane, so it is positive. The integral simplifies to  
+$\displaystyle\int_\mathcal{V} \Phi\nabla^2\psi d^3x=-\frac{q}{\epsilon_o}\int_\mathcal{V} \Phi\big[\delta(x)\delta(y)\delta(z-z')+\delta(x)\delta(y)\delta(z+z')\big]d^3x$
 
-$\displaystyle\int_\mathcal{V} \Phi\nabla^2\psi d^3x=-\frac{kq}{\epsilon_o}\int_\mathcal{V} \Phi \delta(x)\delta(y)\delta(z-z')d^3x=-\frac{kq}{\epsilon_o}\Phi(0,0,z)=\frac{kq}{\epsilon_o}\Phi(z)$.
+$\delta(z+z')$ is zero in $\mathcal{V}$ because $z$ and $z'$ are positive in $\mathcal{V}$. The integral simplifies to  
 
-Inside $\mathcal{V}$, we were given that there are no charges, so $\nabla^2\Phi=0$. Therefore, the left-hand side of Equation 1.35 reduces to $-(kq/\epsilon_o)\Phi(z)$.
+$\displaystyle\int_\mathcal{V} \Phi\nabla^2\psi d^3x=-\frac{q}{\epsilon_o}\int_\mathcal{V} \Phi \delta(x)\delta(y)\delta(z-z')d^3x=-\frac{q}{\epsilon_o}\Phi(0,0,z')=\frac{q}{\epsilon_o}\Phi(z')$.
+
+Inside $\mathcal{V}$, we were given that there are no charges, so $\nabla^2\Phi=0$. Therefore, the left-hand side of Equation 1.35 reduces to $-(q/\epsilon_o)\Phi(z')$.
 
 On $\mathcal{S}$, $\psi=0$, so the second surface integral is zero. We are left with
 
@@ -50,7 +51,9 @@ $\displaystyle -\frac{q}{\epsilon_o}\Phi(z')=\oint_\mathcal{S}\Phi\frac{\partial
 
 The surface is composed of the two parts -- the curved part and its base. On the curved part, $\Phi=0$ was given. On the base, $\Phi=0$ for $x^2+y^2\lt b^2$ and $\Phi=V_o$ otherwise. As a result, the surface integral reduces to
 
-$\displaystyle -\frac{q}{\epsilon_o}\Phi(z')=\int_\mathcal{x^2+y^2\lt b^2}V_o\frac{\partial \psi}{\partial n} da$. In cylindrical coordinates, we have
+$\displaystyle -\frac{q}{\epsilon_o}\Phi(z')=\int_\mathcal{x^2+y^2\lt b^2}V_o\frac{\partial \psi}{\partial n} da$.
+
+In cylindrical coordinates, we have
 
 $\displaystyle -\frac{q}{\epsilon_o}\Phi(z')=V_o\int_{0}^{2\pi}\int_0^b\frac{\partial \psi}{\partial n} sdsd\phi$
 
@@ -58,7 +61,7 @@ The outward normal to $\mathcal{V}$ is -$z$, so
 
 $\displaystyle -\frac{q}{\epsilon_o}\Phi(z')=-V_o\int_{0}^{2\pi}\int_0^b\frac{\partial \psi}{\partial z} sdsd\phi$
 
-What remains is to evaluate the partial derivative (and recall that ${\partial \psi}/{\partial z}$ in the integral means ${\partial \psi}/{\partial z}|_{\text{on }\mathcal{S}}$). In this problem, $\text{on }\mathcal{S}$ corresponds to $z=0$.)
+What remains is to evaluate the partial derivative (and recall that ${\partial \psi}/{\partial z}$ in the integral means ${\partial \psi}/{\partial z}|_{\text{on }\mathcal{S}}$). In this problem, "$\text{on }\mathcal{S}$" corresponds to $z=0$.)
 
 $\displaystyle\frac{\partial \psi}{\partial z}\Bigg|_{z=0}=2kq\frac{z'}{\sqrt{s^2+z'^2}^3}$
 
@@ -66,7 +69,7 @@ Evaluation of the integral gives
 
 $\displaystyle -\frac{q}{\epsilon_o}\Phi(z')=-4\pi kqV_o\left[\frac{z'}{|z'|}-\frac{z'}{\sqrt{b^2+z'^2}}\right]$
 
-Cancellation and using $z'/|z'|=1$ for $z'\gt 0$ gives
+Cancelling constants and using $z'/|z'|=1$ for $z'\gt 0$ gives
 
 $\displaystyle \Phi(z')=V_o\left[1-\frac{z'}{\sqrt{b^2+z'^2}}\right]$
 
@@ -74,7 +77,7 @@ Using the same arguments used in [HW 3.1](#1-d-cartesian-green-function), we can
 
 $\displaystyle \Phi(z)=V_o\left[1-\frac{z}{\sqrt{b^2+z^2}}\right]$
 
-2\. The solution can be written as
+2\. The solution can also be written as
 
 $\displaystyle \Phi(z)=V_o\left[1-\frac{1}{\sqrt{1+\frac{b^2}{z^2}}}\right]$
 
@@ -86,7 +89,7 @@ To lowest order in $b/z$,
 
 $\displaystyle \Phi(z) \simeq \frac{V_o}{2}\left(\frac{b}{z}\right)^2 \qquad z\gg b$
 
-For large $z$, the (positive) charge on the disk appears as a point charge at the origin. As a result, we may expect that the potential will fall off as $1/z$. Here the potential falls off more slowly. The reason is that there is also a contribution from the negative charges in the plane. As a result, for large $z$, the system appears to have zero charge at the origin and so there is no $1/z$ term. (The interpretation of the power series expansion of potential will be covered in more detail later.)
+For large $z$, the (positive) charge on the disk appears as a point charge at the origin. As a result, we may expect that the potential will fall off as $1/z$. Here the potential falls off more slowly. The reason is that there is also a contribution from the negative charges in the plane for $s\gt b$. As a result, for large $z$, the system appears to have zero charge at the origin and so there is no $1/z$ term. (The interpretation of the power series expansion of potential will be covered in more detail later.)
 
 3\. This was discussed in class. In general, it is easiest to draw equipotential lines starting with one near the boundary. Then, draw electric field lines that are perpendicular to the equipotential lines.
 
