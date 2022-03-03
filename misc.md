@@ -474,15 +474,13 @@ $$\psi_o(\rho\rightarrow\infty,\phi) \rightarrow const-(\overline{\lambda}/2\pi\
 
 ## Cartesian
 
-
+See [HW #3](hw.md#2-d-cartesian-boundary-value-problem) and references therein.
 
 ## Spherical -- Potential Given 
 
 A non-conducting spherical shell of radius $b$ has on its surface of $V_o\cos\theta$.
 
-1. Find $\Psi(r)$.
-
-2. Find $\Psi(r)$ if  $\Psi(r=b)=V_1\cos\theta+V_2\cos^2\theta$.
+Find $\Psi(r)$.
 
 **Solution**
 
@@ -492,8 +490,14 @@ $$\Psi_i=V_o\frac{r}{b}\cos\theta$$
 
 $$\Psi_o=V_o\frac{b^2}{r^2}\cos\theta$$
 
-2\. (Partial solution)
+## Spherical -- Potential Given 
 
+Find $\Psi(r)$ if  $\Psi(r=b)=V_1\cos\theta+V_2\cos^2\theta$.
+
+**Solution**
+
+(Partial solution)
+ 
 Need to write $V_2\cos^2\theta$ in terms of Legendre polynomials.
 
 $$P_2=\frac{1}{2}(3\cos^2\theta - 1)$$

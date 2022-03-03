@@ -11,7 +11,7 @@
 * Office: 259 Planetary Hall
 * Course URL: http://rweigel.github.io/phys685/
 
-Homeworks: [1](hw.html#hw-1) | [2](hw.html#hw-2) | [3](hw.html#hw-3) | [4](hw.html#hw-4) | [5](hw.html#hw-5)
+Homeworks: [1](hw.html#hw-1) | [2](hw.html#hw-2) | [3](hw.html#hw-3) | [4](hw.html#hw-4) | [5](hw.html#hw-5) | [6](hw.html#hw-6)
 
 # Class Schedule
 
@@ -34,8 +34,7 @@ Homeworks: [1](hw.html#hw-1) | [2](hw.html#hw-2) | [3](hw.html#hw-3) | [4](hw.ht
 ## March 2nd
 
 * Review of Boundary Value and Green (reciprocity) methods
-* Azimuthal Symmetry (3.5 of Jackson)
-* 3.5, 3.6 
+* Azimuthal Symmetry (3.3 of Jackson)
 
 ## Feb 23rd
 
