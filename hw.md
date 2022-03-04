@@ -1058,6 +1058,8 @@ $G(\mathbf{x},\mathbf{x}')=G(\mathbf{x}',\mathbf{x})$
 
 For a general function, say, $g(x,y) = xy^2$, $g(x,y) = xy^2\ne g(y,x) = yx^2$. Showing $G(\mathbf{x},\mathbf{x}')=G(\mathbf{x}',\mathbf{x})$ in general is non-trivial and Jackson problem 1.14 gives a suggestion for the proof, and a footnote on page 40 gives a reference of the proof for 1.14(b). So ideally one would have cited the statement on page 40 of Jackson to justify the use of $G(\mathbf{x},\mathbf{x}')=G(\mathbf{x}',\mathbf{x})$.
 
+\newpage
+
 # HW 4
 
 ## Green function for infinite dome
@@ -1219,6 +1221,8 @@ In 2.7 of Jackson 3rd edition, he solves for the potential outside of a sphere w
 
 Study these two examples and be prepared to answer questions (such as how they are related) about them in class.
 
+\newpage
+
 # HW 5
 
 ## Limit Check
@@ -1283,6 +1287,8 @@ $$\psi=A_o+\sum_{n=1}^\infty (A_n\cos n\phi+B_n\sin n\phi) s^n+a_o\ln s+\sum_{n=
 %In class, I did the a problem for $\sigma=\sigma_o\cos\thinspace\phi$. In justifying dropping the $\rho^n$ and $\ln\rho$ terms, I mentioned that this was justified because the potential should go to zero as $\rho\rightarrow \infty$. What I neglected to mention is that this is because for large $\rho$, the system appears as a line of charge with linear charge density, $\lambda$, and $\lambda=0$ for the given $\sigma$. This can be seen by computing the linear charge density $\lambda = \int_0^{2\pi} \sigma b d\phi$.
 
 2\. Repeat 1. assuming $\sigma=\sigma_o + \sigma_2\sin\thinspace2\phi$. In this case, the $\ln s$ term cannot be dropped for the $s>b$ solution; $a_o$ is determined from the requirement that for large $s$, the potential should be that for a line of charge with linear density $\lambda$ that is the average of $\sigma$ over $\phi$.
+
+\newpage
 
 # HW 6
 
