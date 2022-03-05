@@ -675,7 +675,9 @@ It is left as an exercise to show how one can arrive at the same solution found 
 
 ## Cartesian
 
-See [HW #3](hw.md#2-d-cartesian-boundary-value-problem) and references therein.
+See also [my PHYS 305 notes](https://rweigel.github.io/phys305/boundary_value_problems.html)
+
+See [HW #4](hw.md#2-d-cartesian-boundary-value-problem) and references therein.
 
 ## Cylindrical -- $\sigma$ given
 
