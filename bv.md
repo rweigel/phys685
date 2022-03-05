@@ -470,6 +470,207 @@ matches the limit
 
 $$\psi_o(\rho\rightarrow\infty,\phi) \rightarrow const-(\overline{\lambda}/2\pi\epsilon_o)\ln\rho=const-(\sigma_1b/\epsilon_o)\ln\rho$$
 
+----
+
+*Alternative Solution*
+
+In the following, \(s_o\) is used in place of \(b\) to avoid confusion with \(b_n\).
+
+----
+
+$$
+\begin{align}
+\psi_o(s,\phi)  = {} &  A^o_o+a^o_o\ln s\\
+& +\sum_{n=1}^\infty (A^o_n\cos n\phi+B^o_n\sin n\phi)s^n\\
+& +\sum_{n=1}^\infty (a^o_n\cos n\phi+b^o_n\sin n\phi)s^{-n}
+\end{align}
+$$
+
+A common error is to assert \(A^o_n=B^o_n=0\) for all \(n\) because the potential does not "blow up". Here that logic fails as it would give \(A^o_1=0\). (This is in part why I discourage using the "blow up" logic in solutions and why I asked you to provide justifications.) 
+
+The electric field is given as \(\mathbf{E}=E_o\hat{\mathbf{x}}\). Using \(\psi=\int \mathbf{E}\cdot d\mathbf{l}\) with \(d\mathbf{l}=\hat{\mathbf{x}}dx\) gives a potential of \(\psi(x)=-E_ox+V_o\), where \(V_o\) is a constant of integration. In cylindrical coordinates this is \(\psi=-E_os\cos\phi+V_o\). We will assume that for large \(s\), the potential approaches this functional form. (At the end of this solution, we consider an alternative justification for this assumption than the usual "if it satisfies ... and unique ... it is the solution" justification; if there were a line of charge in the system parallel to the \(z\)-axis, this assumption would not be valid.) Therefore, our outer boundary condition is
+
+$$\psi^o(s\rightarrow \infty,\phi) \rightarrow E_os\cos\phi+V_o$$
+
+For large \(s\), the general form of the potential reduces to
+
+$$\psi^o(s\rightarrow \infty,\phi) \rightarrow A^o_o+a^o_o\ln s +\sum_{n=1}^\infty (A^o_n\cos n\phi+B^o_n\sin n\phi)s^n$$
+
+(Technically we should write the solution in terms of  \(s' = s/b\) and consider \(s'\rightarrow \infty\) because \(\infty\) is dimensionless).  Combining these two equations gives
+
+$$I.\quad E_os\cos\phi+V_o = A^o_o+a^o_o\ln s +\sum_{n=1}^\infty (A^o_n\cos n\phi+B^o_n\sin n\phi)s^n$$
+
+Integration of both sides of \(I.\) over \(\phi = [0,2\pi]\) gives
+
+$$V_o = A^o_o + a^o_o\ln s$$
+
+or
+
+$$V_o - A^o_o = a^o_o\ln s$$
+
+The only way for this to be true for arbitrary \(s\) is if \(a^o_o=0\), which implies \(A_o=V_o\). 
+
+Multiplication of \(I.\) by \(\cos\phi\) and integration over \(\phi = [0,2\pi]\) gives
+
+$$-E_o = A^o_1$$
+
+Multiplication of \(I.\) by \(\cos n'\phi\) for \(n'\gt 1\) and integration over \(\phi = [0,2\pi]\) gives
+
+and \(A^o_n=0\) for \(n\gt 1\). 
+
+Multiplication of \(I.\) by \(\sin n'\phi\) for \(n'\gt 1\) and integration over \(\phi = [0,2\pi]\) gives
+
+and \(B^o_n=0\) for \(n\ge 1\). (That \(B^o_n=0\) could also be justified by a symmetry argument - the potential should have the property that \(\psi(x,y)=\psi(x,-y)\), or equivalently, \(\psi(s,\phi)=\psi(s,-\phi)\)). This leaves
+
+$$\psi^o(s,\phi) = V_o-\frac{E_o}{s}\cos\phi+\sum_{n=1}^\infty (a^o_n\cos n\phi+b^o_n\sin n\phi)s^n$$
+
+As noted earlier, because the system is invariant under the transformation \(\phi\rightarrow -\phi\) from which it follows that \(b^o_n=0\), leaving
+
+$$\psi^o(s,\phi) = V_o-E_os\cos \phi+\frac{A^o_1}{s}\cos\phi+\sum_{n=1}^\infty (a^i_n\cos n\phi)s^{-n}$$
+
+(If we had not used the symmetry argument to assert \(b^o_n=0\), we could still find it to be zero later using the method used to show \(B^o_n=0\).)
+
+The fact that we cannot say anything about \(a^i_n\) is reflective of the fact that we have not addressed any constraints on the potential for non-large \(s\).
+
+The starting equation for the inner solution is the same as that for the outer solution:
+
+----
+----
+
+$$
+\begin{align}
+\psi_i(s,\phi)  = {} &  A^i_o+a^i_o\ln s\\
+& +\sum_{n=1}^\infty (A^i_n\cos n\phi+B^i_n\sin n\phi)s^n\\
+& +\sum_{n=1}^\infty (a^i_n\cos n\phi+b^i_n\sin n\phi)s^{-n}
+\end{align}
+$$
+
+The continuity condition is
+
+$$\psi_o(s_o,\phi)=\psi_i(s_o,\phi)$$
+
+$$
+\begin{align}
+II.\quad V_o+ E_os_o\cos \phi +\frac{A^o_1}{s}\cos\phi = {} &  A^i_o+a^i_o\ln s_o\\
+& +\sum_{n=1}^\infty (A^i_n\cos n\phi+B^i_n\sin n\phi)s_o^n\\
+& +\sum_{n=1}^\infty (a^i_n\cos n\phi+b^i_n\sin n\phi)s_o^{-n}
+\end{align}
+$$
+
+Integration of both sides of \(II.\) over \(\phi = [0,2\pi]\) gives
+
+$$V_o=A^i_o + a^i_o\ln s_o$$
+
+Multiplication of \(II.\) by \(\cos\phi\) and integration over \(\phi = [0,2\pi]\) gives
+
+$$E_os_o+\frac{A^o_1}{s_o}=A^i_1s_o+\frac{a^i_1}{s_o}$$
+
+Multiplication of \(II.\) by \(\cos n'\phi\) for \(n'\gt 1\) and integration over \(\phi = [0,2\pi]\) gives
+
+$$0 = A^i_ns_o^n + \frac{a^i_n}{s_o^n}\quad n'\gt 1$$
+
+Multiplication of \(II.\) by \(\sin n'\phi\) for \(n'\ge 1\) and integration over \(\phi = [0,2\pi]\) gives
+
+$$0 = B^i_nb^n+\frac{b^i_n}{s_o^n}\quad n'\ge 1$$
+
+----
+----
+
+The boundary condition \(\epsilon_2 E_{2\perp}-\epsilon_1E_{1\perp}=\sigma_f\) evaluated at \(s=s_o\), written in terms of potentials, and with \(\sigma_f=0\) is
+
+$$\epsilon_o\frac{\partial \psi_o}{\partial s}\Bigg|_{s=s_o}=\epsilon\frac{\partial \psi_i}{\partial s}\Bigg|_{s=s_o}$$
+
+$$
+\begin{align}
+III.\quad (\epsilon_o/\epsilon)E_o\cos \phi-\frac{A_1^o}{s_o^2}\cos\phi  = {} &  \frac{a^i_o}{s_o}\\
+& +\sum_{n=1}^\infty n(A^i_n\cos n\phi+B^i_n\sin n\phi)s_o^{n-1}\\
+& -\sum_{n=1}^\infty n(a^i_n\cos n\phi+b^i_n\sin n\phi)s_o^{-n-1}
+\end{align}
+$$
+
+Integration of both sides of \(III.\) over \(\phi = [0,2\pi]\) gives
+
+$$a^i_o=0$$
+
+Multiplication of \(III.\) by \(\cos\phi\) and integration over \(\phi = [0,2\pi]\) gives
+
+$$\frac{\epsilon_o}{\epsilon}E_o-\frac{\epsilon_o}{\epsilon}\frac{A_1^o}{s^2_o}=A^i_1 - \frac{a^i_1}{s_o^2}$$
+
+Multiplication of \(III.\) by \(\cos n'\phi\) for \(n'\gt 1\) and integration over \(\phi = [0,2\pi]\) gives
+
+$$0 = nA^i_ns_o^{n-1} - \frac{na^i_n}{s_o^{n+1}}\quad n\gt 1$$
+
+When this is combined with the earlier condition
+
+$$0 = A_ns_o^n + \frac{a_n}{s_o^n}\quad n\gt 1$$
+
+yields
+
+$$0 = -n\frac{a^i_n}{s_o^{2n}}s_o^{n-1} - \frac{na^i_n}{s_o^{n+1}}\quad n\gt 1$$
+
+which simplifies to
+
+$$0 = \frac{a^i_n}{s^{n+1}_o} \quad n\gt 1$$
+
+So \(a^i_n=0\) for \(n\gt 1\) and because \(a^i_o=0\) was found earlier, only \(a^o_1\) is unknown.
+
+Multiplication of \(III.\) by \(\sin n'\phi\) for \(n' \ge 1\) and integration over \(\phi = [0,2\pi]\) gives
+
+$$0 = nB^i_ns_o^{n-1} - \frac{nb^i_n}{s_o^{n+1}}\quad n\ge 1$$
+
+This combined with
+
+$$0 = B_nb^n+\frac{b_n}{s_o^n}\quad n\ge 1$$
+
+from the continuity condition gives \(b^i_n=0\) for \(n\ge 1\).
+
+This leaves
+
+$$\psi_i = V_o-A_1^i s\cos\phi+\frac{a_1^i}{s}\cos\phi$$
+
+$$\psi_o = V_o-E_os\cos\phi + \frac{A_1^o}{s}\cos\phi$$
+
+and two equations that have not been used:
+
+$$E_os_o+\frac{A^o_1}{s_o}=A^i_1s_o+\frac{a^i_1}{s_o}$$
+
+$$\frac{\epsilon_o}{\epsilon}E_o-\frac{\epsilon_o}{\epsilon}\frac{A_1^o}{s^2_o}=A^i_1 + \frac{a^i_1}{s_o^2}$$
+
+It would appear that there are three unknowns in these two equations. Normally we would say that \(a_1^i=0\) because the solution does not "blow up" at the origin. There is also a mathematical justification. Poisson's equation in cylindrical coordinates for a potential with no \(z\)-dependence is
+
+$$\frac{1}{s}\frac{\partial}{\partial s}\left(s\frac{\partial \psi}{\partial s}\right) + \frac{1}{s^2}\frac{\partial^2\psi}{\partial \phi^2}=-\frac{\rho}{\epsilon_o}$$
+
+or
+
+$$s\frac{\partial}{\partial s}\left(s\frac{\partial \psi}{\partial s}\right) + \frac{\partial^2\psi}{\partial \phi^2}=-\frac{\rho}{\epsilon_o}$$
+
+If \(s=0\), \(\phi\) is continuous near \(s=0\), and \(\rho=0\) (corresponding to no line of charge along the \(z\)-axis and passing through the origin) this reduces to
+
+$$\frac{\partial^2\psi}{\partial \phi^2}=0\qquad \Rightarrow\qquad\frac{\partial \psi}{\partial \phi}\Bigg|_{s=0}=const$$
+
+(If one inspects the derivation for the equation of the general equation for the potential (e.g., [http://faculty.washington.edu/blayneh/cylcoord.pdf]) used at the starting point in this problem, you will note that the general form of the solution is actually only valid for \(s\gt 0\)). As a result, we actually need to consider three regions for the solution, with the additional "region" being \(s=0\). 
+
+The additional condition is then
+
+$$\frac{\partial \psi_i}{\partial \phi}\Bigg|_{s\rightarrow 0} = const$$
+
+As a result,
+
+$$\frac{\partial \psi_i}{\partial \phi}\Bigg|_{s\rightarrow 0} = \left[A_1^i s\sin\phi-\frac{a_1^i}{s}\sin\phi\right]_{s\rightarrow 0}=const$$
+
+For this condition to hold, \(a^i_1=0\) and the remaining equations are the same as found in the first solution to this problem.
+
+As noted earlier, technically we were only told that the dielectric was placed in a region of space where the electric field was \(\mathbf{E}=E_o\hat{\mathbf{x}}\). From a physical perspective, it seems reasonable to conclude that the presence of the dielectric will not alter this electric field for large enough \(s\), which was used to justify the condition \(\psi^o(s\rightarrow \infty,\phi) \rightarrow E_os\cos\phi+V_o\). If we did not make this assumption, the only reduction from the general solution to the potential would be that from the symmetry argument that \(\psi(s,\phi)=\phi(s,-\phi)\), from which it follows that \(b_n=B_n=0\). The outer potential is then
+
+$$
+\begin{align}
+\psi_o(s,\phi)  = {} &  A^i_o+a^i_o\ln s+\sum_{n=1}^\infty (A^i_n\cos n\phi)s^n+\sum_{n=1}^\infty (a^i_n\cos n\phi)s^{-n}
+\end{align}
+$$
+
+It is left as an exercise to show how one can arrive at the same solution found earlier without using the assumption \(\psi^o(s\rightarrow \infty,\phi) \rightarrow E_os\cos\phi+V_o\).
+
+
 # 2-D
 
 ## Cartesian
@@ -484,117 +685,101 @@ See [HW #3](hw.md#2-d-cartesian-boundary-value-problem) and references therein.
 
 A non-conducting spherical shell of radius $b$ has on its surface of $V_o\cos\theta$.
 
-Find $\Psi(r)$.
+Find $\Phi(r,\theta)$.
 
 **Solution**
 
-1\. Using $\Psi=0$ at the origin,
+1\. Using $\Phi=0$ at the origin,
 
-$$\Psi_i=V_o\frac{r}{b}\cos\theta$$
-
-$$\Psi_o=V_o\frac{b^2}{r^2}\cos\theta$$
+$\Phi(r,\theta) = 
+\begin{cases}
+\displaystyle V_o\frac{r}{b}\cos\theta & r \le b \\ \\
+\displaystyle V_o\frac{b^2}{r^2}\cos\theta & r \ge b
+\end{cases}
+$
 
 ## Spherical -- Potential Given 
 
-Find $\Psi(r)$ if  $\Psi(r=b)=V_1\cos\theta+V_2\cos^2\theta$.
+Find $\Phi(r,\theta)$ if  $\Phi(r=b,\theta)=V_1\cos\theta+V_2\cos^2\theta$.
 
 **Solution**
 
 (Partial solution)
- 
-Need to write $V_2\cos^2\theta$ in terms of Legendre polynomials.
 
-$$P_2=\frac{1}{2}(3\cos^2\theta - 1)$$
+Note that we could compute the potential due to the $V_2$ term and add the result of the previous problem. 
 
-so
+Need to write $V_2\cos^2\theta$ in terms of Legendre polynomials. Noting that $P_2=\frac{1}{2}(3\cos^2\theta - 1)$, $\cos^2\theta = \frac{2P_2+1}{3}$. Using this and $P_1(\cos\theta)=\cos\theta$, the boundary condition can be re-written as
 
-$$\cos^2\theta = \frac{2P_2+1}{3}$$
-
-Using this and $P_1(\cos\theta)=\cos\theta$, the boundary condition can be re-written as
-
-$$\Psi(r=b,\theta)=\frac{V_2}{3} + V_1P_1(\cos(\theta)) + \frac{2V_2}{3}P_2(\cos(\theta))$$
+$\displaystyle\Phi(r=b,\theta)=\frac{V_2}{3} + V_1P_1(\cos\theta) + \frac{2V_2}{3}P_2(\cos\theta)$
 
 Inside the sphere, look for solutions in the form
 
-$$\Psi_i(r,\theta) = \sum_{l=0}^{\infty}A_lr^lP_l(\cos\theta)$$
+$\displaystyle\Phi^i(r,\theta) = \sum_{l=0}^{\infty}A_lr^lP_l(\cos\theta)$
 
 Outside, use 
 
-$$\Psi_o(r,\theta) = \sum_{l=0}^{\infty}\frac{B_l}{r^{l+1}}P_l(\cos\theta)$$
+$\displaystyle\Phi^o(r,\theta) = \sum_{l=0}^{\infty}\frac{B_l}{r^{l+1}}P_l(\cos\theta)$
 
 At $r=b$,
 
-$$\Psi_1(b,\theta)=\Psi_2(b,\theta)$$
+$\Phi^o(b,\theta)=\Phi^i(b,\theta)$
 
-$$\sum_{l=0}^{\infty}A_lb^lP_l(\cos\theta) = \sum_{l=0}^{\infty}\frac{B_l}{b^{l+1}}P_l(\cos\theta)$$
+$\displaystyle\sum_{l=0}^{\infty}A_lb^lP_l(\cos\theta) = \sum_{l=0}^{\infty}\frac{B_l}{b^{l+1}}P_l(\cos\theta)$
 
 This gives
 
-$$B_l=A_lb^{2l+1}$$
+$B_l=A_lb^{2l+1}$
 
 Written out explicitly, this is
 
-$$B_0=A_0b$$
+$B_0=A_0b$
 
-$$B_1=A_1b^3$$
+$B_1=A_1b^3$
 
-$$B_2=A_2b^5$$
+$B_2=A_2b^5$
 
-$$...$$
+$...$
 
-One can use either $\Psi_i$ or $\Psi_o$ at $r=b$ along with
+One can use either $\Phi^i$ or $\Phi^o$ at $r=b$ along with the boundary condition
 
-$$\Psi(r=b)=\frac{V_2}{3} + V_1P_1(\cos(\theta)) + \frac{2V_2}{3}P_2(\cos(\theta))$$
+$\displaystyle\Phi(r=b)=\frac{V_2}{3} + V_1P_1(\cos\theta) + \frac{2V_2}{3}P_2(\cos\theta)$
 
-Using $\Psi_i$,
+Using $\Phi^i$,
 
-$$\Psi_i(b,\theta)=\sum_{l=0}^{\infty}A_lb^lP_l(\cos\theta)=\frac{V_2}{3} + V_1P_1(\cos(\theta)) + \frac{2V_2}{3}P_2(\cos(\theta))$$
+$\displaystyle\Phi^i(b,\theta)=\sum_{l=0}^{\infty}A_lb^lP_l(\cos\theta)=\frac{V_2}{3} + V_1P_1(\cos\theta) + \frac{2V_2}{3}P_2(\cos\theta)$
 
-It is often easier to write out a few terms in the sum
+To find the coefficients, it is often easier to write out a few terms in the sum and match terms (make sure that you know why this works):
 
 $$
-\begin{align}
+\begin{align*}
 && A_0P_0                   && + && A_1bP_1  && + &&  A_2b^2P_2            &&\quad +   &&\quad A_3b^3P_3 &&\quad+&&\quad ... && = && \\
 && \frac{V_2}{3}P_0   && + && V_1P_1    && + && \frac{2V_2}{3}P_2   &&\quad+    && \quad 0                &&\quad +            && \quad ...              &&   &&
-\end{align}
+\end{align*}
 $$
 
+## Spherical $\sigma$ given
 
 A non-conducting sphere of radius $r_o$ has a surface charge density of $(3/2)\sigma_2\sin^2\theta$. Find the potential inside and outside of the sphere assuming that at $r\gg r_o$, $\Psi=0$. In your calculations, use $\epsilon_o=1$.
 
 First, write $\sigma$ in terms of Legendre polynomials:
 
-$$\sigma = \frac{3\sigma_2}{2}\sin^2\theta=\frac{3}{2}\sigma_2(1-\cos^2\theta)=\frac{3}{2}\sigma_2-\frac{3}{2}\sigma_2\cos^2\theta$$
+$\sigma = \frac{3\sigma_2}{2}\sin^2\theta=\frac{3}{2}\sigma_2(1-\cos^2\theta)=\frac{3}{2}\sigma_2-\frac{3}{2}\sigma_2\cos^2\theta$
 
-From the equation sheet table,
+Given that $P_2 = \frac{3\cos^2\theta-1}{2}$, we can write $\cos^2\theta = \frac{2P_2+1}{3}$ and
 
-$$P_2 = \frac{3\cos^2\theta-1}{2}$$
-
-so that
-
-$$\cos^2\theta = \frac{2P_2+1}{3}$$
-
-and
-
-$$\sigma = \frac{3\sigma_2}{2} - \frac{3\sigma_2}{2}\left(\frac{2P_2+1}{3}\right) = \frac{3\sigma_2}{2} - \frac{\sigma_2}{2} - \sigma_2P_2$$
-
-The final result is
-
-$$\sigma = \sigma_2P_0 - \sigma_2P_2$$
-
-$\sigma$ must be written in this form so that when we "match coefficients" in the jump condition equation, the coefficients are associated with orthogonal functions. This is discussed in detail in the solution to a previous homework problem.
+$\displaystyle \sigma = \frac{3\sigma_2}{2} - \frac{3\sigma_2}{2}\left(\frac{2P_2+1}{3}\right) = \frac{3\sigma_2}{2} - \frac{\sigma_2}{2} - \sigma_2P_2 = \sigma_2P_0 - \sigma_2P_2$
 
 The net charge on the sphere is not zero because the integral of $\sigma$ over the surface is non-zero, so we expect a $1/r$ term for the potential outside of it (the "monopole" term). (The integral of $\sigma$ over the surface is $4\pi r_o^2\sigma_2$ - the $P_2$ term integrates to zero).
 
-The general solution to $\nabla^2\Psi(r,\theta)=0$ is
+The general solution to $\nabla^2\Phi(r,\theta)=0$ is
 
-$$\Psi(r,\theta) = \sum_{l=0}^{\infty}\left(a_lr^{l}+\frac{b_l}{r^{l+1}}\right)P_l(\cos\theta)$$
+$\displaystyle\Phi(r,\theta) = \sum_{l=0}^{\infty}\left(a_lr^{l}+\frac{b_l}{r^{l+1}}\right)P_l(\cos\theta)$
 
-Based on previous experience from homework problems, look for solutions for the potential outside (o) and inside (i) of the form
+Based on previous experience, look for solutions for the potential outside (o) and inside (i) of the form
 
-$$\Psi_o = \frac{A_o}{r}P_0 + \frac{A_2}{r^3}P_2$$
+$\Phi^o = \frac{A_o}{r}P_0 + \frac{A_2}{r^3}P_2$
 
-$$\Psi_i = B_oP_0 + B_2r^2P_2$$
+$\Phi^i = B_oP_0 + B_2r^2P_2$
 
 I've dropped the $P_1$ term and the higher-order terms and to shorten the solution. You can include both and follow the steps in a previous homework solution to show that the omitted terms are zero.
 
@@ -602,90 +787,87 @@ Note that $\Psi_o$ is zero for $r\gg r_o$ as required by the boundary condition 
 
 The two conditions that need to be satisfied are continuity
 
-$$\Psi_o(r_o,\theta) = \Psi_i(r_o,\theta)$$
+$\Phi^o(r_o,\theta) = \Phi^i(r_o,\theta)$
 
 and the perpendicular electric field jump condition
 
-$$\left[-\frac{\partial \Psi_o}{\partial r} + \frac{\partial \Psi_i}{\partial r}\right]_{r=r_o} = \frac{\sigma}{\epsilon_o}$$
+$\displaystyle\left[-\frac{\partial \Phi_o}{\partial r} + \frac{\partial \Phi_i}{\partial r}\right]_{r=r_o} = \frac{\sigma}{\epsilon_o}$
 
 Many students wrote an equation of the form $E_o-E_i=\sigma/\epsilon_o$. This is not technically correct. The correct version is $E_{\perp o}-E_{\perp i}=\sigma/\epsilon_o$, which is equivalent to equation 1.22 of Jackson 3rd edition. I went over the derivation of this equation in class and showed how Gauss' law gives $E_{\perp o}-E_{\perp i}=\sigma/\epsilon_o$ and $E_{\parallel  o}-E_{\parallel i}=0$. See also the derivation associated with equations 2.31 and 2.32 of Griffiths 4th edition.
 
 The continuity condition
 
-$$\Psi_o(r_o,\theta) = \Psi_i(r_o,\theta)$$
+$\Phi_o(r_o,\theta) = \Phi_i(r_o,\theta)$
 
 gives
 
-$$\frac{A_o}{r_o}P_0 + \frac{A_2}{r_o^3}P_2 = B_oP_0 + B_2r^2_oP_2$$
+$\displaystyle\frac{A_o}{r_o}P_0 + \frac{A_2}{r_o^3}P_2 = B_oP_0 + B_2r^2_oP_2$
 
 So
 
-$$B_o=A_o/r_o\qquad B_2=A_2/r_o^5$$
+$B_o=A_o/r_o\qquad B_2=A_2/r_o^5$
 
 The perpendicular electric field jump condition
 
-$$\left[-\frac{\partial \Psi_o}{\partial r} + \frac{\partial \Psi_i}{\partial r}\right]_{r=r_o} = \frac{\sigma}{\epsilon_o}$$
+$\displaystyle\left[-\frac{\partial \Phi_o}{\partial r} + \frac{\partial \Phi_i}{\partial r}\right]_{r=r_o} = \frac{\sigma}{\epsilon_o}$
+
 
 gives
 
-$$\frac{A_o}{r_o^2}P_o + 3\frac{A_2}{r_o^4}P_2 + 2B_2r_oP_2 = \frac{\sigma_2}{\epsilon_o}P_0 - \frac{\sigma_2P_2}{\epsilon_o}$$
+$\displaystyle\frac{A_o}{r_o^2}P_o + 3\frac{A_2}{r_o^4}P_2 + 2B_2r_oP_2 = \frac{\sigma_2}{\epsilon_o}P_0 - \frac{\sigma_2P_2}{\epsilon_o}$
 
 So 
 
-$$A_o=\sigma_2r_o^2/\epsilon_o\qquad 3A_2+2r_o^5B_2=-r_o^4\sigma_2/\epsilon_o$$
+$A_o=\sigma_2r_o^2/\epsilon_o\qquad 3A_2+2r_o^5B_2=-r_o^4\sigma_2/\epsilon_o$
 
 Using $B_o=A_o/r_o$ from the continuity condition and $A_o=\sigma_2r_o^2/\epsilon_o$ gives
 
-$$B_o = \sigma_2r_o/\epsilon_o$$
+$B_o = \sigma_2r_o/\epsilon_o$
 
 Using $B_2=A_2/r_o^5$ from the continuity condition and $3A_2+2r_o^5B_2=-r_o^4\sigma_2/\epsilon_o$ gives
 
-$$3A_2+2r_o^4B_2=2A_2+3A_2=-r_o^4\sigma_2/\epsilon_o$$
+$3A_2+2r_o^4B_2=2A_2+3A_2=-r_o^4\sigma_2/\epsilon_o$
 
 and finally
 
-$$A_2=-\frac{\sigma_2}{5\epsilon_o}r_o^4\qquad B_2=-\frac{\sigma_2}{5r_o\epsilon_o}$$
+$A_2=-\frac{\sigma_2}{5\epsilon_o}r_o^4\qquad B_2=-\frac{\sigma_2}{5r_o\epsilon_o}$
 
 The final answer is (using $P_0=1$)
 
-$$\Psi_o = \frac{\sigma_2r_o}{\epsilon_o}\left(\frac{r_o}{r} - \frac{1}{5}\frac{r_o^3}{r^3}P_2\right)$$
+$\displaystyle\Phi^o = \frac{\sigma_2r_o}{\epsilon_o}\left(\frac{r_o}{r} - \frac{1}{5}\frac{r_o^3}{r^3}P_2\right)$
 
-$$\Psi_i = \frac{\sigma_2r_o}{\epsilon_o}\left(1 - \frac{1}{5}\frac{r^2}{r_o^2}P_2\right)$$
+$\displaystyle\Phi^i = \frac{\sigma_2r_o}{\epsilon_o}\left(1 - \frac{1}{5}\frac{r^2}{r_o^2}P_2\right)$
 
 ----
 
-Note that the first term in $\Psi_o$
+Note that the first term in $\Phi_o$
 
-$$\frac{\sigma_2r_o^2}{\epsilon_o}\frac{1}{r}$$
+$\displaystyle\frac{\sigma_2r_o^2}{\epsilon_o}\frac{1}{r}$
 
 can be written as
 
-$$\frac{4\pi\sigma_2r_o^2}{4\pi\epsilon_o}\frac{1}{r}=\frac{kQ}{r}$$
+$\displaystyle\frac{4\pi\sigma_2r_o^2}{4\pi\epsilon_o}\frac{1}{r}=\frac{kQ}{r}$
 
-confirming that the existence of a $1/r$ term for $\Psi_o$ that expected for a sphere with a uniform charge density of $\sigma_2$. (For large $r$, the $1/r$ term dominates and the potential is near that for a uniformly charged sphere.)
+confirming that the existence of a $1/r$ term for $\Phi_o$ that expected for a sphere with a uniform charge density of $\sigma_2$. (For large $r$, the $1/r$ term dominates and the potential is near that for a uniformly charged sphere.)
 
 As a final check, note that
 
-$$\Psi_o(r_o,\theta) = \frac{\sigma_2r_o}{\epsilon_o}\left(1 - \frac{1}{5}P_2\right)$$
+$\displaystyle\Phi^o(r_o,\theta) = \frac{\sigma_2r_o}{\epsilon_o}\left(1 - \frac{1}{5}P_2\right)$
 
-$$\Psi_i(r_o,\theta) = \frac{\sigma_2r_o}{\epsilon_o}\left(1 - \frac{1}{5}P_2\right)$$
+$\displaystyle\Psi^i(r_o,\theta) = \frac{\sigma_2r_o}{\epsilon_o}\left(1 - \frac{1}{5}P_2\right)$
 
 so the continuity condition is satisfied. Also, the perpendicular electric field jump condition
 
-$$\left[-\frac{\partial \Psi_o}{\partial r} + \frac{\partial \Psi_i}{\partial r}\right]_{r=r_o} = \frac{\sigma}{\epsilon_o}$$
+$\displaystyle\left[-\frac{\partial \Phi^o}{\partial r} + \frac{\partial \Phi^i}{\partial r}\right]_{r=r_o} = \frac{\sigma}{\epsilon_o}$
 
 evaluated with the potentials
 
-$$\Psi_o = \frac{\sigma_2r_o}{\epsilon_o}\left(\frac{r_o}{r} - \frac{1}{5}\frac{r_o^2}{r^3}P_2\right)$$
+$\displaystyle\Phi^o = \frac{\sigma_2r_o}{\epsilon_o}\left(\frac{r_o}{r} - \frac{1}{5}\frac{r_o^2}{r^3}P_2\right)$
 
-$$\Psi_i = \frac{\sigma_2r_o}{\epsilon_o}\left(1 - \frac{1}{5}\frac{r^2}{r_o^2}P_2\right)$$
+$\displaystyle\Phi^i = \frac{\sigma_2r_o}{\epsilon_o}\left(1 - \frac{1}{5}\frac{r^2}{r_o^2}P_2\right)$
 
-and 
+and $\sigma = \sigma_2P_0 - \sigma_2P_2$ results in
 
-$$\sigma = \sigma_2P_0 - \sigma_2P_2$$
-
-results in
-
-$$ \frac{\sigma_2r_o}{\epsilon_o}\left(\frac{1}{r_o}P_0 + \frac{1}{5}\frac{3}{r_o}P_2\right) +  \frac{\sigma_2r_o}{\epsilon_o}\frac{1}{5}\frac{2}{r_o}P_2= \frac{\sigma_2}{\epsilon_o}P_0 - \frac{\sigma_2}{\epsilon_o}P_2$$
+$\displaystyle\frac{\sigma_2r_o}{\epsilon_o}\left(\frac{1}{r_o}P_0 + \frac{1}{5}\frac{3}{r_o}P_2\right) +  \frac{\sigma_2r_o}{\epsilon_o}\frac{1}{5}\frac{2}{r_o}P_2= \frac{\sigma_2}{\epsilon_o}P_0 - \frac{\sigma_2}{\epsilon_o}P_2$
 
 and so the jump condition is satisfied.

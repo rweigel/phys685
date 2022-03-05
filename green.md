@@ -1,24 +1,21 @@
 
+# Reciprocity -- Discrete
+
 #green-s-reciprocity-theorem
 
 #green-s-reciprocity-use&l=589&c=1
+
+# Reciprocity -- Continuous
 
 #green-s-identity-derivation&l=663&c=1
 
 #alternative-derivation-of-reciprocity-for-continuous-rho&l=697&c=1
 
+# Green Function Solution General Equation I
+
 #jackson-equation-1-42&l=1017&c=1
 
-#1-d-cartesian-green-function&l=775&c=1
-
-#1-d-spherical-green-function&l=942&c=1
-
-
-#long-rectangular-tube-with-sheet-of-charge&l=1240&c=1
-
-#green-function-for-infinite-dome&l=1063&c=1
-
-## Green Function Method 
+# Green Function Solution General Equation II
 
 <span style="background-color:yellow">I did not grade this problem. Most of the answers are in the book - the motivation for this problem is that upon first read, you probably did not notice many of the issues raised by the questions. When reading Jackson, one needs to fill in many of the missing steps as I have done here (or read another reference!)</span>
 
@@ -35,7 +32,7 @@ I don't know of many other introductory references for this, but the following m
 * Most mathematical physics textbooks will have a discussion of Green's functions.
 * [https://www.amazon.com/Elements-Greens-Functions-Propagation-Publications/dp/0198519982 Elements of Greens Functions by Barton] is a very comprehensive treatment of Green functions in physics.
 
-1.## Preliminaries 
+## Preliminaries 
 
 Using the divergence theorem for a vector field $\mathbf{A}$ that can be written in the form $\mathbf{A}=\phi \nabla\psi$, show that
 
@@ -204,7 +201,9 @@ Can you think of a distribution of charges and a surface that is not at infinity
 
 |}
 
-## 1-D Green Function 
+# 1-D
+
+## Parallel Plates with Charged Slab I
 
 Equation 1.44 of Jackson states that the potential within a volume $\mathcal{V}$ enclosed by surface $\mathcal{S}$ can be computed using
 
@@ -468,7 +467,7 @@ Alternatively, one can solve this problem using Gauss' law to find the electric 
 
 <div style="page-break-before: always"> </div>
 
-## Parallel Plates with Charged Slab 
+## Parallel Plates with Charged Slab II
 
 Due on April 8th before class starts.
 
@@ -701,9 +700,388 @@ $$\sigma_r=\epsilon_o\frac{\partial \Psi_r}{\partial x}=-\frac{1}{8}\rho_od$$
 The motivation for asking for the charge densities was as a hint of a way to check your answer.
 |}
 
-## U-Shaped Channel 
+## Parallel Plates with Charged Slab III
 
-Due on April 15th before class starts.
+#1-d-cartesian-green-function&l=775&c=1
+
+## 1-D Spherical -- Outer boundary at $\infty$
+
+#1-d-spherical-green-function&l=942&c=1
+
+# 2-D
+
+## Long Tube with Sheet of Charge
+
+#long-rectangular-tube-with-sheet-of-charge&l=1240&c=1
+
+An infinitely long, hollow, and conducting rectangular tube is parallel to the $z$-axis and has sides bounded by $0\le x \le 1$ and $0\le y\le 1$. All sides are grounded.
+
+A infinitely long non-conducting sheet of charge with surface charge density $\sigma'$ is in the $x=x'$ plane between $y=0$ and $y=1$. See the left part of the figure below.
+
+[[Image:Tubes.png|400px]]
+
+1. 
+
+Find equations $\psi_l(x,y)$, the potential for $x\lt x'$, and $\psi_r(x,y)$, the potential for $x\gt x'$. In class, I showed that 
+
+$$\psi_l=\sum_{n=0}^{\infty}A_n\sin(n\pi y)\sinh(n\pi x)$$
+
+$$\psi_r=\sum_{n=0}^{\infty}B_n\sin(n\pi y)\sinh(n\pi(x-1))$$
+
+where $n$ is an integer, matches the boundary conditions on the walls of the conductor. You need to find $A_n$ and $B_n$ such that the two conditions
+
+$$\psi_l(x',y)=\psi_r(x',y)$$
+
+and
+
+$$\left[-\frac{\partial \psi_r}{\partial x}+\frac{\partial \psi_l}{\partial x}\right]_{x=x'}=\frac{\sigma'}{\epsilon_o}$$
+
+are satisfied.
+
+2.
+
+Write a single equation for the potential $\psi(x,y)$ using $\psi_l$, $\psi_r$, and the Heavyside step function $\Theta$.
+
+The Green function is $G=(4\pi\epsilon_o/A\sigma')\psi$, where $A=\int_0^1dy\int_{0}^L dz$ and $L$ is the length of the tube. (You do not need to show this as you did in the previous homework.)
+
+3.
+
+Use the Green function to find the potential when the tube is filled with a nonconducting material with a uniform charge density $\rho_o$ as shown in the right part of the figure above.
+
+----
+
+Notes:
+
+* I suggest that you work through examples 3.3 and 3.4 of Griffiths before attempting part 1. In those examples, there is no conducting sheet and one of the sides is at a fixed potential. However, the procedure needed for the second condition in part 1. is similar.
+* In problem 2.15 of Jackson, he gives the Green function for the case where a line of charge parallel to the $z$-axis passes through $(x,y)=(x',y')$. That problem is a bit more complicated than the problem considered here. In problem 2.16, of Jackson, he states the result of using the Green function from problem 2.15 to find the potential for the configuration in part 3. above.
+
+{| class="wikitable collapsible collapsed"
+! align="left" |&nbsp;Solution
+|-
+|
+1.
+
+Both
+
+$$\psi_l=\sum_{n=0}^{\infty}A_n\sin(n\pi y)\sinh(n\pi x)$$
+
+$$\psi_r=\sum_{n=0}^{\infty}B_n\sin(n\pi y)\sinh(n\pi(x-1))$$
+
+satisfy $\partial^2 \psi/\partial^2 x+\partial^2 \psi/\partial^2 y=0$. Also,
+
+$$\psi_l(0,y)=0$$
+
+$$\psi_l(x,0)=0$$
+
+$$\psi_l(x,1)=0$$
+
+$$\psi_r(1,y)=0$$
+
+$$\psi_r(x,0)=0$$
+
+$$\psi_r(x,1)=0$$
+
+The equations for $\psi_l$ and $\psi_r$ could have been derived using the above six boundary equations and starting with 
+
+$$\psi_l=\sum_{n=0}^{\infty}\sin(n\pi y)\Big[A_n\sinh(n\pi x)+a_n\cosh(n\pi x)\Big]$$
+
+$$\psi_r=\sum_{n=0}^{\infty}\sin(n\pi y)\Big[B_n\sinh(n\pi x)+b_n\cosh(n\pi x)\Big]$$
+
+or most generally
+
+$$\psi_l=\sum_{n=0}^{\infty}\Big[A^l_n\sin(n\pi y)+B^l_n\cos(n\pi y)\Big]\Big[C^l_n\sinh(n\pi x)+D^l_n\cosh(n\pi x)\Big]$$
+
+$$\psi_r=\sum_{n=0}^{\infty}\Big[A^r_n\sin(n\pi y)+B^r_n\cos(n\pi y)\Big]\Big[C^r_n\sinh(n\pi x)+D^r_n\cosh(n\pi x)\Big]$$
+
+However, the result will be the same. In problems such as these, it is often easier to reason out what the form of the solution will be rather than starting from the most general equation. In this case, we need the $\sin$ solution in the $y$ direction because it can have zeros at two locations. The $\sinh(n\pi(x-1))$ term is justified because we know that $a\sinh x$ and $b\cosh x$ can be combined into a $C\sinh (x + \delta)$ with a "phase" shift $\delta$.
+
+The continuity condition
+
+$$\psi_l(x',y)=\psi_r(x',y)$$
+
+gives
+
+$$\sum_{n=0}^{\infty}A_n\sin(n\pi y)\sinh(n\pi x') = \sum_{n=0}^{\infty}B_n\sin(n\pi y)\sinh(n\pi(x'-1))$$
+
+It follows that
+
+$$B_n = \frac{\sinh(n\pi x')}{\sinh(n\pi(x'-1))}A_n$$
+
+The jump condition
+
+$$\left[-\frac{\partial \psi_r}{\partial x}+\frac{\partial \psi_l}{\partial x}\right]_{x=x'}=\frac{\sigma'}{\epsilon_o}$$
+
+gives
+
+$$\sum_{n=0}^{\infty}(n\pi)\sin(n\pi y)\Big[- B_n\cosh(n\pi(x'-1))+A_n\cosh(n\pi x')\Big]=\frac{\sigma'}{\epsilon_o}$$
+
+The term in square brackets
+
+$$- B_n\cosh(n\pi(x'-1)) + A_n\cosh(n\pi x') $$
+
+rewritten using the continuity relationship $B_n = A_n\sinh(n\pi x')/\sinh(n\pi(x'-1))$ is
+
+$$A_n\left[\cosh(n\pi x')-\frac{\sinh(n\pi x')\cosh(n\pi(x'-1))}{\sinh(n\pi(x'-1))}\right]$$
+
+or
+
+$$A_n\frac{\sinh(n\pi(x'-1))\cosh(n\pi x')-\sinh(n\pi x')\cosh(n\pi(x'-1))]}{\sinh(n\pi(x'-1))}$$
+
+The numerator simplifies to $\sinh(-n\pi)=-\sinh(n\pi)$. This can be seen by expanding the hyperbolic functions as exponentials or using the identity
+
+$$\sinh(\alpha-\beta)=\sinh(\alpha)\cosh(\beta)-\sinh(\beta)\cosh(\alpha)$$
+
+with $\alpha = n\pi (x' - 1)$ and $\beta = n\pi x'$.
+
+The continuity condition equation thus simplifies to
+
+$$\sum_{n=1}^{\infty} A_n \sin(n\pi y)\left[\frac{n\pi\sinh(n\pi)}{\sinh(n\pi(x'-1))}\right]=-\frac{\sigma'}{\epsilon_o}$$
+
+Multiplication of this by $\sin(l\pi y) dy$ and integration from $y=0$ to $1$ and using
+
+$$\int_0^1\sin(l\pi y)\sin(n\pi y) dy=0\qquad\mbox{ for }l\ne n$$
+
+$$\int_0^1\sin(l\pi y)\sin(n\pi y) dy=\frac{1}{2}\qquad\mbox{ for }l=n$$
+
+$$\int_0^1\sin(l\pi y) dy=\frac{2}{l\pi}\quad\mbox{ for }l=1, 3, 5, ...$$
+
+gives (after changing the dummy index from $l$ to $n$),
+
+$$A_n = - \frac{4\sigma'}{n^2\pi^2\epsilon_o}\frac{\sinh(n\pi(x'-1))}{\sinh(n\pi)}$$
+
+$$B_n = - \frac{4\sigma'}{n^2\pi^2\epsilon_o}\frac{\sinh(n\pi x')}{\sinh(n\pi)}$$
+
+for $n=1, 3, 5, ...$ and $A_n=B_l=0$ for $n = 2, 4, ...$.
+
+$$\psi_l = -\sum_{n=1,3,...}^{\infty} \frac{4\sigma'}{n^2\pi^2\epsilon_o}\frac{1}{\sinh(n\pi)}\sinh(n\pi(x'-1))\sinh(n\pi x)\sin(n\pi y)$$
+
+$$\psi_r= -\sum_{n=1,3,...}^{\infty} \frac{4\sigma'}{n^2\pi^2\epsilon_o}\frac{1}{\sinh(n\pi)}\sinh(n\pi x')\sinh(n\pi (x-1))\sin(n\pi y)$$
+
+or, using $-\sinh(x)=\sinh(x)$ and defining $x_{\lt}$ to the the smaller of $x$ and $x'$ and $x_{\gt}$ to the the larger of $x$ and $x'$,
+
+$$\psi =  \sum_{n=1,3,...}^{\infty} \frac{4\sigma'}{n^2\pi^2\epsilon_o}\frac{1}{\sinh(n\pi)}\sinh(n\pi(1-x_{\gt}))\sinh(n\pi x_{\lt})\sin(n\pi y)$$
+
+or, in terms of $\Theta$,
+
+$$\psi = \psi_l\Theta(x'-x)+\psi_r\Theta(x-x')$$
+
+2.
+
+Using $G=(4\pi\epsilon_o/A\sigma')\psi$ gives
+
+$$G = \frac{4\pi\epsilon_o}{A\sigma'}\Big[\psi_l\Theta(x'-x)+\psi_r\Theta(x-x')\Big]$$
+
+3.
+
+For reasons similar to that in the problem in HW #5, the surface integral is zero and equation 1.44 of Jackson reduces to 
+
+$$\Psi(\mathbf{x}) = \frac{1}{4\pi\epsilon_o}\int_{\mathcal V} G(\mathbf{x},\mathbf{x}') \rho(\mathbf{x}')d^3x$$
+
+$G$ does not depend on $y'$ or $z'$ and $\rho=\rho_o=const$, so
+
+$$\Psi(x) = \frac{A}{4\pi\epsilon_o}\int_0^1 G(x,x') \rho\thinspace dx'$$
+
+where $A$ is as defined in the problem statement.
+
+$$\Psi(x) = \frac{\rho_o}{\sigma'}\int_0^1  \Big[\psi_l\Theta(x'-x)+\psi_r\Theta(x-x')\Bi\thinspace dx'$$
+
+$$\Psi(x) = \frac{\rho_o}{\sigma'}\int_x^1  \psi\thinspace dx'+\frac{\rho_o}{\sigma'}\int_0^x  \psi\thinspace dx'$$
+
+The first integral requires the integration
+
+$$\int_x^1\sinh(n\pi(x'-1\thinspace dx'=\frac{\cosh(0)-\cosh(n\pi(x-1))}{n\pi}$$
+
+The second integral requires the integration
+
+$$\int_0^x\sinh(n\pi x\thinspace dx'=\frac{\cosh(n\pi x)-\cosh(0)}{n\pi}$$
+
+$$
+\begin{eqnarray}
+\Psi(x) & = & -\frac{4}{\epsilon_o\pi^3}\sum_{n=1,3,5,...}^{\infty}  \frac{\sinh(n\pi y)}{n^3\sinh(n\pi)}\times \\
+& &\Big[\sinh(n\pi x)(1-\cosh[n\pi (x-1)])+\sinh[n\pi(x-1)](\cosh(n\pi x)-1))\Big]
+\end{eqnarray}
+$$
+
+Using again
+
+$$\sinh(\alpha-\beta)=\sinh(\alpha)\cosh(\beta)-\sinh(\beta)\cosh(\alpha)$$
+
+with $\alpha=n\pi(x-1)$ and $\beta=n\pi$
+
+$$\Psi(x) = -\frac{4}{\epsilon_o\pi^3}\sum_{n=1,3,5,...}^{\infty} \frac{\sinh(n\pi y)}{n^3\sinh(n\pi)}\Big[-\sin(n\pi)+\sinh(n\pi x)+\sinh[n\pi(x-1)]\Big]$$
+
+To combine $\sinh(n\pi x)+\sinh[n\pi(x-1)$ into one term, note that when expanded in terms of exponentials the following sum has four terms
+
+$$\sinh(u)+\sinh(u-1) = \frac{1}{2}\left(e^u-e^{-u}+e^{u-1}+e^{-(u-1)}\right)$$
+
+The following product has four terms
+
+$$\cosh\alpha\sinh\beta = \frac{1}{4}\left(e^{\alpha+\beta}-e^{-(\alpha+\beta)}+e^{\alpha-\beta}-e^{-(\alpha-\beta)}\right)$$
+
+Setting
+
+$$\alpha + \beta = u$$
+
+and
+
+$$\alpha-\beta=u-1$$
+
+gives $\alpha = u-1/2$ and $\beta=1/2$.
+
+Thus
+
+$$\sinh(n\pi x)+\sinh[n\pi(x-1)] = 2\cosh[n\pi(x-1/2)]\sinh(n\pi/2)$$
+
+and
+
+$$\frac{-\sin(n\pi)+\sinh(n\pi x)+\sinh[n\pi(x-1)]}{\sinh(n\pi)}=\Big[-1+\frac{\sinh(n\pi/2)}{\sinh(n\pi)}2\cosh[n\pi(x-1/2)]\Big]$$
+
+Finally, using
+
+$$\sin(2x)=2\cosh(x)\sinh(x) \Rightarrow \sinh(x)=2\cosh(x/2)\sinh(x/2)$$
+
+gives 
+
+$$\frac{\sinh(x/2)}{\sinh(x)}=\frac{1}{2\cosh(x/2)}$$
+
+and the final result of
+
+$$\Psi = \frac{4}{\pi^3\epsilon_o}\sum_{n=1,3,...}^{\infty}\frac{\sin(n\pi y)}{n^3}\left[1-\frac{\cosh[n\pi(x-1/2)]}{\cosh(n\pi/2)}\right]$$
+
+Defining $m = (n-1)/2$ gives the result of problem 2.16 of Jackson.
+|}
+
+## Long Tube with Line of Charge
+
+1. Do problem HW problem 6.4 with the modification that $\sigma'=\lambda'\delta(y-y')$ and show that you get the result quoted in problem 2.15(b) of Jackson.
+1. Use the Green function from part 1. and equation 1.44 of Jackson to find the potential inside the tube when $\rho=0$ inside the tube, the side at $x=1$ is held at a potential of $V_o$, and the other three sides are grounded.
+
+{| class="wikitable collapsible collapsed"
+! align="left" |&nbsp;Answer
+|-
+|
+1.
+
+The steps used to derive
+
+$$B_n = \frac{\sinh(n\pi x')}{\sinh(n\pi(x'-1))}A_n$$
+
+and
+
+$$\sum_{n=1}^{\infty} A_n \sin(n\pi y)\left[\frac{n\pi\sinh(n\pi)}{\sinh(n\pi(x'-1))}\right]=-\frac{\sigma'}{\epsilon_o}$$
+
+in HW 6.4 are unchanged. For this problem, replace $\sigma'$ with $\sigma'=\lambda'\delta(y-y')$.
+
+$$\sum_{n=1}^{\infty} A_n \sin(n\pi y)\left[\frac{n\pi\sinh(n\pi)}{\sinh(n\pi(x'-1))}\right]=-\frac{\lambda'\delta(y-y')}{\epsilon_o}$$
+
+Multiplication of this by $\sin(l\pi y) dy$ and integration from $y=0$ to $1$ and using
+
+$$\int_0^1\sin(l\pi y)\sin(n\pi y) dy=0\qquad\mbox{ for }l\ne n$$
+
+$$\int_0^1\sin(l\pi y)\sin(n\pi y) dy=\frac{1}{2}\qquad\mbox{ for }l=n$$
+
+$$\int_0^1\sin(l\pi y) \delta(y-y') dy=\sin(l\pi y')$$
+
+gives, after changing the dummy index from $l$ to $n$,
+
+$$A_n = - \frac{2\lambda'}{n\pi\epsilon_o}\frac{\sinh(n\pi(x'-1))}{\sinh(n\pi)}\sin(n\pi y')$$
+
+$$B_n = - \frac{2\lambda'}{n\pi \epsilon_o}\frac{\sinh(n\pi x')}{\sinh(n\pi)}\sin(n\pi y')$$
+
+for $n=1, 2, 3 , ...$. Note that $n$ is not constrained to be odd as it was in HW 6.4. The new result is
+
+$$\psi_l = -\sum_{n=1}^{\infty} \frac{2\lambda'}{n\pi\epsilon_o}\frac{1}{\sinh(n\pi)}\sinh[n\pi(x'-1)]\sinh(n\pi x)\sin(n\pi y)\sin(n\pi y')$$
+
+$$\psi_r= -\sum_{n=1}^{\infty} \frac{2\lambda'}{n\pi\epsilon_o}\frac{1}{\sinh(n\pi)}\sinh(n\pi x')\sinh[n\pi (x-1)]\sin(n\pi y)\sin(n\pi y')$$
+
+or, using $-\sinh(x)=\sinh(-x)$ and defining $x_{\lt}$ to the the smaller of $x$ and $x'$ and $x_{\gt}$ to the the larger of $x$ and $x'$,
+
+$$\psi =  \sum_{n=1}^{\infty} \frac{2\lambda'}{n\pi\epsilon_o}\frac{1}{\sinh(n\pi)}\sinh[n\pi(1-x_{\gt})]\sinh(n\pi x_{\lt})\sin(n\pi y)\sin(n\pi y')$$
+
+Using $G=(4\pi\epsilon_o/L_z\lambda')\psi$ gives
+
+$$G =  8\sum_{n=1}^{\infty} \frac{1}{n}\frac{1}{\sinh(n\pi)}\sinh[n\pi(1-x_{\gt})]\sinh(n\pi x_{\lt})\sin(n\pi y)\sin(n\pi y')$$
+
+<code>!!!</code>This is the same equation as problem 2.15 of Jackson except that the $x$ and $y$ variables are swapped. Given the fact that the problem is unchanged if the coordinates on the diagram for HW 6.4 are swapped, we are free to change replace $x$ with $y$ and vice-versa in our equation above and so we conclude that it follows from this symmetry that
+
+$$G =  8\sum_{n=1}^{\infty} \frac{1}{n}\frac{1}{\sinh(n\pi)}\sinh[n\pi(1-y_{\gt})]\sinh(n\pi y_{\lt})\sin(n\pi x)\sin(n\pi x')$$
+
+Alternatively, the equivalence can be proved using an identity such as equation 3.169 of Jackson.
+
+2.
+
+----
+First, obtain an answer using the standard boundary value method. The potential
+
+$$\psi = \sum_{n=1}^{\infty}A_n\sin(n\pi y)\sinh(n\pi x)$$
+
+satisfies the there boundary conditions for which the potential on the boundary is zero.
+
+To determine $A_n$, multiply both sides by $\sin(l\pi y)$ and integrate from $y=0$ to $y=1$. This gives
+
+$$A_n=\frac{4V_o}{n\pi}\frac{1}{\sinh(n\pi)}\quad n=1,3,...$$
+
+$$A_n=0\quad n=2,4,...$$
+
+and so
+
+$$\psi = \sum_{n=1,3,...}^{\infty}\frac{4V_o}{n\pi}\frac{1}{\sinh(n\pi)}\sinh(n\pi x)\sin(n\pi y)$$
+
+----
+
+We need to compute
+
+$$\Phi(x,y) = -\frac{1}{4\pi}\oint_\mathcal{S} \Phi(x,x',y,'y) \frac{\partial G}{\partial n'}\Bigg|_{\mathcal{S}} da'$$
+
+<code>!!!</code>The surface $\mathcal{S}$ is the surface of the volume $\mathcal{V}$, which is the volume inside the tube. $\mathcal{S}$ has a cross-sectional area of 1x1 and a length of $L_z$. On the two open ends of the tube, $n'=\pm z'$ and $\partial G/\partial z'=0$. On three of the sides of the volume, $\Phi=0$. This leaves the side at $x=1$ which has an outward normal of $n=x$. The integration needed is thus
+
+$$\Phi(x,y) = -\frac{1}{4\pi}\int_0^1\int_0^{L_z} \Phi(1,x,y,y') \frac{\partial G}{\partial x'}\Bigg|_{x'=1} dy'dz'$$
+
+Using $\Phi(1,x,y,y')=V_o$ and integration over $z'$ gives $L_z$, so
+
+$$\Phi(x,y) = -\frac{V_oL_z}{4\pi}\int_0^1\frac{\partial G}{\partial x'}\Bigg|_{x'=1} dy'$$
+
+Using the relationship
+
+$$G=\frac{4\pi\epsilon_o}{L_z\lambda'}\psi$$
+
+this is
+
+$$\Phi(x,y) = -\frac{V_oL_z}{4\pi}\frac{4\pi\epsilon_o}{L_z\lambda'}\int_0^1\frac{\partial \psi}{\partial x'}\Bigg|_{x'=1} dy'$$
+
+Using $\psi = \psi_l\Theta(x'-x)+\psi_r\Theta(x-x')$,
+
+$$\frac{\partial \psi}{\partial x'}\Bigg|_{x'=1}= \Theta(1-x)\frac{\partial \psi_l}{\partial x'}\Bigg|_{x'=1}+\Theta(x-1)\frac{\partial \psi_r}{\partial x'}\Bigg|_{x'=1}$$
+
+<code>!!!</code>The two terms other items in $\partial \psi/\partial x'$ involving the derivative of $\Theta$ cancel; this was considered in a previous HW problem. The second term in this equation is zero because the volume extends from $x=0$ to $x=1$. For this range of $x$, $\Theta(1-x) = 1$. This leaves
+
+$$\frac{\partial \psi}{\partial x'}\Bigg|_{x'=1}= \frac{\partial \psi_l}{\partial x'}\Bigg|_{x'=1}$$
+
+Using
+
+$$\psi_l = -\sum_{n=1}^{\infty} \frac{2\lambda'}{n\pi\epsilon_o}\frac{1}{\sinh(n\pi)}\sinh[n\pi(x'-1)]\sinh(n\pi x)\sin(n\pi y)\sin(n\pi y')$$
+
+gives
+
+$$\frac{\partial \psi}{\partial x'}\Bigg|_{x'=1}= -\sum_{n=1}^{\infty} \frac{2\lambda'}{\epsilon_o}\frac{1}{\sinh(n\pi)}\cosh(0)\sinh(n\pi 
+x)\sin(n\pi y)\sin(n\pi y')$$
+
+and the integral
+
+$$\Phi(x,y) = -\frac{V_oL_z}{4\pi}\frac{4\pi\epsilon_o}{L_z\lambda'}\int_0^1\frac{\partial \psi}{\partial x'}\Bigg|_{x'=1} dy'$$
+
+can be rewritten as
+
+$$\Phi(x,y) = \sum_{n=1}^{\infty}\frac{2V_o}{\sinh(n\pi)}\sinh(n\pi x)\sin(n\pi y)\int_0^1 \sin(n\pi y')  dy'$$
+
+The integral is zero for $n=2, 4, ...$ and $2/n\pi$ for $n=1,3,...$. The final result is then
+
+$$\Phi(x,y) = \sum_{n=1,3,...}^{\infty}\frac{4V_o}{n\pi}\frac{1}{\sinh(n\pi)}\sinh(n\pi x)\sin(n\pi y)$$
+
+which is the same as the result found earlier.
+|}
+
+## U-Shaped Channel 
 
 A U-shaped, conducting, and grounded channel is shown in Fig. 1a; its cross-section is shown in Fig. 1b. The channel is infinite in the $\pm z$ and the top and bottom parts extend to $x=+\infty$.
 
@@ -838,4 +1216,533 @@ $$x\gt d$$
 $$\Phi(x) = \frac{\rho_o}{\epsilon_o}\int_0^d \psi\thinspace dx'$$
 
 $$\Phi(x) = \frac{4\rho_o}{\pi^3\epsilon_o}\sum_{n=1,3,...}^{\infty}\frac{\cosh(n\pi d)-1}{n^3}e^{-n\pi x}\sin(n\pi y)$$
+|}
+
+## Long Cylinder 
+
+For a long, grounded, and hollow cylinder with radius $b$ aligned with, and centered on, the $z$-axis,
+
+1. find $G(s,\phi;s',\phi')$ using the solution to an appropriate method of images problem (as was done in [[S2020/Problems#Sphere|HW 7.2.1]] for a sphere);
+1. find $G(s,\phi;s',\phi')$ by finding equations for the potential outside of the cylinder when it is surrounded by a co-aligned cylindrical shell of radius $s'$ with a charge density that is proportional to $\delta(\phi-\phi')$ (similar to what was done in [[S2020/Problems#Sphere|HW 7.2.2]] for a sphere); and
+1. use Equation 1.44 of Jackson and a Green function to find the potential outside of the cylinder when it is held at a potential of $V_u$ for $0\lt \phi \lt \pi$ and $V_l$ for $\pi \lt \phi\lt 2\pi$.
+
+4. Find the potential outside of the cylinder for the boundary potential given in part 3. using the boundary value method.
+
+# 3-D
+
+## Infinite Dome or Infinite Plane
+
+#green-function-for-infinite-dome&l=1063&c=1
+
+## Green Functions 
+
+Green's theorem (second identity) derived earlier is
+
+$$\int_{\mathcal{V}} \left(\phi\nabla^2\psi -\psi\nabla^2\phi\right)d^3x=\oint_{\mathcal{S}}\left(\phi\frac{\partial \psi}{\partial n}-\psi\frac{\partial \phi}{\partial n}\right) da$$
+
+Assume that $\phi$ is an electric potential associated in a volume $\mathcal{V}$ with a continuous scalar volume charge density $\rho$ in $\mathcal{V}$ and charges on the surface of $S$ of $\mathcal{V}$ held at a known potential, Now, instead of using
+
+$$\psi(\mathbf{x})=\frac{1}{|\mathbf{x}-\mathbf{x}'|}$$
+
+use
+
+$$\psi(\mathbf{x})=\frac{1}{|\mathbf{x}-\mathbf{x}'|}+F(\mathbf{x},\mathbf{x}')$$
+
+9. What is the constraint on $F$ so that one can write
+
+$$\int_{\mathcal{V}} \left(-4\pi\phi(\mathbf{x'})\delta(\mathbf{x}-\mathbf{x}')+\psi(\mathbf{x}')\rho(\mathbf{x'})/\epsilon_o\right)d^3x'=\oint_{\mathcal{S}}\left(\phi\frac{\partial \psi}{\partial n'}-\psi\frac{\partial \phi}{\partial n'}\right) da'$$
+
+{| class="wikitable collapsible collapsed"
+! align="left" |&nbsp;Answer
+|-
+|
+
+$$\nabla^2F(\mathbf{x},\mathbf{x}')=0$$
+
+Writing the LHS integral with primed integration variables and explicitly writing out the functional dependence gives
+
+$$I = \int_{\mathcal{V}} \left[\phi(\mathbf{x'})\nabla'^2\psi(\mathbf{x'}) -\psi(\mathbf{x'})\nabla'^2\phi(\mathbf{x'})\right]d^3x'$$
+
+In primed coordinates
+
+$$\psi(\mathbf{x}')=\frac{1}{|\mathbf{x}'-\mathbf{x}|}+F(\mathbf{x}',\mathbf{x})$$
+
+We need to evaluate $\nabla'^2\psi(\mathbf{x'})$ in the integral, which gives
+
+$$\nabla'^2\psi(\mathbf{x'})=\nabla'^2\frac{1}{|\mathbf{x}'-\mathbf{x}|}+\nabla'^2F(\mathbf{x'},\mathbf{x})=-4\pi\delta(\mathbf{x}'-\mathbf{x})+\nabla'^2F(\mathbf{x}',\mathbf{x})$$
+
+With $\nabla'^2\phi(\mathbf{x'})=-\rho(\mathbf{x'})/\epsilon_o$ and $\nabla'^2F(\mathbf{x}',\mathbf{x})=0$, we can write
+
+$$I = \int_{\mathcal{V}} \left[\phi(\mathbf{x'})\nabla'^2\psi(\mathbf{x'}) -\psi(\mathbf{x'})\nabla'^2\phi(\mathbf{x'})\right]d^3x$$
+
+as
+
+$$I=\int_{\mathcal{V}} \left[-4\pi\phi(\mathbf{x'})\delta(\mathbf{x}-\mathbf{x'})+\psi(\mathbf{x}')\rho(\mathbf{x'})/\epsilon_o\right]d^3x'$$
+|}
+
+10. What is an additional constraint on $F$ so that one can write
+
+$$\int_{\mathcal{V}}\left[-4\pi\phi(\mathbf{x'})\delta(\mathbf{x}-\mathbf{x'})+\psi(\mathbf{x}')\rho(\mathbf{x'})/\epsilon_o\right]d^3x'=\oint_{\mathcal{S}}\phi\frac{\partial \psi}{\partial n'} da'$$
+
+{| class="wikitable collapsible collapsed"
+! align="left" |&nbsp;Answer
+|-
+|
+$$F(\mathbf{x}',\mathbf{x})=-\frac{1}{|\mathbf{x}'-\mathbf{x}|}\quad\mbox{for}\thinspace\mathbf{x}'\mbox{on}\thinspaceS$$
+
+This corresponds to $\psi(\mathbf{x}')=0$ on $S$.
+
+The integral
+
+$$\oint_{\mathcal{S}}\psi\frac{\partial \phi}{\partial n'}da'$$
+
+must be zero. One way for this to be true is for $\psi(\mathbf{x}')$ to be zero on $S$, 
+
+$$\psi(\mathbf{x}')=0=\frac{1}{|\mathbf{x}'-\mathbf{x}|}+F(\mathbf{x}',\mathbf{x})$$
+
+so that
+
+$$F(\mathbf{x}',\mathbf{x})=-\frac{1}{|\mathbf{x}'-\mathbf{x}|}$$
+
+on $S$. Note that this gives $\psi(\mathbf{x}')=0$ on $S$, but inside of $\mathcal{V}$, $\psi(\mathbf{x}')$ is in general zero.
+|}
+
+Evaluation of the first term in the volume integral and rearrangement gives
+
+$$\phi(\mathbf{x})=\frac{1}{4\pi\epsilon_o}\int_{\mathcal{V}}\psi(\mathbf{x}')\rho(\mathbf{x'}) d^3x'-\frac{1}{4\pi}\oint_{\mathcal{S}}\phi\frac{\partial \psi}{\partial n'} da'$$
+
+11. Explain how this equation justifies the statement that if one knows how charge is distributed inside of a volume and something about the potential $\phi$ on the surface of the volume, one can compute the potential everywhere inside of the volume.
+
+{| class="wikitable collapsible collapsed"
+! align="left" |&nbsp;Answer
+|-
+|
+This equation was derived under the assumption that $\mathbf{x}$ was inside $V$. The first term involves charges inside the volume; the second term involves the potential on the surface of the volume. According to this equation, we don't need information about the charges outside the volume to compute the potential inside of the volume! (Provided that we know ${\partial \psi}/{\partial n}$ on the surface.)
+
+Note that there is an additional constraint. We need to have a function $F$ with the two properties identified above.
+
+In summary, one can compute the potential inside of a volume $V$ given
+1. ${\partial \psi}/{\partial n}$ on the surface of the volume;
+1. $\rho$ inside the volume;
+1. a function $F$ that has the property $\nabla^2F(\mathbf{x})=0$ and $F(\mathbf{x})=-\frac{1}{|\mathbf{x}-\mathbf{x}'|}$ for $\mathbf{x}$ on $\mathcal{S}$.
+
+Finding the function $F$ is not trivial. It happens that one method of finding this function, which allows us to solve many electrostatic problems, is to solve a specific electrostatic problem involving a point charge and a grounded conductor. If we can solve that specific problem, we can then solve many any problem where we are given ${\partial \psi}/{\partial n}$ on the surface of a volume and $\rho$ inside the volume.
+
+Keep in mind that "solve" in the previous paragraph means that we can find the potential using integration. In many cases the integrals do not have a known analytic solution and must be solved numerically.
+|}
+
+Consider flat and infinite plane.  
+
+12. What is $F$ and $\mathbf{x}'$ in the equation
+
+$$\psi(\mathbf{x})=\frac{1}{|\mathbf{x}-\mathbf{x}'|}+F(\mathbf{x},\mathbf{x}')$$
+
+that gives $\psi(\mathbf{x})=0$ on the surface of the plane and $\nabla^2F=0$ above the plane? Recall that you found a function that had this property in a previous homework problem in which you computed the potential when a point charge was placed at a distance $d$ above an infinite, flat, and grounded plane. For generality, assume the point charge is at $\mathbf{x}'=x'\hat{\mathbf{x}}+y'\hat{\mathbf{y}}+z'\hat{\mathbf{z}}$ instead of $z_o\hat{\mathbf{z}}$.
+
+{| class="wikitable collapsible collapsed"
+! align="left" |&nbsp;Answer
+|-
+|
+$$F(\mathbf{x},\mathbf{x}') = \frac{1}{\sqrt{(x-x')^2 + (y-y')^2 + (z+z')^2}}$$
+
+$$\nabla^2F = -4\pi\delta(x-x')\delta(y-y')\delta(z+z')=0\quad\text{for}\thinspacez\gt 0$$
+|}
+
+This function $\psi(\mathbf{x},\mathbf{x}')$ that has above-identified properties is called a Green function for an infinite plane geometry and is re-named to as $G(\mathbf{x},\mathbf{x}')$ in what follows. This function was derived with the aid of the solution to the problem of a point charge above an infinite and grounded conducting plane. The power of knowing the Green function is that it can be used to solve for the potential in a different problem - a problem where the potential is known on an infinite plane and the charge density above the plane is zero.
+
+Because the charge density in the different problem is zero, the first integral is zero in
+
+$$\phi(\mathbf{x})=\frac{1}{4\pi\epsilon_o}\int_{\mathcal{V}}G(\mathbf{x}',\mathbf{x})\rho(\mathbf{x'}) d^3x'-\frac{1}{4\pi}\oint_{\mathcal{S}}\phi\frac{\partial G(\mathbf{x}',\mathbf{x})}{\partial n'} da'$$
+
+and one only needs to be given the potential on the plane, $\phi(x,y,z=0)$, and to evaluate the integral
+
+$$\phi(\mathbf{x})=-\frac{1}{4\pi}\oint_{\mathcal{S}}\phi\frac{\partial G(\mathbf{x},\mathbf{x}')}{\partial n'} da'$$
+
+to find the potential above the plane.
+
+Note that $n=-z$ because the volume is the half-space for which $z\gt 0$ and the normal direction always points outwards from the volume.
+
+Using for $G(\mathbf{x},\mathbf{x}')$ the function $\psi(\mathbf{x},\mathbf{x}')$ found previously when $F$ was found, 
+
+13. compute $\frac{\partial G(\mathbf{x},\mathbf{x}')}{\partial n'}$ at $z'=0$ and show that given $\phi(x,y,z=0)$, one can write
+
+$$\phi(x,y,z)=\frac{1}{4\pi}\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}\phi(x',y',z'=0)\frac{2z}{\left((x-x')^2+(y-y')^2+z^2\right)^{3/2}} dx'dy'$$
+
+{| class="wikitable collapsible collapsed"
+! align="left" |&nbsp;Answer
+|-
+|
+The derivative calculation is straight-forward and was done in a previous problem. Starting with
+
+$$\phi(\mathbf{x})=\frac{1}{4\pi\epsilon_o}\int_{\mathcal{V}}G(\mathbf{x}',\mathbf{x})\rho(\mathbf{x'}) d^3x'-\frac{1}{4\pi}\oint_{\mathcal{S}}\phi\frac{\partial G(\mathbf{x}',\mathbf{x})}{\partial n'} da'$$
+
+The first term on the right-hand side is zero assuming that there are no other charges in the system - we are only given a plane with the potential specified on the surface.
+
+We are given $\phi$ in the $z=0$ plane - and this plane does not form a closed surface. To close the surface, consider the system to be a hemisphere with the flat part in the $z=0$ plane. The integral given above is over the flat part of the hemisphere. To write the above equation, one must assume the potential on the hemisphere is zero (this is not often explicitly stated when this problem is given). This is consistent with $G$, which has the property of being zero for large $r$. 
+|}
+
+14. Show that if the potential is in the plane is given by $\phi(x,y,z=0)=V_o$ for $x^2+y^2\le a^2$ and  $\phi(x,y,z=0)=0$ otherwise, then the potential along the $z-$axis is
+
+$$\phi(z)=V_o\left(1-\frac{z}{\sqrt{z^2+a^2}}\right)$$
+
+{| class="wikitable collapsible collapsed"
+! align="left" |&nbsp;Answer
+|-
+|
+
+Set $x=y=0$ and use polar coordinates with a radial coordinate $s'=\sqrt{x'^2+y'^2}$.
+
+$$\phi(z)=\frac{1}{4\pi}\int_{0}^{2\pi}\int_{0}^{a}Vo\frac{2z}{\left(s'^2+z^2\right)^{3/2}} s'ds'd\phi'$$
+$$\phi(z)=V_oz\int_{0}^{a}\frac{s'ds'}{\left(s'^2+z^2\right)^{3/2}} s'ds'=-\frac{V_oz}{\sqrt{s'^2+z^2}}\Bigg|_{s'=0}^{a}$$
+$$\phi(z)=V_o\left(\frac{z}{|z|}-\frac{z}{\sqrt{z^2+a^2}}\right)$$
+
+For $z\gt 0$, $z/|z|=1$, which gives
+
+$$\phi(z)=V_o\left(1-\frac{z}{\sqrt{z^2+a^2}}\right)$$
+|}
+
+15. Show that for the same boundary potential  $\phi(x,y,z=0)$ and for $r^2\equiv x^2+y^2+z^2\gg a^2$, the off-axis potential can be approximated as
+
+$$\phi(x,y,z)\approx\frac{V_oa^2}{2}\frac{z}{r^3}\left(1-\frac{3a^2}{4r^2}\right)$$
+
+{| class="wikitable collapsible collapsed"
+! align="left" |&nbsp;Answer
+|-
+|
+To show this, re-write
+
+$$\frac{1}{\left((x-x')^2+(y-y')^2+z^2\right)^{3/2}}$$
+
+as 
+
+$$\frac{1}{\left(r^2+s'^2-2xx'-2yy'\right)^{3/2}}$$
+
+factor out $r$
+
+$$\frac{1}{r^3}\frac{1}{\left(1+(s'/r)^2-2(x/r)(x'/r)-2(y/r)(y'/r)\right)^{3/2}}$$
+
+For the integration, $s'$, $x'$, and $y'$ are $\le a$ so $s'/r\ll 1$ as is $x'/r$ and $y'/r$. The terms $y/r$ and $x/r$ can vary from $-1$ to $1$. Defining
+
+$$\delta = (s'/r)^2-2(x/r)(x'/r)-2(y/r)(y'/r)$$
+
+gives
+
+$$\frac{1}{r^3}\frac{1}{\left(1+\delta\right)^{3/2}}$$
+
+$\delta \ll 1$ as argued above. The binomial expansion (or Taylor series expansion) gives
+
+$$\frac{1}{r^3}\frac{1}{\left(1+\delta\right)^{3/2}}\simeq \frac{1}{r^3}\left(1-\frac{3}{2}\delta\right)+...$$
+
+Using this, the integral equation
+
+$$\phi(x,y,z)=\frac{1}{4\pi}\int_{0}^{2\pi}\int_{0}^{a}V_o\frac{2z}{\left((x-x')^2+(y-y')^2+z^2\right)^{3/2}} s'ds'd\phi'$$
+
+becomes
+
+$$\phi(x,y,z)\simeq\frac{1}{4\pi}\int_{0}^{2\pi}\int_{0}^{a}V_o\frac{2z}{r^3} \left(1-\frac{3}{2}\delta\right) s'ds'd\phi'$$
+
+or
+
+$$\phi(x,y,z)\simeq \frac{V_o}{2}\frac{z}{r^3}\int_{0}^{2\pi}\int_{0}^{a}\left(1-\frac{3}{2}\delta\right) s'ds'$$
+
+$$\delta = (s'/r)^2-2(x/r)(x'/r)-2(y/r)(y'/r)$$
+
+After integrating over $\phi'$, only the first term remains because $x'=s'\cos\phi$ and $y'=s'\cos\phi$.
+
+$$\phi(x,y,z)\simeq V_o\frac{z}{r^3}\int_{0}^{a}\left(1-\frac{3}{2}\frac{s'^2}{r^2}\right) s'ds'$$
+
+integration gives
+
+$$\phi(x,y,z)\approx\frac{V_oa^2}{2}\frac{z}{r^3}\left(1-\frac{3a^2}{4r^2}\right)$$
+
+|}
+
+For the $z$-axis solution of
+
+$$\phi(z)=V_o\left(1-\frac{z}{\sqrt{z^2+a^2}}\right)$$
+
+suppose a point charge is placed at $z=d$. It may seem that by superposition, the potential on the $z$-axis would be
+
+$$\phi(z)=\frac{1}{4\pi\epsilon_o}\frac{1}{|z-d|}+V_o\left(1+\frac{z}{\sqrt{z^2+a^2}}\right)$$
+
+However, the correct additional term is not $\frac{1}{4\pi\epsilon_o}\frac{1}{|z-d|}$ but is rather that obtained from evaluating
+
+$$\frac{1}{4\pi\epsilon_o}\int_{\mathcal{V}}\psi(\mathbf{x}')\rho(\mathbf{x'}) d^3x'$$
+
+with $\rho(\mathbf{x'})=q\delta(x)\delta(y)\delta(z-d)$, and $\psi=G$. Evaluation gives
+
+$$\frac{q}{4\pi\epsilon_o}\frac{1}{|z-d|}-\frac{q}{4\pi\epsilon_o}\frac{1}{|z+d|}$$
+
+16. Explain this.
+
+{| class="wikitable collapsible collapsed"
+! align="left" |&nbsp;Answer
+|-
+|
+With the addition of the point charge, charges will appear on the conducting plane. The simple addition of the potential due only the point charges does not account for the charges that are induced on the conducting plane. Adding
+
+$$\frac{1}{4\pi\epsilon_o}\frac{1}{|z-d|}-\frac{1}{4\pi\epsilon_o}\frac{1}{|z+d|}$$
+
+is equivalent to the superposition of the potential created by the disk at potential $a$ and the potential due to a point charge above an infinite plane.
+|}
+
+## Between Spherical Shells
+
+1. Show the steps required to obtain equation 3.114 from equation 2.16 (both in Jackson 3rd edition).
+1. Show that equation 3.114 can be obtained using the same technique used to find the Green function in the previous problem (the Long Tube problem). Do this by assuming a shell of charge at $r=r'$ with density $\sigma'(\theta,\phi)$ and finding the potential in two regions: $a \le r \lt r'$ and $r\gt r'$. To obtain 3.114 of Jackson, you will need to use $\sigma'(\theta,\phi)=q\delta(\cos\theta-\cos\theta')\delta(\phi-\phi')/4\pi r'^2$.
+1. Use equation 3.114 and equation 1.44 of Jackson to find the potential outside of a sphere of radius $a$ for which the upper hemisphere ($z\gt 0$) is held at a potential of $V_o$ and the lower hemisphere ($z\lt 0$) is held at $-V_o$.
+
+{| class="wikitable collapsible collapsed"
+! align="left" |&nbsp;Answer
+|-
+|
+1.
+
+Equation 2.16 is
+
+$$G(\mathbf{x},\mathbf{x}')=\frac{1}{|\mathbf{x}-\mathbf{x}'|}  - \frac{a}{x'}\frac{1}{\left|\mathbf{x}-\frac{a^2}{x'^2}\mathbf{x}'\right|}$$
+
+where $x'\equiv |\mathbf{x}'|$ and so it has the same meaning as $r'$ used in Chapter 3. I am not sure why he did not use $r'$ in equation 2.16 and in Chapter 3 he switches to using $|\mathbf{x}'|=r'$. (This is why using a vector named $\mathbf{x}$ is an awkward choice of notation. When using cartesian coordinates is $x$ $|\mathbf{x}|$ or $\sqrt{x^2+y^2+z^2}$?)
+
+The first term in $G$ is the same as equation 3.70:
+
+$$\frac{1}{|\mathbf{x}-\mathbf{x}'|} = \sum_{l=0}^\infty \sum_{m=-l}^l \frac{4\pi}{2l+1}\frac{r_\lt^{l}}{r_\gt^{l+1}}Y^*_{lm}(\theta',\phi')Y_{lm}(\theta,\phi)$$
+
+Treating the second term requires some effort. First, define $\mathbf{y}\equiv (a^2/r'^2)\mathbf{x}'$ so that $|\mathbf{y}|=(a^2/r'^2)|\mathbf{x}'|=a^2/r'$.
+
+<code>!!!</code>Next, consider $\frac{1}{\left|\mathbf{x}-\mathbf{y}'\right|}$. The angle between $\mathbf{x}$ and $\mathbf{y}'$ is the same as the angle between  $\mathbf{x}$ and $\mathbf{x}'$ because $\mathbf{y}'$ is a multiple of $\mathbf{x}'$. For this reason, the primed angular terms will be the same as in equation 3.70. Whe using equation 3.70, there are two cases
+
+$$r\gt |\mathbf{y}'|\quad\Rightarrow\quad r \gt \frac{a^2}{r'}\quad\text{or}\quad rr'\gt a^2$$
+
+In this case, $r_{\gt}=r$ and $r_{\lt} = a^2/r'$.
+
+The other case is
+
+$$r\lt |\mathbf{y}'|\quad\Rightarrow\quad r \lt \frac{a^2}{r'}\quad\text{or}\quad rr'\lt a^2$$
+
+In this case, $r_{\gt}=a^2/r'$ and $r_{\lt} = r$.
+
+The Green function applies to two domains: $0\le r\le a$ and $r \gt a$ and $r'$ covers the same domain as $r$.
+
+We want the Green function for the domain $r \gt a$, which corresponds to the case $rr'\gt a^2$ for which $r_{\gt}=r$ and $r_{\lt} = a^2/r'$. Therefore, for $r\gt a$, $1/\left|\mathbf{x}-\mathbf{y}'\right|$
+
+is
+
+$$\frac{1}{|\mathbf{x}-\mathbf{y}'|} = \sum_{l=0}^\infty \sum_{m=-l}^l \frac{4\pi}{2l+1}\frac{(a^2/r')^{l}}{r^{l+1}}Y^*_{lm}(\theta',\phi')Y_{lm}(\theta,\phi)$$
+
+and so
+
+$$G(\mathbf{x},\mathbf{x}')=\frac{1}{|\mathbf{x}-\mathbf{x}'|}  - \frac{a}{r'}\frac{1}{\left|\mathbf{x}-\mathbf{y}'\right|} $$
+
+is
+
+$$G(\mathbf{x},\mathbf{x}')= \sum_{l=0}^\infty \sum_{m=-l}^l \frac{4\pi}{2l+1}\left(\frac{r_\lt^{l}}{r_\gt^{l+1}}-\frac{a}{r'}\frac{(a^2/r')^{l}}{r^{l+1}}\right)Y^*_{lm}(\theta',\phi')Y_{lm}(\theta,\phi)$$
+
+or
+
+$$G(\mathbf{x},\mathbf{x}')= 4\pi\sum_{l,m} \frac{1}{2l+1}\left[\frac{r_\lt^{l}}{r_\gt^{l+1}}-\frac{1}{a}\left(\frac{a^2}{rr'}\right)^{l+1}\right]Y^*_{lm}(\theta',\phi')Y_{lm}(\theta,\phi)$$
+
+2.
+
+The general solution to $\nabla^2\Phi(r,\theta,\phi)=0$ is
+
+$$\Phi(r,\theta,\phi)=\sum_{l,m}^l \left(A_{lm}r^l+\frac{B_{lm}}{r^{l+1}}\right)Y_{lm}(\theta,\phi)$$
+
+$\nabla^2\Phi(r,\theta,\phi)=0$ in two regions: the inner, $i$, for which $a\le r\lt r'$ and the outer, $o$, for which $r\gt r'$
+
+In order to match the boundary condition that $\Phi^o(r\rightarrow\infty,\theta,\phi)\rightarrow 0$, the constants for $r^l$ must be zero, so the equation in the outer region simplifies to
+
+$$\Phi^o(r,\theta,\phi)=\sum_{l,m} \frac{B^o_{lm}}{r^{l+1}}Y_{lm}(\theta,\phi)$$
+
+The inner solution is
+
+$$\Phi^i(r,\theta,\phi)=\sum_{l,m} \left(A^i_{lm}r^l+\frac{B^i_{lm}}{r^{l+1}}\right)Y_{lm}(\theta,\phi)$$
+
+The boundary condition $\Phi^i(a,\theta,\phi)=0$ gives
+
+$$1.\quad B^i_{lm}=-A^i_{lm}a^{2l+1}$$
+
+The continuity condition $\Phi^i(r',\theta,\phi)=\Phi^o(r',\theta,\phi)$ gives
+
+$$B_{lm}^o=A_{lm}^ir'^{2l+1}+B_{lm}^i$$
+
+which, when combined with 1. gives
+
+$$2.\quad B^o_{lm}=A^i_{lm}\left(r'^{2l+1}-a^{2l+1}\right)$$
+
+And so the inner potential simplifies to
+
+$$\Phi^i(r,\theta,\phi)=\sum_{l,m} A^i_{lm}\left(r^l-\frac{a^{2l+1}}{r^{l+1}}\right)Y_{lm}(\theta,\phi)$$
+
+At this point, $\Phi^o$ will be kept in terms of $B^o_{lm}$. The jump condition is
+
+$$\frac{\sigma'}{\epsilon_o}=\left[-\frac{\partial \Phi^o}{\partial r}+\frac{\partial \Phi^i}{\partial r}\right]_{r=r'}$$
+
+With
+
+$$\frac{\partial \Phi^o}{\partial r}=\sum_{l,m}-(l+1)\frac{B^o_{lm}}{r^{l+2}}Y_{lm}(\theta,\phi)$$
+
+and
+
+$$\frac{\partial \Phi^i}{\partial r}=\sum_{l,m} A^i_{lm}\left(lr^{l-1}+(l+1)\frac{a^{2l+1}}{r^{l+2}}\right)Y_{lm}(\theta,\phi)$$
+
+the jump condition is
+
+$$\frac{\sigma'}{\epsilon_o}=\sum_{l,m}\left[(l+1)\frac{B^o_{lm}}{r'^{l+2}}+\left(lr'^{l-1}+(l+1)\frac{a^{2l+1}}{r'^{l+2}}\right)A^i_{lm}\right]$$
+
+where $\sigma'(\theta,\phi)=q\delta(\cos\theta-\cos\theta')\delta(\phi-\phi')/4\pi r'^2$ from the problem statement.
+
+Multiply both sides by $Y^*_{l'm'}(\theta,\phi)d\Omega$ and integrate over the solid angle. The left-hand-side is
+
+$$
+\begin{array}
+&\displaystyle\int \frac{\sigma'}{\epsilon_o}Y^*_{l'm'}(\theta,\phi)d\Omega & = \displaystyle\int \frac{q}{4\pi\epsilon_o r'^2}\delta(\cos\theta-\cos\theta')\delta(\phi-\phi') Y^*_{l'm'}(\theta,\phi)d(\cos\theta) d\phi\\
+& =\frac{q}{4\pi\epsilon_or'^2}Y^*_{l'm'}(\theta',\phi')
+\end{array}
+$$
+
+The right-hand-side is
+
+$$\sum_{l,m}\left[(l+1)\frac{B^o_{lm}}{r'^{l+2}}+\left(lr'^{l-1}+(l+1)\frac{a^{2l+1}}{r'^{l+2}}\right)A^i_{lm}\right]\int Y^*_{l'm'}Y^*_{lm}d\Omega$$
+
+With, $\int Y^*_{l'm'}Y^*_{lm}d\Omega=\delta_{ll'}\delta_{mm'}$, it reduces to
+
+$$(l+1)\frac{B^o_{l'm'}}{r'^{l+2}}+\left(lr'^{l-1}+(l+1)\frac{a^{2l+1}}{r'^{l+2}}\right)A^i_{l'm'}$$
+
+This leaves
+
+$$\frac{Y^*_{lm}(\theta',\phi')}{4\pi\epsilon_or'^2}=(l+1)\frac{B^o_{lm}}{r'^{l+2}}-\left(lr'^{l-1}+(l+1)\frac{a^{2l+1}}{r'^{l+2}}\right)A^i_{lm}$$
+
+Using the relationship found earlier
+
+$$2.\quad B^o_{lm}=A^i_{lm}\left(r'^{2l+1}-a^{2l+1}\right)$$
+
+$$
+\begin{align}
+\frac{Y^*_{lm}(\theta',\phi')}{4\pi\epsilon_or'^2} & =(l+1)\frac{A^i_{lm}\left(r'^{2l+1}+a^{2l+1}\right)}{r'^{l+2}}-\left(lr'^{l-1}+(l+1)\frac{a^{2l+1}}{r'^{l+2}}\right)A^i_{lm}\\
+& = \left[(l+1)\frac{\left(r'^{2l+1}-a^{2l+1}\right)}{r'^{l+2}}+\left(lr'^{l-1}+(l+1)\frac{a^{2l+1}}{r'^{l+2}}\right)\right]A^i_{lm}\\
+& = \left[(l+1)\frac{r'^{2l+1}}{r'^{l+2}}+lr'^{l-1}\right]A^i_{lm}\\
+& =A_{lm}^i(2l+1)r'^{l-1}\\
+\end{align}
+$$
+
+Thus,
+
+$$A_{lm}^i = \frac{qY^*_{lm}(\theta',\phi')}{4\pi\epsilon_o(2l+1)r'^{l+1}}$$
+
+Using 1. and 2. gives
+
+$$B_{lm}^i = -\frac{qY^*_{lm}(\theta',\phi')}{4\pi\epsilon_o(2l+1)r'^{l+1}}a^{2l+1} \qquad \quad B_{lm}^o = \frac{qY^*_{lm}(\theta',\phi')}{4\pi\epsilon_o(2l+1)r'^{l+1}}(r'^{2l+1}-a^{2l+1})$$
+
+Using these in the equations for $\Phi$ that we left off with of
+
+$$\Phi^i(r,\theta,\phi)=\sum_{l,m} A^i_{lm}\left(r^l-\frac{a^{2l+1}}{r^{l+1}}\right)Y_{lm}(\theta,\phi)$$
+
+$$\Phi^o(r,\theta,\phi)=\sum_{l,m} \frac{B^o_{lm}}{r^{l+1}}Y_{lm}(\theta,\phi)$$
+
+gives
+
+$$\Phi^i(r,\theta,\phi)=\sum_{l,m} \frac{q}{4\pi\epsilon_o(2l+1)}\left(r^l-\frac{a^{2l+1}}{r^{l+1}}\right)\frac{1}{r'^{l+1}}Y^*_{lm}(\theta',\phi')Y_{lm}(\theta,\phi)$$
+
+$$\Phi^o(r,\theta,\phi)=\sum_{l,m} \frac{q}{4\pi\epsilon_o(2l+1)r'^{l+1}}\frac{r'^{2l+1}-a^{2l+1}}{r^{l+1}}Y^*_{lm}(\theta',\phi')Y_{lm}(\theta,\phi)$$
+
+$\Phi^o$ can be written in a form that reveals the fact that $\Phi^o(r,r')=\Phi^i(r',r)$
+
+$$\Phi^o(r,\theta,\phi)=\sum_{l,m} \frac{q}{4\pi\epsilon_o(2l+1)}\left(r'^{l}-\frac{a^{2l+1}}{r'^{l+1}}\right)\frac{1}{r^{l+1}}Y^*_{lm}(\theta',\phi')Y_{lm}(\theta,\phi)$$
+
+The equations have the symmetry of a Dirichlet Green function and the radial term also matches Equation 3.115 of Jackson (which follows trivially from 3.114). The scaling factor between $\Phi$ and $G$ is found by noting that
+
+$$\nabla^2G=-4\pi\delta(\mathbf{x}-\mathbf{x}')$$
+
+using the spherical representation of $\delta(\mathbf{x}-\mathbf{x}')$ is
+
+$$\nabla^2G=-4\pi\frac{\delta(r-r')}{r'^2}\delta(\cos\theta-\cos\theta')\delta(\phi-\phi')$$
+
+We solved
+
+$$\nabla^2\Phi=-\frac{\rho}{\epsilon_o}$$
+
+with, to start,
+
+$$\rho=\frac{q}{4\pi r'^2}\delta(r-r')=\sigma'\delta(r-r')$$
+
+Then $\sigma'$ was replaced with $q\delta(\cos\theta-\cos\theta')\delta(\phi-\phi')/4\pi r'^2$ giving
+
+$$\rho=q\frac{\delta(r-r')}{4\pi r'^2}\delta(\cos\theta-\cos\theta')\delta(\phi-\phi')$$
+
+and so the Poisson equation that we solved
+
+$$\nabla^2\Phi=-\frac{q}{4\pi\epsilon_o}\frac{\delta(r-r')}{ r'^2}\delta(\cos\theta-\cos\theta')\delta(\phi-\phi')$$
+
+Comparing the equations for and $\nabla^2G$ and $\nabla^2\Phi$ gives
+
+$$\frac{G}{4\pi} = \frac{4\pi\epsilon_o}{q} \Phi$$
+
+Using this gives the Green function associated with $\Phi$:
+
+$$G(r,\theta,\phi)=4\pi\sum_{l,m} \frac{1}{2l+1}\left(r^l-\frac{a^{2l+1}}{r^{l+1}}\right)\frac{1}{r'^{l+1}}Y^*_{lm}(\theta',\phi')Y_{lm}(\theta,\phi)\qquad r\lt r'$$
+
+$$G(r,\theta,\phi)=4\pi\sum_{l,m} \frac{1}{2l+1}\left(r'^{l}-\frac{a^{2l+1}}{r'^{l+1}}\right)\frac{1}{r^{l+1}}Y^*_{lm}(\theta',\phi')Y_{lm}(\theta,\phi)\qquad r\gt r'$$
+
+Which can be rearranged to the form of equation 3.114 of Jackson.
+
+$$G(r,\theta,\phi)=4\pi\sum_{l,m} \frac{1}{2l+1}\left[\frac{r^l}{r'^{l+1}}-\frac{1}{a}\left(\frac{a^2}{rr'}\right)^{l+1}\right]Y^*_{lm}(\theta',\phi')Y_{lm}(\theta,\phi)\qquad r\lt r'$$
+
+$$G(r,\theta,\phi)=4\pi\sum_{l,m} \frac{1}{2l+1}\left[\frac{r'^l}{r^{l+1}}-\frac{1}{a}\left(\frac{a^2}{rr'}\right)^{l+1}\right]Y^*_{lm}(\theta',\phi')Y_{lm}(\theta,\phi)\qquad r\gt r'$$
+
+3.
+
+Key steps given only for now. See previous problems with similar steps for justifications.
+
+$$G = G_{r\lt r'}\Theta(r'-r) + G_{r\gt r'}\Theta(r-r')$$
+
+$$\frac{\partial G}{\partial n'} = -\frac{\partial G}{\partial r'}=-\frac{\partial G_{r\lt r'}}{\partial r'}\Theta(r'-r)-\frac{\partial G_{r\gt r'}}{\partial r'}\Theta(r-r')$$
+
+Keep first term because $r'=a$ means $r\ge a$.
+
+$$\frac{\partial G}{\partial n'}=-\frac{\partial G_{r\gt r'}}{\partial r'}=-4\pi\sum_{l,m} \frac{1}{2l+1}\frac{\partial}{\partial r'}\left[\frac{r'^l}{r^{l+1}}-\frac{1}{a}\left(\frac{a^2}{rr'}\right)^{l+1}\right]Y^*_{lm}(\theta',\phi')Y_{lm}(\theta,\phi)$$
+
+$$\frac{\partial G}{\partial n'}=-4\pi\sum_{l,m} \frac{1}{2l+1}\left[\frac{lr'^{l-1}}{r^{l+1}}+(l+1)\frac{1}{a}\left(\frac{a^2}{rr'^2}\right)^{l+1}\right]Y^*_{lm}(\theta',\phi')Y_{lm}(\theta,\phi)$$
+
+$$\frac{\partial G}{\partial n'}\Bigg|_{r'=a}=-4\pi\sum_{l,m} \frac{1}{2l+1}\left[\frac{la^{l-1}}{r^{l+1}}+(l+1)\frac{1}{a}\left(\frac{a^2}{ra^2}\right)^{l+1}\right]Y^*_{lm}(\theta',\phi')Y_{lm}(\theta,\phi)$$
+
+$$\frac{\partial G}{\partial n'}\Bigg|_{r'=a}=-4\pi\sum_{l,m} \frac{a^{l-1}}{r^{l+1}}Y^*_{lm}(\theta',\phi')Y_{lm}(\theta,\phi)$$
+
+$$\Psi(\mathbf{x})=-\frac{1}{4\pi}\oint_{\mathcal{S}} \Psi(\mathbf{x}')\frac{\partial G}{\partial n'}\Bigg|_{r'=a}da'$$
+
+$G$ is proportional to potential and the surface charge density on the conductors is proportional to $\partial \Psi/\partial r$ at $r=a$; this equations is equivalent to computing the potential due to the charges on the conductor.
+
+$$\Psi(\mathbf{x})=-\frac{1}{4\pi}\int_0^{2\pi}\int_{0}^{\pi}\Psi(a)\frac{\partial G}{\partial n'}\Bigg|_{r'=a}a^2\sin\thet\thinspace d\theta'd\phi'$$
+
+$$\Psi(\mathbf{x})=-\frac{1}{4\pi}\int_0^{2\pi}d\phi'\left[\int_{0}^{\pi/2}V_o\frac{\partial G}{\partial n'}\Bigg|_{r'=a}\sin\thet\thinspace d\theta'-\int_{\pi/2}^{\pi}V_o\frac{\partial G}{\partial n'}\Bigg|_{r'=a}\sin\thet\thinspace d\theta'\right]$$
+
+$$\Psi(\mathbf{x})=V_o\sum_{l,m} \left(\frac{a}{r}\right)^{l+1}Y_{lm}(\theta,\phi)\int_0^{2\pi}d\phi'\left[\int_{0}^{\pi/2}Y^*_{lm}(\theta',\phi')\sin\thet\thinspace d\theta'-\int_{\pi/2}^{\pi}Y^*_{lm}(\theta',\phi')\sin\thet\thinspace d\theta'\right]$$
+
+$$\Psi(\mathbf{x})=V_o\sum_{l,m}\left(\frac{a}{r}\right)^{l+1}f(l)e^{im\phi}P_{lm}(\theta,\phi)\int_0^{2\pi}d\phi'\left[\int_{0}^{\pi/2}f(l)e^{-im\phi'}P^l_{m}\sin\thet\thinspace d\theta'-\int_{\pi/2}^{\pi}e^{-im\phi'}P^l_{m}\sin\thet\thinspace d\theta'\right]$$
+
+Eqn. 3.53
+
+$$Y_{lm}(\theta,\phi)= f(l)P^l_m(\cos\theta)e^{im\phi}$$
+
+$$f(l) = \sqrt{\frac{2l+1}{4\pi}\frac{(l-m)!}{(l+m)!}}$$
+
+$$\Psi(\mathbf{x})=V_o\sum_{l,m}\left(\frac{a}{r}\right)^{l+1}e^{im\phi}P_{l}^m(\theta,\phi)I_{lm}$$
+
+$$I_{lm} \equiv [f(l)]^2\int_0^{2\pi}d\phi'\left[\int_{0}^{\pi/2}f(l)e^{-im\phi'}P_l^{m}(\cos\theta')\sin\thet\thinspace d\theta'-\int_{\pi/2}^{\pi}e^{-im\phi'}P^m_{l}(\cos\theta')\sin\thet\thinspace d\theta'\right]$$
+
+$$I_{lm} =  [f(l)]^2\int_0^{2\pi}e^{-im\phi'}d\phi'\left[\int_{0}^{\pi/2}P_l^{m}(\cos\theta')-\int_{\pi/2}^{\pi}P_l^{m}(\cos\theta')\right]\sin\thet\thinspace d\theta'$$
+
+$$I_{lm} =  [f(l)]^2\int_0^{2\pi}e^{-im\phi'}d\phi'\left[\int_{0}^{1}P^m_{l}(x)dx-\int_{-1}^{0}P^m_{l}(x)dx\right]$$
+
+$I_{lm}=0$ for $m\ne 0$.
+
+$$I_{l} = \frac{(2l+1)}{2}\left[\int_{0}^{1}P_{l}(x)dx-\int_{-1}^{0}P_{l}(x)dx\right]$$
+
+$I_l=A_l$ with $A_l$ given by eqn. 3.26; $A_0=0$, $A_1=3/2$, $A_2=0$, $A_3=-7/8$, ...
+
+$$\Psi(r,\theta)=V_o\sum_{l=1,3,...} \frac{a^{l+1}}{r^{l+1}}P_{l}(\theta)A_{l}$$
+
+$$\Psi(r,\theta)\simeq V_o\left[\frac{3}{2}\left(\frac{a}{r}\right)^2P_1(\cos\theta)-\frac{7}{8}\left(\frac{r}{a}\right)^4P_3(\cos\theta)+\frac{11}{16}\left(\frac{r}{a}\right)^6P_5(\cos\theta)\right]$$
+
+Same as eqn. 3.36 with replacement of $(r/a)^l$ with $(a/r)^{l+1}$.  Far away, the system looks like a dipole (due to opposite-sign charge density on each hemisphere), so we expect only odd $l$ terms, as found.
 |}
