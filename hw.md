@@ -1243,6 +1243,55 @@ $II.\qquad\displaystyle V(x,y)=\frac{4V_o}{\pi}\sum_{n=1,3,...}^\infty\frac{e^{-
 
 2\. In the limit that $b/a \ll 1$, it would seem that near the center of the duct ($y=a/2$), the system appears as two infinite parallel conducting plates held at different potentials, which is a 1-D problem solved before. Show that in the limit $b/a \ll 1$, equation $I.$ reduces to the solution for an infinite conducting plate in the $x=0$ plane held at $V_o$ and a grounded infinite conducting plate in the $x=b$ plane. (You'll need to use $e^u\simeq 1 + u$ for $u\ll1$ multiple times and also the [Gregory and Leibniz formula for $\pi$](https://mathworld.wolfram.com/PiFormulas.html)).
 
+**Solution**
+
+1\. We need to show that 
+
+$\displaystyle\frac{\sinh[n\pi (b-x)/a]}{\sinh(n\pi b/a)}$ reduces to $\displaystyle e^{-n\pi x/a}$ when $a/b\ll 1$, or, equivalently, $b/a \gg 1$
+
+Re-writing the numerator and denominator in terms of exponentials
+
+$\sinh[n\pi (b-x)/a]=\frac{1}{2}\left(e^{n\pi (b-x)/a}-e^{-n\pi (b-x)/a}\right)=\frac{1}{2i}e^{n\pi b/a}\left(e^{-n\pi x/a}-e^{-2n\pi b/a}e^{n\pi x/a}\right)$
+
+$\sinh(n\pi b/a)=\frac{1}{2}\left(e^{n\pi b/a}-e^{-n\pi b/a}\right)=\frac{1}{2i}e^{n\pi b/a}\left(1-e^{-2n\pi b/a}\right)$
+
+gives
+
+$\displaystyle\frac{\sinh[n\pi (b-x)/a]}{\sinh(n\pi b/a)}=\frac{e^{-n\pi x/a}-e^{-2n\pi b/a}e^{n\pi x/a}}{1-e^{-2n\pi b/a}}$
+
+In the numerator, the term $e^{-2n\pi b/a}e^{n\pi x/a} \rightarrow 0$ as $b/a \rightarrow \infty$ for $x=[0,b]$.
+
+In the denominator, the term $e^{-2n\pi b/a}\rightarrow 0$ as $b/a \rightarrow \infty$.
+
+As a reuslt, the ratio approaches $\displaystyle e^{-n\pi x/a}$ as expected.
+
+2\. We need to show that near $y=a/2$, the sum approaches $\frac{\pi}{4}(1-x/b)$ so that $V(x,a/2)\rightarrow V_o(1-x/b)$.
+
+In the middle of the duct, $y=a/2$ so we replace $\sin(n\pi y/a)$ with 
+$\sin(n\pi/2)=(-1)^{n}$ for $n=1,3,...$. Using $\sinh x=e^x-e^{-x}$ and $e^x\simeq 1-x$ for $x\ll 1$ gives
+
+$\displaystyle\frac{\sinh[n\pi (b-x)/a]}{\sinh(n\pi b/a)}\simeq \frac{1+n\pi(b-x)/a - (1-n\pi(b-x)/a)}{1+n\pi b/a-(1-n\pi b/a)}=1-\frac{x}{b}$
+
+We are left with
+
+$\displaystyle V(x,y)=\frac{4V_o}{\pi}\sum_{n=1,3,...}^\infty\left(\frac{\sinh[n\pi (b-x)/a]}{n\sinh(n\pi b/a)}\right)\sin(n\pi y/a)\simeq \frac{4V_o}{\pi}\left(1-\frac{x}{b}\right)\sum_{n=1,3,...}^\infty \frac{(-1)^{n}}{n}$
+
+From [mathworld.wolfram.com](https://mathworld.wolfram.com/PiFormulas.html),
+
+$\frac{\pi}{4}=\sum_{k=1}^\infty \frac{(-1)^{k+1}}{2k-1}$
+
+Using $n=2k-1$, we can re-write this as 
+
+$\frac{\pi}{4}=\sum_{n=1,3,...}^\infty \frac{(-1)^{(n+3)/2}}{n}$
+
+Finally, for $n=1,3,...$, $(-1)^{(n+3)/2}=1,-1,1,...=(-1)^{n+1}$ and so
+
+$\frac{\pi}{4}=\sum_{n=1,3,...}^\infty \frac{(-1)^{(n+3)/2}}{n}=\sum_{n=1,3,...}^\infty \frac{(-1)^{n}}{n}$
+
+$\displaystyle V(x,y)\simeq \frac{4V_o}{\pi}\left(1-\frac{x}{b}\right)\sum_{n=1,3,...}^\infty \frac{(-1)^{n}}{n}=\frac{4V_o}{\pi}\frac{\pi}{4}\left(1-\frac{x}{b}\right)$
+
+and so $V(x,y)\simeq V_o(1-x/b)$.
+
 ## Long Rectangular Tube with Sheet of Charge 
 
 An infinitely long, hollow, and conducting duct is parallel to the $z$-axis and has sides bounded by $0\le x \le 1$ and $0\le y\le 1$. All sides are grounded. An infinitely long non-conducting sheet of charge with surface charge density $\sigma'$ is in the $x=x'$ plane between $y=0$ and $y=1$. See the left part of the figure below.
@@ -1489,15 +1538,15 @@ In class, we started the problem of finding the potential inside and outside of 
 
 1. Find $\Phi(r,\theta)$ (unless otherwise stated, this type of statement means for all $r$).
 
-Most students immediately re--wrote $\cos^2\theta$ as $V_o(P_o/3 + 2P_2/3)$ prior to starting to answer part 1. by using the fact that $P_2=(3\cos^2\theta - 1)/2$ and $P_o=1$. In the general case, it will not always be obvious how to express an arbitrary boundary potential $V(\theta)$ in terms of the Legendre polynomials.
+   Most students immediately re--wrote $\cos^2\theta$ as $V_o(P_o/3 + 2P_2/3)$ prior to starting to answer part 1. by using the fact that $P_2=(3\cos^2\theta - 1)/2$ and $P_o=1$. In the general case, it will not always be obvious how to express an arbitrary boundary potential $V(\theta)$ in terms of the Legendre polynomials.
 
-In 3.2 of Jackson, he notes that an arbitrary function of $\theta$ (he uses $x$, which is also $\cos\theta$) may be written as
+   In 3.2 of Jackson, he notes that an arbitrary function of $\theta$ (he uses $x$, which is also $\cos\theta$) may be written as
 
-$\displaystyle V(\theta) = \sum_{l=0}^\infty A_lP_l(\cos \theta)$
+   $\displaystyle V(\theta) = \sum_{l=0}^\infty A_lP_l(\cos \theta)$
 
-To find the coefficients $A_l$, multiply both sides by $P_{l'}(\cos\theta)\sin\theta d\theta$ and then integrate from $0$ to $\pi$. (This is essentially what Griffiths calls "Fourier's trick" except using Legendre polynomials). By orthogonality, one then finds that
+   To find the coefficients $A_l$, multiply both sides by $P_{l'}(\cos\theta)\sin\theta d\theta$ and then integrate from $0$ to $\pi$. (This is essentially what Griffiths calls "Fourier's trick" except using Legendre polynomials). By orthogonality, one then finds that
 
-$\displaystyle A_l=\frac{2l+1}{2}\int_0^\pi V(\theta)P_l(\cos\theta) \sin\theta d\theta$
+   $\displaystyle A_l=\frac{2l+1}{2}\int_0^\pi V(\theta)P_l(\cos\theta) \sin\theta d\theta$
 
 2. Suppose $V(b,\theta)=V_o$ for $\theta=0$ to $\theta=\pi/2$ and $V(b,\theta)=-V_o$ for $\theta=\pi/2$ to $\pi$. Write $V(b,\theta)$ in the form $A_0P_0 + A_1P_1 + A_2P_2$. That is, find a second--order approximation to $V(b,\theta)$ by finding $A_0$, $A_1$, and $A_2$. (If you use a formula from Jackson or elsewhere instead of doing integration to find $A_0, A_1,$ and $A_2$, prove the formula.)
 
