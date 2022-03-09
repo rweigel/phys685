@@ -23,13 +23,13 @@ Homeworks: [1](hw.html#hw-1) | [2](hw.html#hw-2) | [3](hw.html#hw-3) | [4](hw.ht
 %10. ## April 6th
 %9. ## March 30th
 
-%## March 23rd
+## March 23rd
 
-%Midterm
+Midterm
 
-%## March 9th
+## March 9th
 
-%3.7-3.12
+3.7-3.12
 
 ## March 2nd
 

@@ -261,415 +261,6 @@ $$\Psi(r)-\Psi(b)=\Psi(r)=-\int_b^rE_odr=\frac{\sigma_ob}{\epsilon_o}\left(\frac
 which matches the result from part 1.
 |}
 
-## Cylindrical -- $\sigma$ Given 
-
-A non-conducting and infinitely long cylindrical shell of radius $b$ has a surface charge density of $\sigma=\sigma_o\sin\thinspace2\phi$.
-
-1. Find $\Psi(\rho)$ using the boundary value method.
-
-In class, I did the a problem for $\sigma=\sigma_o\cos\thinspace\phi$. In justifying dropping the $\rho^n$ and $\ln\rho$ terms, I mentioned that this was justified because the potential should go to zero as $\rho\rightarrow \infty$. What I neglected to mention is that this is because for large $\rho$, the system appears as a line of charge with linear charge density, $\lambda$, and $\lambda=0$ for the given $\sigma$. This can be seen by computing the linear charge density $\lambda = \int_0^{2\pi} \sigma b d\phi$.
-
-2. Repeat 2. assuming $\sigma=\sigma_1 + \sigma_o\sin\thinspace2\phi$. In this case, the $A'_o\ln\rho$ term cannot be dropped; $A'_o$ is determined from the requirement that for large $\rho$, the potential should be that for a line of charge with linear denstiy $\lambda$.
-
-{| class="wikitable collapsible collapsed"
-! align="left" |&nbsp;Solution
-|-
-|
-
-I'll solve part 2., which reduced to part 1. if $\sigma_1=0$. Some students had difficulty with part 2. even though they got part 1. The short-cut answer it to solve part 2. using superposition of two boundary value problems, one being the solution to part 1. and the other being the solution to a uniformly charged cylinder.
-
-2.
-
-The general solution to Laplace's equation in cylindrical coordinates for a problem with azimuthal symmetry is
-
-$$\psi=A_o+\sum_{n=1}^\infty (A_n\cos n\phi+B_n\sin n\phi)\rho^n+a_o\ln\rho+\sum_{n=1}^\infty (a_n\cos n\phi+b_n\sin n\phi)\rho^{-n}$$
-
-We can conclude that the $\rho^n$ terms are zero for the potential outside of the cylinder because at large $\rho$ the cylinder will be approximately that for a line of charge, for which potential will be proportional to $\overline{\lambda}\ln\rho$ for large $\rho$, where $\overline{\lambda}$ is the azimuthally averaged surface charge density: $\overline{\lambda}=\int_0^{2\pi}\sigma b d\phi$. That is, for large $\rho$, the potential should be the same as that when all of the charge on the cylinder is collapsed onto a line, for which the potential is $\psi=const-(\overline{\lambda}/2\pi\epsilon_o)\ln\rho$, giving $a_o=-\overline{\lambda}/2\pi\epsilon_o$ and $A_o=const$. The constant $A_o$ is determined by defining a reference potential. For example, if $\psi(\rho_r)=V_r$, then $V_r=A_o-\overline{\lambda}\ln\rho_r/2\pi\epsilon_o$ and the terms $A_o+a_o\ln\rho$ combine to form
-
-$$A_o+a_o\ln\rho=V_r-(\overline{\lambda}/2\pi\epsilon_o)\ln(\rho/\rho_r)$$
-
-**Note**
-
-----
-
-This is related to the problem that arises if one attempts to use
-
-$$V=\frac{1}{4\pi\epsilon_o}\int \frac{dq}{|\mathbf{r}-\mathbf{r'}|}$$
-
-to compute the potential for an infinite line of charge. The derivation of this equation assumes that the potential is zero at large $\mathbf{r}$. Using Gauss' law, one can show that this is not the case - $E_{\rho}=\frac{\lambda}{2\pi\epsilon_o}\frac{1}{\rho}$ and so $\psi = \psi_o - \frac{\lambda}{2\pi\epsilon_o}\ln\rho$, where $\psi_o$ is a constant. We can't choose $\psi(\rho=\infty)=0$ because it gives $\psi_o=\infty$. So to compute the electric field for an infinite line of charge, one must either use the integral equation for the electric field or Gauss' law.
-
-----
-
-
-Outside the cylinder, the general form is then
-
-$$\psi_o=A_o'+a_o\ln\rho+\sum_{n=1}^\infty (a_n\cos n\phi+b_n\sin n\phi)\rho^{-n}$$
-
-I've kept the $\ln\rho$ term. In the following, I'll show how the values of $A_o'$ and $a_o$ given above follow from an alternative argument. 
-
-Inside the cylinder, the potential should be finite and so the $\ln\rho$ and $\rho^{-n}$ terms are dropped. (If the cylinder had a constant charge density, we would expect the potential to be constant inside of the cylinder and would keep only the $A_o$ term.)
-
-Inside the cylinder, the general form is then
-
-$$\psi_i=A_o+\sum_{n=1}^\infty (A_n\cos n\phi+B_n\sin n\phi)\rho^n$$
-
-The two boundary conditions are
-
-$$\psi_o(b)=\psi_i(b)$$
-
-and
-
-$$(\partial \psi_o/\partial \rho-\partial \psi_i/\partial \rho)\Bigm\lvert_{\rho=b}=-\sigma/\epsilon_o$$
-
-(Make sure that you know how to derive the above boundary condition.)
-
-The boundary condition
-
-$$\psi_o(b)=\psi_i(b)$$
-
-gives
-
-$$A_o'+a_o\ln b+\sum_{n=1}^\infty (a_n\cos n\phi+b_n\sin n\phi)b^{-n}=A_o+\sum_{n=1}^\infty (A_n\cos n\phi+B_n\sin n\phi)b^n$$
-
-This equation gives
-
-$$A_o'+ a_o\ln b = A_o$$
-
-and
-
-$$A_n=a^{-2n}a_n\quad\quad B_n=a^{-2n}b_n\quad\quad n\ge 1$$
-
-from "matching terms", which means integrating both sides by  $\int_0^{2\pi}d\phi$, $\int_0^{2\pi}\cos n'\phi\thinspace d\phi$ and $\int_0^{2\pi}\sin n'\phi\thinspace d\phi$, with $n'$ being an integer greater than zero, and using 
-
-$$\int_0^{2\pi}\cos n\thinspace d\phi = 0$$
-
-$$\int_0^{2\pi}\sin n\thinspace d\phi = 0$$
-
-$$\int_0^{2\pi}\cos n'\phi\cos n\phi\thinspace d\phi = 0\text{ if } n'\ne n\text{ and } \pi \text{ if } n'=n$$
-
-$$\int_0^{2\pi}\sin n'\phi\sin n\phi\thinspace d\phi = 0\text{ if } n'\ne n\text{ and } \pi \text{ if } n'=n$$
-
-$$\int_0^{2\pi}\cos n'\phi\sin n\phi\thinspace d\phi = 0$$
-
-To determine the relationship between the coefficients quoted above, it is often easier to write out the first few terms in the sums
-
-$$A_o'+a_o\ln b+\sum_{n=1}^\infty (a_n\cos n\phi+b_n\cos n\phi)b^{-n}=A_o+\sum_{n=1}^\infty (A_n\cos n\phi+B_n\cos n\phi)b^n$$
-
-in alignment as
-
-$$
-\begin{align}
-&& A_o'+a_o\ln b &&+ && (a_1\cos \phi+b_1\sin \phi)b^{-1} &&+ && (a_2\cos 2\phi+b_2\sin 2\phi)b^{-2}  && +&& ... && \\
-= && A_o && + && (A_1\cos \phi+B_1\sin \phi)b^{1} &&+ && (A_2\cos 2\phi+B_2\sin 2\phi)b^{2} && +&& ... &&
-\end{align}
-$$
-
-and then read off the matching terms
-
-$$A_o'+a_o\ln b = A_o$$
-
-$$a_1/b = A_1b$$
-
-$$b_1/b = B_1b$$
-
-$$a_2/b^2 = a_2b^2$$
-
-$$b_2/b^2 = B_2b^2$$
-
-$$a_3/b^3 = a_3b^2$$
-
-$$b_3/b^3 = B_3b^2$$
-
-$$...$$
-
-in order to conclude the general result stated earlier of
-
-$$A_o'+ a_o\ln b = A_o$$
-
-$$A_n=a^{-2n}a_n\quad\quad B_n=a^{-2n}b_n\quad\quad n\ge 1$$
-
-The boundary condition
-
-$$(\partial \psi_o/\partial \rho-\partial \psi_i/\partial \rho)\Bigm\lvert_{\rho=b}=-\sigma/\epsilon_o$$
-
-gives
-
-$$
-\begin{align}
-&& a_o/b &&  - &&(a_1\cos \phi+b_1\sin \phi)b^{-2} &&-&&2(a_2\cos 2\phi+b_2\sin 2\phi)b^{-3} &&+ &&... \\
-&&           && - && (A_1\cos \phi+B_1\sin \phi) &&-&& 2(A_2\cos 2\phi+B_2\sin 2\phi)b^{1} &&+&& ... &&\\
-=&& -(\sigma_1/\epsilon_o)&& && && && -(\sigma_o/\epsilon_o)\sin\thinspace2\phi
-\end{align}
-$$
-
-This gives
-
-$$a_o/b=-\sigma_1/\epsilon_o$$
-
-$$-a_1/b^2-A_1=0$$
-
-$$-b_1/b^2-B_1=0$$
-
-$$-2a_2/b^3-2A_2b = 0$$
-
-$$-2b_2/b^3-2B_2b = -\sigma_o/\epsilon_o$$
-
-$$-3a_3/b^4-3A_3b^2 = 0$$
-
-$$-3b_3/b^4-3B_3b^2 = 0$$
-
-$$...$$
-
-The equation $a_o=-b\sigma_1/\epsilon_o$ from the second boundary condition combines with $A_o'+a_o\ln b = A_o$ from the first boundary condition to give
-
-$$A_o=A_o'-(b\sigma_1/\epsilon_o)\ln b$$
-
-The equation $a_1/b = A_1b$ from the first boundary condition combines with $-a_1/b^2-A_1=0$ from the second boundary condition to give
-
-$$2A_1=0$$
-
-which is only possible if $A_1=0$.  Similarily, all terms except $b_2$ and $B_2$ are zero.
-
-The equation $b_2/b^2 = B_2b^2$ from the first boundary condition and $-2b_2/b^3-2B_2b = -\sigma_o/\epsilon_o$ combine to give
-
-$$B_2=+\sigma_o/4b\qquad\qquad b_2=b^3\sigma_o/4$$
-
-The final result is
-
-$$\psi_i=A_o'-(b\sigma_1/\epsilon_o)\ln b+\frac{\sigma_o}{4\epsilon_0}\frac{\rho^2}{b}\sin 2\phi$$
-
-$$\psi_o=A_o'-(b\sigma_1/\epsilon_o)\ln \rho+\frac{\sigma_o}{4\epsilon_0}\frac{b^3}{\rho^2}\sin 2\phi$$
-
-If the reference potential is chosen to be zero at $\rho=0$, then $A_o'=(b\sigma_1/\epsilon_o)\ln b$ and
-
-$$\psi_i=\frac{\sigma_o}{4\epsilon_0}\frac{\rho^2}{b}\sin 2\phi$$
-
-$$\psi_o=(b\sigma_1/\epsilon_o)\ln (b/\rho)+\frac{\sigma_o}{4\epsilon_0}\frac{b^3}{\rho^2}\sin 2\phi$$
-
-Earlier it was argued that for large $\rho$, the $\psi_o$ should approach
-
-$$\psi_o(\rho\rightarrow\infty,\phi) \rightarrow const-(\overline{\lambda}/2\pi\epsilon_o)\ln\rho$$
-
-where 
-
-$$\overline{\lambda}=\int_0^{2\pi}\sigma b d\phi$$
-
-Using
-
-$$\sigma=\sigma_1 + \sigma_o\sin\thinspace2\phi$$
-
-gives
-
-$$\overline{\lambda}=2\pi b\sigma_1$$
-
-and so the computed value of $\psi_o$ of
-
-$$\psi_o=(b\sigma_1/\epsilon_o)\ln (b/\rho)+\frac{\sigma_o}{4\epsilon_0}\frac{b^3}{\rho^2}\sin 2\phi=(b\sigma_1/\epsilon_o)\ln b-(b\sigma_1/\epsilon_o)\ln \rho+\frac{\sigma_o}{4\epsilon_0}\frac{b^3}{\rho^2}\sin 2\phi$$
-
-matches the limit
-
-$$\psi_o(\rho\rightarrow\infty,\phi) \rightarrow const-(\overline{\lambda}/2\pi\epsilon_o)\ln\rho=const-(\sigma_1b/\epsilon_o)\ln\rho$$
-
-----
-
-*Alternative Solution*
-
-In the following, \(s_o\) is used in place of \(b\) to avoid confusion with \(b_n\).
-
-----
-
-$$
-\begin{align}
-\psi_o(s,\phi)  = {} &  A^o_o+a^o_o\ln s\\
-& +\sum_{n=1}^\infty (A^o_n\cos n\phi+B^o_n\sin n\phi)s^n\\
-& +\sum_{n=1}^\infty (a^o_n\cos n\phi+b^o_n\sin n\phi)s^{-n}
-\end{align}
-$$
-
-A common error is to assert \(A^o_n=B^o_n=0\) for all \(n\) because the potential does not "blow up". Here that logic fails as it would give \(A^o_1=0\). (This is in part why I discourage using the "blow up" logic in solutions and why I asked you to provide justifications.) 
-
-The electric field is given as \(\mathbf{E}=E_o\hat{\mathbf{x}}\). Using \(\psi=\int \mathbf{E}\cdot d\mathbf{l}\) with \(d\mathbf{l}=\hat{\mathbf{x}}dx\) gives a potential of \(\psi(x)=-E_ox+V_o\), where \(V_o\) is a constant of integration. In cylindrical coordinates this is \(\psi=-E_os\cos\phi+V_o\). We will assume that for large \(s\), the potential approaches this functional form. (At the end of this solution, we consider an alternative justification for this assumption than the usual "if it satisfies ... and unique ... it is the solution" justification; if there were a line of charge in the system parallel to the \(z\)-axis, this assumption would not be valid.) Therefore, our outer boundary condition is
-
-$$\psi^o(s\rightarrow \infty,\phi) \rightarrow E_os\cos\phi+V_o$$
-
-For large \(s\), the general form of the potential reduces to
-
-$$\psi^o(s\rightarrow \infty,\phi) \rightarrow A^o_o+a^o_o\ln s +\sum_{n=1}^\infty (A^o_n\cos n\phi+B^o_n\sin n\phi)s^n$$
-
-(Technically we should write the solution in terms of  \(s' = s/b\) and consider \(s'\rightarrow \infty\) because \(\infty\) is dimensionless).  Combining these two equations gives
-
-$$I.\quad E_os\cos\phi+V_o = A^o_o+a^o_o\ln s +\sum_{n=1}^\infty (A^o_n\cos n\phi+B^o_n\sin n\phi)s^n$$
-
-Integration of both sides of \(I.\) over \(\phi = [0,2\pi]\) gives
-
-$$V_o = A^o_o + a^o_o\ln s$$
-
-or
-
-$$V_o - A^o_o = a^o_o\ln s$$
-
-The only way for this to be true for arbitrary \(s\) is if \(a^o_o=0\), which implies \(A_o=V_o\). 
-
-Multiplication of \(I.\) by \(\cos\phi\) and integration over \(\phi = [0,2\pi]\) gives
-
-$$-E_o = A^o_1$$
-
-Multiplication of \(I.\) by \(\cos n'\phi\) for \(n'\gt 1\) and integration over \(\phi = [0,2\pi]\) gives
-
-and \(A^o_n=0\) for \(n\gt 1\). 
-
-Multiplication of \(I.\) by \(\sin n'\phi\) for \(n'\gt 1\) and integration over \(\phi = [0,2\pi]\) gives
-
-and \(B^o_n=0\) for \(n\ge 1\). (That \(B^o_n=0\) could also be justified by a symmetry argument - the potential should have the property that \(\psi(x,y)=\psi(x,-y)\), or equivalently, \(\psi(s,\phi)=\psi(s,-\phi)\)). This leaves
-
-$$\psi^o(s,\phi) = V_o-\frac{E_o}{s}\cos\phi+\sum_{n=1}^\infty (a^o_n\cos n\phi+b^o_n\sin n\phi)s^n$$
-
-As noted earlier, because the system is invariant under the transformation \(\phi\rightarrow -\phi\) from which it follows that \(b^o_n=0\), leaving
-
-$$\psi^o(s,\phi) = V_o-E_os\cos \phi+\frac{A^o_1}{s}\cos\phi+\sum_{n=1}^\infty (a^i_n\cos n\phi)s^{-n}$$
-
-(If we had not used the symmetry argument to assert \(b^o_n=0\), we could still find it to be zero later using the method used to show \(B^o_n=0\).)
-
-The fact that we cannot say anything about \(a^i_n\) is reflective of the fact that we have not addressed any constraints on the potential for non-large \(s\).
-
-The starting equation for the inner solution is the same as that for the outer solution:
-
-----
-----
-
-$$
-\begin{align}
-\psi_i(s,\phi)  = {} &  A^i_o+a^i_o\ln s\\
-& +\sum_{n=1}^\infty (A^i_n\cos n\phi+B^i_n\sin n\phi)s^n\\
-& +\sum_{n=1}^\infty (a^i_n\cos n\phi+b^i_n\sin n\phi)s^{-n}
-\end{align}
-$$
-
-The continuity condition is
-
-$$\psi_o(s_o,\phi)=\psi_i(s_o,\phi)$$
-
-$$
-\begin{align}
-II.\quad V_o+ E_os_o\cos \phi +\frac{A^o_1}{s}\cos\phi = {} &  A^i_o+a^i_o\ln s_o\\
-& +\sum_{n=1}^\infty (A^i_n\cos n\phi+B^i_n\sin n\phi)s_o^n\\
-& +\sum_{n=1}^\infty (a^i_n\cos n\phi+b^i_n\sin n\phi)s_o^{-n}
-\end{align}
-$$
-
-Integration of both sides of \(II.\) over \(\phi = [0,2\pi]\) gives
-
-$$V_o=A^i_o + a^i_o\ln s_o$$
-
-Multiplication of \(II.\) by \(\cos\phi\) and integration over \(\phi = [0,2\pi]\) gives
-
-$$E_os_o+\frac{A^o_1}{s_o}=A^i_1s_o+\frac{a^i_1}{s_o}$$
-
-Multiplication of \(II.\) by \(\cos n'\phi\) for \(n'\gt 1\) and integration over \(\phi = [0,2\pi]\) gives
-
-$$0 = A^i_ns_o^n + \frac{a^i_n}{s_o^n}\quad n'\gt 1$$
-
-Multiplication of \(II.\) by \(\sin n'\phi\) for \(n'\ge 1\) and integration over \(\phi = [0,2\pi]\) gives
-
-$$0 = B^i_nb^n+\frac{b^i_n}{s_o^n}\quad n'\ge 1$$
-
-----
-----
-
-The boundary condition \(\epsilon_2 E_{2\perp}-\epsilon_1E_{1\perp}=\sigma_f\) evaluated at \(s=s_o\), written in terms of potentials, and with \(\sigma_f=0\) is
-
-$$\epsilon_o\frac{\partial \psi_o}{\partial s}\Bigg|_{s=s_o}=\epsilon\frac{\partial \psi_i}{\partial s}\Bigg|_{s=s_o}$$
-
-$$
-\begin{align}
-III.\quad (\epsilon_o/\epsilon)E_o\cos \phi-\frac{A_1^o}{s_o^2}\cos\phi  = {} &  \frac{a^i_o}{s_o}\\
-& +\sum_{n=1}^\infty n(A^i_n\cos n\phi+B^i_n\sin n\phi)s_o^{n-1}\\
-& -\sum_{n=1}^\infty n(a^i_n\cos n\phi+b^i_n\sin n\phi)s_o^{-n-1}
-\end{align}
-$$
-
-Integration of both sides of \(III.\) over \(\phi = [0,2\pi]\) gives
-
-$$a^i_o=0$$
-
-Multiplication of \(III.\) by \(\cos\phi\) and integration over \(\phi = [0,2\pi]\) gives
-
-$$\frac{\epsilon_o}{\epsilon}E_o-\frac{\epsilon_o}{\epsilon}\frac{A_1^o}{s^2_o}=A^i_1 - \frac{a^i_1}{s_o^2}$$
-
-Multiplication of \(III.\) by \(\cos n'\phi\) for \(n'\gt 1\) and integration over \(\phi = [0,2\pi]\) gives
-
-$$0 = nA^i_ns_o^{n-1} - \frac{na^i_n}{s_o^{n+1}}\quad n\gt 1$$
-
-When this is combined with the earlier condition
-
-$$0 = A_ns_o^n + \frac{a_n}{s_o^n}\quad n\gt 1$$
-
-yields
-
-$$0 = -n\frac{a^i_n}{s_o^{2n}}s_o^{n-1} - \frac{na^i_n}{s_o^{n+1}}\quad n\gt 1$$
-
-which simplifies to
-
-$$0 = \frac{a^i_n}{s^{n+1}_o} \quad n\gt 1$$
-
-So \(a^i_n=0\) for \(n\gt 1\) and because \(a^i_o=0\) was found earlier, only \(a^o_1\) is unknown.
-
-Multiplication of \(III.\) by \(\sin n'\phi\) for \(n' \ge 1\) and integration over \(\phi = [0,2\pi]\) gives
-
-$$0 = nB^i_ns_o^{n-1} - \frac{nb^i_n}{s_o^{n+1}}\quad n\ge 1$$
-
-This combined with
-
-$$0 = B_nb^n+\frac{b_n}{s_o^n}\quad n\ge 1$$
-
-from the continuity condition gives \(b^i_n=0\) for \(n\ge 1\).
-
-This leaves
-
-$$\psi_i = V_o-A_1^i s\cos\phi+\frac{a_1^i}{s}\cos\phi$$
-
-$$\psi_o = V_o-E_os\cos\phi + \frac{A_1^o}{s}\cos\phi$$
-
-and two equations that have not been used:
-
-$$E_os_o+\frac{A^o_1}{s_o}=A^i_1s_o+\frac{a^i_1}{s_o}$$
-
-$$\frac{\epsilon_o}{\epsilon}E_o-\frac{\epsilon_o}{\epsilon}\frac{A_1^o}{s^2_o}=A^i_1 + \frac{a^i_1}{s_o^2}$$
-
-It would appear that there are three unknowns in these two equations. Normally we would say that \(a_1^i=0\) because the solution does not "blow up" at the origin. There is also a mathematical justification. Poisson's equation in cylindrical coordinates for a potential with no \(z\)-dependence is
-
-$$\frac{1}{s}\frac{\partial}{\partial s}\left(s\frac{\partial \psi}{\partial s}\right) + \frac{1}{s^2}\frac{\partial^2\psi}{\partial \phi^2}=-\frac{\rho}{\epsilon_o}$$
-
-or
-
-$$s\frac{\partial}{\partial s}\left(s\frac{\partial \psi}{\partial s}\right) + \frac{\partial^2\psi}{\partial \phi^2}=-\frac{\rho}{\epsilon_o}$$
-
-If \(s=0\), \(\phi\) is continuous near \(s=0\), and \(\rho=0\) (corresponding to no line of charge along the \(z\)-axis and passing through the origin) this reduces to
-
-$$\frac{\partial^2\psi}{\partial \phi^2}=0\qquad \Rightarrow\qquad\frac{\partial \psi}{\partial \phi}\Bigg|_{s=0}=const$$
-
-(If one inspects the derivation for the equation of the general equation for the potential (e.g., [http://faculty.washington.edu/blayneh/cylcoord.pdf]) used at the starting point in this problem, you will note that the general form of the solution is actually only valid for \(s\gt 0\)). As a result, we actually need to consider three regions for the solution, with the additional "region" being \(s=0\). 
-
-The additional condition is then
-
-$$\frac{\partial \psi_i}{\partial \phi}\Bigg|_{s\rightarrow 0} = const$$
-
-As a result,
-
-$$\frac{\partial \psi_i}{\partial \phi}\Bigg|_{s\rightarrow 0} = \left[A_1^i s\sin\phi-\frac{a_1^i}{s}\sin\phi\right]_{s\rightarrow 0}=const$$
-
-For this condition to hold, \(a^i_1=0\) and the remaining equations are the same as found in the first solution to this problem.
-
-As noted earlier, technically we were only told that the dielectric was placed in a region of space where the electric field was \(\mathbf{E}=E_o\hat{\mathbf{x}}\). From a physical perspective, it seems reasonable to conclude that the presence of the dielectric will not alter this electric field for large enough \(s\), which was used to justify the condition \(\psi^o(s\rightarrow \infty,\phi) \rightarrow E_os\cos\phi+V_o\). If we did not make this assumption, the only reduction from the general solution to the potential would be that from the symmetry argument that \(\psi(s,\phi)=\phi(s,-\phi)\), from which it follows that \(b_n=B_n=0\). The outer potential is then
-
-$$
-\begin{align}
-\psi_o(s,\phi)  = {} &  A^i_o+a^i_o\ln s+\sum_{n=1}^\infty (A^i_n\cos n\phi)s^n+\sum_{n=1}^\infty (a^i_n\cos n\phi)s^{-n}
-\end{align}
-$$
-
-It is left as an exercise to show how one can arrive at the same solution found earlier without using the assumption \(\psi^o(s\rightarrow \infty,\phi) \rightarrow E_os\cos\phi+V_o\).
-
 
 # 2-D
 
@@ -683,24 +274,36 @@ See [HW #4](hw.md#2-d-cartesian-boundary-value-problem) and references therein.
 
 #2-d-cylindrical-boundary-value-problem&l=1272&c=1
 
-## Spherical -- Potential Given 
+## Cylinder -- $\mathbf{E}(\infty)$ given
+
+A long conducting cylinder of radius $b$ has its centerline along the $z$--axis. There is an external electric field of $\mathbf{E}=E_o\hat{\mathbf{x}}$.
+
+Find $\psi(s,\phi)$
+
+## Cylinder -- $\psi$ given
+
+A long conducting cylinder of radius $b$ has its centerline along the $z$--axis. The cylinder is held at a potential of $V_o\sin^2\phi$.
+
+Find $\psi(s,\phi)$
+
+## Spherical -- $\psi$ given I.
 
 A non-conducting spherical shell of radius $b$ has on its surface of $V_o\cos\theta$.
 
-Find $\Phi(r,\theta)$.
+Find $\Psi(r,\theta)$.
 
 **Solution**
 
-1\. Using $\Phi=0$ at the origin,
+1\. Using $\psi=0$ at the origin,
 
-$\Phi(r,\theta) = 
+$\psi(r,\theta) = 
 \begin{cases}
 \displaystyle V_o\frac{r}{b}\cos\theta & r \le b \\ \\
 \displaystyle V_o\frac{b^2}{r^2}\cos\theta & r \ge b
 \end{cases}
 $
 
-## Spherical -- Potential Given 
+## Spherical -- $\psi$ given II.
 
 Find $\Phi(r,\theta)$ if  $\Phi(r=b,\theta)=V_1\cos\theta+V_2\cos^2\theta$.
 
@@ -759,7 +362,7 @@ $$
 \end{align*}
 $$
 
-## Spherical $\sigma$ given
+## Spherical -- $\sigma$ given
 
 A non-conducting sphere of radius $r_o$ has a surface charge density of $(3/2)\sigma_2\sin^2\theta$. Find the potential inside and outside of the sphere assuming that at $r\gg r_o$, $\Psi=0$. In your calculations, use $\epsilon_o=1$.
 
@@ -873,3 +476,11 @@ and $\sigma = \sigma_2P_0 - \sigma_2P_2$ results in
 $\displaystyle\frac{\sigma_2r_o}{\epsilon_o}\left(\frac{1}{r_o}P_0 + \frac{1}{5}\frac{3}{r_o}P_2\right) +  \frac{\sigma_2r_o}{\epsilon_o}\frac{1}{5}\frac{2}{r_o}P_2= \frac{\sigma_2}{\epsilon_o}P_0 - \frac{\sigma_2}{\epsilon_o}P_2$
 
 and so the jump condition is satisfied.
+
+## Spherical -- $\mathbf{E}(\infty)$ given
+
+See example in Griffiths
+
+## Spherical -- $\psi$ given
+
+See example in Griffiths
