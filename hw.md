@@ -1701,6 +1701,12 @@ Due Sunday, March 13th at 11:59 pm. Email me a scan (if it is less than 10 pages
 
 2\. Find the surface charge density on the part of the dome in the $x$--$y$ plane.
 
+**Notes**
+
+Try to work out $\sigma$ using only the first few terms in the expansion. This will require only straightforward derivatives and the use of the table of Legendre polynomials.
+
+Given that the exam is coming up, I'll make getting the general equation extra credit. As a hint, use the middle equation of 3.29 of Jackson, which is $dP\_{l+1}(u)/du = u dP\_l(u)/du + (l+1)P\_l(u)$ to compute the derivatives of the Legendre polynomial. Given that we are always evaluating at $u=0$ (corresponding to $\theta=\pi/2$), you need to use $dP_{l+1}(u)/du|\_{u=0} = (l+1)P\_l(0)$. This will give you a general equation for the derivative evaluated at $u=0$ ... but you'll need to know $P\_l(0)$. You can get that using the first equation of 3.29 of Jackson: $(l+1)P\_{l+1}(u) - (2l + 1)uP_l(u) + l P\_{l-1}(u)$ with $u=0$. Extra extra credit if you plot the result.
+
 ## Sphere held at potential
 
 In class, we started the problem of finding the potential inside and outside of a sphere of radius $b$ that is centered on the origin and is held at potential $V(b,\theta)=V_o\cos^2\theta$.
