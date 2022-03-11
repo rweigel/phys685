@@ -27,6 +27,12 @@ Homeworks: [1](hw.html#hw-1) | [2](hw.html#hw-2) | [3](hw.html#hw-3) | [4](hw.ht
 
 Midterm
 
+* 1.5 hours.
+* The exam will cover concepts covered in the HW problems. The problems won't require as much algebra, however. Make sure that you (1) understand the key steps and (2) can work out what the solution should look like. As discussed in class, (2) is important in general and also to help you determine if you've made an algebraic error.
+* Don't fall into the trap of reading solutions and concluding that because the solution makes sense, you can solve the problem. Understanding someone else's solution is much easier than producing a solution on your own. After reading a solution, close your notes and attempt the problem on your own.
+* I suggest attempting to solve variations of the given HW problems. In 1--D, we did all of the possible variations, but in 2--D, we did not. You can look for related problems in Jackson and the references given in [the syllabus](#textbook).
+* If needed, I will give you Legendre Polynomials, Green's 2nd identity (unless I ask you to derive), the binomial expansion, and the non--cartesian Laplace's equation in 2-- and 3--D. All other equations, including the general solution to Laplace's equation in 2--D in cartesian, cylindrical, and spherical, you'll need to know.
+
 ## March 9th
 
 3.7-3.12
