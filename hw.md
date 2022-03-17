@@ -1690,7 +1690,7 @@ $\psi^o ( s \rightarrow\infty,\phi) \rightarrow const-(\overline{\lambda}/2\pi\e
 
 Due Sunday, March 13th at 11:59 pm. Email me a scan (if it is less than 10 pages), slide under my door (preferred), or bring to the next class (if you finish early).
 
-## Long Tube with Line of Charge
+## Long Duct with Line of Charge
 
 1. Do problem [HW problem 5.2.1](#long-rectangular-tube-with-sheet-of-charge) with the modification that $\sigma'=\lambda'\delta(y-y')$ and show that how it can be used to arrive at the result quoted in problem 2.15(b) of Jackson.
 1. Use your answer to part 1. and reciprocity to find the potential inside the tube when $\rho=0$ inside the tube, the side at $x=1$ is held at a potential of $V_o$, and the other three sides are grounded. (This is an analog to [HW #3.1.4](#1-d-cartesian-green-function) where we solved a problem that was easy to solve without reciprocity using reciprocity).
