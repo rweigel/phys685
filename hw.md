@@ -1139,7 +1139,7 @@ Using the same arguments used in [HW 3.1](#1-d-cartesian-green-function), we can
 
 $\displaystyle \Phi(z)=V_o\left[1-\frac{z}{\sqrt{b^2+z^2}}\right]$
 
-2\. The solution can also be written as
+2\. The solution can also be written (for $z>0$) as
 
 $\displaystyle \Phi(z)=V_o\left[1-\frac{1}{\sqrt{1+\frac{b^2}{z^2}}}\right]$
 
