@@ -6,25 +6,27 @@
 
 **Solution**
 
-1\. The exact solution on the $z$--axis is
+1\. Letting $V_o=1$ so that potential is units of $V_o$, the exact solution on the $z$--axis is
 
-$\displaystyle \Phi(z)=V_o\left[1-\frac{z}{\sqrt{b^2+z^2}}\right]$
+$$\Phi(z)=1-\frac{z}{\sqrt{b^2+z^2}}$$
 
 which can be written as
 
-$\Phi(z)=V_o\left[1-\frac{z}{|z|}\frac{1}{\sqrt{1+\frac{b^2}{z^2}}}\right]$
+$$\Phi(z)=1-\frac{z}{|z|}\frac{1}{\sqrt{1+\displaystyle\frac{b^2}{z^2}}}$$
 
 or
 
-$\Phi(z)=V_o\left[1-\frac{b}{|b|}\frac{1}{\sqrt{1+\frac{z^2}{b^2}}}\right]$
+$$\Phi(z)=1-\frac{z}{|b|}\frac{1}{\sqrt{1+\displaystyle\frac{z^2}{b^2}}}$$
 
 I've kept the absolute values because in some problems it matters. Here it does not because $b$ is by definition positive and we are considering the solution for $z\gt 0$. We can thus write the exact solution as either
 
-$\Phi(z)=V_o\left[1-\frac{1}{\sqrt{1+\frac{b^2}{z^2}}}\right]$
+$$\Phi^o(z)=1-\frac{1}{\sqrt{1+\displaystyle\frac{b^2}{z^2}}}$$
 
 or
 
-$\Phi(z)=V_o\left[1-\frac{1}{\sqrt{1+\frac{z^2}{b^2}}}\right]$
+$$\Phi^i(z)=1-\frac{z}{b}\frac{1}{\sqrt{1+\displaystyle\frac{z^2}{b^2}}}$$
+
+Where the superscript indicates the equation will be used for either the outer ( $o$; $z\gt b$) or inner ($i$; $z\lt b$) solution.
 
 [The binomial expansion](https://rweigel.github.io/phys305/binomial_expansion.html) has the form
 
@@ -38,19 +40,16 @@ Using $\delta=b/z$ gives
 
 $$\frac{1}{(1+\delta)^n} = 1 - \frac{1}{2}\frac{b^2}{z^2} + \frac{\frac{1}{2}\frac{3}{2}}{2}\frac{b^4}{z^4}- \frac{\frac{1}{2}\frac{3}{2}\frac{5}{2}}{3\cdot 2}\frac{b^6}{z^6}...$$
 
-And with $\delta=z/b$, the positions of $b$ and $z$ in the above are swapped.
+Using the $b/z$ expansion for $\Phi^o$, we have 
 
-Using the $b/z$ expansion, we have 
+$$\Phi^o(z)=1-\frac{1}{\sqrt{1+\frac{b^2}{z^2}}}= \frac{1}{2}\frac{b^2}{z^2} - \frac{\frac{1}{2}\frac{3}{2}}{2}\frac{b^4}{z^4}+ \frac{\frac{1}{2}\frac{3}{2}\frac{5}{2}}{3\cdot 2}\frac{b^6}{z^6}+...$$
 
-$\Phi(z)/V_o=1-\frac{1}{\sqrt{1+\frac{b^2}{z^2}}}= \frac{1}{2}\frac{b^2}{z^2} - \frac{\frac{1}{2}\frac{3}{2}}{2}\frac{b^4}{z^4}+ \frac{\frac{1}{2}\frac{3}{2}\frac{5}{2}}{3\cdot 2}\frac{b^6}{z^6}+...$
+or
+
+$\displaystyle\Phi^o(z)=\sum_{l=2,4,...}\frac{C_l}{z^l}\qquad$ with $\qquad\displaystyle C_l=(-1)^{(l/2+1)} \frac{(l-1) !!}{(l-2)!}\frac{b^l}{2^l}$
 
 For $z\lt b$, we have the same equation as above except with the $b$ and $z$ swapped.
 
-%$\Phi(z)/V_o=1-\frac{1}{\sqrt{1+\frac{b^2}{z^2}}}= \frac{1}{2}\frac{z^2}{b^2} - \frac{\frac{1}{2}\frac{3}{2}}{2}\frac{z^4}{b^4}+ \frac{\frac{1}{2}\frac{3}{2}\frac{5}{2}}{3\cdot 2}\frac{z^6}{b^6}+...$
-
-%By inspection, we can write a general equation for the $l$th coefficient, with $l=1,2,...$
-
-%$B_l=(-1)^{(l-1)/2} \frac{l!!}{(l-1)!}\frac{1}{l^{l-1}}$
 
 We know that the potential for a charge distribution with azimuthal symmetry can be written in the form
 
@@ -58,39 +57,118 @@ $$\psi(r,\theta)=\sum_{l=0}^{\infty}\left(A_lr^l + B_lr^{-l-1}\right)P_l(\cos\th
 
 This equation must match a power series expansion of the potential along the $+z$-axis, which corresponds to $\theta=0$ and $r=z$.
 
-$$\psi(r,z)=\sum_{l=0}^{\infty}\left(A_lz^l + B_lz^{-l-1}\right)P_l(0)$$
+$$\psi(z)=\sum_{l=0}^{\infty}\left(A_lz^l + B_lz^{-l-1}\right)P_l(0)$$
 
 or, equivalently,
 
-$$\psi(r,z)=A_oP_0(0)+A_1P_1(0)z+A_2P_2(0)z^2+...+\frac{B_oP_0(0)}{z}+\frac{B_1P_1(0)}{z^2}+...$$
+$$\psi(z)=A_oP_0(1)+A_1P_1(1)z+...+\frac{B_oP_0(1)}{z}+\frac{B_1P_1(1)}{z^2}+...$$
 
 For this to match our $z\gt b$ expansion of
 
-$$\Phi(z)= V_o\left[\frac{1}{2}\frac{b^2}{z^2} - \frac{\frac{1}{2}\frac{3}{2}}{2}\frac{b^4}{z^4}+ \frac{\frac{1}{2}\frac{3}{2}\frac{5}{2}}{3\cdot 2}\frac{b^6}{z^6}+...\right]$$
+$$\Phi^o(z)= \frac{1}{2}\frac{b^2}{z^2} - \frac{\frac{1}{2}\frac{3}{2}}{2}\frac{b^4}{z^4}+ \frac{\frac{1}{2}\frac{3}{2}\frac{5}{2}}{3\cdot 2}\frac{b^6}{z^6}+...$$
 
-we need $A_l=0$ and
+we need $A_l=0$ for all $l$ and
 
-$B_0=0$ (b/c no $1/z$ term in $z\gt b$ expansion)
+$B_0P_0(1)=0$ (b/c no $1/z$ term in $z\gt b$ expansion). $P_0(0)$ is non--zero, so we need $B_0=0$.
 
-$B_1P_1(0)=+V_o\frac{b^2}{2}$ (b/c $1/z^2$ constants must match)
+$B_1P_1(1)=+\frac{b^2}{2}$ (b/c $1/z^2$ constants must match)
 
-$B_2=0$ (b/c no $1/z^3$ term in $z\gt b$ expansion)
+$B_2P_2(1)=0$ (b/c no $1/z^3$ term in $z\gt b$ expansion). $P_2(0)$ is non--zero, so we need $B_2=0$
 
-$B_3P_3(0)=-V_o\frac{\frac{1}{2}\frac{3}{2}}{2}b^4$ (b/c $1/z^4$ constants must match)
+$\displaystyle B_3P_3(1)=-\frac{\frac{1}{2}\frac{3}{2}}{2}b^4$ (b/c $1/z^4$ constants must match)
 
 $B_4=0$
 
-$B_5P_5(0)=+V_o\frac{\frac{1}{2}\frac{3}{2}\frac{5}{2}}{3\cdot 2}b^6$
+$$B_5P_5(1)=+\frac{\frac{1}{2}\frac{3}{2}\frac{5}{2}}{3\cdot 2}b^6$$
 
 etc.
 
-The values of $P_l$ can be determined from the first recursion relationship of 3.29 of Jackson:
+The values of $P_l(1)$ can be determined from the first recursion relationship of 3.29 of Jackson:
 
 $(l+1)P_{l+1}-(2l+1)xP_l+lP_{l-1}=0$
 
+with $x=\cos 0 = 1$, this is
+
+$(l+1)P_{l+1}(1)=(2l+1)P_l(1)-lP_{l-1}(1)$
+
+The first few values can be computed manually
+
+$l=1\qquad P_2(1)=(3P_1(1)-P_0(1))/2=1$
+
+$l=2\qquad P_3(1)=(5P_2(1)-2P_1(1))/3=1$
+
+$l=3\qquad P_4(1)=(7P_2(1)-3P_1(1))/4=1$
+
+Based on the above, we expect that $P_l(1)=1$ for all $l$. (But this is not a proof.)
+
+The above steps are what is needed to find the constants for the potential $\Phi^o$ for $z \gt b$. The steps for finding the potential $\Phi^i$ for $z \lt b$ are similar. In this case, the $B_l$ terms are all zero and only every other $A_l$ term is non--zero.
+
+2\. From 1., you will have a potential for $z/b\lt 1$ of the form
+
+$$\psi(r,\theta)=\frac{B_1P_1(\cos\theta)}{r^2}+\frac{B_3P_3(\cos\theta)}{r^4}+...$$
+
+(after solving for the constants $B_l$ as outlined).
+
+From Gauss's law, the surface charge density just outside of a conductor is
+
+$\sigma=\epsilon_o\mathbf{E}\bfcdot\hat{\mathbf{n}}$, where $\hat{\mathbf{n}}$ is the outward normal to the surface. Equivalently,
+
+$\displaystyle\sigma=-\epsilon_o\frac{\partial \psi}{\partial n}$ where the partial derivative is evaluated at the the surface.
+
+In this problem, $n=z$ and we need to evaluate the partial derivative at $z=0$. That is, we need to compute
+
+$$\frac{\partial \psi}{\partial z}=\left[\frac{\partial }{\partial z}\frac{B_1P_1(\cos\theta)}{r^2}+\frac{\partial}{\partial z}\frac{B_3P_3(\cos\theta)}{r^4}+...\right]_{z=0}$$
+
+Given that $\cos\theta = z/r$, we can write
+
+$$\frac{\partial \psi}{\partial z}=\left[\frac{\partial}{\partial z}\frac{B_1P_1(z/r)}{r^2}+\frac{\partial}{\partial z}\frac{B_3P_3(z/r)}{r^4}+...\right]_{z=0}$$
+
+For the first term, we have, using the product rule for derivatives
+
+$$
+\begin{align*}
+\frac{\partial}{\partial z}\frac{B_1P_1(z/r)}{r^2} & =\left[\frac{B_1}{r^2}\frac{\partial }{\partial z}P_1(z/r)+B_1P_1(z/r)\frac{\partial(1/r^2)}{\partial z}\right]\_{z=0}\\\\
+&=\left[\frac{B_1}{r^2}\frac{\partial }{\partial z}P_1(z/r)\right]\_{z=0}+B_1P_1(0)\frac{\partial(1/r^2)}{\partial z}\Big|\_{z=0}
+\end{align*}
+$$
+
+Given that $P_1(0)=0$, we are left with
+
+$$\frac{\partial}{\partial z}\frac{B_1P_1(z/r)}{r^2}=\left[\frac{B_1}{r^2}\frac{\partial }{\partial z}P_1(z/r)\right]_{z=0}$$
+
+At $z=0$, $r=s$ (the radial cylindrical coordinate), so
+
+$$\frac{\partial}{\partial z}\frac{B_1P_1(z/r)}{r^2}=\frac{B_1}{s^2}\left[\frac{\partial }{\partial z}P_1(z/r)\right]_{z=0}$$
+
+Using the chain rule for derivatives
+
+$\displaystyle \frac{df(g(u))}{du} = \frac{df}{dg}\frac{dg}{du}$ with $f=P_1$ and $g=z/r$, the term in square braces can be re-written, giving
+
+$$\frac{\partial}{\partial z}\frac{B_1P_1(z/r)}{r^2}=\frac{B_1}{s^2}\left[\frac{\partial P_1(g)}{\partial g}\frac{\partial (z/r)}{\partial z}\right]_{z=0}$$
+
+Using
+
+$$\frac{\partial (z/r)}{\partial z}\Big|\_{z=0}=\left[\frac{1}{r}-\frac{z}{r^2}\right]_{z=0}=\frac{1}{s}$$
+
+leaves
+
+$$\frac{\partial}{\partial z}\frac{B_1P_1(z/r)}{r^2}=\frac{B_1}{s^3}\frac{\partial P_1(g)}{\partial g}\Big|\_{g=0}$$
+
+Given that $\frac{\partial P_1(g)}{\partial g}=1$, we are left with
+
+$$\frac{\partial}{\partial z}\frac{B_1P_1(z/r)}{r^2}=\frac{B_1}{s^3}$$
+
+The remainder of the problem involves steps similar to the above. To obtain a general solution, we need to know $dP_l/dx|_{x=0}$. This can be found using the second equation of 3.29 of Jackson:
+
+$$\frac{dP_{l+1}}{dx}-x\frac{dP_{l+1}}{dx} - (l+1)P_l=0$$
+
+When evaluated at $x=0$, we have
+
+$$\frac{dP_{l+1}}{dx}\Big|_{x=0} =(l+1)P_l(0)$$
+
 from which it follows that
 
-$P_{l+1}(0)=-\frac{l}{l+1}P_{l-1}(0)$
+$P_{l+1}(1)=-\frac{l}{l+1}P_{l-1}(1)$
 
 so
 
@@ -108,88 +186,25 @@ or, in general
 
 $P_l(0)=\frac{(l-1)!!}{l!!}(-1)^{l/2}\qquad l=2,4,...$
 
-The above steps are what is needed to find the potential for $b/z \lt 1$. The steps for finding the potential for $z/b \lt 1$ are similar. In this case, the $B_l$ terms are all zero and only every other $A_l$ term is non--zero.
-
-2\.
-
-From 1., you will have a potential for $z/b\lt 1$ of the form
-
-$\psi=\frac{B_1P_1(\cos\theta)}{r^2}+\frac{B_3P_3(\cos\theta)}{r^4}+...$
-
-From Gauss's law, the surface charge density just outside of a conductor is
-
-$\sigma=\epsilon_o\mathbf{E}\bfcdot\hat{\mathbf{n}}$, where $\hat{\mathbf{n}}$ is the outward normal to the surface. Equivalently,
-
-$\sigma=-\epsilon_o\frac{\partial \psi}{\partial n}$ where the partial derivative is evaluated at the the surface.
-
-In this problem, $n=z$ and we need to evaluate the partial derivative at $z=0$. That is, we need to compute
-
-$\frac{\partial \psi}{\partial z}=\left[\frac{B_1P_1(\cos\theta)}{r^2}+\frac{B_3P_3(\cos\theta)}{r^4}+...\right]_{z=0}$
-
-Given that $\cos\theta = z/r$, we can write
-
-$\frac{\partial \psi}{\partial z}=\left[\frac{\partial}{\partial z}\frac{B_1P_1(z/r)}{r^2}+\frac{\partial}{\partial z}\frac{B_3P_3(z/r)}{r^4}+...\right]_{z=0}$
-
-For the first term, we have, using the product rule for derivatives
-
-
-$\frac{\partial}{\partial z}\frac{B_1P_1(z/r)}{r^2}=\left[\frac{B_1}{r^2}\frac{\partial }{\partial z}P_1(z/r)+B_1P_1(z/r)\frac{\partial(1/r^2)}{\partial z}\right]\_{z=0}=\left[\frac{B_1}{r^2}\frac{\partial }{\partial z}P_1(z/r)\right]\_{z=0}+B_1P_1(0)\frac{\partial(1/r^2)}{\partial z}\Big|\_{z=0}$
-
-Given that $P_1(0)=0$, we are left with
-
-$\frac{\partial}{\partial z}\frac{B_1P_1(z/r)}{r^2}=\left[\frac{B_1}{r^2}\frac{\partial }{\partial z}P_1(z/r)\right]_{z=0}$
-
-At $z=0$, $r=s$ (the radial cylindrical coordinate), so
-
-$\frac{\partial}{\partial z}\frac{B_1P_1(z/r)}{r^2}=\frac{B_1}{s^2}\left[\frac{\partial }{\partial z}P_1(z/r)\right]_{z=0}$
-
-Using the chain rule for derivatives ($d f(g(u))/du = (df/dg)(dg/du)$ with $g=z/r$, we have
-
-$\frac{\partial}{\partial z}\frac{B_1P_1(z/r)}{r^2}=\frac{B_1}{s^2}\left[\frac{\partial P_1(g)}{\partial g}+\frac{\partial (z/r)}{\partial z}\right]_{z=0}$
-
-$\frac{\partial (z/r)}{\partial z}\Big|\_{z=0}=\left[\frac{1}{r}-\frac{z}{r}\right]_{z=0}=\frac{1}{s}$
-
-Thus,
-
-$\frac{\partial}{\partial z}\frac{B_1P_1(z/r)}{r^2}=\frac{B_1}{s^3}\frac{\partial P_1(g)}{\partial g}\Big|\_{g=0}$
-
-Given that $\frac{\partial P_1(g)}{\partial g}=1$, we are left with
-
-$\frac{\partial}{\partial z}\frac{B_1P_1(z/r)}{r^2}=\frac{B_1}{s^3}$
-
-The remainder of the problem involves steps similar to the above. To obtain a general solution, we need to know $dP_l/dx|_{x=0}$. This can be found using the second equation of 3.29 of Jackson:
-
-$\frac{dP_{l+1}}{dx}-x\frac{dP_{l+1}}{dx} - (l+1)P_l=0$
-
-When evaluated at $x=0$, we have
-
-$\frac{dP_{l+1}}{dx}\Big|_{x=0} =(l+1)P_l(0)$
-
-Two relationships found earlier ar
-
-$P_l(0)=0\qquad l=1,3,...$
-
-$P_l(0)=\frac{(l-1)!!}{l!!}(-1)^{l/2}\qquad l=2,4,...$
-
 From which it follows
 
-$\frac{dP_{l+1}}{dx}\Big|_{x=0} = 0 \qquad l=1,3,...$
+$$\frac{dP_{l+1}}{dx}\Big|_{x=0} = 0 \qquad l=1,3,...$$
 
-$\frac{dP_{l+1}}{dx}\Big|_{x=0} = (l+1)\frac{(l-1)!!}{l!!}(-1)^{l/2}=\frac{(l+1)!!}{l!!}(-1)^{l/2}\qquad l=2,4,...$
+$$\frac{dP_{l+1}}{dx}\Big|_{x=0} = (l+1)\frac{(l-1)!!}{l!!}(-1)^{l/2}=\frac{(l+1)!!}{l!!}(-1)^{l/2}\qquad l=2,4,...$$
 
 Shifting the index by $-1$ gives
 
-$\frac{dP_{l}}{dx}\Big|_{x=0} = 0 \qquad l=0,2,...$
+$$\frac{dP_{l}}{dx}\Big|_{x=0} = 0 \qquad l=0,2,...$$
 
-$\frac{dP_{l}}{dx}\Big|_{x=0} = (l+1)\frac{(l-1)!!}{l!!}(-1)^{l/2}=\frac{l!!}{(l-1)!!}(-1)^{(l-1)/2}\qquad l=1,3,...$
+$$\frac{dP_{l}}{dx}\Big|_{x=0} = (l+1)\frac{(l-1)!!}{l!!}(-1)^{l/2}=\frac{l!!}{(l-1)!!}(-1)^{(l-1)/2}\qquad l=1,3,...$$
 
 So the first few non--zero terms are
 
-$l=1\qquad \frac{dP_{l}}{dx}\Big|_{x=0}=\frac{l!!}{(l-1)!!}(-1)^{(l-1)/2}$
+$$l=1\qquad \frac{dP_{1}}{dx}\Big|_{x=0}=\frac{1!!}{0!!}(-1)^0=1$$
 
-$l=3\qquad \frac{dP_{l}}{dx}\Big|_{x=0}=\frac{l!!}{(l-1)!!}(-1)^{(l-1)/2}$
+$$l=3\qquad \frac{dP_{3}}{dx}\Big|_{x=0}=\frac{3!!}{2!!}(-1)^1=-\frac{3}{2}$$
 
-$l=5\qquad \frac{dP_{l}}{dx}\Big|_{x=0}=\frac{l!!}{(l-1)!!}(-1)^{(l-1)/2}$
+$$l=5\qquad \frac{dP_{5}}{dx}\Big|_{x=0}=\frac{5!!}{4!!}(-1)^2=\frac{5\cdot 3\cdot 1}{4\cdot 2}=\frac{15}{8}$$
 
 Check: Table 3.15 gives the first 5 Legendre polynomials. Manual evaluation of the derivatives gives:
 
