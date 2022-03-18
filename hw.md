@@ -1690,8 +1690,7 @@ $\psi^o ( s \rightarrow\infty,\phi) \rightarrow const-(\overline{\lambda}/2\pi\e
 
 Due Sunday, March 13th at 11:59 pm. Email me a scan (if it is less than 10 pages), slide under my door (preferred), or bring to the next class (if you finish early).
 
-
-## Long Duct with Line of Charge
+# Long Tube with Line of Charge
 
 1. Do problem [HW problem 5.2.1](#long-rectangular-tube-with-sheet-of-charge) with the modification that $\sigma'=\lambda'\delta(y-y')$ and show that how it can be used to arrive at the result quoted in problem 2.15(b) of Jackson.
 1. Use your answer to part 1. and reciprocity to find the potential inside the tube when $\rho=0$ inside the tube, the side at $x=1$ is held at a potential of $V_o$, and the other three sides are grounded. (This is an analog to [HW #3.1.4](#1-d-cartesian-green-function) where we solved a problem that was easy to solve without reciprocity using reciprocity).
@@ -1769,7 +1768,7 @@ $$\Phi(x,y) = -\frac{1}{4\pi}\oint_\mathcal{S} \Phi(x,x',y,'y) \frac{\partial G}
 (You should be able to explain what happened to the other terms in 1.42 of Jackson, which the above is based on and also the justification for the following equation.)
 
 For this problem, the required integration is
-%<code>!!!</code>The surface $\mathcal{S}$ is the surface of the volume $\mathcal{V}$, which is the volume inside the tube. $\mathcal{S}$ has a cross-sectional area of 1x1 and a length of $L_z$. On the two open ends of the tube, $n'=\pm z'$ and $\partial G/\partial z'=0$. On three of the sides of the volume, $\Phi=0$. This leaves the side at $x=1$ which has an outward normal of $n=x$. The integration needed is thus
+%<code>!!!</code>The surface $\mathcal{S}$ is the surface of the volume $\mathcal{V}$, which is the volume inside the tube. $\mathcal{S}$ has a cross-sectional area of 1x1 and a length of $L_z$. On the two open ends of the tube, $n'=\pm z'$ and $\partial G/\partial z'=0$. On three of the sides of the volume, $\Phi=0$. This leaves the side at $x=1$, which has an outward normal of $n=x$. The integration needed is thus
 
 $$\Phi(x,y) = -\frac{1}{4\pi}\int_0^1\int_0^{L_z} \Phi(1,x,y,y') \frac{\partial G}{\partial x'}\Bigg|_{x'=1} dy'dz'$$
 
@@ -1816,17 +1815,11 @@ $$\Phi(x,y) = \sum_{n=1,3,...}^{\infty}\frac{4V_o}{n\pi}\frac{1}{\sinh(n\pi)}\si
 
 which is the same as the result found earlier.
 
-## Azimuthal Symmetry
+# Azimuthal Symmetry
 
 1\. Find $\Phi(r,\theta)$ for problem [HW 4.1](#green-function-for-infinite-dome) in terms of an infinite sum involving the Legendre polynomials. 
 
 2\. Find the surface charge density on the part of the dome in the $x$--$y$ plane.
-
-**Notes**
-
-Try to work out $\sigma$ using only the first few terms in the expansion. This will require only straightforward derivatives and the use of the table of Legendre polynomials.
-
-Given that the exam is coming up, I'll make getting the general equation extra credit. As a hint, use the middle equation of 3.29 of Jackson, which is $dP\_{l+1}(u)/du = u dP\_l(u)/du + (l+1)P\_l(u)$ to compute the derivatives of the Legendre polynomial. Given that we are always evaluating at $u=0$ (corresponding to $\theta=\pi/2$), you need to use $dP_{l+1}(u)/du|\_{u=0} = (l+1)P\_l(0)$. This will give you a general equation for the derivative evaluated at $u=0$ ... but you'll need to know $P\_l(0)$. You can get that using the first equation of 3.29 of Jackson: $(l+1)P\_{l+1}(u) - (2l + 1)uP_l(u) + l P\_{l-1}(u)$ with $u=0$. Extra extra credit if you plot the result.
 
 **Solution**
 
@@ -1842,7 +1835,7 @@ or
 
 $$\Phi(z)=1-\frac{z}{|b|}\frac{1}{\sqrt{1+\displaystyle\frac{z^2}{b^2}}}$$
 
-I've kept the absolute values because in some problems it matters. Here it does not because $b$ is by definition positive and we are considering the solution for $z\gt 0$. We can thus write the exact solution as either
+I've kept the absolute values because in some problems, it matters. Here it does not because $b$ is by definition positive, and we are considering the solution for $z\gt 0$. We can thus write the exact solution as either
 
 $$\Phi^o(z)=1-\frac{1}{\sqrt{1+\displaystyle\frac{b^2}{z^2}}}$$
 
@@ -1864,13 +1857,15 @@ Using $\delta=b/z$ gives
 
 $$\frac{1}{(1+\delta)^n} = 1 - \frac{1}{2}\frac{b^2}{z^2} + \frac{\frac{1}{2}\frac{3}{2}}{2}\frac{b^4}{z^4}- \frac{\frac{1}{2}\frac{3}{2}\frac{5}{2}}{3\cdot 2}\frac{b^6}{z^6}...$$
 
-Using the $b/z$ expansion for $\Phi^o$, we have 
+Using this in the $b/z$ expansion for $\Phi^o$ gives
 
 $$\Phi^o(z)=1-\frac{1}{\sqrt{1+\frac{b^2}{z^2}}}= \frac{1}{2}\frac{b^2}{z^2} - \frac{\frac{1}{2}\frac{3}{2}}{2}\frac{b^4}{z^4}+ \frac{\frac{1}{2}\frac{3}{2}\frac{5}{2}}{3\cdot 2}\frac{b^6}{z^6}+...$$
 
 or
 
-$\displaystyle\Phi^o(z)=\sum_{l=2,4,...}\frac{C_l}{z^l}\qquad$ with $\qquad\displaystyle C_l=(-1)^{(l/2+1)} \frac{(l-1) !!}{(l-2)!}\frac{b^l}{2^l}$
+$\displaystyle\Phi^o(z)=\sum_{l=2,4,...}\frac{C_l}{z^l}\qquad$ with $\qquad\displaystyle C_l=(-1)^{(l/2+1)} \frac{(l-1) !!}{(l/2)!}\frac{b^l}{2^{l/2}}$
+
+where the double factorial is similar to the usual factorial with every other term omitted: $n!!\equiv 1\cdot 3\cdot 5\cdot ... n$ for $n$ odd and $n!!\equiv 2 \cdot 4\cdot 6\cdot ... n$ for $n$ even.
 
 For $z\lt b$, we have the same equation as above except with the $b$ and $z$ swapped.
 
@@ -1881,31 +1876,11 @@ $$\psi(r,\theta)=\sum_{l=0}^{\infty}\left(A_lr^l + B_lr^{-l-1}\right)P_l(\cos\th
 
 This equation must match a power series expansion of the potential along the $+z$-axis, which corresponds to $\theta=0$ and $r=z$.
 
-$$\psi(z)=\sum_{l=0}^{\infty}\left(A_lz^l + B_lz^{-l-1}\right)P_l(0)$$
+$$\psi(z)=\sum_{l=0}^{\infty}\left(A_lz^l + B_lz^{-l-1}\right)P_l(1)$$
 
 or, equivalently,
 
 $$\psi(z)=A_oP_0(1)+A_1P_1(1)z+...+\frac{B_oP_0(1)}{z}+\frac{B_1P_1(1)}{z^2}+...$$
-
-For this to match our $z\gt b$ expansion of
-
-$$\Phi^o(z)= \frac{1}{2}\frac{b^2}{z^2} - \frac{\frac{1}{2}\frac{3}{2}}{2}\frac{b^4}{z^4}+ \frac{\frac{1}{2}\frac{3}{2}\frac{5}{2}}{3\cdot 2}\frac{b^6}{z^6}+...$$
-
-we need $A_l=0$ for all $l$ and
-
-$B_0P_0(1)=0$ (b/c no $1/z$ term in $z\gt b$ expansion). $P_0(0)$ is non--zero, so we need $B_0=0$.
-
-$B_1P_1(1)=+\frac{b^2}{2}$ (b/c $1/z^2$ constants must match)
-
-$B_2P_2(1)=0$ (b/c no $1/z^3$ term in $z\gt b$ expansion). $P_2(0)$ is non--zero, so we need $B_2=0$
-
-$\displaystyle B_3P_3(1)=-\frac{\frac{1}{2}\frac{3}{2}}{2}b^4$ (b/c $1/z^4$ constants must match)
-
-$B_4=0$
-
-$$B_5P_5(1)=+\frac{\frac{1}{2}\frac{3}{2}\frac{5}{2}}{3\cdot 2}b^6$$
-
-etc.
 
 The values of $P_l(1)$ can be determined from the first recursion relationship of 3.29 of Jackson:
 
@@ -1923,7 +1898,39 @@ $l=2\qquad P_3(1)=(5P_2(1)-2P_1(1))/3=1$
 
 $l=3\qquad P_4(1)=(7P_2(1)-3P_1(1))/4=1$
 
-Based on the above, we expect that $P_l(1)=1$ for all $l$. (But this is not a proof.)
+Based on the above, we expect that $P_l(1)=1$ for all $l$. (But this is not a proof.) 
+
+For this to match our $z\gt b$ expansion of
+
+$$\Phi^o(z)= \frac{1}{2}\frac{b^2}{z^2} - \frac{\frac{1}{2}\frac{3}{2}}{2}\frac{b^4}{z^4}+ \frac{\frac{1}{2}\frac{3}{2}\frac{5}{2}}{3\cdot 2}\frac{b^6}{z^6}+...$$
+
+we need $A_l=0$ for all $l$ and
+
+$B_0=0$ because there is no $1/z$ term in the $z\gt b$ expansion.
+
+$B_1=+\frac{b^2}{2}$ because the $1/z^2$ constants must match.
+
+$B_2=0$ because there is no $1/z^3$ term in the $z\gt b$ expansion.
+
+$\displaystyle B_3=-\frac{\frac{1}{2}\frac{3}{2}}{2}b^4$ 
+
+because the $1/z^4$ constants must match.
+
+$B_4=0$
+
+$$B_5P_5(1)=+\frac{\frac{1}{2}\frac{3}{2}\frac{5}{2}}{3\cdot 2}b^6$$
+
+etc.
+
+
+
+We now have values for the $B_l$s:
+
+$B_{l-1}=C_l\qquad l=2, 4, ...$
+
+or, explicitly,
+
+$$B_{l-1}=(-1)^{(l/2+1)} \frac{(l-1) !!}{(l/2)!}\frac{b^l}{2^{l/2}}\qquad l=2,4,...$$
 
 The above steps are what is needed to find the constants for the potential $\Phi^o$ for $z \gt b$. The steps for finding the potential $\Phi^i$ for $z \lt b$ are similar. In this case, the $B_l$ terms are all zero and only every other $A_l$ term is non--zero.
 
@@ -1931,13 +1938,11 @@ The above steps are what is needed to find the constants for the potential $\Phi
 
 $$\psi(r,\theta)=\frac{B_1P_1(\cos\theta)}{r^2}+\frac{B_3P_3(\cos\theta)}{r^4}+...$$
 
-(after solving for the constants $B_l$ as outlined).
+From Gauss's law, the surface charge density just outside of a conductor is $\sigma=\epsilon_o\mathbf{E}\bfcdot\hat{\mathbf{n}}$, where $\hat{\mathbf{n}}$ is the outward normal to the surface. Equivalently,
 
-From Gauss's law, the surface charge density just outside of a conductor is
+$\displaystyle\sigma=-\epsilon_o\frac{\partial \psi}{\partial n}$ 
 
-$\sigma=\epsilon_o\mathbf{E}\bfcdot\hat{\mathbf{n}}$, where $\hat{\mathbf{n}}$ is the outward normal to the surface. Equivalently,
-
-$\displaystyle\sigma=-\epsilon_o\frac{\partial \psi}{\partial n}$ where the partial derivative is evaluated at the the surface.
+where the partial derivative is evaluated at the the surface.
 
 In this problem, $n=z$ and we need to evaluate the partial derivative at $z=0$. That is, we need to compute
 
@@ -1952,7 +1957,7 @@ For the first term, we have, using the product rule for derivatives
 $$
 \begin{align*}
 \frac{\partial}{\partial z}\frac{B_1P_1(z/r)}{r^2} & =\left[\frac{B_1}{r^2}\frac{\partial }{\partial z}P_1(z/r)+B_1P_1(z/r)\frac{\partial(1/r^2)}{\partial z}\right]\_{z=0}\\\\
-&=\left[\frac{B_1}{r^2}\frac{\partial }{\partial z}P_1(z/r)\right]\_{z=0}+B_1P_1(0)\frac{\partial(1/r^2)}{\partial z}\Big|\_{z=0}
+&=\left[\frac{B_1}{r^2}\frac{\partial }{\partial z}P_1(z/r)\right]\_{z=0}+B_1P_1(0)\frac{\partial(1/r^2)}{\partial z}\Bigg|\_{z=0}
 \end{align*}
 $$
 
@@ -1966,7 +1971,9 @@ $$\frac{\partial}{\partial z}\frac{B_1P_1(z/r)}{r^2}=\frac{B_1}{s^2}\left[\frac{
 
 Using the chain rule for derivatives
 
-$\displaystyle \frac{df(g(u))}{du} = \frac{df}{dg}\frac{dg}{du}$ with $f=P_1$ and $g=z/r$, the term in square braces can be re-written, giving
+$\displaystyle \frac{df(g(u))}{du} = \frac{df}{dg}\frac{dg}{du}$ 
+
+with $f=P_1$ and $g=z/r$, the term in square braces can be re-written, giving
 
 $$\frac{\partial}{\partial z}\frac{B_1P_1(z/r)}{r^2}=\frac{B_1}{s^2}\left[\frac{\partial P_1(g)}{\partial g}\frac{\partial (z/r)}{\partial z}\right]_{z=0}$$
 
@@ -1986,13 +1993,17 @@ The remainder of the problem involves steps similar to the above. To obtain a ge
 
 $$\frac{dP_{l+1}}{dx}-x\frac{dP_{l+1}}{dx} - (l+1)P_l=0$$
 
-When evaluated at $x=0$, we have
+When evaluated at $x=0$, this is
 
 $$\frac{dP_{l+1}}{dx}\Big|_{x=0} =(l+1)P_l(0)$$
 
-from which it follows that
+Using again the recursion relationship
 
-$P_{l+1}(1)=-\frac{l}{l+1}P_{l-1}(1)$
+$(l+1)P_{l+1}-(2l+1)xP_l+lP_{l-1}=0$
+
+with $x=0$, gives
+
+$P_{l+1}(0)=-\frac{l}{l+1}P_{l-1}(0)$
 
 so
 
@@ -2020,7 +2031,7 @@ Shifting the index by $-1$ gives
 
 $$\frac{dP_{l}}{dx}\Big|_{x=0} = 0 \qquad l=0,2,...$$
 
-$$\frac{dP_{l}}{dx}\Big|_{x=0} = (l+1)\frac{(l-1)!!}{l!!}(-1)^{l/2}=\frac{l!!}{(l-1)!!}(-1)^{(l-1)/2}\qquad l=1,3,...$$
+$$\frac{dP_{l}}{dx}\Big|_{x=0} =\frac{l!!}{(l-1)!!}(-1)^{(l-1)/2}\qquad l=1,3,...$$
 
 So the first few non--zero terms are
 
@@ -2030,7 +2041,7 @@ $$l=3\qquad \frac{dP_{3}}{dx}\Big|_{x=0}=\frac{3!!}{2!!}(-1)^1=-\frac{3}{2}$$
 
 $$l=5\qquad \frac{dP_{5}}{dx}\Big|_{x=0}=\frac{5!!}{4!!}(-1)^2=\frac{5\cdot 3\cdot 1}{4\cdot 2}=\frac{15}{8}$$
 
-Check: Table 3.15 gives the first 5 Legendre polynomials. Manual evaluation of the derivatives gives:
+Check: Table 3.15 gives the first five Legendre polynomials. Manual evaluation of the derivatives gives:
 
 $dP_0(x)/dx=0$
 
