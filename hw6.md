@@ -1,4 +1,6 @@
-# Long Tube with Line of Charge
+# HW 6
+
+## Long Tube with Line of Charge
 
 1. Do problem [HW problem 5.2.1](#long-rectangular-tube-with-sheet-of-charge) with the modification that $\sigma'=\lambda'\delta(y-y')$ and show that how it can be used to arrive at the result quoted in problem 2.15(b) of Jackson.
 1. Use your answer to part 1. and reciprocity to find the potential inside the tube when $\rho=0$ inside the tube, the side at $x=1$ is held at a potential of $V_o$, and the other three sides are grounded. (This is an analog to [HW #3.1.4](#1-d-cartesian-green-function) where we solved a problem that was easy to solve without reciprocity using reciprocity).
@@ -123,11 +125,17 @@ $$\Phi(x,y) = \sum_{n=1,3,...}^{\infty}\frac{4V_o}{n\pi}\frac{1}{\sinh(n\pi)}\si
 
 which is the same as the result found earlier.
 
-# Azimuthal Symmetry
+## Azimuthal Symmetry
 
 1\. Find $\Phi(r,\theta)$ for problem [HW 4.1](#green-function-for-infinite-dome) in terms of an infinite sum involving the Legendre polynomials. 
 
 2\. Find the surface charge density on the part of the dome in the $x$--$y$ plane.
+
+**Notes**
+
+Try to work out $\sigma$ using only the first few terms in the expansion. This will require only straightforward derivatives and the use of the table of Legendre polynomials.
+
+Given that the exam is coming up, I'll make getting the general equation extra credit. As a hint, use the middle equation of 3.29 of Jackson, which is $dP\_{l+1}(u)/du = u dP\_l(u)/du + (l+1)P\_l(u)$ to compute the derivatives of the Legendre polynomial. Given that we are always evaluating at $u=0$ (corresponding to $\theta=\pi/2$), you need to use $dP_{l+1}(u)/du|\_{u=0} = (l+1)P\_l(0)$. This will give you a general equation for the derivative evaluated at $u=0$ ... but you'll need to know $P\_l(0)$. You can get that using the first equation of 3.29 of Jackson: $(l+1)P\_{l+1}(u) - (2l + 1)uP_l(u) + l P\_{l-1}(u)$ with $u=0$. Extra extra credit if you plot the result.
 
 **Solution**
 
@@ -229,8 +237,6 @@ $B_4=0$
 $$B_5P_5(1)=+\frac{\frac{1}{2}\frac{3}{2}\frac{5}{2}}{3\cdot 2}b^6$$
 
 etc.
-
-
 
 We now have values for the $B_l$s:
 
@@ -361,6 +367,30 @@ $dP_3(x)/dx\Big|_{x=0}=-\frac{3}{2}$
 
 $dP_4(x)/dx\Big|_{x=0}=0$
 
-From [A table](https://en.wikipedia.org/wiki/Legendre_polynomials#Rodrigues'_formula_and_other_explicit_formulas), $P_5={\textstyle {\tfrac {1}{8}}\left(63x^{5}-70x^{3}+15x\right)}$ so
+From [a table](https://en.wikipedia.org/wiki/Legendre_polynomials#Rodrigues'_formula_and_other_explicit_formulas), $P_5={\textstyle {\tfrac {1}{8}}\left(63x^{5}-70x^{3}+15x\right)}$ so
 
 $dP_5(x)/dx\Big|_{x=0}=\frac{15}{8}$
+
+## Sphere held at potential
+
+In class, we started the problem of finding the potential inside and outside of a sphere of radius $b$ that is centered on the origin and is held at potential $V(b,\theta)=V_o\cos^2\theta$.
+
+1. Find $\Phi(r,\theta)$ (unless otherwise stated, this type of statement means for all $r$).
+
+   Most students immediately re--wrote $\cos^2\theta$ as $V_o(P_o/3 + 2P_2/3)$ prior to starting to answer part 1. by using the fact that $P_2=(3\cos^2\theta - 1)/2$ and $P_o=1$. In the general case, it will not always be obvious how to express an arbitrary boundary potential $V(\theta)$ in terms of the Legendre polynomials.
+
+   In 3.2 of Jackson, he notes that an arbitrary function of $\theta$ (he uses $x$, which is also $\cos\theta$) may be written as
+
+   $\displaystyle V(\theta) = \sum_{l=0}^\infty A_lP_l(\cos \theta)$
+
+   To find the coefficients $A_l$, multiply both sides by $P_{l'}(\cos\theta)\sin\theta d\theta$ and then integrate from $0$ to $\pi$. (This is essentially what Griffiths calls "Fourier's trick" except using Legendre polynomials). By orthogonality, one then finds that
+
+   $\displaystyle A_l=\frac{2l+1}{2}\int_0^\pi V(\theta)P_l(\cos\theta) \sin\theta d\theta$
+
+2. Suppose $V(b,\theta)=V_o$ for $\theta=0$ to $\theta=\pi/2$ and $V(b,\theta)=-V_o$ for $\theta=\pi/2$ to $\pi$. Write $V(b,\theta)$ in the form $A_0P_0 + A_1P_1 + A_2P_2$. That is, find a second--order approximation to $V(b,\theta)$ by finding $A_0$, $A_1$, and $A_2$. (If you use a formula from Jackson or elsewhere instead of doing integration to find $A_0, A_1,$ and $A_2$, prove the formula.)
+
+3. Find $\Phi(r,\theta)$ using the boundary value $V(b,\theta)=A_0P_0 + A_1P_1 + A_2P_2$.
+
+4. State at least one way that you can determine if your answer to part 3. makes sense.
+
+5. (Optional) Repeat this problem assuming that instead of being held at a potential, the sphere has a surface charge density of $\sigma(b,\theta)=\sigma_o\cos^2\theta$ or $\sigma(b,\theta)=\sigma_o$ for $\theta=0$ to $\theta=\pi/2$ and $\sigma(b,\theta)=-\sigma_o$ for $\theta=\pi/2$ to $\pi$
