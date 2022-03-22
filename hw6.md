@@ -15,6 +15,8 @@ and
 
 $$\sum_{n=1}^{\infty} A_n \sin(n\pi y)\left[\frac{n\pi\sinh(n\pi)}{\sinh(n\pi(x'-1))}\right]=-\frac{\sigma'}{\epsilon_o}$$
 
+were given in [HW problem 5.2.1](#long-rectangular-tube-with-sheet-of-charge) and these equations are the starting point here.
+
 For this problem, replace $\sigma'$ with $\sigma'=\lambda'\delta(y-y')$ in the above equation.
 
 $$\sum_{n=1}^{\infty} A_n \sin(n\pi y)\left[\frac{n\pi\sinh(n\pi)}{\sinh(n\pi(x'-1))}\right]=-\frac{\lambda'\delta(y-y')}{\epsilon_o}$$
@@ -73,18 +75,19 @@ $$\Phi = \sum_{n=1,3,...}^{\infty}\frac{4V_o}{n\pi}\frac{1}{\sinh(n\pi)}\sinh(n\
 
 To solve this problem using $G$, we need to compute
 
-$$\Phi(x,y) = -\frac{1}{4\pi}\oint_\mathcal{S} \Phi(x,x',y,'y) \frac{\partial G}{\partial n'}\Bigg|_{\mathcal{S}} da'$$
+$$\Phi(x,y) = -\frac{1}{4\pi}\oint_\mathcal{S} \Phi(x,x',y,'y) \frac{\partial G}{\partial n'}\bigg|_{\mathcal{S}} da'$$
 
 (You should be able to explain what happened to the other terms in 1.42 of Jackson, which the above is based on and also the justification for the following equation.)
 
+%<code>!!!</code>The surface $\mathcal{S}$ is the surface of the volume $\mathcal{V}$, which is the volume inside the tube. $\mathcal{S}$ has a cross-sectional area of 1x1 and a length of $L_z$. On the two open ends of the tube, $n'=\pm z'$ and $\partial G/\partial z'=0$. On three of the sides of the volume, $\Phi=0$. This leaves the side at $x=1$, which has an outward normal of $n=x$.
+
 For this problem, the required integration is
-%<code>!!!</code>The surface $\mathcal{S}$ is the surface of the volume $\mathcal{V}$, which is the volume inside the tube. $\mathcal{S}$ has a cross-sectional area of 1x1 and a length of $L_z$. On the two open ends of the tube, $n'=\pm z'$ and $\partial G/\partial z'=0$. On three of the sides of the volume, $\Phi=0$. This leaves the side at $x=1$, which has an outward normal of $n=x$. The integration needed is thus
 
-$$\Phi(x,y) = -\frac{1}{4\pi}\int_0^1\int_0^{L_z} \Phi(1,x,y,y') \frac{\partial G}{\partial x'}\Bigg|_{x'=1} dy'dz'$$
+$$\Phi(x,y) = -\frac{1}{4\pi}\int_0^1\int_0^{L_z} \Phi(x,x'=1,y,y') \frac{\partial G}{\partial x'}\bigg|_{x'=1} dy'dz'$$
 
-Using $\Phi(1,x,y,y')=V_o$ and the fact that integration over $z'$ gives $L_z$, we have
+Using $\Phi(x,1,y,y')=V_o$ and the fact that integration over $z'$ gives $L_z$, we have
 
-$$\Phi(x,y) = -\frac{V_oL_z}{4\pi}\int_0^1\frac{\partial G}{\partial x'}\Bigg|_{x'=1} dy'$$
+$$\Phi(x,y) = -\frac{V_oL_z}{4\pi}\int_0^1\frac{\partial G}{\partial x'}\bigg|_{x'=1} dy'$$
 
 Using the relationship
 
@@ -92,15 +95,15 @@ $$G=\frac{4\pi\epsilon_o}{L_z\lambda'}\psi$$
 
 this is
 
-$$\Phi(x,y) = -\frac{V_oL_z}{4\pi}\frac{4\pi\epsilon_o}{L_z\lambda'}\int_0^1\frac{\partial \psi}{\partial x'}\Bigg|_{x'=1} dy'$$
+$$\Phi(x,y) = -\frac{V_oL_z}{4\pi}\frac{4\pi\epsilon_o}{L_z\lambda'}\int_0^1\frac{\partial \psi}{\partial x'}\bigg|_{x'=1} dy'$$
 
 Using $\psi = \psi_l\Theta(x'-x)+\psi_r\Theta(x-x')$,
 
-$$\frac{\partial \psi}{\partial x'}\Bigg|_{x'=1}= \Theta(1-x)\frac{\partial \psi_l}{\partial x'}\Bigg|_{x'=1}+\Theta(x-1)\frac{\partial \psi_r}{\partial x'}\Bigg|_{x'=1}$$
+$$\frac{\partial \psi}{\partial x'}\Bigg|_{x'=1}= \Theta(1-x)\frac{\partial \psi_l}{\partial x'}\bigg|_{x'=1}+\Theta(x-1)\frac{\partial \psi_r}{\partial x'}\bigg|_{x'=1}$$
 
 (The two other terms in $\partial \psi/\partial x'$ involving the derivative of $\Theta$ cancel; this was considered in a previous HW problem.) The second term in this equation is zero because the volume extends from $x=0$ to $x=1$ for which $\Theta(x-1)=0$. Also, in this range of $x$, $\Theta(1-x) = 1$. This leaves
 
-$$\frac{\partial \psi}{\partial x'}\Bigg|_{x'=1}= \frac{\partial \psi_l}{\partial x'}\Bigg|_{x'=1}$$
+$$\frac{\partial \psi}{\partial x'}\bigg|_{x'=1}= \frac{\partial \psi_l}{\partial x'}\bigg|_{x'=1}$$
 
 Using
 
@@ -113,7 +116,7 @@ x)\sin(n\pi y)\sin(n\pi y')$$
 
 and the integral
 
-$$\Phi(x,y) = -\frac{V_oL_z}{4\pi}\frac{4\pi\epsilon_o}{L_z\lambda'}\int_0^1\frac{\partial \psi}{\partial x'}\Bigg|_{x'=1} dy'$$
+$$\Phi(x,y) = -\frac{V_oL_z}{4\pi}\frac{4\pi\epsilon_o}{L_z\lambda'}\int_0^1\frac{\partial \psi}{\partial x'}\bigg|_{x'=1} dy'$$
 
 can be rewritten as
 
@@ -183,9 +186,6 @@ $\displaystyle\Phi^o(z)=\sum_{l=2,4,...}\frac{C_l}{z^l}\qquad$ with $\qquad\disp
 
 where the double factorial is similar to the usual factorial with every other term omitted: $n!!\equiv 1\cdot 3\cdot 5\cdot ... n$ for $n$ odd and $n!!\equiv 2 \cdot 4\cdot 6\cdot ... n$ for $n$ even.
 
-For $z\lt b$, we have the same equation as above except with the $b$ and $z$ swapped.
-
-
 We know that the potential for a charge distribution with azimuthal symmetry can be written in the form
 
 $$\psi(r,\theta)=\sum_{l=0}^{\infty}\left(A_lr^l + B_lr^{-l-1}\right)P_l(\cos\theta)$$
@@ -212,11 +212,22 @@ $l=1\qquad P_2(1)=(3P_1(1)-P_0(1))/2=1$
 
 $l=2\qquad P_3(1)=(5P_2(1)-2P_1(1))/3=1$
 
-$l=3\qquad P_4(1)=(7P_2(1)-3P_1(1))/4=1$
+$l=3\qquad P_4(1)=(7P_3(1)-3P_2(1))/4=1$
 
 Based on the above, we expect that $P_l(1)=1$ for all $l$. (But this is not a proof.) 
 
-For this to match our $z\gt b$ expansion of
+%----
+%
+%Proof: Shifting the index by $-1$ in $(l+1)P_{l+1}(1)=(2l+1)P_l(1)-lP_{l-1}(1)$ gives
+%
+%$P_n(1) = \big[(2n-1)P_{n-1}(1)-(n-1)P_{n-2}(1)\big]/n$
+%
+%If any two consecutive $P_{n}(1)$s are both $1$, then the next $P_n(1)$ is 1. By inspection,
+%$P_0(1)=1$ and $P_1(1)=1$, so it follows that $P_2(1)=1$. Given that $P_1(1)=1$ and $P_2(1)=1$, %it follows that $P_3(1)=1$, etc.
+%
+%----
+
+For this to match the $z\gt b$ expansion
 
 $$\Phi^o(z)= \frac{1}{2}\frac{b^2}{z^2} - \frac{\frac{1}{2}\frac{3}{2}}{2}\frac{b^4}{z^4}+ \frac{\frac{1}{2}\frac{3}{2}\frac{5}{2}}{3\cdot 2}\frac{b^6}{z^6}+...$$
 
@@ -228,23 +239,29 @@ $B_1=+\frac{b^2}{2}$ because the $1/z^2$ constants must match.
 
 $B_2=0$ because there is no $1/z^3$ term in the $z\gt b$ expansion.
 
-$\displaystyle B_3=-\frac{\frac{1}{2}\frac{3}{2}}{2}b^4$ 
-
-because the $1/z^4$ constants must match.
+$\displaystyle B_3=-\frac{\frac{1}{2}\frac{3}{2}}{2}b^4$ because the $1/z^4$ constants must match.
 
 $B_4=0$
 
-$$B_5P_5(1)=+\frac{\frac{1}{2}\frac{3}{2}\frac{5}{2}}{3\cdot 2}b^6$$
+$$B_5=+\frac{\frac{1}{2}\frac{3}{2}\frac{5}{2}}{3\cdot 2}b^6$$
 
 etc.
 
-We now have values for the $B_l$s:
+In summary,
+
+$$B_1=+\frac{b^2}{2}\qquad B_3=-\frac{\frac{1}{2}\frac{3}{2}}{2}b^4\qquad B_5=+\frac{\frac{1}{2}\frac{3}{2}\frac{5}{2}}{3\cdot 2}b^6$$
+
+Or, more generally
 
 $B_{l-1}=C_l\qquad l=2, 4, ...$
 
-or, explicitly,
+That is,
 
 $$B_{l-1}=(-1)^{(l/2+1)} \frac{(l-1) !!}{(l/2)!}\frac{b^l}{2^{l/2}}\qquad l=2,4,...$$
+
+Shifting the index by $1$ gives
+
+$$B_{l}=(-1)^{((l+1)/2+1)} \frac{l!!}{((l+1)/2)!}\frac{b^{l+1}}{2^{(l+1)/2}}\qquad l=1,3,...$$
 
 The above steps are what is needed to find the constants for the potential $\Phi^o$ for $z \gt b$. The steps for finding the potential $\Phi^i$ for $z \lt b$ are similar. In this case, the $B_l$ terms are all zero and only every other $A_l$ term is non--zero.
 
@@ -260,28 +277,38 @@ where the partial derivative is evaluated at the the surface.
 
 In this problem, $n=z$ and we need to evaluate the partial derivative at $z=0$. That is, we need to compute
 
-$$\frac{\partial \psi}{\partial z}=\left[\frac{\partial }{\partial z}\frac{B_1P_1(\cos\theta)}{r^2}+\frac{\partial}{\partial z}\frac{B_3P_3(\cos\theta)}{r^4}+...\right]_{z=0}$$
+$$\frac{\partial \psi}{\partial z}\Bigg|\_{z=0}=\left[\frac{\partial }{\partial z}\frac{B_1P_1(\cos\theta)}{r^2}+\frac{\partial}{\partial z}\frac{B_3P_3(\cos\theta)}{r^4}+...\right]_{z=0}$$
 
 Given that $\cos\theta = z/r$, we can write
 
 $$\frac{\partial \psi}{\partial z}=\left[\frac{\partial}{\partial z}\frac{B_1P_1(z/r)}{r^2}+\frac{\partial}{\partial z}\frac{B_3P_3(z/r)}{r^4}+...\right]_{z=0}$$
 
+To simplify notation, let 
+
+$$\frac{\partial \psi_l}{\partial z}=\frac{\partial}{\partial z}\frac{B_lP_l(z/r)}{r^{l+1}}$$
+
+so that
+
+$$\frac{\partial \psi}{\partial z}\bigg|\_{z=0}=\left[\frac{\partial \psi_1}{\partial z}+\frac{\partial \psi_3}{\partial z}+...\right]_{z=0}$$
+
+
 For the first term, we have, using the product rule for derivatives
 
 $$
 \begin{align*}
-\frac{\partial}{\partial z}\frac{B_1P_1(z/r)}{r^2} & =\left[\frac{B_1}{r^2}\frac{\partial }{\partial z}P_1(z/r)+B_1P_1(z/r)\frac{\partial(1/r^2)}{\partial z}\right]\_{z=0}\\\\
+\frac{\partial\psi_1}{\partial z}\bigg|\_{z=0} & = \frac{\partial}{\partial z}\frac{B_1P_1(z/r)}{r^2}\Bigg|\_{z=0}\\\\
+&=\left[\frac{B_1}{r^2}\frac{\partial }{\partial z}P_1(z/r)+B_1P_1(z/r)\frac{\partial(1/r^2)}{\partial z}\right]\_{z=0}\\\\
 &=\left[\frac{B_1}{r^2}\frac{\partial }{\partial z}P_1(z/r)\right]\_{z=0}+B_1P_1(0)\frac{\partial(1/r^2)}{\partial z}\Bigg|\_{z=0}
 \end{align*}
 $$
 
 Given that $P_1(0)=0$, we are left with
 
-$$\frac{\partial}{\partial z}\frac{B_1P_1(z/r)}{r^2}=\left[\frac{B_1}{r^2}\frac{\partial }{\partial z}P_1(z/r)\right]_{z=0}$$
+$$\frac{\partial \psi_1}{\partial z}\bigg|\_{z=0}=\left[\frac{B_1}{r^2}\frac{\partial }{\partial z}P_1(z/r)\right]_{z=0}$$
 
 At $z=0$, $r=s$ (the radial cylindrical coordinate), so
 
-$$\frac{\partial}{\partial z}\frac{B_1P_1(z/r)}{r^2}=\frac{B_1}{s^2}\left[\frac{\partial }{\partial z}P_1(z/r)\right]_{z=0}$$
+$$\frac{\partial \psi_1}{\partial z}\bigg|\_{z=0}=\frac{B_1}{s^2}\left[\frac{\partial }{\partial z}P_1(z/r)\right]_{z=0}$$
 
 Using the chain rule for derivatives
 
@@ -289,21 +316,33 @@ $\displaystyle \frac{df(g(u))}{du} = \frac{df}{dg}\frac{dg}{du}$
 
 with $f=P_1$ and $g=z/r$, the term in square braces can be re-written, giving
 
-$$\frac{\partial}{\partial z}\frac{B_1P_1(z/r)}{r^2}=\frac{B_1}{s^2}\left[\frac{\partial P_1(g)}{\partial g}\frac{\partial (z/r)}{\partial z}\right]_{z=0}$$
+$$\frac{\partial \psi_1}{\partial z}\bigg|\_{z=0}=\frac{B_1}{s^2}\left[\frac{\partial P_1(g)}{\partial g}\frac{\partial (z/r)}{\partial z}\right]_{z=0}$$
 
 Using
 
-$$\frac{\partial (z/r)}{\partial z}\Big|\_{z=0}=\left[\frac{1}{r}-\frac{z}{r^2}\right]_{z=0}=\frac{1}{s}$$
+$$\frac{\partial (z/r)}{\partial z}\bigg|\_{z=0}=\left[\frac{1}{r}-\frac{z}{r^2}\right]_{z=0}=\frac{1}{s}$$
 
 leaves
 
-$$\frac{\partial}{\partial z}\frac{B_1P_1(z/r)}{r^2}=\frac{B_1}{s^3}\frac{\partial P_1(g)}{\partial g}\Big|\_{g=0}$$
+$$\frac{\partial \psi_1}{\partial z}\bigg|\_{z=0}=\frac{B_1}{s^3}\frac{\partial P_1(g)}{\partial g}\Bigg|\_{g=0}$$
 
-Given that $\frac{\partial P_1(g)}{\partial g}=1$, we are left with
+Repeating the above for $\partial \psi_3/\partial z$ gives
 
-$$\frac{\partial}{\partial z}\frac{B_1P_1(z/r)}{r^2}=\frac{B_1}{s^3}$$
+$$\frac{\partial \psi_3}{\partial z}\bigg|\_{z=0}=\frac{B_3}{s^5}\frac{\partial P_3(g)}{\partial g}\bigg|\_{g=0}$$
 
-The remainder of the problem involves steps similar to the above. To obtain a general solution, we need to know $dP_l/dx|_{x=0}$. This can be found using the second equation of 3.29 of Jackson:
+In general,
+
+$$\frac{\partial \psi_l}{\partial z}\bigg|\_{z=0}=\frac{B_l}{s^{l+2}}\frac{d P_l(g)}{d g}\bigg|\_{g=0}$$
+
+Given that $P_1(g)=g$, $\frac{\partial P_1(g)}{\partial g}\Big|_{g=0}=1$, and so
+
+$$\frac{\partial \psi_1}{\partial z}\bigg|\_{z=0}=\frac{B_1}{s^3}$$
+
+Given that $P_3(g)=(5g^3-3g)/2$, $\frac{\partial P_3(g)}{\partial g}\big|_{g=0}=-\frac{3}{2}$, and so
+
+$$\frac{\partial \psi_3}{\partial z}\bigg|\_{z=0}=-\frac{3}{2}\frac{B_3}{s^5}$$
+
+To obtain a general solution, we need to know $dP_l/dx|_{x=0}$. This can be found using the second equation of 3.29 of Jackson:
 
 $$\frac{dP_{l+1}}{dx}-x\frac{dP_{l+1}}{dx} - (l+1)P_l=0$$
 
@@ -311,13 +350,13 @@ When evaluated at $x=0$, this is
 
 $$\frac{dP_{l+1}}{dx}\Big|_{x=0} =(l+1)P_l(0)$$
 
-Using again the recursion relationship
+Using again the first recursion relationship of 3.29 of Jackson
 
 $(l+1)P_{l+1}-(2l+1)xP_l+lP_{l-1}=0$
 
 with $x=0$, gives
 
-$P_{l+1}(0)=-\frac{l}{l+1}P_{l-1}(0)$
+$$P_{l+1}(0)=-\frac{l}{l+1}P_{l-1}(0)$$
 
 so
 
@@ -355,6 +394,8 @@ $$l=3\qquad \frac{dP_{3}}{dx}\Big|_{x=0}=\frac{3!!}{2!!}(-1)^1=-\frac{3}{2}$$
 
 $$l=5\qquad \frac{dP_{5}}{dx}\Big|_{x=0}=\frac{5!!}{4!!}(-1)^2=\frac{5\cdot 3\cdot 1}{4\cdot 2}=\frac{15}{8}$$
 
+----
+
 Check: Table 3.15 gives the first five Legendre polynomials. Manual evaluation of the derivatives gives:
 
 $dP_0(x)/dx=0$
@@ -370,6 +411,54 @@ $dP_4(x)/dx\Big|_{x=0}=0$
 From [a table](https://en.wikipedia.org/wiki/Legendre_polynomials#Rodrigues'_formula_and_other_explicit_formulas), $P_5={\textstyle {\tfrac {1}{8}}\left(63x^{5}-70x^{3}+15x\right)}$ so
 
 $dP_5(x)/dx\Big|_{x=0}=\frac{15}{8}$
+
+----
+
+In summary,
+
+$$\sigma=-\epsilon_o\frac{\partial \psi}{\partial z}\bigg|\_{z=0}$$
+
+$$\frac{\partial \psi}{\partial z}\bigg|\_{z=0}=\left[\frac{\partial \psi_1}{\partial z}+\frac{\partial \psi_3}{\partial z}+...\right]_{z=0}$$
+
+$$\frac{\sigma}{\epsilon_o}=-\frac{B_1}{s^3}+\frac{3}{2}\frac{B_3}{s^5}-\frac{15}{8}\frac{B_5}{s^5}$$
+
+$$\frac{\sigma}{\epsilon_o}=-\frac{1}{2}\frac{b^2}{s^3}-\frac{3}{16}\frac{b^4}{s^5}-\frac{105}{192}\frac{b^6}{s^7}$$
+
+Recovering the $V_o$ and writing in non--dimensional form gives
+
+$$\boxed{\frac{\sigma/\epsilon_o}{V_ob}=-\frac{1}{2}\frac{b^3}{s^3}-\frac{3}{16}\frac{b^5}{s^5}-\frac{105}{192}\frac{b^7}{s^7}}$$
+
+The leading order terms is negative as expected because the charge for $z>b$ should be negative given that it is grounded and the inner circle is held at a positive potential.
+
+The general equations found earlier are
+
+$$\frac{\partial \psi_l}{\partial z}\bigg|\_{z=0}=\frac{B_l}{s^{l+2}}\frac{d P_l(x)}{d x}\bigg|\_{x=0}$$
+
+where
+
+$$B_{l}=(-1)^{((l+1)/2+1)} \frac{l!!}{((l+1)/2)!}\frac{b^{l+1}}{2^{(l+1)/2}}\qquad l=1,3,...$$
+
+and
+
+$$\frac{dP_{l}}{dx}\bigg|_{x=0} =\frac{l!!}{(l-1)!!}(-1)^{(l-1)/2}\qquad l=1,3,...$$
+
+The product of the last two equations is
+
+$$(-1)^{((l+1)/2+1)} \frac{l!!}{((l+1)/2)!}\frac{b^{l+1}}{2^{(l+1)/2}}\frac{l!!}{(l-1)!!}(-1)^{(l-1)/2}$$
+
+or
+
+$$\frac{1}{2^{(l+1)/2}} \frac{(l!!)^2}{((l+1)/2)!}\frac{1}{(l-1)!!}b^{l+1}\qquad l=1,3,...$$
+
+so that 
+
+$$\frac{\partial \psi_l}{\partial z}\bigg|\_{z=0}=\frac{1}{2^{(l+1)/2}} \frac{(l!!)^2}{((l+1)/2)!}\frac{1}{(l-1)!!}\frac{b^{l+1}}{s^{l+2}}$$
+
+and finally
+
+$$\frac{\sigma/\epsilon_o}{V_ob}=-\sum_{l=1,3,...}^\infty \frac{1}{2^{(l+1)/2}} \frac{(l!!)^2}{((l+1)/2)!}\frac{1}{(l-1)!!}\left(\frac{b}{s}\right)^{l+2}$$
+
+(To convert this to a sum over all positive integers, define $l=2n+1$.)
 
 ## Sphere held at potential
 
@@ -394,3 +483,107 @@ In class, we started the problem of finding the potential inside and outside of 
 4. State at least one way that you can determine if your answer to part 3. makes sense.
 
 5. (Optional) Repeat this problem assuming that instead of being held at a potential, the sphere has a surface charge density of $\sigma(b,\theta)=\sigma_o\cos^2\theta$ or $\sigma(b,\theta)=\sigma_o$ for $\theta=0$ to $\theta=\pi/2$ and $\sigma(b,\theta)=-\sigma_o$ for $\theta=\pi/2$ to $\pi$
+
+**Solution**
+
+1\. By inspection of a table of Legendre Polynomials,
+
+$V_o\cos^2\theta = V_o\left[\frac{1}{3}P_0(\cos\theta) + \frac{2}{3}P_2(\cos\theta)\right]$
+
+The general solution to Laplace's equation $\nabla^2\Phi(r,\theta)=0$ is
+
+$$\Phi(r,\theta)=\sum_{l=0}^{\infty}\left(A_lr^l + B_lr^{-l-1}\right)P_l(\cos\theta)$$
+
+As a result of holding the sphere at a potential, charges will build up on its surface. Far away from the surface, these surface charges will appear as a point charge. As a result, the potential should approach zero as $r\rightarrow \infty$, which requires $A_l=0$. We then are left with
+
+$$\Phi(r,\theta)=\sum_{l=0}^{\infty}B_lr^{-l-1}P_l(\cos\theta)$$
+
+Setting $r=b$, we have
+
+$$V_o\left[\frac{1}{3}P_0(\cos\theta) + \frac{2}{3}P_2(\cos\theta)\right]=\sum_{l=0}^{\infty}B_lb^{-l-1}P_l(\cos\theta)$$
+
+"Matching terms" (meaning muliplying both sides by $P_{l'}(\cos\theta)\sin\theta$ and integrating from $\theta=0$ to $\pi$ and using $\int_{-1}^1P_{l'}(x)P_l(x) dx = 2\delta_{l'l}/(2l+1)$) gives
+
+$$B_0=\frac{V_o}{3}\qquad B_2=\frac{2}{3}V_o\qquad B_l=0 \text{ otherwise}$$
+
+----
+
+_Alternative (but conceptually the same) approach_
+
+In Griffiths example 3.7, the general solution for the potential outside of a sphere of radius $b$ held at $V(b,\theta)$ is given as:
+
+$$B_l=\frac{2l+1}{2}b^{l+1}\int_0^\pi V(b,\theta)P_l(\cos\theta)\sin\theta d\theta=\frac{2l+1}{2}b^{l+1}\int_{-1}^1V(b,x)P_l(x)dx$$
+
+where the last step used $x=\cos\theta$. Plugging in the given boundary condition for $V(b,\theta)$ gives
+
+$$B_l=V_o\frac{2l+1}{2}b^{l+1}\int_{-1}^1\left[\frac{1}{3}P_0(x) + \frac{2}{3}P_2(x)\right]P_l(x)dx$$
+
+For $l=0$,
+
+$$B_0=V_o\frac{b}{2}\int_{-1}^1\left[\frac{1}{3}P_0(x) + \frac{2}{3}P_2(x)\right]P_0(x)dx$$
+
+Using the orthogonality relationship
+
+$$\int_{-1}^1P_{l'}(x)P_l(x) dx = \frac{2}{2l+1}\delta_{l'l}$$
+
+gives
+
+$$B_0=V_o\frac{b}{3}$$
+
+For $l=2$,
+
+$$B_2=V_o\frac{5}{2}b\int_{-1}^1\left[\frac{1}{3}P_0(x) + \frac{2}{3}P_2(x)\right]P_2(x)dx$$
+
+and the orthogonality relationship gives
+
+$$B_2=\frac{2}{3}V_o$$
+
+----
+
+$$\Phi(r,\theta) = V_o\left[\frac{1}{3}\frac{b}{r}+\frac{2}{3}\left(\frac{b}{r}\right)^3\right]$$
+
+The $1/r$ term corresponds to the potential due to the net charge induced on the surface of the sphere. As a result, if we compute $\sigma(b,\theta)$ and integrate over $\theta$, we expect to find the net charge $q$ on the sphere is such that
+
+$$\displaystyle kq=\frac{V_ob}{3}$$
+
+2\. To find the coefficients $A_l$, multiply both sides by $P_{l'}(\cos\theta)\sin\theta d\theta$ and then integrate from $0$ to $\pi$. (This is essentially what Griffiths calls "Fourier's trick" except using Legendre polynomials). By orthogonality, one then finds that
+
+$$A_l=\frac{2l+1}{2}\int_0^\pi V(\theta)P_l(\cos\theta) \sin\theta d\theta$$
+
+Using $x=\cos\theta$, this is
+
+$$A_l=\frac{2l+1}{2}\int_{-1}^1 V(x)P_l(x) dx$$
+
+Using $V(x)=V_o$ for $x\gt 0$ and $V(x)=-V_o$ for $x\lt 0$ gives
+
+$$A_l=\frac{2l+1}{2}\left[-V_o\int_{-1}^0 P_l(x) dx+V_o\int_{0}^1 P_l(x) dx\right]$$
+
+Direct integration gives
+
+$$A_0=0$$
+
+$$A_1=\frac{3}{2}V_o$$
+
+$$A_2=0$$
+
+Therefore, keeping only the first three terms of 
+
+$$V(\theta) = \sum_{l=0}^\infty A_lP_l(\cos \theta)$$
+
+gives
+
+$V(\theta)=\frac{3}{2}V_o\cos\theta$
+
+This answer makes sense -- this potential is maximum at $\theta=0$, $0$ at $\theta=\pi/2$ and minimum at $\theta=\pi$. This generally follows the pattern of the exact piecewise function that we are approximating.
+
+(Equation 3.26 of Jackson gives a general equation for $A_l$, which can be derived using Legendre polynomial identities.)
+
+3.
+
+Following steps similar to that used in part 1.
+
+$$\Phi(r,\theta)=V_o\frac{3}{2}\frac{b^2}{r^2}\cos\theta$$
+
+4\. Given that the net charge on the sphere is expected to be zero (the potential is symmetric about $\theta=\pi/2$), we don't expect a $1/r$ term. At $r=b$, $\Phi$ matches the boundary condition $V(b,\theta)=V_o\cos\theta$. This potential is also symmetric about $\theta=\pi/2$, which is expected given the boundary condition has this symmetry.
+
+An additional check that we can make is verify that the net charge is zero by computing $\sigma$ and integrating it over $\theta$.
