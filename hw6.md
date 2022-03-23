@@ -140,6 +140,18 @@ Try to work out $\sigma$ using only the first few terms in the expansion. This w
 
 Given that the exam is coming up, I'll make getting the general equation extra credit. As a hint, use the middle equation of 3.29 of Jackson, which is $dP\_{l+1}(u)/du = u dP\_l(u)/du + (l+1)P\_l(u)$ to compute the derivatives of the Legendre polynomial. Given that we are always evaluating at $u=0$ (corresponding to $\theta=\pi/2$), you need to use $dP_{l+1}(u)/du|\_{u=0} = (l+1)P\_l(0)$. This will give you a general equation for the derivative evaluated at $u=0$ ... but you'll need to know $P\_l(0)$. You can get that using the first equation of 3.29 of Jackson: $(l+1)P\_{l+1}(u) - (2l + 1)uP_l(u) + l P\_{l-1}(u)$ with $u=0$. Extra extra credit if you plot the result.
 
+**Comments**
+
+Many students attempted to solve this using reciprocity. The potential $\psi$ for a point charge above a grounded plane can be written in terms of the Legendre polynomials (the terms will be proportional to $(P_l(\cos\theta)-P_l(-\cos\theta))/r^{l+1}$ ... one could use the azimuthal symmetry trick to show this). To use reciprocity, one needs to evaluate 
+
+$$\oint \Phi{\boldsymbol \nabla}\psi\bfcdot d\mathbf{a}$$
+
+where $\Phi$ is the desired potential. The surface is the entire dome, over which $\Phi$ is zero except for $s\lt b$. As a result, one needs to integrate
+
+$$\int_0^{2\pi}\int_0^b V_o \frac{\partial \psi}{\partial z}\bigg|_{z=0} s ds d\phi$$
+
+It is possible to use this approach, but most students wrote down the wrong integral that needed to be evaluated.
+
 **Solution**
 
 1\. Letting $V_o=1$ so that potential is units of $V_o$, the exact solution on the $z$--axis is
@@ -249,9 +261,15 @@ etc.
 
 In summary,
 
-$$B_1=+\frac{b^2}{2}\qquad B_3=-\frac{\frac{1}{2}\frac{3}{2}}{2}b^4\qquad B_5=+\frac{\frac{1}{2}\frac{3}{2}\frac{5}{2}}{3\cdot 2}b^6$$
+$$B_1=+\frac{b^2}{2}\qquad B_3=-\frac{\frac{1}{2}\frac{3}{2}}{2}b^4=-\frac{3}{8}b^4\qquad B_5=+\frac{\frac{1}{2}\frac{3}{2}\frac{5}{2}}{3\cdot 2}b^6=\frac{5}{16}b^6$$
 
-Or, more generally
+and, with the $V_o$ recovered,
+
+$$\boxed{\frac{\psi(r,\theta)}{V_o} = \frac{1}{2}\frac{b^2}{r^2}P_1(\cos\theta) - \frac{3}{8}\frac{b^4}{r^4}P_3(\cos\theta)+\frac{5}{16}\frac{b^6}{r^6}P_5(\cos\theta) + ...}$$
+
+----
+
+We can write the coefficients more generally. They are
 
 $B_{l-1}=C_l\qquad l=2, 4, ...$
 
@@ -342,6 +360,10 @@ Given that $P_3(g)=(5g^3-3g)/2$, $\frac{\partial P_3(g)}{\partial g}\big|_{g=0}=
 
 $$\frac{\partial \psi_3}{\partial z}\bigg|\_{z=0}=-\frac{3}{2}\frac{B_3}{s^5}$$
 
+Given that $P_5(g)={\textstyle {\tfrac {1}{8}}\left(63g^{5}-70g^{3}+15g\right)}$, $\frac{\partial P_5(g)}{\partial g}\big|_{g=0}=\frac{15}{8}$, and so
+
+$$\frac{\partial \psi_5}{\partial z}\bigg|\_{z=0}=\frac{15}{8}\frac{B_5}{s^7}$$
+
 To obtain a general solution, we need to know $dP_l/dx|_{x=0}$. This can be found using the second equation of 3.29 of Jackson:
 
 $$\frac{dP_{l+1}}{dx}-x\frac{dP_{l+1}}{dx} - (l+1)P_l=0$$
@@ -422,11 +444,13 @@ $$\frac{\partial \psi}{\partial z}\bigg|\_{z=0}=\left[\frac{\partial \psi_1}{\pa
 
 $$\frac{\sigma}{\epsilon_o}=-\frac{B_1}{s^3}+\frac{3}{2}\frac{B_3}{s^5}-\frac{15}{8}\frac{B_5}{s^5}$$
 
-$$\frac{\sigma}{\epsilon_o}=-\frac{1}{2}\frac{b^2}{s^3}-\frac{3}{16}\frac{b^4}{s^5}-\frac{105}{192}\frac{b^6}{s^7}$$
+With the $B_l$ values found earlier, this is
+
+$$\frac{\sigma}{\epsilon_o}=-\frac{1}{2}\frac{b^2}{s^3}-\frac{3}{16}\frac{b^4}{s^5}-\frac{105}{128}\frac{b^6}{s^7}$$
 
 Recovering the $V_o$ and writing in non--dimensional form gives
 
-$$\boxed{\frac{\sigma/\epsilon_o}{V_ob}=-\frac{1}{2}\frac{b^3}{s^3}-\frac{3}{16}\frac{b^5}{s^5}-\frac{105}{192}\frac{b^7}{s^7}}$$
+$$\boxed{\frac{\sigma/\epsilon_o}{V_ob}=-\frac{1}{2}\frac{b^3}{s^3}-\frac{3}{8}\frac{b^5}{s^5}-\frac{105}{128}\frac{b^7}{s^7}}$$
 
 The leading order terms is negative as expected because the charge for $z>b$ should be negative given that it is grounded and the inner circle is held at a positive potential.
 
@@ -578,9 +602,7 @@ This answer makes sense -- this potential is maximum at $\theta=0$, $0$ at $\the
 
 (Equation 3.26 of Jackson gives a general equation for $A_l$, which can be derived using Legendre polynomial identities.)
 
-3.
-
-Following steps similar to that used in part 1.
+3\. Following steps similar to that used in part 1.
 
 $$\Phi(r,\theta)=V_o\frac{3}{2}\frac{b^2}{r^2}\cos\theta$$
 
