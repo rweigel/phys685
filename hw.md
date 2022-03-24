@@ -15,7 +15,7 @@ where $\textbf{\char"0509}=\mathbf{r}-\mathbf{r}'$ and $\mathbf{r}'$ is the loca
 
 **Solution**
 
-1\.
+**1\.**
 
 $$\begin{align*}\mathbf{E}(\mathbf{r}) = & \frac{1}{4\pi\epsilon_o}\int\int\frac{(x-x')\xhat+(y-y')\yhat}{\sqrt{(x-x')^2 + (y-y')^2}^3}Q\delta(x')\delta(y')\thinspace dx'dy' \\\\
 = & \frac{Q}{4\pi\epsilon_o}\int\delta(y')dy'\int\frac{(x-x')\xhat+(y-y')\yhat}{\sqrt{(x-x')^2 + (y-y')^2}^3}\delta(x')\thinspace dx'\\\\
@@ -27,9 +27,7 @@ $$
 
 The generalization to the 3-D problem given is straightforward.
 
-2\.
-
-Here $x', y'$, and $z'$ are fixed points in space. Normally when given a charge density, we replace $x, y, z$ with $x',y',z'$. If we did that here, we would have $\rho(\mathbf{r}')=Q\delta(0)\delta(0)\delta(0)$, which does not depend on primed coordinates. To work around this issue, change the integration variables to be double primes. As before, in two dimensions,
+**2\.** Here $x', y'$, and $z'$ are fixed points in space. Normally when given a charge density, we replace $x, y, z$ with $x',y',z'$. If we did that here, we would have $\rho(\mathbf{r}')=Q\delta(0)\delta(0)\delta(0)$, which does not depend on primed coordinates. To work around this issue, change the integration variables to be double primes. As before, in two dimensions,
 
 $$
 \begin{align*}\mathbf{E}(\mathbf{r}) = & \frac{1}{4\pi\epsilon_o}\int\int\frac{(x-x'')\xhat+(y-y'')\yhat}{\sqrt{(x-x'')^2 + (y-y'')^2}^3}Q\delta(x''-x')\delta(y''-y')\thinspace dx''dy'' \\\\
@@ -69,13 +67,11 @@ using $g(x)=x^2$.
 
 **Solution**
 
-1\.
+**1\.**
 
 $\displaystyle \int_{-1}^{1}g(2x)dx=\int_{-1}^{1}g(-2x)dx=I/2$
 
-2\.
-
-The generalization of the previous result is if $I = \int_{-a}^{b}g(x)dx$, then for $\alpha \gt 0$
+**2\.** The generalization of the previous result is if $I = \int_{-a}^{b}g(x)dx$, then for $\alpha \gt 0$
 
 $\displaystyle \int_{-a/\alpha}^{b/\alpha}g(\alpha x)dx=\int_{-a/\alpha}^{b/\alpha}g(-\alpha x)dx=\frac{I}{\alpha}$.
 
@@ -99,7 +95,7 @@ Griffiths 4th Edition example 1.15 gives an alternative solution. Another approa
 
 **Solution**
 
-1.1 To avoid confusion with the $f(x)$ in the given equation, re-write the identity as
+**1.1** To avoid confusion with the $f(x)$ in the given equation, re-write the identity as
 
 $\displaystyle \delta(g(x))=\sum_i\frac{\delta(x-x_i)}{\left|\frac{dg}{dx}(x_i)\right|}$
 
@@ -111,7 +107,7 @@ and so
 
 $\displaystyle \int \delta(a + bx)f(x)dx=\int dx \frac{\delta(x+a/b)}{|b|} f(x)=\frac{f(-a/b)}{|b|}$
 
-1.2 With the substitution,
+**1.2** With the substitution,
 
 $\displaystyle \int \delta(u)\frac{f((u-b)/a)}{b}du=\frac{f(-b/a)}{b}$
 
@@ -133,7 +129,7 @@ for positive $b$ and $f(-b/a)/(-b)$ for negative $b$, so the integral is $f(-b/a
 
 As mentioned in class, this is somewhat of a simple problem but was given to motivate the use of the Dirac delta function. What I said in class is briefly summarized at the end.
 
-1\. The electric field is
+**1\.** The electric field is
 
 $$\mathbf{E}(r \le b) = \frac{\rho_o}{3\epsilon_o}r\thinspace \mathbf{\hat{r}}=\frac{q}{4\pi\epsilon_o}\frac{r}{b^3}\mathbf{\hat{r}}$$
 
@@ -141,9 +137,7 @@ $$\mathbf{E}(r \ge b) = \frac{\rho_o}{3\epsilon_o}\frac{b^3}{r^2}\thinspace \mat
 
 where $q=\rho_o\thinspace 4\pi b^3/3$ was used.
 
-2\.
-
-In the following,
+**2\.** In the following,
 
 $$A.\qquad\boldsymbol{\nabla}\cdot (f(r)\thinspace \hat{\mathbf{r}})=\frac{1}{r^2}\frac{\partial}{\partial r}\left(r^2f(r)\right)$$
 
@@ -222,7 +216,7 @@ $$\oint_{\mathcal{S}}\mathbf{E}_p\cdot \hat{\mathbf{n}}\thinspace da =\frac{q}{\
 
 does not have an indeterminacy. Therefore, the divergence theorem
 
-$$\int_{\mathcal{V}} \boldsymbol{\nabla} \cdot \mathbf{E}_p\thinspace d^3x=\oint_{\mathcal{S}}\mathbf{E}_p\cdot \hat{\mathbf{n}}\thinspace da$$
+$$\int_{\mathcal{V}} \boldsymbol{\nabla} \cdot \mathbf{E}\_p\thinspace d^3x=\oint_{\mathcal{S}}\mathbf{E}_p\cdot \hat{\mathbf{n}}\thinspace da$$
 
 applied to $\mathbf{E}$ for a point charge gives
 
@@ -256,9 +250,7 @@ must be equal to $q/\epsilon_o$ because of the divergence theorem (which technic
 
 $$\oint_{\mathcal{S}}\mathbf{E}_p\cdot \hat{\mathbf{n}}\thinspace da = \frac{q}{\epsilon_o}\quad\Rightarrow\quad\int_{\mathcal{V}} \boldsymbol{\nabla} \cdot \mathbf{E}_p\thinspace d^3x=\frac{q}{\epsilon_o}$$
 
-He then notes that $\hat{\mathbf{r}}/r^2$ has the property that its divergence
-
-$$\boldsymbol{\nabla}\cdot\frac{\hat{\mathbf{r}}}{r^2}$$
+He then notes that $\hat{\mathbf{r}}/r^2$ has the property that its divergence $\boldsymbol{\nabla}\cdot\frac{\hat{\mathbf{r}}}{r^2}$
 
 1. is zero everywhere except at the origin (where it is interminate)
 2. integrates to a constant ($4\pi$) over any volume $\mathcal{V}$ that includes $r=0$ (based on the assumption that the divergence theorem applies and resolves the indeterminacy)
@@ -591,7 +583,7 @@ For discussion during the next class: In my solution to part 1., I used the cont
 
 **Solution**
 
-1\. Let the unprimed system have a conducting plate in $z=0$ plane held at $\Phi=0$ and a conducting plate in the $z=d$ plane held at at $\Phi=V_o$.
+**1\.** Let the unprimed system have a conducting plate in $z=0$ plane held at $\Phi=0$ and a conducting plate in the $z=d$ plane held at at $\Phi=V_o$.
 
 Let the unprimed system have a conducting plate in the $z=0$ plane held at at $\Phi'=0$, a conducting plate in the $z=d$ plane held at $\Phi'=0$, and a point charge $q'$ at $(x,y,z)=(x_o,0,0)$.
 
@@ -640,7 +632,7 @@ Note: In the solution, I assumed all free charges were on the upper and lower su
 
 ----
 
-2\. The procedure here is nearly identical to part 1. The potential between the sphere in the unprimed system when the potential at $r=b$ is $V_o$ and the potential at $r=c$ is zero is
+**2\.** The procedure here is nearly identical to part 1. The potential between the sphere in the unprimed system when the potential at $r=b$ is $V_o$ and the potential at $r=c$ is zero is
 
 $\displaystyle\Phi(r)=V_o\frac{b}{c-b}\left(\frac{c}{r}-1\right)$
 
@@ -675,9 +667,9 @@ In one of the steps required to derive his identities (discussed in 1.8 of Jacks
 
 **Solution**
 
-1\. This can be shown by writing $\boldsymbol{\nabla}$ and $\mathbf{A}$ in cartesian coordinates.
+**1\.** This can be shown by writing $\boldsymbol{\nabla}$ and $\mathbf{A}$ in cartesian coordinates.
 
-2\. The divergence theorem
+**2\.** The divergence theorem
 
 $\displaystyle\oint_{\mathcal{S}}\mathbf{U}\cdot d\mathbf{a}=\int_{\mathcal{V}}\boldsymbol{\nabla}\cdot \mathbf{U}\thinspace d^3x$
 
@@ -787,7 +779,7 @@ As discussed in class, the motivation for solving this problem is that its poten
 
 **Solution**
 
-1\. One can answer this question by assuming a surface charge of $\sigma_l$ and $\sigma_r$ is induced on the plates at $x=0$ and $x=w$. Then use the formula $\sigma/2\epsilon_o$ for the electric field of the sheets of charge at $\sigma_l$ at $x=0$, $\sigma'$ at $x=x'$, and $\sigma_r$ at $x=w$ to get the total field $E_l$ and $E_r$.  The two unknowns, $\sigma_l$ and $\sigma_r$, can be found by using the fact that the electric field in either of the conductors is zero - this yields $\sigma' = -(\sigma_l+\sigma_r)$, which is expected because the net charge in the universe is zero. The second equation needed to find $\sigma_l$ and $\sigma_r$ in terms of $\sigma'$ is
+**1\.** One can answer this question by assuming a surface charge of $\sigma_l$ and $\sigma_r$ is induced on the plates at $x=0$ and $x=w$. Then use the formula $\sigma/2\epsilon_o$ for the electric field of the sheets of charge at $\sigma_l$ at $x=0$, $\sigma'$ at $x=x'$, and $\sigma_r$ at $x=w$ to get the total field $E_l$ and $E_r$.  The two unknowns, $\sigma_l$ and $\sigma_r$, can be found by using the fact that the electric field in either of the conductors is zero - this yields $\sigma' = -(\sigma_l+\sigma_r)$, which is expected because the net charge in the universe is zero. The second equation needed to find $\sigma_l$ and $\sigma_r$ in terms of $\sigma'$ is
 
 $\displaystyle\psi(w)-\psi(0) = 0 = -\int_0^w E\thinspace dx=-\int_0^{x'}E_ldx-\int_{x'}^wE_rdx$
 
@@ -836,7 +828,7 @@ $\boxed{\displaystyle\psi_l=\frac{\sigma'}{\epsilon_o}\left(1-\frac{x'}{w}\right
 
 Note that swapping $x$ and $x'$ in $\psi_l$ gives the equation for $\psi_r$, and vice-versa. That is, $\psi_l(x',x)=\psi_r(x,x')$.
 
-2\.
+**2\.**
 
 $\boxed{\psi=\psi_l(x)\Theta(x'-x)+\psi_r(x)\Theta(x-x')}$
 
@@ -844,7 +836,7 @@ Checks:
 * When $x\lt x'$, $\Theta(x'-x)=1$ and $\Theta(x-x')=0$, giving $\psi=\psi_l$.
 * When $x\gt x'$, $\Theta(x'-x)=0$ and $\Theta(x-x')=1$, giving $\psi=\psi_r$.
 
-3\.
+**3\.**
 
 $\begin{array}{ll}
 \displaystyle\frac{d\psi}{dx} & = \displaystyle\thickspace \psi_l(x)\frac{d}{dx}\Theta(x'-x) + \Theta(x'-x)\frac{d\psi_l(x)}{dx} \\\\
@@ -949,7 +941,7 @@ A nonconducting spherical shell is centered on the origin and has a charge densi
 
 **Solution**
 
-1\. Instead of starting with $\psi_i=A_i+B_i/r$ and $\psi_o=A_o+B_o/r$, we immediately write
+**1\.** Instead of starting with $\psi_i=A_i+B_i/r$ and $\psi_o=A_o+B_o/r$, we immediately write
 
 $\displaystyle\psi_i=C_i\left(\frac{1}{r}-\frac{1}{b}\right)$ and $\displaystyle\psi_o=C_o\left(\frac{1}{r}-\frac{1}{c}\right)$
 
@@ -967,7 +959,7 @@ $\displaystyle\psi_o=-\frac{q'}{4\pi\epsilon_o}\left(\frac{1}{\frac{1}{b}-\frac{
 
 As before, there is symmetry with respect to swapping the spatial coordinate $r$ with a parameter $r'$: $\psi_i(r,r')=\psi_o(r',r)$ (note that this is only after writing the potentials in terms of the charge on the shell at $r=r'$).
 
-2\. From Gauss's law, near the surface of a conductor $\sigma=-\epsilon_o d\psi/dn$, where $n$ is in the direction perpendicular to the conductor and outwards. For the inner conductor, $n=r$; for the outer, $n=-r$. (Note that in Green's second identity, the convention is that $n$ is in the direction perpendicular to $\mathcal{V}$ and outwards.) Evaluation givves
+**2\.** From Gauss's law, near the surface of a conductor $\sigma=-\epsilon_o d\psi/dn$, where $n$ is in the direction perpendicular to the conductor and outwards. For the inner conductor, $n=r$; for the outer, $n=-r$. (Note that in Green's second identity, the convention is that $n$ is in the direction perpendicular to $\mathcal{V}$ and outwards.) Evaluation givves
 
 $\displaystyle\sigma_i=-\frac{q'}{4\pi}\left(\frac{1}{\frac{1}{b}-\frac{1}{c}}\right)\left(\frac{1}{r'}-\frac{1}{c}\right)\left[\frac{1}{b^2}\right]$
 
@@ -1073,7 +1065,7 @@ Note that a related problem (but with a different Green function) considered in 
 
 **Solution**
 
-1\. The potential that satisfies the boundary conditions in the limit that that that the radius of the dome is much larger than $r'$ is
+**1\.** The potential that satisfies the boundary conditions in the limit that that that the radius of the dome is much larger than $r'$ is
 
 $\displaystyle\psi = \frac{kq}{\sqrt{(x-x')^2+(y-y')^2+(z-z')^2}}-\frac{kq}{\sqrt{(x-x')^2+(y-y')^2+(z+z')^2}}$
 
@@ -1134,7 +1126,7 @@ Using the same arguments used in [HW 3.1](#1-d-cartesian-green-function), we can
 
 $\displaystyle \Phi(z)=V_o\left[1-\frac{z}{\sqrt{b^2+z^2}}\right]$
 
-2\. The solution can also be written (for $z>0$) as
+**2\.** The solution can also be written (for $z>0$) as
 
 $\displaystyle \Phi(z)=V_o\left[1-\frac{1}{\sqrt{1+\frac{b^2}{z^2}}}\right]$
 
@@ -1148,7 +1140,7 @@ $\displaystyle \Phi(z) \simeq \frac{V_o}{2}\left(\frac{b}{z}\right)^2 \qquad z\g
 
 For large $z$, the (positive) charge on the disk appears as a point charge at the origin. As a result, we may expect that the potential will fall off as $1/z$. Here the potential falls off more slowly. The reason is that there is also a contribution from the negative charges in the plane for $s\gt b$. As a result, for large $z$, the system appears to have zero charge at the origin and so there is no $1/z$ term. (The interpretation of the power series expansion of potential will be covered in more detail later.)
 
-3\. This was discussed in class. In general, it is easiest to draw equipotential lines starting with one near the boundary. Then, draw electric field lines that are perpendicular to the equipotential lines.
+**3\.** This was discussed in class. In general, it is easiest to draw equipotential lines starting with one near the boundary. Then, draw electric field lines that are perpendicular to the equipotential lines.
 
 ## 2--D Cartesian Boundary Value Problem
 
@@ -1240,7 +1232,7 @@ $II.\qquad\displaystyle V(x,y)=\frac{4V_o}{\pi}\sum_{n=1,3,...}^\infty\frac{e^{-
 
 **Solution**
 
-1\. We need to show that 
+**1\.** We need to show that 
 
 $\displaystyle\frac{\sinh[n\pi (b-x)/a]}{\sinh(n\pi b/a)}$ reduces to $\displaystyle e^{-n\pi x/a}$ when $a/b\ll 1$, or, equivalently, $b/a \gg 1$
 
@@ -1260,7 +1252,7 @@ In the denominator, the term $e^{-2n\pi b/a}\rightarrow 0$ as $b/a \rightarrow \
 
 As a reuslt, the ratio approaches $\displaystyle e^{-n\pi x/a}$ as expected.
 
-2\. We need to show that near $y=a/2$, the sum in $II.$ approaches $\frac{\pi}{4}(1-x/b)$ so that $V(x,a/2)\rightarrow V_o(1-x/b)$.
+**2\.** We need to show that near $y=a/2$, the sum in $II.$ approaches $\frac{\pi}{4}(1-x/b)$ so that $V(x,a/2)\rightarrow V_o(1-x/b)$.
 
 In the middle of the duct, $y=a/2$ so we replace $\sin(n\pi y/a)$ with 
 $\sin(n\pi/2)=(-1)^{n}$ for $n=1,3,...$. Using $\sinh x=(e^x-e^{-x})/2$ and $e^x\simeq 1-x$ for $x\ll 1$ gives
@@ -1323,7 +1315,7 @@ Note: In problem 2.15 of Jackson, he gives the Green function for the case where
 
 **Solution**
 
-1\. Both
+**1\.** Both
 
 $\psi_l=\sum_{n=0}^{\infty}A_n\sin(n\pi y)\sinh(n\pi x)$
 
@@ -1423,13 +1415,13 @@ $\displaystyle\psi(x,x') = \psi_l\Theta(x'-x)+\psi_r\Theta(x-x')$
 
 ----
 
-2.Using $G(x)=(4\pi\epsilon_o/A\sigma')\psi(x)$ gives
+**2\.** Using $G(x)=(4\pi\epsilon_o/A\sigma')\psi(x)$ gives
 
 $\displaystyle G(x,x') = \frac{4\pi\epsilon_o}{A\sigma'}\Big[\psi_l(x,x')\Theta(x'-x)+\psi_r(x,x')\Theta(x-x')\Big]$
 
 ----
 
-3\. The surface integral in equation 1.44 of Jackson is zero (why?) leaving 
+**3\.** The surface integral in equation 1.44 of Jackson is zero (why?) leaving 
 
 $\displaystyle\Phi(\mathbf{x}) = \frac{1}{4\pi\epsilon_o}\int_{\mathcal V} G(\mathbf{x},\mathbf{x}') \rho(\mathbf{x}')d^3x'$
 
@@ -1690,7 +1682,7 @@ $\psi^o ( s \rightarrow\infty,\phi) \rightarrow const-(\overline{\lambda}/2\pi\e
 
 **Solution**
 
-1\. The steps used to derive
+**1\.** The steps used to derive
 
 $$B_n = \frac{\sinh(n\pi x')}{\sinh(n\pi(x'-1))}A_n$$
 
@@ -1738,7 +1730,7 @@ $$G =  8\sum_{n=1}^{\infty} \frac{1}{n}\frac{1}{\sinh(n\pi)}\sinh[n\pi(1-y_{\gt}
 
 Alternatively, the equivalence can be proved using an identity such as equation 3.169 of Jackson.
 
-2\. First, obtain an answer using the standard boundary value method. The potential
+**2\.** First, obtain an answer using the standard boundary value method. The potential
 
 $$\Phi = \sum_{n=1}^{\infty}A_n\sin(n\pi y)\sinh(n\pi x)$$
 
@@ -1746,9 +1738,7 @@ satisfies the three boundary conditions for which the potential on the boundary 
 
 To determine $A_n$, multiply both sides by $\sin(l\pi y)dy$ and integrate from $y=0$ to $y=1$. This gives
 
-$$A_n=\frac{4V_o}{n\pi}\frac{1}{\sinh(n\pi)}\quad n=1,3,...$$
-
-$$A_n=0\quad n=2,4,...$$
+$\displaystyle A_n=\frac{4V_o}{n\pi}\frac{1}{\sinh(n\pi)}\quad n=1,3,...\qquad \text{and}\quad A_n=0\quad n=2,4,...$
 
 and so the answer we expect is
 
@@ -1825,7 +1815,7 @@ Given that the exam is coming up, I'll make getting the general equation extra c
 
 **Comments**
 
-Many students attempted to solve this using reciprocity. The potential $\psi$ for a point charge above a grounded plane can be written in terms of the Legendre polynomials (the terms will be proportional to $(P_l(\cos\theta)-P_l(-\cos\theta))/r^{l+1}$ ... one could use the azimuthal symmetry trick to show this). To use reciprocity, one needs to evaluate 
+Many students attempted to solve this using reciprocity. The potential $\psi$ for a point charge above a grounded plane can be written in terms of the Legendre polynomials (the terms will be proportional to $[P_l(\cos\theta)-P_l(-\cos\theta)]/r^{l+1}$ ... one could use the azimuthal symmetry trick to show this). To use reciprocity, one needs to evaluate 
 
 $$\oint \Phi{\boldsymbol \nabla}\psi\bfcdot d\mathbf{a}$$
 
@@ -1837,7 +1827,7 @@ It is possible to use this approach, but most students wrote down the wrong inte
 
 **Solution**
 
-1\. Letting $V_o=1$ so that potential is units of $V_o$, the exact solution on the $z$--axis is
+**1\.** Letting $V_o=1$ so that potential is units of $V_o$, the exact solution on the $z$--axis is
 
 $$\Phi(z)=1-\frac{z}{\sqrt{b^2+z^2}}$$
 
@@ -1966,7 +1956,7 @@ $$B_{l}=(-1)^{((l+1)/2+1)} \frac{l!!}{((l+1)/2)!}\frac{b^{l+1}}{2^{(l+1)/2}}\qqu
 
 The above steps are what is needed to find the constants for the potential $\Phi^o$ for $z \gt b$. The steps for finding the potential $\Phi^i$ for $z \lt b$ are similar. In this case, the $B_l$ terms are all zero and only every other $A_l$ term is non--zero.
 
-2\. From 1., you will have a potential for $z/b\lt 1$ of the form
+**2\.** From 1., you will have a potential for $z/b\lt 1$ of the form
 
 $$\psi(r,\theta)=\frac{B_1P_1(\cos\theta)}{r^2}+\frac{B_3P_3(\cos\theta)}{r^4}+...$$
 
@@ -2193,7 +2183,7 @@ In class, we started the problem of finding the potential inside and outside of 
 
 **Solution**
 
-1\. By inspection of a table of Legendre Polynomials,
+**1\.** By inspection of a table of Legendre Polynomials,
 
 $V_o\cos^2\theta = V_o\left[\frac{1}{3}P_0(\cos\theta) + \frac{2}{3}P_2(\cos\theta)\right]$
 
@@ -2253,7 +2243,7 @@ The $1/r$ term corresponds to the potential due to the net charge induced on the
 
 $$\displaystyle kq=\frac{V_ob}{3}$$
 
-2\. To find the coefficients $A_l$, multiply both sides by $P_{l'}(\cos\theta)\sin\theta d\theta$ and then integrate from $0$ to $\pi$. (This is essentially what Griffiths calls "Fourier's trick" except using Legendre polynomials). By orthogonality, one then finds that
+**2\.** To find the coefficients $A_l$, multiply both sides by $P_{l'}(\cos\theta)\sin\theta d\theta$ and then integrate from $0$ to $\pi$. (This is essentially what Griffiths calls "Fourier's trick" except using Legendre polynomials). By orthogonality, one then finds that
 
 $$A_l=\frac{2l+1}{2}\int_0^\pi V(\theta)P_l(\cos\theta) \sin\theta d\theta$$
 
@@ -2267,28 +2257,20 @@ $$A_l=\frac{2l+1}{2}\left[-V_o\int_{-1}^0 P_l(x) dx+V_o\int_{0}^1 P_l(x) dx\righ
 
 Direct integration gives
 
-$$A_0=0$$
-
-$$A_1=\frac{3}{2}V_o$$
-
-$$A_2=0$$
+$$A_0=0\qquad A_1=\frac{3}{2}V_o\qquad A_2=0$$
 
 Therefore, keeping only the first three terms of 
 
-$$V(\theta) = \sum_{l=0}^\infty A_lP_l(\cos \theta)$$
-
-gives
-
-$V(\theta)=\frac{3}{2}V_o\cos\theta$
+$\displaystyle V(\theta) = \sum_{l=0}^\infty A_lP_l(\cos \theta)\qquad$ gives $\qquad V(\theta)=\frac{3}{2}V_o\cos\theta$
 
 This answer makes sense -- this potential is maximum at $\theta=0$, $0$ at $\theta=\pi/2$ and minimum at $\theta=\pi$. This generally follows the pattern of the exact piecewise function that we are approximating.
 
 (Equation 3.26 of Jackson gives a general equation for $A_l$, which can be derived using Legendre polynomial identities.)
 
-3\. Following steps similar to that used in part 1.
+**3\.** Following steps similar to that used in part 1.
 
 $$\Phi(r,\theta)=V_o\frac{3}{2}\frac{b^2}{r^2}\cos\theta$$
 
-4\. Given that the net charge on the sphere is expected to be zero (the potential is symmetric about $\theta=\pi/2$), we don't expect a $1/r$ term. At $r=b$, $\Phi$ matches the boundary condition $V(b,\theta)=V_o\cos\theta$. This potential is also symmetric about $\theta=\pi/2$, which is expected given the boundary condition has this symmetry.
+**4\.** Given that the net charge on the sphere is expected to be zero (the potential is symmetric about $\theta=\pi/2$), we don't expect a $1/r$ term. At $r=b$, $\Phi$ matches the boundary condition $V(b,\theta)=V_o\cos\theta$. This potential is also symmetric about $\theta=\pi/2$, which is expected given the boundary condition has this symmetry.
 
 An additional check that we can make is verify that the net charge is zero by computing $\sigma$ and integrating it over $\theta$.

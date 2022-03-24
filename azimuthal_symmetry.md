@@ -1,114 +1,5 @@
 #azimuthal-symmetry&l=1302&c=1
 
-# Line of Charge 
-
-Due on April 22nd before class starts.
-
-A line of charge with a charge density of $\lambda$ is on the $z$-axis and extends from $z=-1$ to $z=1$. 
-
-1. For $r\gt 1$, find the coefficients $A_l$ and $B_l$ for the potential expressed in the form
-
-$$\psi(r,\theta)=\sum_{l=0}^{\infty}\left(A_lr^l + B_lr^{-l-1}\right)P_l(\cos\theta)$$
-
-where $r$ and $\theta$ are the radial and polar angles in spherical coordinates.
-
-2. For $(y,z)=(1,1)$, <span style="background-color:yellow">Correction: $(s,z)=(1,1)$</span> compute the ratio of the exact potential with the potential found from the above equation using only the $l=0, 1$, and $2$ terms.
-
-{| class="wikitable collapsible collapsed"
-! align="left" |&nbsp;Answer
-|-
-|
-First, we expect the leading order term to be $2k\lambda L/r$, which is the potential for a charge $2L\lambda$ at the origin, where $L=1$.
-
-1.
-
-In the following, the azimuthal symmetry trick is used.
-
-$$\psi(z) = k\int_{-1}^1\frac{\lambda dz'}{|z-z'|}$$
-
-For $z\gt 1$, $|z-z'| = z-z'$. Using this and $u=z-z'$ gives
-
-$$\psi(z) = k\lambda \int_{z-1}^{z+1}\frac{du}{u}=k\lambda[\ln(z+1)-\ln(z-1)]=k\lambda[\ln(1+1/z)-\ln(1-1/z)]$$
-
-Using the expansion for $\delta \lt 1$
-
-$$\ln(1+\delta)=\delta + \frac{\delta^2}{2} + \frac{\delta^3}{3} + ...$$
-
-so for $z\gt 1$,
-
-$$\psi(z) = k\lambda\left(2\frac{1}{z}+\frac{2}{3}\frac{1}{z^3} + \frac{2}{5}\frac{1}{z^5} + ...\right)$$
-
-And from the azimuthal symmetry trick logic it follows that $B_0=2k\lambda$, $B_2=2k\lambda/3$, $B_4=2k\lambda/5$, $...$ or
-
-$$
-B_n=
-\begin{cases}
-\frac{2k\lambda}{l+1} & \text{for }l = 0, 2, ...\\
-0 & \text{otherwise}
-\end{cases}
-$$
-
-so
-
-$$\psi(r,\theta) = \sum_{l=0}^{\infty}\frac{2k\lambda}{2l+1}\frac{1}{r^{2l+1}}P_l(\cos\theta)$$
-
-$(s,z)=(1,1) \Rightarrow (r,\theta) = (\sqrt{2},\pi/4)$.
-
-Using $P_2(x)=(3x^2-1)/2$,
-
-$$P_2(\cos(\pi/4))=P_2(1/\sqrt{2})=\frac{1}{2}(3/2-1)=\frac{1}{4}$$
-
-and so
-
-$$
-\begin{align}
-\psi(1,1) & \approx k\lambda\left(\frac{2}{\sqrt{2}} + \frac{2}{3}\frac{1}{\sqrt{2}^3}P_2(1/\sqrt{2})\right) \\
-& = k\lambda\sqrt{2}\left(1 + \frac{1}{24}\right)\\
-& = 1.4371k\lambda
-\end{align}
-$$
-
-2.
-
-$$\psi(s,z) = k\int_{-1}^1\frac{\lambda dz'}{\sqrt{(z-z')^2 + s^2}}$$
-
-This integral can be looked up or solved using trigonometric substitutions. The result is
-
-$$\psi(s,z) = k\lambda\ln\left[\frac{1+z+\sqrt{(1+z)^2 + s^2}}{z-1+\sqrt{(z-1)^2 + s^2}}\right]$$
-
-$$\psi(1,1) \approx 1.4436k\lambda$$
-
-$$\frac{\psi_{approx}}{\psi_{exact}}\simeq 1.02$$
-
-The following is a Python script that can be used to explore the accuracy using NumPy's Legendre polynomial functions.
-
-<pre>
-import numpy as np
-
-z = 1
-s = 1
-
-N = (1+z)+ np.sqrt((1+z)**2 + s**2)
-D = -(1-z) + np.sqrt((1-z)**2 + s**2)
-psi_e = np.log(N/D)
-
-r = np.sqrt(s**2 + z**2)
-x = z/np.sqrt(s**2 + z**2)
-psi_a = 2/r + ((2/3)/np.power(r,3))*(1/2)*(3*x**2-1)
-
-print('Exact: {0:.4f}; Approximate: {1:.4f}; Approximate/Exact: {2:.4f}'
-      .format(psi_e, psi_a, psi_a/psi_e))
-
-1. Compute solution out to l = 10
-c = np.zeros(10)
-for k in range(1,10,2):
-    c[k-1] = (2/k)/np.power(r,k)
-    
-l = np.polynomial.legendre.legval(x,c)
-print(l)
-</pre>
-|}
-
 # Monopole Expansion Using "Standard" Method 
 
 1. Write down the potential $\psi$ as a function of $(x,y,z)$ for a point charge $q$ located at $(x,y,z)=(0,0,z')$ using $kq=1$.
@@ -477,3 +368,111 @@ $$\psi(\mathbf{r})=\frac{q}{4\pi\epsilon_0}\sum_{l=0}^{\infty}\frac{z'^{2l+1}}{r
 
 which matches the earlier results. This process can be repeated for $r\lt z'$ and the result is the above equation with $r$ and $z'$ swapped.
 |}
+
+# Line of Charge 
+
+Due on April 22nd before class starts.
+
+A line of charge with a charge density of $\lambda$ is on the $z$-axis and extends from $z=-1$ to $z=1$. 
+
+1. For $r\gt 1$, find the coefficients $A_l$ and $B_l$ for the potential expressed in the form
+
+$$\psi(r,\theta)=\sum_{l=0}^{\infty}\left(A_lr^l + B_lr^{-l-1}\right)P_l(\cos\theta)$$
+
+where $r$ and $\theta$ are the radial and polar angles in spherical coordinates.
+
+2. For $(y,z)=(1,1)$, <span style="background-color:yellow">Correction: $(s,z)=(1,1)$</span> compute the ratio of the exact potential with the potential found from the above equation using only the $l=0, 1$, and $2$ terms.
+
+{| class="wikitable collapsible collapsed"
+! align="left" |&nbsp;Answer
+|-
+|
+First, we expect the leading order term to be $2k\lambda L/r$, which is the potential for a charge $2L\lambda$ at the origin, where $L=1$.
+
+1.
+
+In the following, the azimuthal symmetry trick is used.
+
+$$\psi(z) = k\int_{-1}^1\frac{\lambda dz'}{|z-z'|}$$
+
+For $z\gt 1$, $|z-z'| = z-z'$. Using this and $u=z-z'$ gives
+
+$$\psi(z) = k\lambda \int_{z-1}^{z+1}\frac{du}{u}=k\lambda[\ln(z+1)-\ln(z-1)]=k\lambda[\ln(1+1/z)-\ln(1-1/z)]$$
+
+Using the expansion for $\delta \lt 1$
+
+$$\ln(1+\delta)=\delta + \frac{\delta^2}{2} + \frac{\delta^3}{3} + ...$$
+
+so for $z\gt 1$,
+
+$$\psi(z) = k\lambda\left(2\frac{1}{z}+\frac{2}{3}\frac{1}{z^3} + \frac{2}{5}\frac{1}{z^5} + ...\right)$$
+
+And from the azimuthal symmetry trick logic it follows that $B_0=2k\lambda$, $B_2=2k\lambda/3$, $B_4=2k\lambda/5$, $...$ or
+
+$$
+B_n=
+\begin{cases}
+\frac{2k\lambda}{l+1} & \text{for }l = 0, 2, ...\\
+0 & \text{otherwise}
+\end{cases}
+$$
+
+so
+
+$$\psi(r,\theta) = \sum_{l=0}^{\infty}\frac{2k\lambda}{2l+1}\frac{1}{r^{2l+1}}P_l(\cos\theta)$$
+
+$(s,z)=(1,1) \Rightarrow (r,\theta) = (\sqrt{2},\pi/4)$.
+
+Using $P_2(x)=(3x^2-1)/2$,
+
+$$P_2(\cos(\pi/4))=P_2(1/\sqrt{2})=\frac{1}{2}(3/2-1)=\frac{1}{4}$$
+
+and so
+
+$$
+\begin{align}
+\psi(1,1) & \approx k\lambda\left(\frac{2}{\sqrt{2}} + \frac{2}{3}\frac{1}{\sqrt{2}^3}P_2(1/\sqrt{2})\right) \\
+& = k\lambda\sqrt{2}\left(1 + \frac{1}{24}\right)\\
+& = 1.4371k\lambda
+\end{align}
+$$
+
+2.
+
+$$\psi(s,z) = k\int_{-1}^1\frac{\lambda dz'}{\sqrt{(z-z')^2 + s^2}}$$
+
+This integral can be looked up or solved using trigonometric substitutions. The result is
+
+$$\psi(s,z) = k\lambda\ln\left[\frac{1+z+\sqrt{(1+z)^2 + s^2}}{z-1+\sqrt{(z-1)^2 + s^2}}\right]$$
+
+$$\psi(1,1) \approx 1.4436k\lambda$$
+
+$$\frac{\psi_{approx}}{\psi_{exact}}\simeq 1.02$$
+
+The following is a Python script that can be used to explore the accuracy using NumPy's Legendre polynomial functions.
+
+```Python
+import numpy as np
+
+z = 1
+s = 1
+
+N = (1+z)+ np.sqrt((1+z)**2 + s**2)
+D = -(1-z) + np.sqrt((1-z)**2 + s**2)
+psi_e = np.log(N/D)
+
+r = np.sqrt(s**2 + z**2)
+x = z/np.sqrt(s**2 + z**2)
+psi_a = 2/r + ((2/3)/np.power(r,3))*(1/2)*(3*x**2-1)
+
+print('Exact: {0:.4f}; Approximate: {1:.4f}; Approximate/Exact: {2:.4f}'
+      .format(psi_e, psi_a, psi_a/psi_e))
+
+1. Compute solution out to l = 10
+c = np.zeros(10)
+for k in range(1,10,2):
+    c[k-1] = (2/k)/np.power(r,k)
+    
+l = np.polynomial.legendre.legval(x,c)
+print(l)
+```

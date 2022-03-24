@@ -15,13 +15,35 @@ Homeworks: [1](hw.html#hw-1) | [2](hw.html#hw-2) | [3](hw.html#hw-3) | [4](hw.ht
 
 # Class Schedule
 
-%15. ## May 11th (final exam)
-%14. ## May 4th (last class)
-%13. ## April 27th
-%12. ## April 20th
-%11. ## April 13th
-%10. ## April 6th
-%9. ## March 30th
+## May 11th (final exam)
+
+## May 4th (last class)
+
+* HW 11 due (Ch. 5 of Jackson)
+
+## April 27th
+
+* HW 10 due (Ch. 5 of Jackson)
+
+## April 20th
+
+* HW 9 due  (Ch 4 of Jackson; Ch 3 of Griffiths)
+
+## April 13th
+
+* HW 8 due (Ch 4 of Jackson; Ch 3 of Griffiths)
+
+Ch 4. of Jackson 
+
+## April 6th
+
+* HW 7 due (Ch 4 of Jackson; Ch 3 of Griffiths)
+
+Ch 4. of Jackson
+
+## March 30th
+
+Discuss Ch 4. of Jackson and Ch 3 of Griffiths
 
 ## March 23rd
 
