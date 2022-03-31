@@ -11,7 +11,7 @@
 * Office: 259 Planetary Hall
 * Course URL: http://rweigel.github.io/phys685/
 
-Homeworks: [1](hw.html#hw-1) | [2](hw.html#hw-2) | [3](hw.html#hw-3) | [4](hw.html#hw-4) | [5](hw.html#hw-5) | [6](hw.html#hw-6) | [7](hw.html#hw-7)
+Homeworks and Exams: [1](hw.html#hw-1) | [2](hw.html#hw-2) | [3](hw.html#hw-3) | [4](hw.html#hw-4) | [5](hw.html#hw-5) | [6](hw.html#hw-6) | [Midterm](midterm.html) | [7](hw.html#hw-7)
 
 # Class Schedule
 
