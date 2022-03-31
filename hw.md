@@ -2274,3 +2274,74 @@ $$\Phi(r,\theta)=V_o\frac{3}{2}\frac{b^2}{r^2}\cos\theta$$
 **4\.** Given that the net charge on the sphere is expected to be zero (the potential is symmetric about $\theta=\pi/2$), we don't expect a $1/r$ term. At $r=b$, $\Phi$ matches the boundary condition $V(b,\theta)=V_o\cos\theta$. This potential is also symmetric about $\theta=\pi/2$, which is expected given the boundary condition has this symmetry.
 
 An additional check that we can make is verify that the net charge is zero by computing $\sigma$ and integrating it over $\theta$.
+
+\newpage
+
+# HW 7
+
+## Monopole Expansion
+
+### 
+
+A point charge $q$ is at $(x,y,z)=(0,y',0)$
+
+1. Starting with
+
+    $\displaystyle\frac{1}{|\mathbf{x}-\mathbf{x}'|} = \sum_{l=0}^\infty \frac{r^l_{<}}{r^{l+1}_{>}}P_l(\cos \gamma)$
+
+    find the potential $\psi(r,\theta,\phi)$ for $r\gt |y'|$ to order $1/r^3$
+
+2. Starting with
+
+    $\displaystyle\frac{1}{|\mathbf{x}-\mathbf{x}'|} = \sum_{l=0}^\infty \sum_{m=-l}^l \frac{4\pi}{2l+1}\frac{r_\lt^{l}}{r_\gt^{l+1}}Y^*\_{lm}(\theta',\phi')Y\_{lm}(\theta,\phi)$
+
+    find the potential $\psi(r,\theta,\phi)$ for $r\gt |y'|$ to order $1/r^2$
+
+3. Show that your answers for 1. and 2. are equal
+
+###
+
+A straight line of charge with uniform charge density $\lambda$ extends from $y=-L$ to $y=L$.
+
+1. Starting with
+
+    $\displaystyle\frac{1}{|\mathbf{x}-\mathbf{x}'|} = \sum_{l=0}^\infty \frac{r^l_{<}}{r^{l+1}_{>}}P_l(\cos \gamma)$
+
+    find the potential $\psi(r,\theta,\phi)$ for $r\gt |y'|$ to order $1/r^3$
+
+2. Starting with
+
+    $\displaystyle\frac{1}{|\mathbf{x}-\mathbf{x}'|} = \sum_{l=0}^\infty \sum_{m=-l}^l \frac{4\pi}{2l+1}\frac{r_\lt^{l}}{r_\gt^{l+1}}Y^*\_{lm}(\theta',\phi')Y\_{lm}(\theta,\phi)$
+
+    find the potential $\psi(r,\theta,\phi)$ for $r\gt |y'|$ to order $1/r^2$
+
+3. Use either 1. or 2. to find $\psi(x,y,z)$ for $r\gt |y'|$ to order $1/r^2$.
+
+## Polarized Obect
+
+A cylinder of radius $b$ and height $2h$ is centered on the origin, has a centerline aligned with the $z$--axis, and has a "frozen--in" polarization of $\mathbf{P}=P_o\zhat$.
+
+1. Compute $\sigma_b$ and $\rho_b$
+2. Find the potential $\psi(z)$ on on the $z$--axis for $z\gt \sqrt{b^2+h^2}$
+3. Find the potential $\psi(r,\theta)$ to order $1/r^4$ for $z\gt \sqrt{b^2+h^2}$.
+
+## Dielectric
+
+###
+
+A point charge $q$ is at the origin. A thick dielectric shell with susceptibility $\chi_e$ with inner radius $b$ and outer radius $c$ is centered on the origin.
+
+<img src="figures/dielectric.svg"/>
+
+Find $\psi(r)$ using at least two different methods.
+
+###
+
+A conducting shell of radius $b$ has a potential of $\psi(b)$, where $\psi(b)$ is the potential found in part 1. A conducting shell of radius $2c$ is at potential $\psi(2c)$, where $\psi(2c)$ is the potential found in part 1. A thick dielectric shell with susceptibility $\chi_e$ with inner radius $b$ and outer radius $c$ is between the two conductors.
+
+<img src="figures/dielectric2.svg"/>
+
+1. Starting with $\psi_i = A_i + B_i/r$ and $\psi_o = A_o + B_o/r$, use the boundary conditions, continuity, and the jump condition to find the potential in the region between the two conductors.
+2. Use your answer to 1. to find the electric field between the two conductors.
+
+

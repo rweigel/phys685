@@ -44,11 +44,11 @@ $
 
 ## Derivation
 
-This form of  $1/|\mathbf{x}-\mathbf{x}'|$ with $\gamma = \theta$ follows from Taylor series expansion of $1/|z-z'|$, the general solution of $\nabla^2\Psi(r,\theta)=0$
+This form of  $1/|\mathbf{x}-\mathbf{x}'|$ with $\gamma = \theta$ follows from Taylor series expansion of $1/|z-z'|$, the general solution of $\nabla^2\Psi(r,\theta)=0$, and the uniqueness of solutions to Laplace's equation. ("Azimuthal symmetry trick"; See Section 3.3 of Jackson).  The result is
 
-$\psi(r,\theta)=\sum_{l=0}^{\infty}\left(A_lr^l + B_lr^{-l-1}\right)P_l(\cos\theta)$
+$$\psi(r,\theta)=\sum_{l=0}^{\infty}\left(A_lr^l + B_lr^{-l-1}\right)P_l(\cos\theta)$$
 
-and the uniqueness of solutions to Laplace's equation. (See Section 3.3 of Jackson). Note that in this derivation, the constraint is $\frac{r'}{r} \gt 1$ or $\frac{r}{r'} \gt 1$.
+ Note that in this derivation, the constraint is ${r'}\gt {r}$ or ${r} \gt {r'}$.
 
 Another way of deriving this expression is from a Taylor series expansion of
 
@@ -142,10 +142,10 @@ In this case
 
 $\displaystyle I(\mathbf{x}) = \int (r')^lP_l(\cos\gamma) \rho(\mathbf{x}') d^3x' = \int (r')^lP_l(\cos\gamma) \rho(\mathbf{x}') r'^2\sin\theta' dr'd\theta'd\phi'$
 
-$\displaystyle I(\mathbf{x}) = \int_0^{\infty}(r')^l\frac{q}{r'^2}\delta(r'-y_o)r'^2dr'\times\int_0^{2\pi}\int_0^\pi\delta(\theta'-\pi/2)\delta(\phi'-\pi/2)P_l\big(\cos(\gamma(\theta,\phi,\theta',\phi')\big)\sin\theta'd\theta'd\phi'
+$\displaystyle I(\mathbf{x}) = \int_0^{\infty}(r')^l\frac{q}{r'^2}\delta(r'-y_o)r'^2dr'\int_0^{2\pi}\int_0^\pi\delta(\theta'-\pi/2)\delta(\phi'-\pi/2)P_l\big(\cos(\gamma(\theta,\phi,\theta',\phi')\big)\sin\theta'd\theta'd\phi'
 $
 
-$\displaystyle = qy_o^l\times\int_0^{2\pi}\int_0^\pi\delta(\theta'-\pi/2)\delta(\phi'-\pi/2)P_l\big(\cos(\gamma(\theta,\phi,\theta',\phi')\big)\sin\theta'd\theta'd\phi'$
+$\displaystyle = qy_o^l\int_0^{2\pi}\int_0^\pi\delta(\theta'-\pi/2)\delta(\phi'-\pi/2)P_l\big(\cos(\gamma(\theta,\phi,\theta',\phi')\big)\sin\theta'd\theta'd\phi'$
 
 $\displaystyle = qy_o^lP_l\big(\cos(\gamma(\theta,\phi,\pi/2,\pi/2)\big)\sin(\pi/2)$
 
@@ -164,13 +164,13 @@ $$
 
 # Spherical Harmonics/Associated Legendre Functions
 
-$
+$$
 \frac{1}{|\mathbf{x}-\mathbf{x}'|} =
 \begin{cases}
 \displaystyle\sum_{l=0}^\infty \sum_{m=-l}^l \frac{4\pi}{2l+1}\frac{r'^{l}}{r^{l+1}}Y^*\_{lm}(\theta',\phi')Y_{lm}(\theta,\phi)  & \mbox{if } r \gt r' \\ \\
 \displaystyle\sum_{l=0}^\infty \sum_{m=-l}^l \frac{4\pi}{2l+1}\frac{r^{l}}{r'^{l+1}}Y^*\_{lm}(\theta',\phi')Y_{lm}(\theta,\phi) & \mbox{if } r \lt r'
 \end{cases}
-$
+$$
 
 or
 
@@ -332,8 +332,7 @@ Legendre:
 
 $
 \displaystyle
-\Phi_{l=1}(r,\theta,\phi) = \frac{1}{4\pi\epsilon_0}\frac{1}{r^2}\int r'\big(\sin\theta\sin\theta'\cos(\phi-\phi') + \cos\theta\cos\theta'\big)
-\times \rho(r',\theta',\phi')r'^2\sin\theta dr' d\theta' d\phi'
+\Phi_{l=1}(r,\theta,\phi) = \frac{1}{4\pi\epsilon_0}\frac{1}{r^2}\int r'\big(\sin\theta\sin\theta'\cos(\phi-\phi') + \cos\theta\cos\theta'\big) \rho(r',\theta',\phi')r'^2\sin\theta dr' d\theta' d\phi'
 $
 
 Spherical Harmonic:

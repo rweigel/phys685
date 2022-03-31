@@ -16,7 +16,7 @@ $$\nabla^2f(r,\theta,\phi)={ {1 \over r^{2}}{\partial  \over \partial r}\left(r^
 
 $${\displaystyle {\begin{array}{r|r}n&P_{n}(x)\\\hline 0&1\\1&x\\2&{\tfrac {1}{2}}\left(3x^{2}-1\right)\\3&{\tfrac {1}{2}}\left(5x^{3}-3x\right)\\4&{\tfrac {1}{8}}\left(35x^{4}-30x^{2}+3\right) \end{array}}}$$
 
-Power series expansions
+Power series expansions for $\delta \lt 1$.
 
 $$\frac{1}{(1+\delta)^n} = 1 - n\delta + \frac{n(n+1)}{2!}\delta^2- \frac{n(n+1)(n+2)}{3!}\delta^3+...$$
 
@@ -199,3 +199,27 @@ The cross--section of this geometry is shown in the following figure.
 
 2\. Use Green's second identity to find the potential when there is no non--conducting shell (or equivalently, $\lambda'=0$), the inner conducting shell is held at potential $V_i$, and the outer conducting shell is held at potential $V_o$.
 
+**Solution**
+
+The general solution to $\nabla^2\psi(s)=0$ is $\psi(s)=A+B\ln s$ or, equivalently, $\psi(s)=A'\ln(s/B')$. Laplace's equation is satisfied in the inner ($i$) and outer ($o$) regions, so we seek solutions to
+
+$\psi_i=A_i\ln s/B_i$
+
+$\psi_o=A_o\ln s/B_o$
+
+given the boundary conditions
+
+1. $\psi_i(b)=0$
+2. $\psi_o(c)=0$
+3. $\psi_i(s')=\psi_o(s')$
+4. $[-\partial \psi_o/\partial s + \partial \psi_i/\partial s]_{s=s'} = \sigma'/\epsilon_o$
+
+We are given the charge per length (the length must be the length of the tube -- if not, one could not solve). The total charge on the surface of the charged cylinder is $\lambda' L$. The total charge in terms of a $\sigma$ is $\sigma' 2\pi s' L$, so $\sigma' = \lambda'/2\pi s'$.
+
+The result is
+
+$$\psi_i(s)=\frac{\lambda'}{2\pi\epsilon_o}\frac{\ln (s'/c)}{\ln (b/c)}\ln (s/b)$$
+
+$$\psi_o(s)=\frac{\lambda'}{2\pi\epsilon_o}\frac{\ln (s'/b)}{\ln (b/c)}\ln (s/c)$$
+
+By inspection, these satify the first three boundary conditions and with a straightforward calculation can be shown to satisfy the fourth boundary condition.

@@ -11,7 +11,7 @@
 * Office: 259 Planetary Hall
 * Course URL: http://rweigel.github.io/phys685/
 
-Homeworks: [1](hw.html#hw-1) | [2](hw.html#hw-2) | [3](hw.html#hw-3) | [4](hw.html#hw-4) | [5](hw.html#hw-5) | [6](hw.html#hw-6)
+Homeworks: [1](hw.html#hw-1) | [2](hw.html#hw-2) | [3](hw.html#hw-3) | [4](hw.html#hw-4) | [5](hw.html#hw-5) | [6](hw.html#hw-6) | [7](hw.html#hw-7)
 
 # Class Schedule
 
@@ -19,25 +19,25 @@ Homeworks: [1](hw.html#hw-1) | [2](hw.html#hw-2) | [3](hw.html#hw-3) | [4](hw.ht
 
 ## May 4th (last class)
 
-* HW 11 due (Ch. 5 of Jackson)
+* HW 11 due
 
 ## April 27th
 
-* HW 10 due (Ch. 5 of Jackson)
+* HW 10 due
 
 ## April 20th
 
-* HW 9 due  (Ch 4 of Jackson; Ch 3 of Griffiths)
+* HW 9 due
 
 ## April 13th
 
-* HW 8 due (Ch 4 of Jackson; Ch 3 of Griffiths)
+* HW 8 due (Covers Ch 4 of Jackson; Ch 3 of Griffiths)
 
 Ch 4. of Jackson 
 
 ## April 6th
 
-* HW 7 due (Ch 4 of Jackson; Ch 3 of Griffiths)
+[HW #7](hw.html#hw-7) due (Covers Ch 4 of Jackson; Ch 3 of Griffiths)
 
 Ch 4. of Jackson
 
