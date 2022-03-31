@@ -201,7 +201,7 @@ The cross--section of this geometry is shown in the following figure.
 
 **Solution**
 
-The general solution to $\nabla^2\psi(s)=0$ is $\psi(s)=A+B\ln s$ or, equivalently, $\psi(s)=A'\ln(s/B')$. Laplace's equation is satisfied in the inner ($i$) and outer ($o$) regions, so we seek solutions to
+1\. The general solution to $\nabla^2\psi(s)=0$ is $\psi(s)=A+B\ln s$ or, equivalently, $\psi(s)=A'\ln(s/B')$. Laplace's equation is satisfied in the inner ($i$) and outer ($o$) regions, so we seek solutions to
 
 $\psi_i=A_i\ln s/B_i$
 
@@ -223,3 +223,29 @@ $$\psi_i(s)=\frac{\lambda'}{2\pi\epsilon_o}\frac{\ln (s'/c)}{\ln (b/c)}\ln (s/b)
 $$\psi_o(s)=\frac{\lambda'}{2\pi\epsilon_o}\frac{\ln (s'/b)}{\ln (b/c)}\ln (s/c)$$
 
 By inspection, these satify the first three boundary conditions and with a straightforward calculation can be shown to satisfy the fourth boundary condition.
+
+2\. The expected answer is $\Phi(s)=V_o\ln (s/b)/\ln (c/b)$, which can be worked out by solving $\Phi(s)=A+B\ln(s)$ subject to $\Phi(b)=0$ and $\Phi(c)=V_o$.
+
+Green's second identity is
+
+$$\int_{\mathcal{V}} \left(\Phi\nabla^2\psi -\psi\nabla^2\Phi\right)d^3x=\oint_{\mathcal{S}}\left(\Phi\frac{\partial \psi}{\partial n}-\psi\frac{\partial \Phi}{\partial n}\right) da$$
+
+Let $\mathcal{V}$ be the empty volume between the conductors. The second integral on the RHS is zero because $\psi=0$ on the surface of $\mathcal{V}$ (spherical shells of radius $b$ and $c$). The first surface integral on the RHS reduces to a single integral over the surface of a sphere of radius $c$, on which $\Phi=V_o$. The RHS is then
+
+$$-V_o\int_0^{2\pi}\int_0^L \frac{d\psi_o}{ds}\bigg|_{s=c}  dz d\phi$$
+
+where $n=-z$ was used. The charge denstiy in the $\psi$ system is $q\delta(\mathbf{x}-\mathbf{x}')$, where $q=\lambda' L$, so the first integral on the RHS is $-q\Phi(s')$. The second term on the RHS is zero because the charge denstiy in the $\Phi$ system is zero. This leaves
+
+$$-\frac{\lambda'L}{\epsilon_o}\Phi(s')=-\int_0^{2\pi}\int_0^L \frac{d\psi_o}{ds}\bigg|_{s=c}  c dz d\phi$$
+
+Using
+
+$$\frac{d\psi_o}{ds}\bigg|_{s=c}=\frac{\lambda'}{2\pi\epsilon_o}\frac{\ln (s'/b)}{\ln (b/c)}\frac{1}{c}$$
+
+and simplifying gives
+
+$\Phi(s')=V_o\ln (s'/b)/\ln (c/b)$
+
+Given that $s'$ can vary between $b$ and $c$, we can replace it with $s$ and so
+
+ $\Phi(s)=V_o\ln (s/b)/\ln (c/b)$
