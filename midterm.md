@@ -232,11 +232,11 @@ $$\int_{\mathcal{V}} \left(\Phi\nabla^2\psi -\psi\nabla^2\Phi\right)d^3x=\oint_{
 
 Let $\mathcal{V}$ be the empty volume between the conductors. The second integral on the RHS is zero because $\psi=0$ on the surface of $\mathcal{V}$ (spherical shells of radius $b$ and $c$). The first surface integral on the RHS reduces to a single integral over the surface of a sphere of radius $c$, on which $\Phi=V_o$. The RHS is then
 
-$$-V_o\int_0^{2\pi}\int_0^L \frac{d\psi_o}{ds}\bigg|_{s=c}  dz d\phi$$
+$$V_o\int_0^{2\pi}\int_0^L \frac{d\psi_o}{ds}\bigg|_{s=c}  dz d\phi$$
 
-where $n=-z$ was used. The charge denstiy in the $\psi$ system is $q\delta(\mathbf{x}-\mathbf{x}')$, where $q=\lambda' L$, so the first integral on the RHS is $-q\Phi(s')$. The second term on the RHS is zero because the charge denstiy in the $\Phi$ system is zero. This leaves
+where $n=s$ was used. The charge denstiy in the $\psi$ system is $q\delta(\mathbf{x}-\mathbf{x}')$, where $q=\lambda' L$, so the first integral on the RHS is $-q\Phi(s')$. The second term on the RHS is zero because the charge denstiy in the $\Phi$ system is zero. This leaves
 
-$$-\frac{\lambda'L}{\epsilon_o}\Phi(s')=-\int_0^{2\pi}\int_0^L \frac{d\psi_o}{ds}\bigg|_{s=c}  c dz d\phi$$
+$$-\frac{\lambda'L}{\epsilon_o}\Phi(s')=\int_0^{2\pi}\int_0^L \frac{d\psi_o}{ds}\bigg|_{s=c}  c dz d\phi$$
 
 Using
 
