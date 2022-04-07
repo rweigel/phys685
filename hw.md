@@ -2348,12 +2348,14 @@ A conducting shell of radius $b$ has a potential of $\psi(b)$, where $\psi(b)$ i
 
 ## Long Polarized Cylinder
 
-A long cylinder of radius $b$ is aligned with the $z$--axis and centered on the origin. The rod is polarized such that $\mathbf{P}=2P_o\sin^2\phi\thinspace\hat{\mathbf{s}}$.
+A long solid cylinder of radius $b$ is aligned with the $z$--axis and centered on the origin. The rod is polarized such that $\mathbf{P}=2P_o\sin^2\phi\thinspace\hat{\mathbf{s}}$.
 
 Find
 
 1. $\psi(s,\phi)$
 2. $\mathbf{E}(s,\phi)$
+
+due to the bound surface charges only. Assume the cylinder has $\chi_e=0$. 
 
 ## Dipole in a Dielectric Sphere
 
