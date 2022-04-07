@@ -207,9 +207,8 @@
     .section>.block code~.line-number {}
 
     pre .line-number {
-      float: right;
       font-size: 8px;
-      text-align: center;
+      text-align: right;
       text-indent: 0px;
     }
 
@@ -219,46 +218,10 @@
       font-family: monospace;
       white-space: pre-line;
       overflow-wrap: break-word;
-      font-size: 6px;
+      font-size: 8px;
       border-top: 1px solid black;
       border-bottom: 1px solid black;
       border-right: 1px solid black;
-    }
-
-    p+.line-number {
-      margin-block-start: 1px;
-    }
-
-    .block>div.linenumber {
-      margin-block-start: -0.5em;
-    }
-
-    .blockquote+div.line-number {
-      margin-top: 1rem;
-    }
-
-    h1+.line-number {
-      margin-block-start: 1em;
-    }
-
-    h2+.line-number {
-      margin-block-start: 1em;
-    }
-
-    h3+.line-number {
-      margin-block-start: 1em;
-    }
-
-    h4+.line-number {
-      margin-block-start: 1em;
-    }
-
-    h5+.line-number {
-      margin-block-start: 1em;
-    }
-
-    h6+.line-number {
-      margin-block-start: 1em;
     }
 
     figure {
@@ -487,14 +450,14 @@
   <div id="toc">
     <ol>
       <li><a number="1" href="#class-schedule" class="">Class Schedule</a></li>
-      <ol style="display: none;">
-        <li><a number="1.1" href="#may-11th-final-exam" class="">May 11th (final exam)</a></li>
-        <li><a number="1.2" href="#may-4th-last-class" class="">May 4th (last class)</a></li>
-        <li><a number="1.3" href="#april-27th" class="">April 27th</a></li>
-        <li><a number="1.4" href="#april-20th" class="">April 20th</a></li>
+      <ol style="display: block;">
+        <li><a number="1.1" href="#may-11th-final-exam">May 11th (final exam)</a></li>
+        <li><a number="1.2" href="#may-4th-last-class">May 4th (last class)</a></li>
+        <li><a number="1.3" href="#april-27th">April 27th</a></li>
+        <li><a number="1.4" href="#april-20th" class="highlighted">April 20th</a></li>
         <li><a number="1.5" href="#april-13th" class="">April 13th</a></li>
         <li><a number="1.6" href="#april-6th" class="">April 6th</a></li>
-        <li><a number="1.7" href="#march-30th" class="">March 30th</a></li>
+        <li><a number="1.7" href="#march-30th">March 30th</a></li>
         <li><a number="1.8" href="#march-23rd">March 23rd</a></li>
         <li><a number="1.9" href="#march-9th">March 9th</a></li>
         <li><a number="1.10" href="#march-2nd">March 2nd</a></li>
@@ -504,13 +467,13 @@
         <li><a number="1.14" href="#feb-2nd">Feb. 2nd</a></li>
         <li><a number="1.15" href="#jan-26th">Jan. 26th</a></li>
       </ol>
-      <li><a number="2" href="#syllabus">Syllabus</a></li>
-      <ol style="display: none;">
-        <li><a number="2.1" href="#course-material">Course Material</a></li>
-        <li><a number="2.2" href="#office-hours">Office Hours</a></li>
+      <li><a number="2" href="#syllabus" class="">Syllabus</a></li>
+      <ol style="display: block;">
+        <li><a number="2.1" href="#course-material" class="">Course Material</a></li>
+        <li><a number="2.2" href="#office-hours" class="">Office Hours</a></li>
         <li><a number="2.3" href="#discord">Discord</a></li>
-        <li><a number="2.4" href="#format">Format</a></li>
-        <li><a number="2.5" href="#grading">Grading</a></li>
+        <li><a number="2.4" href="#format" class="">Format</a></li>
+        <li><a number="2.5" href="#grading" class="">Grading</a></li>
         <li><a number="2.6" href="#topics">Topics</a></li>
         <li><a number="2.7" href="#textbook">Textbook</a></li>
         <li><a number="2.8" href="#important-dates">Important Dates</a></li>
@@ -576,7 +539,7 @@
         </ul>
       </div>
       <div class="block">
-        <p class="">Homeworks and Exams: <a href="hw.html#hw-1">1</a> | <a href="hw.html#hw-2">2</a> | <a href="hw.html#hw-3">3</a> | <a href="hw.html#hw-4">4</a> | <a href="hw.html#hw-5">5</a> | <a href="hw.html#hw-6">6</a> | <a href="midterm.html">Midterm</a> | <a href="hw.html#hw-7">7</a></p>
+        <p class="">Homeworks and Exams: <a href="hw.html#hw-1">1</a> | <a href="hw.html#hw-2">2</a> | <a href="hw.html#hw-3">3</a> | <a href="hw.html#hw-4">4</a> | <a href="hw.html#hw-5">5</a> | <a href="hw.html#hw-6">6</a> | <a href="midterm.html">Midterm</a> | <a href="hw.html#hw-7">7</a> | <a href="hw.html#hw-8">8</a></p>
       </div>
     </div>
     <div class="section">
@@ -586,16 +549,16 @@
     </div>
     <div class="section">
       <div class="block">
-        <h2 class=""><a name="may-11th-final-exam" number="1.1" class="hanchor" href="#may-11th-final-exam"><span class="hnumber">1.1 </span> <span class="htext">May 11th (final exam)</span></a></h2>
+        <h2><a name="may-11th-final-exam" number="1.1" class="hanchor" href="#may-11th-final-exam"><span class="hnumber">1.1 </span> <span class="htext">May 11th (final exam)</span></a></h2>
       </div>
     </div>
     <div class="section">
       <div class="block">
-        <h2 class=""><a name="may-4th-last-class" number="1.2" class="hanchor" href="#may-4th-last-class"><span class="hnumber">1.2 </span> <span class="htext">May 4th (last class)</span></a></h2>
+        <h2><a name="may-4th-last-class" number="1.2" class="hanchor" href="#may-4th-last-class"><span class="hnumber">1.2 </span> <span class="htext">May 4th (last class)</span></a></h2>
       </div>
       <div class="block">
-        <ul class="">
-          <li class="">
+        <ul>
+          <li>
             <div class="block">
               <p>HW 11 due</p>
             </div>
@@ -605,11 +568,11 @@
     </div>
     <div class="section">
       <div class="block">
-        <h2 class=""><a name="april-27th" number="1.3" class="hanchor" href="#april-27th"><span class="hnumber">1.3 </span> <span class="htext">April 27th</span></a></h2>
+        <h2><a name="april-27th" number="1.3" class="hanchor" href="#april-27th"><span class="hnumber">1.3 </span> <span class="htext">April 27th</span></a></h2>
       </div>
       <div class="block">
-        <ul class="">
-          <li class="">
+        <ul>
+          <li>
             <div class="block">
               <p>HW 10 due</p>
             </div>
@@ -619,10 +582,10 @@
     </div>
     <div class="section">
       <div class="block">
-        <h2 class=""><a name="april-20th" number="1.4" class="hanchor" href="#april-20th"><span class="hnumber">1.4 </span> <span class="htext">April 20th</span></a></h2>
+        <h2 class="highlighted"><a name="april-20th" number="1.4" class="hanchor" href="#april-20th"><span class="hnumber">1.4 </span> <span class="htext">April 20th</span></a></h2>
       </div>
       <div class="block">
-        <ul class="">
+        <ul>
           <li class="">
             <div class="block">
               <p>HW 9 due</p>
@@ -636,16 +599,10 @@
         <h2 class=""><a name="april-13th" number="1.5" class="hanchor" href="#april-13th"><span class="hnumber">1.5 </span> <span class="htext">April 13th</span></a></h2>
       </div>
       <div class="block">
-        <ul class="">
-          <li class="">
-            <div class="block">
-              <p>HW 8 due (Covers Ch 4 of Jackson; Ch 3 of Griffiths)</p>
-            </div>
-          </li>
-        </ul>
+        <p class=""><a href="hw.html#hw-8">HW #8</a> due (Covers Ch 4 of Jackson; Ch 3 of Griffiths)</p>
       </div>
       <div class="block">
-        <p class="">Ch 4. of Jackson </p>
+        <p class="">Discuss Ch 4. of Jackson </p>
       </div>
     </div>
     <div class="section">
@@ -656,12 +613,12 @@
         <p class=""><a href="hw.html#hw-7">HW #7</a> due (Covers Ch 4 of Jackson; Ch 3 of Griffiths)</p>
       </div>
       <div class="block">
-        <p class="">Ch 4. of Jackson</p>
+        <p class="">Discuss Ch 4. of Jackson</p>
       </div>
     </div>
     <div class="section">
       <div class="block">
-        <h2 class=""><a name="march-30th" number="1.7" class="hanchor" href="#march-30th"><span class="hnumber">1.7 </span> <span class="htext">March 30th</span></a></h2>
+        <h2><a name="march-30th" number="1.7" class="hanchor" href="#march-30th"><span class="hnumber">1.7 </span> <span class="htext">March 30th</span></a></h2>
       </div>
       <div class="block">
         <p>Discuss Ch 4. of Jackson and Ch 3 of Griffiths</p>
@@ -956,12 +913,12 @@
     </div>
     <div class="section">
       <div class="block">
-        <h1><a name="syllabus" number="2" class="hanchor" href="#syllabus"><span class="hnumber">2 </span> <span class="htext">Syllabus</span></a></h1>
+        <h1 class=""><a name="syllabus" number="2" class="hanchor" href="#syllabus"><span class="hnumber">2 </span> <span class="htext">Syllabus</span></a></h1>
       </div>
     </div>
     <div class="section">
       <div class="block">
-        <h2><a name="course-material" number="2.1" class="hanchor" href="#course-material"><span class="hnumber">2.1 </span> <span class="htext">Course Material</span></a></h2>
+        <h2 class=""><a name="course-material" number="2.1" class="hanchor" href="#course-material"><span class="hnumber">2.1 </span> <span class="htext">Course Material</span></a></h2>
       </div>
       <div class="block">
         <p>All course information is posted on this page, and this page is updated throughout the semester. I do not use Blackboard for this course.</p>
@@ -969,7 +926,7 @@
     </div>
     <div class="section">
       <div class="block">
-        <h2><a name="office-hours" number="2.2" class="hanchor" href="#office-hours"><span class="hnumber">2.2 </span> <span class="htext">Office Hours</span></a></h2>
+        <h2 class=""><a name="office-hours" number="2.2" class="hanchor" href="#office-hours"><span class="hnumber">2.2 </span> <span class="htext">Office Hours</span></a></h2>
       </div>
       <div class="block">
         <p>My official office hours are Wednesday from 3:00-4:00 pm.</p>
@@ -994,7 +951,7 @@
     </div>
     <div class="section">
       <div class="block">
-        <h2><a name="format" number="2.4" class="hanchor" href="#format"><span class="hnumber">2.4 </span> <span class="htext">Format</span></a></h2>
+        <h2 class=""><a name="format" number="2.4" class="hanchor" href="#format"><span class="hnumber">2.4 </span> <span class="htext">Format</span></a></h2>
       </div>
       <div class="block">
         <ul>
@@ -1029,7 +986,7 @@
     </div>
     <div class="section">
       <div class="block">
-        <h2><a name="grading" number="2.5" class="hanchor" href="#grading"><span class="hnumber">2.5 </span> <span class="htext">Grading</span></a></h2>
+        <h2 class=""><a name="grading" number="2.5" class="hanchor" href="#grading"><span class="hnumber">2.5 </span> <span class="htext">Grading</span></a></h2>
       </div>
       <div class="block">
         <p>The course grade is based on the following weighting.</p>
