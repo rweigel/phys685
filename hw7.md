@@ -26,19 +26,23 @@ A point charge $q$ is at $(x,y,z)=(0,y',0)$
 
 $$\cos(\gamma(\mathbf{x},\mathbf{x}')) =\frac{\mathbf{x}\cdot\mathbf{x}'}{|\mathbf{x}| |\mathbf{x'}|} = \frac{xx'+yy'+zz'}{rr'}$$
 
-In this problem, $x'=z'=0$ and so $r'=y'$, leaving
+In this problem, $x'=z'=0$ and so $r'=|y'|$, leaving
 
-$$\cos(\gamma) = \frac{y}{r}=\sin\theta\sin\phi$$
+$$\cos(\gamma) = \frac{y}{r}\frac{y'}{|y'|}=\text{sgn}(y')\sin\theta\sin\phi$$
 
-Here we have $r \gt |y'|$, so $r_{\gt}=r$ and $r_{\lt}=r'=y'$ and so
+Here we have $r \gt |y'|$, so $r_{\gt}=r$ and $r_{\lt}=r'=|y'|$ and so
 
-$\displaystyle\frac{1}{|\mathbf{x}-\mathbf{x}'|} = \sum_{l=0}^\infty \frac{y'^l}{r^{l+1}}P_l(\cos \gamma)$
+$\displaystyle\frac{1}{|\mathbf{x}-\mathbf{x}'|} = \sum_{l=0}^\infty \frac{|y'|^l}{r^{l+1}}P_l(\cos \gamma)$
 
 To order $1/r^3$, this is
 
+$$\frac{1}{|\mathbf{x}-\mathbf{x}'|} = \frac{1}{r} + \frac{|y'|}{r^2}\text{sgn}(y')\sin\theta\sin\phi +\frac{1}{2}\frac{y'^2}{r^3}\left(3\sin^2\theta\sin^2\phi-1\right)$$
+
+or
+
 $$\frac{1}{|\mathbf{x}-\mathbf{x}'|} = \frac{1}{r} + \frac{y'}{r^2}\sin\theta\sin\phi +\frac{1}{2}\frac{y'^2}{r^3}\left(3\sin^2\theta\sin^2\phi-1\right)$$
 
-2\. We need to evaluate the $l=0$ and $l=1$ terms of
+2\. Assume that $y'\gt 0$ so that we do not need to carry around the $\text{sgn}(y')$. One could then repeat using $y'\lt 0$ (so $\phi'=-\pi/2$) to show that the same equation results. We need to evaluate the $l=0$ and $l=1$ terms of
 
 $\displaystyle\frac{1}{|\mathbf{x}-\mathbf{x}'|} = \sum_{l=0}^\infty \sum_{m=-l}^l \frac{4\pi}{2l+1}\frac{y'^{l}}{r^{l+1}}Y^*\_{lm}(\theta',\phi')Y\_{lm}(\theta,\phi)$
 
@@ -88,17 +92,17 @@ $$\frac{y'}{2}\frac{\sin\theta}{r^2}
 ie^{i\phi} - ie^{-i\phi}
 \right]$$
 
-Using the Euler identity for complex exponentials gives
+Using the Euler identity for complex exponentials gives 
 
 $$\frac{y'}{r^2}\sin\theta\sin\phi$$
 
-The sum of the $l=0$ and $l=1$ terms are thus
+for the $l=1$ term. The sum of the $l=0$ and $l=1$ terms are thus
 
 $$\frac{1}{|\mathbf{x}-\mathbf{x}'|} = \frac{1}{r} + \frac{y'}{r^2}\sin\theta\sin\phi$$
 
-This could also be written in cartesian coordinates (with $r=$ as
+This could also be written in cartesian coordinates as
 
-$$\frac{1}{|\mathbf{x}-\mathbf{x}'|} = \frac{1}{r} + \frac{y'y}{r^3}=\frac{1}{\sqrt{x^2+y^2+z^2}}\left(1 + \frac{yy'}{x^2+y^2+z^2}\right)$$
+$$\frac{1}{|\mathbf{x}-\mathbf{x}'|} = \frac{1}{r} + \frac{y'y}{r^3}=\frac{1}{\sqrt{x^2+y^2+z^2}} + \frac{yy'}{x^2+y^2+z^2}$$
 
 
 3\. Not applicable b/c the answer to 2. was simplified so it matches by inspection.
@@ -130,7 +134,7 @@ A straight line of charge with uniform charge density $\lambda$ extends from $y=
 
 **Solution**
 
-1\.
+1\. Assuming again that $y'>0$ so we do not need to carry around the $|y'|$,
 
 $$\psi=\frac{1}{4\pi\epsilon_o}\int_{-L}^{L} \frac{\lambda dy'}{|\mathbf{x}-\mathbf{x}'|}=
 \frac{\lambda}{4\pi\epsilon_o}\int_{-L}^{L}dy'\sum_{l=0}^\infty \frac{y'^l}{r^{l+1}}P_l(\cos \gamma)$$
@@ -140,7 +144,7 @@ $$\phantom{\psi}=
 
 $\cos\gamma=\sin\theta\sin\phi$ as in the point charge case (all differential charges are on the $y$--axis) and so it can be factored out of the integral (in general, this term cannot be factored out, however; recall that in general $\gamma=\gamma(\mathbf{x},\mathbf{x}')$). Also, $r$ does not depend on $y'$, so it can be factored out of the integral. Thus,
 
-$$\psi=
+$$\psi(r,\theta)=
 \frac{\lambda}{4\pi\epsilon_o}\left[\frac{1}{r}\int_{-L}^{L}dy' +
 \frac{P_1(\cos\gamma)}{r^2}\int_{-L}^{L}dy'y'
 +
@@ -149,10 +153,19 @@ $$\psi=
 
 Note that the 2nd, 4th, ... integrals are zero because their integrands are an odd function on the integration interval. This leaves
 
-$$\psi=
+$$\psi(r,\theta)=
 \frac{\lambda}{4\pi\epsilon_o}\left[\frac{1}{r}\int_{-L}^{L}dy' +
 \frac{P_2(\cos\gamma)}{r^3}\int_{-L}^{L}dy'y'^2
 +...\right]$$
+
+or
+
+$$\psi(r,\theta)=\frac{\lambda}{4\pi\epsilon_o}\frac{1}{r}\sum_{l=1,3,...}^\infty\frac{2}{l}\frac{L^l}{r^l}P_{l-1}(\sin\theta\sin\phi)\qquad r \gt L$$
+
+or, using $q=2L\lambda$
+
+$$\psi(r,\theta)=\frac{q}{4\pi\epsilon_o}\frac{1}{r^2}\sum_{l=0}^\infty\frac{1}{2l+1}\frac{L^{2l}}{r^{2l}}P_{l}(\sin\theta\sin\phi)\qquad r \gt L$$
+
 
 2\. 
 
@@ -179,12 +192,12 @@ $$\psi=
 +
 ...\right]$$
 
-Using $P_1(\cos\gamma)=\cos\gamma$ and $\cos\gamma=\sin\theta\sin\phi=y/r$ gives
+Using $P_1(\cos\gamma)=\cos\gamma$ and $\cos\gamma=\sin\theta\sin\phi=y/r$ gives, for the first term,
 
 $$\psi=
 \frac{\lambda}{4\pi\epsilon_o}\frac{2L}{\sqrt{x^2+y^2+z^2}}$$
 
-The net charge on the line is $2L\lambda$ and so this leading order term is as expected. There is no "dipole" term ($1/r^2$) because the charge distribution is symmetric about the origin (see 3.4.2 of Griffiths, which give an alternative equation for the dipole term in terms of the dipole moment expressed as an integral).
+The net charge on the line is $2L\lambda$ and so this leading order term is as expected (far from the line, the potential should be $kq/r$, where $q$ is the charge on the line). There is no "dipole" term ($1/r^2$) because the charge distribution is symmetric about the origin (see 3.4.2 of Griffiths, which give an alternative equation for the dipole term in terms of the dipole moment expressed as an integral).
 
 ## Polarized Obect
 
@@ -260,6 +273,73 @@ A point charge $q$ is at the origin. A thick dielectric shell with susceptibilit
 
 Find $\psi(r)$ using at least two different methods.
 
+**Solution**
+
+_Approach 1._
+
+Gauss' law for dielectrics give $D_r = q/4\pi r^2$ in all three regions and symmetry requires $D_\theta=D_\phi=0$. Using $E_r = D_r/\epsilon = D_r/\epsilon_o(1+\chi_e)$ gives
+
+$$
+E_r = 
+\begin{cases}
+\displaystyle \frac{q}{4\pi\epsilon_o}\frac{1}{r^2}\quad r \gt c\\\\
+\displaystyle \frac{q}{4\pi\epsilon}\frac{1}{r^2}\quad b \lt r \lt c\\\\
+\displaystyle \frac{q}{4\pi\epsilon_o}\frac{1}{r^2}\quad r \lt b
+\end{cases}
+$$
+
+Check: As $\chi_e\rightarrow \infty$, the electric field in the dielectric is zero and the other electric fields are as expected from Gauss' law. As $\chi_e\rightarrow 0$, the field in all regions is that for a point charge.
+
+Using $\displaystyle\psi(r)-\psi(\infty) = -\int_\infty^r E_r(r') dr'$ and $\psi(\infty)=0$ can be used with the $E_r$ for $r\gt c$ to find $\psi(r)$ for $r\gt c$.
+
+Then $\displaystyle\psi(r)-\psi(c) = -\int_c^r E_r(r')dr'$ can be used to find $\psi(r)$ for $b \lt r \lt c$, where $\psi(c)$ is known from the potential found for $r\gt c$.
+
+The potnetial for $r\lt b$ can be found in a similar way. The result is
+
+$$
+\psi = 
+\begin{cases}
+\displaystyle \frac{q}{4\pi\epsilon_o}\frac{1}{r^2}\quad r \ge c\\\\
+\displaystyle\frac{q}{4\pi\epsilon}\left[\frac{1}{r}+\frac{1}{1+\chi_e}\left(\frac{1}{r}-\frac{1}{c}\right)\right]\quad b \le r \le c\\\\
+\displaystyle \frac{q}{4\pi\epsilon_o}\left[\frac{1}{r}+\frac{1}{1+\chi_e}\left(\frac{1}{b}-\frac{1}{c}\right)\right]\quad r \le b
+\end{cases}
+$$
+
+The previous two checks apply. In addition, we expect continuity to apply, so the potentials should match at their boundaries.
+
+_Approach 2._
+
+Write $\psi = A+B/r$ in all three regions. There will be six unknowns. The six conditions are $\psi(r\rightarrow \infty)=0$, $\psi(r\rightarrow 0)=q/4\pi\epsilon_o(1/r^2)$, continuity at $r=b$ and $r=c$, and the jump condition at $r=b$ and $r=c$.
+
+_Approach 3._
+
+This approach is similar to the one used in class to introduce polarization. Assume that inside the dielectric $E_r=E_q + E_b$, where $E_b$ is the field due to bound charges. For a linear dielectric, $P_r = \epsilon_o\chi_eE_r$. We can use $P_r$ to find the $\sigma_b$ and $\rho_b$ and then use Gauss' law with $Q_{encl}=q + q_b$, where $q_b$ is the bound charge enclosed.
+
+The enclosed bound charge for the surface of a Gaussian sphere is 
+
+$$q_b=\sigma_b 4\pi b^2 + 4\pi\int_b^r\rho_br^2dr$$
+
+where 
+
+$$\rho_b=-\boldsymbol{\nabla}\bfcdot \mathbf{P}=-\frac{1}{r^2}\left(\frac{\partial}{\partial r}r^2 P_r\right)$$
+
+and
+
+
+$$4\pi\int_b^r\rho_br^2dr=\int_b^r \frac{1}{r^2}\left(\frac{d}{dr}r^2 P_r\right) r^2dr=4\pi r^2P(r)-4\pi b^2P(b).$$
+
+The volume integral could also have been computed using the divergence theorem:
+
+$$\int_\mathcal{V}\boldsymbol{\nabla}\bfcdot \mathbf{P}d\tau=\oint\mathbf{P}\bfcdot d\mathbf{a}=4\pi r^2P(r)-4\pi b^2P(b)$$
+
+Finally, Gauss' law 
+
+$$4\pi r^2 E_r = \frac{q}{\epsilon_o} + \frac{q_b}{\epsilon_o}$$
+
+and $P_r = \epsilon_o\chi_e E_r$ gives the same electric field inside of the dielectric as found earlier. The electric field in the other regions can be found using the same steps. You should find the enclosed $q_b$ is zero inside of a Gaussian sphere of $r\gt c$ and for $r\lt b$, $q_b=0$ because the dielectric is not inside of the Gaussian sphere.
+
+If you compute $\rho_b$ after finding $E_r$ (and hence $P_r$ is also known), you will find $\rho_b=0$.
+
 ###
 
 A conducting shell of radius $b$ has a potential of $\psi(b)$, where $\psi(b)$ is the potential found in part 1. A conducting shell of radius $2c$ is at potential $\psi(2c)$, where $\psi(2c)$ is the potential found in part 1. A thick dielectric shell with susceptibility $\chi_e$ with inner radius $b$ and outer radius $c$ is between the two conductors.
@@ -268,3 +348,7 @@ A conducting shell of radius $b$ has a potential of $\psi(b)$, where $\psi(b)$ i
 
 1. Starting with $\psi_i = A_i + B_i/r$ and $\psi_o = A_o + B_o/r$, use the boundary conditions, continuity, and the jump condition to find the potential in the region between the two conductors.
 2. Use your answer to 1. to find the electric field between the two conductors.
+
+**Solution**
+
+From uniqueness, you should end up with the same result as the previous problem.
