@@ -2672,12 +2672,22 @@ $$
 \displaystyle\frac{p_o\cos\theta}{4\pi\epsilon}\left(\frac{1}{r^2}+2\frac{\epsilon-\epsilon_o}{\epsilon+2\epsilon_o}\frac{r}{b^3}\right)
 \qquad & r\le b
 \\\\
-\displaystyle\frac{p_o\cos\theta}{4\pi\epsilon}\frac{3\epsilon}{\epsilon+2\epsilon_o}\frac{1}{r^2}
+\displaystyle\frac{p_o\cos\theta}{4\pi\epsilon}\frac{3}{\epsilon+2\epsilon_o}\frac{1}{r^2}
 \qquad &r\ge b
 \end{cases}
 $$
 
-where $\epsilon_r=\epsilon/\epsilon_o$
+Checks: When $\epsilon=\epsilon_o$, we have simply a dipole in free space and $\psi(r,\theta)=\mathbf{p}\bfcdot\hat{\mathbf{r}}/(4\pi\epsilon_or^2)$. 
+
+If $\chi_e$ is large (so $\epsilon$ is large), the dielectric becomes like a conductor. In this case, the electric field can be made to be zero if positive charges cluster in shell of vanishing radius around the negative charges in the dipole and if negative charges cluster around the positive charge in the dipole. In the limit that $\chi_e$ is large, $\psi(r,\theta)\rightarrow 0$, which is consistent with this.
+
+It would be useful to compute $\rho_b$ to verify that it is consistent with the stated distribution of charges for large $\chi_e$. There are two ways to do this: (1) Compute $-\boldsymbol{\nabla}\bfcdot \mathbf{P}=\epsilon_o\chi_e \nabla^2\psi$. We expect that $\rho_b$ should be proportional to $\delta(\mathbf{r}-d/2\zhat) - \delta(\mathbf{r}+d/2\zhat)$ in the limit that $d\rightarrow 0$. Showing this takes a bit of delta function manupulation. Alternatively, (2), we could re--do the problem using point charges $\pm q$ at $\pm d$. In this case, we will have more terms in $\psi(r,\theta)$, but will be able to more clearly identify $\delta(\mathbf{r}-d/2\zhat)$ and $\delta(\mathbf{r}+d/2\zhat)$ when computing $\nabla^2\psi$.
+
+%That is, for $r\lt b$, start by assuming a solution of $\psi_+ + \psi_- + \chi_e\psi_+ + \chi_e\psi_-$ added to the general solution to Laplace's equation with only $r^l$ terms, where $\psi_+$ and $\psi_-$ are the free-space solutions
+
+%2\. 
+
+%Using $\mathbf{D}=\epsilon\mathbf{E}$ gives
 
 ## Point Charge and Dielectric Sphere
 
