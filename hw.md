@@ -2649,6 +2649,14 @@ due to the bound surface charges only. Assume the cylinder has $\chi_e=0$.
 
 1\. See [HW 5.3](#2-d-cylindrical-boundary-value-problem). Steps are similar.
 
+Note that the bound charge is
+
+$$
+\rho_b = -\boldsymbol{\nabla}\cdot\mathbf{P} = - {1 \over s}{\partial \left( s P_s  \right) \over \partial s} = -\frac{2P_o}{s}\cos\phi\sin\phi=-{P_o \over s}\sin 2\phi
+$$
+
+To find the contribution from the bound charge, one could find the potentials $\psi(s\gt s')$ and $\psi(s\lt s')$ due to a shell with density $\sigma'=-P_o\sin 2\phi/s'$. The potential at $s$ is then the sum of the potentials due to differential shells from $0$ to $s$ and $s$ to $b$.
+
 ## Dipole in a Dielectric Sphere
 
 A perfect dipole $\mathbf{p}=p_o\hat{\mathbf{z}}$ at the origin is at the center of a dielectric sphere of radius $b$ that is centered on the origin. The dielectric constant of the sphere is $\epsilon$.
@@ -2699,23 +2707,93 @@ Hints:
 
 The potential will be due to the point charge and the bound charges induced on the sphere. You will need to consider three regions:
 
-1. $r\lt b$
-2. $b \lt r \lt z_o$
-3. $r\gt z_o$
+* Inner $r\lt b$
+* Middle $b \lt r \lt z_o$
+* Outer $r\gt z_o$
 
-In region 3., the potential due to the point charge can be expressed as (from 3.38 of Jackson)
+In the outer region, the potential due to the point charge can be expressed (from 3.38 of Jackson) as
 
-$$\psi_q = \frac{q}{4\pi\epsilon_o}\frac{1}{|\mathbf{x}-\mathbf{x}'|} = \frac{q}{4\pi\epsilon_o}\sum_{l=0}^\infty \frac{z_o^l}{r^{l+1}}P_l(\cos \theta)$$
+$$\psi_q(r\gt z_o) = \frac{q}{4\pi\epsilon_o}\frac{1}{|\mathbf{x}-\mathbf{x}'|} = \frac{q}{4\pi\epsilon_o}\sum_{l=0}^\infty \frac{z_o^l}{r^{l+1}}P_l(\cos \theta)$$
 
-In regions 1. and 2., the potential due to the point charge can be expressed as
+In the inner and middle region, the potential due to the point charge can be expressed as
 
-$$\psi_q=\frac{q}{4\pi\epsilon_o}\frac{1}{|\mathbf{x}-\mathbf{x}'|} = \frac{q}{4\pi\epsilon_o}\sum_{l=0}^\infty \frac{r^l}{z_o^{l+1}}P_l(\cos \theta)$$
+$$\psi_q(r\lt z_o)=\frac{q}{4\pi\epsilon_o}\frac{1}{|\mathbf{x}-\mathbf{x}'|} = \frac{q}{4\pi\epsilon_o}\sum_{l=0}^\infty \frac{r^l}{z_o^{l+1}}P_l(\cos \theta)$$
 
 In all three regions, the contribution from the induced bound charges must have the form
 
 $$\psi_b(r,\theta)=\sum_{l=0}^{\infty}\left(A_lr^l + B_lr^{-l-1}\right)P_l(\cos\theta)$$
 
-In region 1., the potential due to the bound charges will not have $B_l$ terms. In region 2. and 3., the potential due to the bound charges will not have $A_l$ terms.
+In the inner region, the potential due to the bound charges will not have $B_l$ terms. In the middle and outer region, the potential due to the bound charges will not have $A_l$ terms.
+
+**Solution**
+
+One could start with
+
+$$\psi_i(r,\theta)=\sum_{l=0}^{\infty}A^i_lr^lP_l(\cos\theta)$$
+
+$$\psi_m(r,\theta)=\sum_{l=0}^{\infty}\left(A^m_lr^l + B^m_lr^{-l-1}\right)P_l(\cos\theta)$$
+
+$$\psi_o(r,\theta)=\sum_{l=0}^{\infty}B^o_lr^{-l-1}P_l(\cos\theta)$$
+
+for the inner ($i$), middle ($m$), and outer ($o$) regions and the conditions
+
+$
+\psi_i(b,\theta)=\psi_m(b,\theta)
+\qquad
+\psi_m(z_o,\theta)=\psi_o(z_o,\theta)
+$
+
+$
+\mathbf{D}_i(b,\theta)-\mathbf{D}_m(b,\theta)=0
+\qquad
+\mathbf{D}_m(z_o,\theta)-\mathbf{D}_o(z_o,\theta)=\sigma'
+$
+
+where $\sigma'=q\delta(\theta)/(2\pi z_o^2\sin\theta)$. In this case, we need to find $A^i_l$, $A^m_l$, $B_l^m$, and $B_l^o$.
+
+Using the hint, we one start with
+
+$$\psi_i(r,\theta) =
+\psi_q(r\lt z_o)
++
+\sum_{l=0}^{\infty}A_lr^lP_l(\cos\theta)$$
+
+$$\psi_m(r,\theta)=
+\psi_q(r\lt z_o)+
+\sum_{l=0}^{\infty}B^m_lr^{-l-1}P_l(\cos\theta)
+$$
+
+$$
+\psi_o(r,\theta) =
+\psi_q(r\gt z_o)
++
+\sum_{l=0}^{\infty}B^o_lr^{-l-1}P_l(\cos\theta)
+$$
+
+Where now we need to find $A_l$, $B_l^m$, and $B_l^o$. In the middle region and outer region, the contribution from the dielectric must be the same and so we can conclude $B_l^m=B_l^o$.
+
+Therefore, we only need to find $A_l$ and $B_l$ in
+
+$$\psi_i(r,\theta) =
+\frac{q}{4\pi\epsilon_o}\sum_{l=0}^\infty \frac{r^l}{z_o^{l+1}}P_l(\cos \theta)
++
+\sum_{l=0}^{\infty}A_lr^lP_l(\cos\theta)
+$$
+
+$$\psi_m(r,\theta)=
+\frac{q}{4\pi\epsilon_o}\sum_{l=0}^\infty \frac{r^l}{z_o^{l+1}}P_l(\cos \theta)
++
+\sum_{l=0}^{\infty}B_lr^{-l-1}P_l(\cos\theta)
+$$
+
+$$
+\psi_o(r,\theta) =
+\frac{q}{4\pi\epsilon_o}\sum_{l=0}^\infty \frac{z_o^l}{r^{l+1}}P_l(\cos \theta)
++
+\sum_{l=0}^{\infty}B_lr^{-l-1}P_l(\cos\theta)
+$$
+
+$A_l$ and $B_l$ can be found using $\psi_i(b,\theta)=\psi_m(b,\theta)$ and $\mathbf{D}_i(b,\theta)-\mathbf{D}_m(b,\theta)=0$. The arguments provided obviate the need to use the boundary conditions at $r=z_o$ because they were implicitly used in simplifying the set of equations to be solved.
 
 # HW 9
 
