@@ -262,13 +262,13 @@ Replace $l$ with $2l+2$ so sum over $l=0,1,...$:
 
 $$\frac{B_z(z)}{\mu_oK_o}=-u+ \sum_{l=0}^{\infty}\big(P_{2l+1}(u)-uP_{2l+2}(u)\big)t^{2l+2}$$
 
-Rewrite using $t=z/\sqrt{b^2+h^2}$ and $u=-h/\sqrt{b^2+h^2}$ and define $\sin\alpha=-u$:
+Rewrite using $t=z/\sqrt{b^2+h^2}$ and $u=-h/\sqrt{b^2+h^2}$ and define $\cos\alpha=-u$:
 
-$$\frac{B_z(z)}{\mu_oK_o}=\sin\alpha + \sum_{l=0}^{\infty}\big(P_{2l+1}(-\sin\alpha)+\sin\alpha P_{2l+2}(-\sin\alpha)\big)t^{2l+2}$$
+$$\frac{B_z(z)}{\mu_oK_o}=\cos\alpha + \sum_{l=0}^{\infty}\big(P_{2l+1}(-\cos\alpha)+\cos\alpha P_{2l+2}(-\cos\alpha)\big)t^{2l+2}$$
 
 Use $P_l(-u)=P_l(u)$ for $l=0, 2, ...$ and $P_l(-u)=-P_l(u)$:
 
-$$\boxed{\frac{B_z(z)}{\mu_oK_o}=\sin\alpha + \sum_{l=0}^{\infty}\big(\sin\alpha P_{2l+2}(\sin\alpha)-P_{2l+1}(\sin\alpha)\big)\left(\frac{z}{\sqrt{b^2+h^2}}\right)^{2l+2}}$$
+$$\boxed{\frac{B_z(z)}{\mu_oK_o}=\cos\alpha + \sum_{l=0}^{\infty}\Big(\cos\alpha P_{2l+2}(\cos\alpha)-P_{2l+1}(\cos\alpha)\Big)\left(\frac{z}{\sqrt{b^2+h^2}}\right)^{2l+2}}$$
 
 Note that the answer only contains terms proportional to $z^2$, $z^4$, ....
 
@@ -282,17 +282,71 @@ which has an associated magnetic field of $\mathbf{B}(r,\theta) = -\nabla\Phi_m$
 
 Using $\Phi_m(z)=\sum_{l=0}^{\infty}z^lA_l$ and
 
-$$B_z(z)=-\frac{\partial \Phi_m(z)}{\partial z} = -\sum_{l=0}^{\infty}lz^{l-1}A_l$$
+$$B_z(z)=-\frac{\partial \Phi_m(z)}{\partial z} = -\sum_{l=0}^{\infty}lz^{l-1}A_l=-A_1-2A_2z-3A_3z^2+...$$
 
-the azimuthal symmetry argument, one can find an expression for $\Phi(r,z)$ and then use
+the azimuthal symmetry argument, one can find an expression for $\Phi(r,z)$.
 
-$$\mathbf{B}(r,\theta) = -\nabla\Phi_m$$
+$$\frac{B_z(z)}{\mu_oK_o}=\cos\alpha + \sum_{l=0}^{\infty}\Big(\cos\alpha P_{2l+2}(\cos\alpha)-P_{2l+1}(\cos\alpha)\Big)\left(\frac{z}{\sqrt{b^2+h^2}}\right)^{2l+2}$$
+
+The first four $A$ coefficients are
+
+$$A_1=-\mu_oK_o\cos\alpha$$
+
+$A_2=0$
+
+$$A_3=-\frac{\mu_oK_o}{3}\frac{\cos\alpha P_2(\cos\alpha)-P_1(\cos\alpha)}{b^2+h^2}$$
+
+$$A_4=0$$
+
+Or, in general
+
+$A_1=-\mu_oK_o\cos\alpha$
+
+and for $l=1,2,...$,
+
+$$A_{2l+1}=-\frac{\mu_oK_o}{2l+1}\frac{\cos\alpha P_{2l}(\cos\alpha)-P_{2l-1}(\cos\alpha)}{\left(\sqrt{b^2+h^2}\right)^{2l}}$$
+
+One can then use
+
+$$\mathbf{B}(r,\theta) = -\mathbf{\nabla}\Phi_m(r,\theta)$$
 
 to arrive at an expression for $\mathbf{B}$ inside the cylinder. Technically the solution is valid for $r\lt b$ (required for Laplace's equation to be true), and $r\lt \sqrt{b^2+h^2}$ (required for the power series expansion). So the solution is valid inside the cylinder and inside a dome on both ends of the cylinder.
 
-%one should arrive at, 
+$$
+\mathbf{B}(r,\theta) = 
+-\mathbf{\nabla} \Phi_m(r,\theta) = 
+-
+{\partial \Phi_m \over \partial r}\hat{\mathbf r}
+-
+{1 \over r}{\partial \Phi_m \over \partial \theta}\hat{\boldsymbol \theta}=
+-B_r\hat{\mathbf r}-B_\theta\hat{\boldsymbol \theta}
+$$
 
-%$$A_1=-1$$
+$$\Phi_m(r,\theta)=\sum_{l=0}^{\infty}r^lA_lP_l(\cos\theta)=A_0+rA_1P_1+r^2A_2P_2+...$$
+
+$$B_r=-{\partial \Phi_m \over \partial r}\hat{\boldsymbol \theta}=-A_1P_1-2rA_2P_2+...=-A_1\cos\theta-\sum_{l=1}^{\infty}(2l+1)r^{2l}A_{2l+1}P_{2l+1}(\cos\theta)$$
+
+$$\frac{B_r(r,\theta)}{\mu_oK_o}=
+\cos\alpha
++
+\sum_{l=1}^{\infty}
+\Big(\cos\alpha P_{2l}(\cos\alpha)-P_{2l-1}(\cos\alpha)
+\Big)
+\left(\frac{r}{\sqrt{b^2+h^2}}\right)^{2l}
+P_{2l+1}(\cos\theta)$$
+
+$$B_\theta=-{1 \over r}{\partial \Phi_m \over \partial \theta}\hat{\boldsymbol \theta}=-\frac{1}{r}\left(rA_1\frac{d P_1}{d\theta}+r^2A_2\frac{d P_2}{d\theta}+...\right)=-A_1\frac{dP_1}{d\theta}-\sum_{l=1}^{\infty}r^{2l}A_{2l+1}\frac{d P_{2l+1}}{d\theta}$$
+
+$$\frac{B_\theta(r,\theta)}{\mu_oK_o}=
+\cos\alpha\sin\theta
++
+\sum_{l=1}^{\infty}\frac{\cos\alpha P_{2l}(\cos\alpha)
+-
+P_{2l-1}(\cos\alpha)}{2l+1}
+\left(\frac{r}{\sqrt{b^2+h^2}}\right)^{2l}
+\frac{d P_{2l+1}}{d\theta}$$
+
+%$$A_1=-\cos\alpha$$
 
 %$$A_2=0$$
 
