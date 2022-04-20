@@ -196,19 +196,29 @@ to express $B_z(z)$ as a power series involving the Legendre polynomials, $P_l$,
 
 $$B_z(z) = \frac{\mu_oK_o}{2}\left[\frac{z+h}{\sqrt{b^2+(z+h)^2}}-\frac{z-h}{\sqrt{b^2+(z-h)^2}}\right]$$
 
-2\. Define the first term as $B_z^+$. Expanding the square in the denominators gives
+_Checks_:
+
+1. For $z=0$ and $h\ll b$, the equivalent system is a loop of current in the $x$--$y$ plane. We get $\mu_oK_oh/b=\mu_oI/2b$, where the total current is $I=K_o 2h$. This matches the answer of the simple problem of finding the magnetic field at the center of a current loop carrying a current $I$. Alterntatively, it is the result one finds using $z=0$ and $h\ll b$ in the starting equation of
+
+    $$B_z(z) = \frac{\mu_oK_o}{2}\left[\frac{z+h}{\sqrt{b^2+(z+h)^2}}-\frac{z-h}{\sqrt{b^2+(z-h)^2}}\right]$$
+
+2. For $h\gg b$, the systems approaches an infinite solenoid and the solution should be independent of $z$.
+
+2\.
+
+Define the first term as $B_z^+$. Expanding the square in the denominators gives
  
-$$B_z^+(z) = \frac{\mu_oK_o}{2}\left[\frac{z+h}{\sqrt{b^2+h^2-2zh+z^2}}\right]$$
+$$B_z^+(z) = \frac{\mu_oK_o}{2}\left[\frac{z+h}{\sqrt{b^2+h^2+2zh+z^2}}\right]$$
 
 Factoring out $b^2+h^2$ gives
 
-$$B_z^+(z) = \frac{\mu_oK_o}{2\sqrt{b^2+h^2}}\left[\frac{z+h}{\sqrt{1-2zh/(b^2+h^2)+z^2/(b^2+h^2)}}\right]$$
+$$B_z^+(z) = \frac{\mu_oK_o}{2\sqrt{b^2+h^2}}\left[\frac{z+h}{\sqrt{1+2zh/(b^2+h^2)+z^2/(b^2+h^2)}}\right]$$
 
 If we define $t=z/\sqrt{b^2+h^2}$, then
 
-$$B_z^+(z) = \frac{\mu_oK_o}{2\sqrt{b^2+h^2}}\left[\frac{z+h}{\sqrt{1-2th/\sqrt{b^2+h^2}+t^2}}\right]$$
+$$B_z^+(z) = \frac{\mu_oK_o}{2\sqrt{b^2+h^2}}\left[\frac{z+h}{\sqrt{1+2ht/\sqrt{b^2+h^2}+t^2}}\right]$$
 
-Defining $u=h/\sqrt{b^2+L^2}$ (note that this is the angle from the $z$--axis to the rim of the cylinder), we have
+Defining $u=-h/\sqrt{b^2+h^2}$ (note that this is related to the angle $\alpha$ from the $z$--axis to the rim of the cylinder: $\sin\alpha = h/\sqrt{b^2+h^2}$), we have
 
 $$B_z^+(z) = \frac{\mu_oK_o}{2\sqrt{b^2+h^2}}\left[\frac{z+h}{\sqrt{1-2ut+t^2}}\right]$$
 
@@ -218,36 +228,51 @@ $$B_z^+(z) = \frac{\mu_oK_o}{2\sqrt{b^2+h^2}}(z+h)\sum_{l=0}^{\infty}P_l(u)t^l$$
 
 or
 
-$$B_z^+(z) = \frac{\mu_oK_o}{2\sqrt{b^2+h^2}}(z+h)\sum_{l=0}^{\infty}\frac{P_l(u)}{\left(b^2+h^2\right)^{l/2}}z^l$$
+$$B_z^+(z) = \frac{\mu_oK_o}{2\sqrt{b^2+h^2}}(t\sqrt{b^2+h^2}+h)\sum_{l=0}^{\infty}P_l(u)t^l$$
 
-or
+$$B_z^+(z) = \frac{\mu_oK_o}{2}(t-u)\sum_{l=0}^{\infty}P_l(u)t^l$$
 
-$$B_z^+(z) = \frac{\mu_oK_o}{2}\sum_{l=0}^{\infty}\frac{P_l(u)}{\left(b^2+h^2\right)^{(l+1)/2}}(z^{l+1}+Lz^l)$$
+$B_z^-(z)$ is obtained by replacing $u$ with $-u$ in the expression for $B_z^-(z)$:
 
-To get, $B_z^-(z)$, we only need to replace $h$ with $-h$, so
+$$B_z(z)=B_z^+(z)-B_z^-(z) = \frac{\mu_oK_o}{2}\left[(t-u)\sum_{l=0}^{\infty}P_l(u)t^l-(t+u)\sum_{l=0}^{\infty}P_l(-u)t^l\right]$$
 
-$$B_z(z)=B_z^+(z)-B_z^-(z) = \frac{\mu_oK_o}{2}\sum_{l=0}^{\infty}\left[\frac{P_l(u)}{\left(b^2+h^2\right)^{(l+1)/2}}(z^{l+1}+hz^l)-\frac{P_l(-u)}{\left(b^2+h^2\right)^{(l+1)/2}}(z^{l+1}-hz^l)\right]$$
+$$\frac{B_z(z)}{\mu_oK_o}= \frac{1}{2}\left[(t-u)\sum_{l=0}^{\infty}P_l(u)t^l-(t+u)\sum_{l=0}^{\infty}P_l(-u)t^l\right]$$
 
-To simplify, we note that $P_l(u)=P_l(-u)$ for $l=0, 2, ...$ and $P_l(u)=-P_l(u)$ otherwise.
+To simplify, we note that $P_l(-u)=P_l(u)$ for $l=0, 2, ...$ and $P_l(-u)=-P_l(u)$ for $l=1,3,...$. Using this gives
 
-For $l=0$, for which $P_l(u)=P_l(-u)$, we have
+$$\frac{B_z(z)}{\mu_oK_o}= -u\sum_{l=0,2,...}^{\infty}P_l(u)t^l+\sum_{l=1,3,...}^{\infty}P_l(u)t^{l+1}$$
 
-$$\frac{\mu_oK_o}{2}\left[\frac{P_0(u)}{\left(b^2+h^2\right)^{1/2}}(z+h)-\frac{P_0(-u)}{\left(b^2+h^2\right)^{1/2}}(z-h)\right]=\mu_oK_o\frac{h}{\sqrt{b^2+h^2}}=\mu_oK_ou$$
+Shift index on second sum so sums over same $l$
 
-For $l=1$, for which $P_l(u)=-P_l(-u)$, we have
+$$\frac{B_z(z)}{\mu_oK_o}= -u\sum_{l=0,2,...}^{\infty}P_l(u)t^l+\sum_{l=0,2,...}^{\infty}P_{l+1}(u)t^{l+2}$$
 
-$$\frac{\mu_oK_o}{2}\left[\frac{P_1(u)}{\left(b^2+h^2\right)}(z^2+hz)-\frac{P_1(-u)}{\left(b^2+h^2\right)}(z^2-hz)\right]=\mu_oK_o\frac{z^2}{b^2+h^2}P_1(u)=\mu_0K_o\frac{z^2}{h^2}u^2P_1(u)$$
+Shift index on second sum so $t^l$ appears in both sums
 
-For $l=2$, for which $P_l(u)=P_l(-u)$, we have
+$$\frac{B_z(z)}{\mu_oK_o}= -u\sum_{l=0,2,...}^{\infty}P_l(u)t^l+\sum_{l=2,4,...}^{\infty}P_{l-1}(u)t^{l}$$
 
-$$\frac{\mu_oK_o}{2}\left[\frac{P_2(u)}{\left(b^2+h^2\right)^{3/2}}(z^3+hz^2)-\frac{P_2(-u)}{\left(b^2+h^2\right)^{3/2}}(z^3-hz^2)\right]=\mu_oK_o\frac{hz^2}{\left(b^2+h^2\right)^{3/2}}P_2(u)=\mu_0K_0\frac{z^2}{h^2}u^3P_2(u)$$
+Remove $l=0$ from first sum:
 
-_Check_: For $z=0$ and $h\ll b$, the equivalent system is a loop of current in the $x$--$y$ plane. We get $\mu_oK_oh/b=\mu_oI/2b$, where the total current is $I=K_o 2h$. This matches the answer of the simple problem of finding the magnetic field at the center of a current loop carrying a current $I$. Alterntatively, it is the result one finds using $z=0$ and $h\ll b$ in the starting equation of
+$$\frac{B_z(z)}{\mu_oK_o}=-u+ \sum_{l=2,4,..}^{\infty}-uP_l(u)t^l+\sum_{l=2,4,...}^{\infty}P_{l-1}(u)t^{l}$$
 
-$$B_z(z) = \frac{\mu_oK_o}{2}\left[\frac{z+h}{\sqrt{b^2+(z+h)^2}}-\frac{z-h}{\sqrt{b^2+(z-h)^2}}\right]$$
+Combine sums:
 
+$$\frac{B_z(z)}{\mu_oK_o}=-u+ \sum_{l=2,4,..}^{\infty}\big(P_{l-1}(u)-uP_l(u)\big)t^{l}$$
 
-_Method 1._
+Replace $l$ with $2l+2$ so sum over $l=0,1,...$:
+
+$$\frac{B_z(z)}{\mu_oK_o}=-u+ \sum_{l=0}^{\infty}\big(P_{2l+1}(u)-uP_{2l+2}(u)\big)t^{2l+2}$$
+
+Rewrite using $t=z/\sqrt{b^2+h^2}$ and $u=-h/\sqrt{b^2+h^2}$ and define $\sin\alpha=-u$:
+
+$$\frac{B_z(z)}{\mu_oK_o}=\sin\alpha + \sum_{l=0}^{\infty}\big(P_{2l+1}(-\sin\alpha)+\sin\alpha P_{2l+2}(-\sin\alpha)\big)t^{2l+2}$$
+
+Use $P_l(-u)=P_l(u)$ for $l=0, 2, ...$ and $P_l(-u)=-P_l(u)$:
+
+$$\boxed{\frac{B_z(z)}{\mu_oK_o}=\sin\alpha + \sum_{l=0}^{\infty}\big(\sin\alpha P_{2l+2}(\sin\alpha)-P_{2l+1}(\sin\alpha)\big)\left(\frac{z}{\sqrt{b^2+h^2}}\right)^{2l+2}}$$
+
+Note that the answer only contains terms proportional to $z^2$, $z^4$, ....
+
+With this magnetic field, one can obtain the solution for the magnetic field inside of cylinder.
 
 Inside of the cylinder, $\nabla^2\Phi_m=0$ is satisfied. The problem has azimuthal symmetry and so the solutions must be of the form of 
 
@@ -255,55 +280,48 @@ $$\Phi_m(r,\theta)=\sum_{l=0}^{\infty}\left(A_lr^l + B_lr^{-l-1}\right)P_l(\cos\
 
 which has an associated magnetic field of $\mathbf{B}(r,\theta) = -\nabla\Phi_m$.
 
-To find the coefficients $A_l$ and $B_l$, use direct integration to find $\mathbf{B}(z)$. This is a standard textbook example problem and the solution is given in problem 5.3 of Jackson. Due to the uniqueness of solutions to Laplace's equation, the equations for $\mathbf{B}(r,\theta)$ and $\mathbf{B}(z)$ must match when $\theta=0$, in which case $r=z$.
-
-To find $A_l$ and $B_l$, the equation for $\mathbf{B}(z)$ must be written as an expansion in terms of $P_l$.
-
-$$B_z(z) = \frac{\mu_oK}{2}\left[\frac{z+L}{\sqrt{b^2+(z+L)^2}}-\frac{z-L}{\sqrt{b^2+(z-L)^2}}\right]$$
-
-$$B_z(z) = \frac{\mu_oK}{2}\left[\frac{z+L}{\sqrt{b^2+L^2-2zL+z^2}}-\frac{z-L}{\sqrt{b^2+L^2+2zL+z^2}}\right]$$
-
-where $L\equiv 2h$. To write this in terms of $P_l$, one could use a Taylor series expansion as was done to find the potential far away from a collection of point charges. One result of that expansion is an equation for the generating function
-
-$$\frac{1}{\sqrt{1-2xt+t^2}}=\sum_{l=0}^{\infty}P_l(x)t^l$$
-
 Using $\Phi_m(z)=\sum_{l=0}^{\infty}z^lA_l$ and
 
-$$B_z(z)=-\mu_o\frac{\partial \Phi_m}{\partial z} = -\mu_o\sum_{l=0}^{\infty}lz^{l-1}A_l$$
+$$B_z(z)=-\frac{\partial \Phi_m(z)}{\partial z} = -\sum_{l=0}^{\infty}lz^{l-1}A_l$$
 
-one should arrive at, defining $d=L/b$,
+the azimuthal symmetry argument, one can find an expression for $\Phi(r,z)$ and then use
 
-$$A_1=-1$$
+$$\mathbf{B}(r,\theta) = -\nabla\Phi_m$$
 
-$$A_2=0$$
+to arrive at an expression for $\mathbf{B}$ inside the cylinder. Technically the solution is valid for $r\lt b$ (required for Laplace's equation to be true), and $r\lt \sqrt{b^2+h^2}$ (required for the power series expansion). So the solution is valid inside the cylinder and inside a dome on both ends of the cylinder.
 
-$$A_3=\frac{P_1(d)/d-P_2(d)}{3}$$
+%one should arrive at, 
 
-$$A_4=0$$
+%$$A_1=-1$$
 
-$$A_5=\frac{P_3(d)/d-P_4(d)}{5}$$
+%$$A_2=0$$
 
-$$...$$
+%$$A_3=\frac{P_1(d)/d-P_2(d)}{3}$$
 
-or
+%$$A_4=0$$
 
-$$P_l=\frac{P_{l-2}(d)/d-P_{l-1}(d)}{l}\quad l=3,5,...$$
+%$$A_5=\frac{P_3(d)/d-P_4(d)}{5}$$
 
-$$P_l=0\quad l=2,4,...$$
+%$$...$$
 
-Similar to electrostatic problems, the constant $A_o$ is arbitrary and cannot be fixed unless one is given $\Phi_m$ at a location in space.
+%or
 
-_Method 2._
+%$$P_l=\frac{P_{l-2}(d)/d-P_{l-1}(d)}{l}\quad l=3,5,...$$
 
-See [http://dx.doi.org/10.1119/1.4906516], which uses a method that is similar to Method 1., but a general relationship was not derived.
+%$$P_l=0\quad l=2,4,...$$
 
-_Method 3.
+%Similar to electrostatic problems, the constant $A_o$ is arbitrary and cannot be fixed unless one is given $\Phi_m$ at a location in space.
 
-Use $J_{\phi}=I\sin(\theta'-\theta_o)\delta(r'-r_o)/r_o$ with $r_o=\sqrt{z^2+b^2}$ and $tan\theta_o=b/z$ and follow the steps needed to arrive at Equation 5.44 of Jackson, which is the vector potential due to a ring in the $x-y$ plane and centered on the $z$-axis.  Your equation will be valid for a ring that is shifted by a distance $z$. Set $I=K_odz$ and integrate from $z=-L$ to $z=L$. One will need to use equation 5.47 and integration by parts.
 
-2.
+_Alternative Method 2._
 
-In the limit that $b/L\rightarrow 0$, the system is equivalent to a ring of current at the origin and one can compare this solution to the equation for a ring of current at the origin. In the limit that $b/L\rightarrow \infty$, the system is an infinite solenoid and the field should be constant inside of it.
+See http://dx.doi.org/10.1119/1.4906516, which uses a method that is similar to Method 1., but a general relationship was not derived.
+
+_Alternative Method 3._
+
+Use $J_{\phi}=I\sin(\theta'-\theta_o)\delta(r'-r_o)/r_o$ with $r_o=\sqrt{z^2+b^2}$ and $\tan\theta_o=b/z$ and follow the steps needed to arrive at Equation 5.44 of Jackson, which is the vector potential due to a ring in the $x-y$ plane and centered on the $z$-axis.  Your equation will be valid for a ring that is shifted by a distance $z$. Set $I=K_odz$ and integrate from $z=-L$ to $z=L$. One will need to use equation 5.47 and integration by parts.
+
+
 
 
 ## Reading
