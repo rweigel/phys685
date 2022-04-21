@@ -2869,7 +2869,7 @@ The total field is given by $\mathbf{B}=\mathbf{B}\_{ext} + \mathbf{B}_{b}$, whe
 2. Use an analog of Approach 3. in [HW 7.3.1](#7.3.1) to show that $\mathbf{B}=(1+\chi_m)\mathbf{B}\_{ext}$ inside the cylinder. That is, use $\mathbf{M}=(\chi_m/(1+\chi_m))\mathbf{B}/\mu_o$, the equations for $\mathbf{K}\_b$, $\mathbf{J}\_b$, and $\oint\mathbf{B}\bfcdot d\mathbf{l}=\mu_oI_{encl}$.
 
 
-$# Sphere with uniform $\mathbf{M}$ 
+## Sphere with uniform $\mathbf{M}$ 
 
 In Example 6.1 of Griffiths, 4rd edition, direct integration is used to find $\mathbf{A}$ and $\mathbf{B}$ for a uniformly magnetized sphere: $\mathbf{M}=M_o\hat{\mathbf{z}}$. The approach is to compute $\mathbf{J}_b$ and $\mathbf{K}_b$ using $\mathbf{J}_b=\boldsymbol{\nabla}\times \mathbf{M}$ and $\mathbf{K}_b=\mathbf{M}\times\hat{\mathbf{n}}$ and
 
