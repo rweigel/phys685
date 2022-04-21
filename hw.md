@@ -2615,7 +2615,7 @@ Finally, Gauss' law
 
 $$4\pi r^2 E_r = \frac{q}{\epsilon_o} + \frac{q_b}{\epsilon_o}$$
 
-and $P_r = \epsilon_o\chi_e E_r$ gives the same electric field inside of the dielectric as found earlier. The electric field in the other regions can be found using the same steps. You should find the enclosed $q_b$ is zero inside of a Gaussian sphere of $r\gt c$ and for $r\lt b$, $q_b=0$ because the dielectric is not inside of the Gaussian sphere.
+$q_b$ from above and $P_r = \epsilon_o\chi_e E_r$ gives the same electric field inside of the dielectric as found earlier. The electric field in the other regions can be found using the same steps. You should find the enclosed $q_b$ is zero inside of a Gaussian sphere of $r\gt c$ and for $r\lt b$, $q_b=0$ because the dielectric is not inside of the Gaussian sphere.
 
 If you compute $\rho_b$ after finding $E_r$ (and hence $P_r$ is also known), you will find $\rho_b=0$.
 
