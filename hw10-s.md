@@ -66,6 +66,7 @@ The total field is given by $\mathbf{B}=\mathbf{B}\_{ext} + \mathbf{B}_{b}$, whe
 
 **Answer**
 
+
 In the following, it is assumed that $B_s$ and $B_z$ are zero. This means that the induced magnetization has $M_s=0$ and $M_z=0$ due to the relationship between $\mathbf{M}$ and $\mathbf{B}$ given in the problem statement.
 
 The symmetry argument that justifies the assumtion is somewhat subtle. 
@@ -395,37 +396,37 @@ Write all of your answers and label your plot at appropriate points in terms of 
 
 [[Image:cylinder.png|300px]]
 
-%**Answer**
+**Answer**
 
-%Assuming $I$ is in the $\hat{\mathbf{z}}$ direction,
+Assuming $I$ is in the $\hat{\mathbf{z}}$ direction,
 
-%* $\mathbf{H}=\frac{I}{2\pi\rho}\hat{\mathbf{\phi}}$
-%* $\mathbf{B} = \frac{\mu_oI}{2\pi\rho}\hat{\mathbf{\phi}}$ for $r<a$
-%* $\mathbf{B} = \frac{2\mu_oI}{2\pi\rho}\hat{\mathbf{\phi}}$ for $a<r< b$
-%* $\mathbf{B} = \frac{\mu_oI}{2\pi\rho}\hat{\mathbf{\phi}}$ for $r> b$
+* $\mathbf{H}=\frac{I}{2\pi\rho}\hat{\mathbf{\phi}}$
+* $\mathbf{B} = \frac{\mu_oI}{2\pi\rho}\hat{\mathbf{\phi}}$ for $r<a$
+* $\mathbf{B} = \frac{2\mu_oI}{2\pi\rho}\hat{\mathbf{\phi}}$ for $a<r< b$
+* $\mathbf{B} = \frac{\mu_oI}{2\pi\rho}\hat{\mathbf{\phi}}$ for $r> b$
 
-%$\mathbf{M}=\chi_m\mathbf{H}=(\mu/\mu_o-1)\mathbf{H}=(\mu/\mu_o-1)\frac{I}{2\pi\rho}\hat{\mathbf{\phi}}$
+$\mathbf{M}=\chi_m\mathbf{H}=(\mu/\mu_o-1)\mathbf{H}=(\mu/\mu_o-1)\frac{I}{2\pi\rho}\hat{\mathbf{\phi}}$
 
-%$\mathbf{K}_b=\mathbf{M}\times \hat{\mathbf{n}}$
+$\mathbf{K}_b=\mathbf{M}\times \hat{\mathbf{n}}$
 
-%On the inside of the cylinder, $\hat{\mathbf{n}}=-\hat{\mathbf{\rho}}$ and $\mathbf{M}=(\mu/\mu_o-1)\frac{I}{2\pi a}\hat{\mathbf{\phi}}$ so $\mathbf{K}_b = (2\mu_0/\mu_o-1)\frac{I}{2\pi a}\hat{\mathbf{z}}$.
+On the inside of the cylinder, $\hat{\mathbf{n}}=-\hat{\mathbf{\rho}}$ and $\mathbf{M}=(\mu/\mu_o-1)\frac{I}{2\pi a}\hat{\mathbf{\phi}}$ so $\mathbf{K}_b = (2\mu_0/\mu_o-1)\frac{I}{2\pi a}\hat{\mathbf{z}}$.
 
-%On the outside of the cylinder, $\hat{\mathbf{n}}=\hat{\mathbf{\rho}}$ and $\mathbf{M}=(\mu/\mu_o-1)\frac{I}{2\pi 2a}\hat{\mathbf{\phi}}$ so $\mathbf{K}_b = -(2\mu_0/\mu_o-1)\frac{I}{2\pi b}\hat{\mathbf{z}}$.
+On the outside of the cylinder, $\hat{\mathbf{n}}=\hat{\mathbf{\rho}}$ and $\mathbf{M}=(\mu/\mu_o-1)\frac{I}{2\pi 2a}\hat{\mathbf{\phi}}$ so $\mathbf{K}_b = -(2\mu_0/\mu_o-1)\frac{I}{2\pi b}\hat{\mathbf{z}}$.
 
-%Note that $\hat{\mathbf{\phi}}\times\hat{\mathbf{\rho}}=-\hat{\mathbf{z}}$.
+Note that $\hat{\mathbf{\phi}}\times\hat{\mathbf{\rho}}=-\hat{\mathbf{z}}$.
 
-%Also note that the net-bound current in the vertical direction is zero.
+Also note that the net-bound current in the vertical direction is zero.
 
-%$\mathbf{J}_b=\nabla\times \mathbf{M}=0$
+$\mathbf{J}_b=\nabla\times \mathbf{M}=0$
 
-%because
+because
 
-%$\mathbf{M}=(const)\hat{\mathbf{\phi}}/\rho$
+$\mathbf{M}=(const)\hat{\mathbf{\phi}}/\rho$
 
-%and the two terms in involving $M_\phi = (const)/\rho$ in
+and the two terms in involving $M_\phi = (const)/\rho$ in
 
-%$$\nabla \times \mathbf{M} = \left({\frac {1}{\rho }}{\frac {\partial M_{z}}{\partial \phi }}-{\frac {\partial M_{\phi }}{\partial z}}\right){\hat {\boldsymbol {\rho }}}+\left({\frac {\partial M_{\rho }}{\partial z}}-{\frac {\partial M_{z}}{\partial \rho }}\right){\hat {\boldsymbol {\phi }}}+{\frac {1}{\rho }}\left({\frac {\partial \left(\rho M_{\phi }\right)}{\partial \rho }}-{\frac {\partial M_{\rho }}{\partial \phi }}\right){\hat {\mathbf {z} }}$$
+$$\nabla \times \mathbf{M} = \left({\frac {1}{\rho }}{\frac {\partial M_{z}}{\partial \phi }}-{\frac {\partial M_{\phi }}{\partial z}}\right){\hat {\boldsymbol {\rho }}}+\left({\frac {\partial M_{\rho }}{\partial z}}-{\frac {\partial M_{z}}{\partial \rho }}\right){\hat {\boldsymbol {\phi }}}+{\frac {1}{\rho }}\left({\frac {\partial \left(\rho M_{\phi }\right)}{\partial \rho }}-{\frac {\partial M_{\rho }}{\partial \phi }}\right){\hat {\mathbf {z} }}$$
 
-%evaluate to zero.
+evaluate to zero.
 
-%To check your answer, use Ampere's Law $\oint \mathbf{B}\cdot d\mathbf{l}=\mu_o I_{enclosed}$ accounting for these bound currents and verify that you get the same magnetic field computed earlier.
+To check your answer, use Ampere's Law $\oint \mathbf{B}\cdot d\mathbf{l}=\mu_o I_{enclosed}$ accounting for these bound currents and verify that you get the same magnetic field computed earlier.
