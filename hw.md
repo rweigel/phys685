@@ -2913,4 +2913,4 @@ Using one or more of the boundary conditions
 1. $\psi_m$ is continuous
 1. $(\mathbf{B}_2-\mathbf{B_1})\boldsymbol{\cdot}\hat{\mathbf{n}}=0$
 
-find $\mathbf{B}$ and then $\mathbf{A}$.
+find $\psi$. Also find $\mathbf{B}$ and $\mathbf{A}$.
