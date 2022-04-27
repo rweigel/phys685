@@ -10,7 +10,7 @@ A magnetic dipole at the origin creates a magnetic field of
 
 $$\mathbf{B}=\frac{\mu_o}{4\pi}\frac{m_o}{r^3}\left(2\cos\theta\hat{\mathbf{r}}+\sin\theta\hat{\boldsymbol{\theta}}\right)$$
 
-1\. Use eqn 5.12 in Jackson 3rd ed. ($\mathbf{F}=\int \mathbf{J}(\mathbf{x})\times \mathbf{B}(\mathbf{x})$) to find the force on the loop in cartesian coordinates.
+1\. Use eqn 5.12 in Jackson 3rd ed. ($\mathbf{F}=\int \mathbf{J}(\mathbf{x})\times \mathbf{B}(\mathbf{x})d^3x$) to find the force on the loop in cartesian coordinates.
 
 2\. Find the force on the loop in cartesian coordinates using eqn 5.69 of Jackson 3rd ed. ($\mathbf{F}=\boldsymbol{\nabla}(\mathbf{m}\cdot\mathbf{B})$).
 
@@ -18,21 +18,24 @@ $$\mathbf{B}=\frac{\mu_o}{4\pi}\frac{m_o}{r^3}\left(2\cos\theta\hat{\mathbf{r}}+
 
 **Solution**
 
-There were several common errors. 
+%There were several common errors. 
 
-1. Some reported a force that depended on $r$ and $\theta$ either explicity or implicitly because their unit vectors appeared in their answer. It does not make sense for the force on an object to depend on a coordinate. It should depend on the parameters given in the problem. In addition, the force depended on a coordinate, we would write $\mathbf{F}(\mathbf{x})=\int \mathbf{J}\times \mathbf{B}d^3x'$, which we don't - see the previous problem.
-1. When computing the gradient of a function that involved $r$, $r$ was treated as a constant. More on this in the solution.
-1. The wrong delta function representation of $\mathbf{J}$. You know that you need to get $\int \mathbf{I}\times \mathbf{B} dl$ after evaluating the delta function in the volume integral given, so this could have been used as a check that you had the correct delta function representation of $\mathbf{J}$.
+%1. Some reported a force that depended on $r$ and $\theta$ either explicity or implicitly because their unit vectors appeared in their answer. It does not make sense for the force on an object to depend on a coordinate. It should depend on the parameters given in the problem. In addition, the force depended on a coordinate, we would write $\mathbf{F}(\mathbf{x})=\int \mathbf{J}\times \mathbf{B}d^3x'$, which we don't - see the previous problem.
+%1. When computing the gradient of a function that involved $r$, $r$ was treated as a constant. More on this in the solution.
+%1. The wrong delta function representation of $\mathbf{J}$. You know that you need to get $\int \mathbf{I}\times \mathbf{B} dl$ after evaluating the delta function in the volume integral given, so this could have been used as a check that you had the correct delta function representation of $\mathbf{J}$.
 
 1\.
 
+
+Many students had questions about representing $\mathbf{J}$ with a delta function. As a guide, recall that you know that after application of the delta function in 
+
 $$\mathbf{F}=\int \mathbf{J}(\mathbf{x})\times \mathbf{B}(\mathbf{x})\thinspace d^3x$$
 
-Many students had questions about representing $\mathbf{J}$ with a delta function. As a guide, recall that you know the result after application of the delta function in $\mathbf{J}$ should be
+should be
 
-$$\mathbf{F}=\int \mathbf{I}\times \thinspace d\mathbf{l}$$
+$$\mathbf{F}=\int \mathbf{I}\times\mathbf{B}\thinspace dl$$
 
-where $\mathbf{B}$ is evaluated at the locations of the differential elements $dl$, and $dl\thinspace d\phi$ for this problem. It is easier to do this in cylindrical coordinates, but most attempted modifying Jackson's equation for a current loop of radius $a$ in the $x$-$y$ plane and centered on the origin:
+where $\mathbf{B}$ is evaluated at the location of the differential elements $dl$. It is easier to do this in cylindrical coordinates, but most attempted modifying Jackson's equation for a current loop of radius $a$ in the $x$-$y$ plane and centered on the origin:
 
 $$J_{\phi}=I\sin\theta\thinspace\delta(\cos\theta)\frac{\delta (r-a)}{a}$$
 
@@ -51,7 +54,7 @@ You can (correctly) guess and that show that for this problem, replacing $\pi/2$
 
 _Note_
 
-Several students asked how to derive Jackson's equation or the guessed modified equation, so I'll derive it here. A student also mentioned that they found [a post on StackExchange](https://physics.stackexchange.com/questions/128732/describing-a-circular-current-loop-as-delta-functions), but it didn't quite help. We need to find
+Several students asked how to derive Jackson's equation or the guessed modified equation, so I'll derive it here. A student also mentioned that they found [a post on StackExchange](https://physics.stackexchange.com/questions/128732/describing-a-circular-current-loop-as-delta-functions), but that it didn't quite help. We need to find
 
 $$\mathbf{J} = J(r,\theta)(-\sin\phi\thinspace\hat{\mathbf{x}}+\cos\phi\thinspace\hat{\mathbf{y}})$$
 
@@ -73,12 +76,12 @@ When $\theta_o=\pi/2$, $r_o=b$ we recover Jackson's equation.
 
 $$
 \begin{align}
-\mathbf{F} & = \int \mathbf{J}(\mathbf{x})\times \mathbf{B}(\mathbf{x})\,d^3x\\
-& = \int  J(r,\theta)(-\sin\phi\,\hat{\mathbf{x}}+\cos\phi\,\hat{\mathbf{y}})\times \mathbf{B}(r,\theta)\,r^2\sin\theta\,d\theta\,d\phi\\
-& = \int  \frac{I}{r_o}\delta(r-r_o)\delta(\theta-\theta_o)(-\sin\phi\,\hat{\mathbf{x}}+\cos\phi\,\hat{\mathbf{y}})\times \mathbf{B}(r,\theta)\,r^2\sin\theta\,d\theta\,d\phi\\
-& = \int I (-\sin\phi\,\hat{\mathbf{x}}+\cos\phi\,\hat{\mathbf{y}})\times \mathbf{B}(r_o,\theta_o)\,r_o\sin\theta_o\,d\phi\\
-& = \int I (-\sin\phi\,\hat{\mathbf{x}}+\cos\phi\,\hat{\mathbf{y}})\times \mathbf{B}(r_o,\theta_o)\,b\,d\phi\\
-& = \int I (-\sin\phi\,\hat{\mathbf{x}}+\cos\phi\,\hat{\mathbf{y}})\times \mathbf{B}(r_o,\theta_o)\,dl
+\mathbf{F} & = \int \mathbf{J}(\mathbf{x})\times \mathbf{B}(\mathbf{x})d^3x\\
+& = \int  J(r,\theta)(-\sin\phi\hat{\mathbf{x}}+\cos\phi\hat{\mathbf{y}})\times \mathbf{B}(r,\theta)r^2\sin\theta d\theta d\phi\\
+& = \int  \frac{I}{r_o}\delta(r-r_o)\delta(\theta-\theta_o)(-\sin\phi \hat{\mathbf{x}}+\cos\phi\hat{\mathbf{y}})\times \mathbf{B}(r,\theta)r^2\sin\theta d\theta d\phi\\
+& = \int I (-\sin\phi\hat{\mathbf{x}}+\cos\phi\hat{\mathbf{y}})\times \mathbf{B}(r_o,\theta_o) r_o\sin\theta_o d\phi\\
+& = \int I (-\sin\phi\hat{\mathbf{x}}+\cos\phi\hat{\mathbf{y}})\times \mathbf{B}(r_o,\theta_o) b d\phi\\
+& = \int I (-\sin\phi \hat{\mathbf{x}}+\cos\phi\hat{\mathbf{y}})\times \mathbf{B}(r_o,\theta_o)dl
 \end{align}
 $$
 
@@ -86,9 +89,13 @@ This last equation is how I checked that I had the correct delta function. If I 
 
 $$
 \begin{align}
-(-\sin\phi\thinspace\hat{\mathbf{x}}+\cos\phi\thinspace\hat{\mathbf{y}})\times \mathbf{B}(r_o,\theta_o) & =\hat{\boldsymbol{\phi}}\times \frac{\mu_o}{4\pi}\frac{m_o}{r^3}\left(2\cos\theta\hat{\mathbf{r}}+\sin\theta\hat{\boldsymbol{\theta}}\right)\\
-& = \frac{\mu_oI}{4\pi}\frac{m_o}{r^3}(2\cos\theta\hat{\boldsymbol{\phi}}\times\hat{\mathbf{r}}+\sin\theta\hat{\boldsymbol{\phi}}\times\hat{\boldsymbol{\theta}})\\
-& = \frac{\mu_oI}{4\pi}\frac{m_o}{r^3}(2\cos\theta\hat{\boldsymbol{\theta}}-\sin\theta\hat{\mathbf{r}})\end{align}
+(-\sin\phi\thinspace\hat{\mathbf{x}}+\cos\phi\thinspace\hat{\mathbf{y}})\times \mathbf{B}(r_o,\theta_o)
+&=
+\hat{\boldsymbol{\phi}}\times \frac{\mu_o}{4\pi}\frac{m_o}{r^3}\left(2\cos\theta\hat{\mathbf{r}}+\sin\theta\hat{\boldsymbol{\theta}}\right)\\
+&=
+\frac{\mu_oI}{4\pi}\frac{m_o}{r^3}(2\cos\theta\hat{\boldsymbol{\phi}}\times\hat{\mathbf{r}}+\sin\theta\hat{\boldsymbol{\phi}}\times\hat{\boldsymbol{\theta}})\\
+&=
+\frac{\mu_oI}{4\pi}\frac{m_o}{r^3}(2\cos\theta\hat{\boldsymbol{\theta}}-\sin\theta\hat{\mathbf{r}})\end{align}
 $$
 
 Prior to integration, non-cartesian vectors must be converted to cartesian. Use the spherical-to-cartesian transformation matrix
@@ -103,7 +110,7 @@ $$\mathbf{F}=-\frac{3}{2}\frac{\mu_om_oIdb^2}{(b^2+d^2)^{5/2}}\hat{\mathbf{z}}$$
 
 _Note_
 
-One can get equivalent results by converting $\mathbf{B}_{ext}$ into cartesian using the above matrix and doing the cross product with $\mathbf{J}$ written with cartesian unit vectors. The components of $B_{ext}$ in cartesian coordinates, with $r=\sqrt{x^2+y^2+z^2}$, are
+One can get equivalent results by converting $\mathbf{B}$ into cartesian using the above matrix and doing the cross product with $\mathbf{J}$ written with cartesian unit vectors. The components of $B$ in cartesian coordinates, with $r=\sqrt{x^2+y^2+z^2}$, are
 
 $$B_x=\frac{\mu_oI\pi a^2}{4\pi}\frac{3xz}{(x^2+y^2+z^2)^{5/2}}=\frac{\mu_oI\pi a^2}{4\pi}\frac{3xz}{r^5}$$
 
@@ -113,11 +120,16 @@ $$B_z=\frac{\mu_oI\pi a^2}{4\pi}\frac{3z^2-r^2}{r^5}$$
 
 ----
 
-----
-
 _Checking answer_
 
-Compute the horizontal, $B_s$, and vertical, $B_z$, magnetic field at all points on the loop. Then compute the horizontal and vertical forces created by these two fields individually. $B_s$ results in a vertical force on a differential element $dl$ of $-IdlB_s\hat{\mathbf{z}}$. $B_z$ results in a horizontal force of $IdlB_z\hat{\mathbf{s}}$.  The horizontal force averages to zero. The total vertical force is obtained by using $dl=bd\phi$ and integrating
+The problem statement asked for the problem to be solved starting with a general equation. However, there is a much shorter way to get the solution.
+
+Compute the horizontal, $B_s$, and vertical, $B_z$, magnetic field at all points on the loop. Then compute the horizontal and vertical forces created by these two fields individually. 
+
+$B_z$ results in a horizontal force of $-IdlB_z(r_o,\theta_o)\hat{\mathbf{s}}$.  This horizontal force averages to zero because the total vertical force is obtained by using $dl=bd\phi$ and integrating over $\phi$ from $0$ to $2\pi$ and the integral of $\hat{\mathbf{s}}$ is zero. This should be clear from a diagram where it should be clear that this force tends to compress the ring.
+
+$B_s$ results in a vertical force on a differential element $dl$ of $-IdlB_s\hat{\mathbf{z}}$.
+
 
 $$\int_0^{2\pi}-IB_sbd\phi\hat{\mathbf{z}}$$
 
@@ -194,7 +206,38 @@ to express $B_z(z)$ as a power series involving the Legendre polynomials, $P_l$,
 
 1\.
 
+$$\mathbf{B}(\mathbf{x})=\frac{\mu_o}{4\pi}\int\frac{K_o\hat{\boldsymbol{\phi}}\times (\mathbf{x}-\mathbf{x'})}{|\mathbf{x}-\mathbf{x'}|^3}da'$$
+
+Using
+
+$\mathbf{x}'=b\hat{\mathbf{s}'} + z'\zhat = b\cos\phi'\xhat + b\sin\phi'\yhat+z'\zhat$,
+
+$\mathbf{x}=z\zhat$, and
+
+$\mathbf{K}=K_o\hat{\boldsymbol{\phi'}}=K_o(-\sin\phi'\xhat+\cos\phi'\yhat)$
+
+$$\mathbf{K}\times (\mathbf{x}-\mathbf{x'})=K_o\hat{\boldsymbol{\phi'}}\times(b\hat{\mathbf{s}'} + z'\zhat)=K_ob\zhat+K_oz'\hat{\mathbf{s}'}$$
+
+$$|\mathbf{x}-\mathbf{x'}|^3=\left(b^2+(z-z')^2\right)^{3/2}$$
+
+$$\mathbf{B}(z)=\frac{\mu_o K_o b}{4\pi}\int_0^{2\pi}\int_{-h}^{h}\frac{1}{\left(b^2+(z-z')^2\right)^{3/2}} bd\phi' dz'(K_ob\zhat+K_oz'\hat{\mathbf{s}'})$$
+
+The integral of $\hat{\mathbf{s}'}$ over $\phi'=0$ to $2\pi$ will be zero and this is expected based on symmetry. This leaves
+
+$$B_z(z)=\frac{\mu_o K_o b }{4\pi}2\pi b\int_{-h}^{h}\frac{1}{\left(b^2+(z-z')^2\right)^{3/2}}  dz'$$
+
+Alterntatively, one may arrive at this by starting with the equation for the field due to a loop in the $x$--$y$ plane and centered on the origin, which is 
+
+$$B_z(z)=\frac{\mu_o}{4\pi}\frac{2\pi b^2 I}{(b^2 + z^2)^{3/2}}$$
+
+To find the field due to a cylinder, let $z\rightarrow z-z'$ and $I\rightarrow dI=K_odz'$ and integrate:
+
+$$B_z(z)=\frac{\mu_o}{4\pi}\int_{-h}^{h} \frac{2\pi b^2 K_odz'}{(b^2+(z-z')^2)^{3/2}}$$
+
+Integration gives
+
 $$B_z(z) = \frac{\mu_oK_o}{2}\left[\frac{z+h}{\sqrt{b^2+(z+h)^2}}-\frac{z-h}{\sqrt{b^2+(z-h)^2}}\right]$$
+
 
 _Checks_:
 
@@ -214,15 +257,15 @@ Factoring out $b^2+h^2$ gives
 
 $$B_z^+(z) = \frac{\mu_oK_o}{2\sqrt{b^2+h^2}}\left[\frac{z+h}{\sqrt{1+2zh/(b^2+h^2)+z^2/(b^2+h^2)}}\right]$$
 
-If we define $t=z/\sqrt{b^2+h^2}$, then
+Defining $t=z/\sqrt{b^2+h^2}$ gives
 
 $$B_z^+(z) = \frac{\mu_oK_o}{2\sqrt{b^2+h^2}}\left[\frac{z+h}{\sqrt{1+2ht/\sqrt{b^2+h^2}+t^2}}\right]$$
 
-Defining $u=-h/\sqrt{b^2+h^2}$ (note that this is related to the angle $\alpha$ from the $z$--axis to the rim of the cylinder: $\sin\alpha = h/\sqrt{b^2+h^2}$), we have
+Defining $u=-h/\sqrt{b^2+h^2}$ (note that this is related to the angle $\alpha$ from the $z$--axis to the rim of the cylinder: $\cos\alpha = -u = h/\sqrt{b^2+h^2}$), we have
 
 $$B_z^+(z) = \frac{\mu_oK_o}{2\sqrt{b^2+h^2}}\left[\frac{z+h}{\sqrt{1-2ut+t^2}}\right]$$
 
-Using the given formula gives
+Using the given formula,
 
 $$B_z^+(z) = \frac{\mu_oK_o}{2\sqrt{b^2+h^2}}(z+h)\sum_{l=0}^{\infty}P_l(u)t^l$$
 
@@ -230,9 +273,11 @@ or
 
 $$B_z^+(z) = \frac{\mu_oK_o}{2\sqrt{b^2+h^2}}(t\sqrt{b^2+h^2}+h)\sum_{l=0}^{\infty}P_l(u)t^l$$
 
+which simplifies to
+
 $$B_z^+(z) = \frac{\mu_oK_o}{2}(t-u)\sum_{l=0}^{\infty}P_l(u)t^l$$
 
-$B_z^-(z)$ is obtained by replacing $u$ with $-u$ in the expression for $B_z^-(z)$:
+$B_z^-(z)$ is obtained by replacing $u$ with $-u$ in the expression for $B_z^+(z)$:
 
 $$B_z(z)=B_z^+(z)-B_z^-(z) = \frac{\mu_oK_o}{2}\left[(t-u)\sum_{l=0}^{\infty}P_l(u)t^l-(t+u)\sum_{l=0}^{\infty}P_l(-u)t^l\right]$$
 
@@ -242,11 +287,7 @@ To simplify, we note that $P_l(-u)=P_l(u)$ for $l=0, 2, ...$ and $P_l(-u)=-P_l(u
 
 $$\frac{B_z(z)}{\mu_oK_o}= -u\sum_{l=0,2,...}^{\infty}P_l(u)t^l+\sum_{l=1,3,...}^{\infty}P_l(u)t^{l+1}$$
 
-Shift index on second sum so sums over same $l$
-
-$$\frac{B_z(z)}{\mu_oK_o}= -u\sum_{l=0,2,...}^{\infty}P_l(u)t^l+\sum_{l=0,2,...}^{\infty}P_{l+1}(u)t^{l+2}$$
-
-Shift index on second sum so $t^l$ appears in both sums
+Shift the index on second sum so $t^l$ appears in both sums:
 
 $$\frac{B_z(z)}{\mu_oK_o}= -u\sum_{l=0,2,...}^{\infty}P_l(u)t^l+\sum_{l=2,4,...}^{\infty}P_{l-1}(u)t^{l}$$
 
@@ -258,19 +299,27 @@ Combine sums:
 
 $$\frac{B_z(z)}{\mu_oK_o}=-u+ \sum_{l=2,4,..}^{\infty}\big(P_{l-1}(u)-uP_l(u)\big)t^{l}$$
 
-Replace $l$ with $2l+2$ so sum over $l=0,1,...$:
+Using $\cos\alpha = -u$ gives
 
-$$\frac{B_z(z)}{\mu_oK_o}=-u+ \sum_{l=0}^{\infty}\big(P_{2l+1}(u)-uP_{2l+2}(u)\big)t^{2l+2}$$
+$$\frac{B_z(z)}{\mu_oK_o}=\cos\alpha+ \sum_{l=2,4,..}^{\infty}\big(P_{l-1}(-\cos\alpha)+\cos\alpha P_l(-\cos\alpha)\big)t^{l}$$
 
-Rewrite using $t=z/\sqrt{b^2+h^2}$ and $u=-h/\sqrt{b^2+h^2}$ and define $\cos\alpha=-u$:
+Using $P_l(-u)=P_l(u)$ for $l=0, 2, ...$ and $P_l(-u)=-P_l(u)$ for $l=1,3,...$ gives
 
-$$\frac{B_z(z)}{\mu_oK_o}=\cos\alpha + \sum_{l=0}^{\infty}\big(P_{2l+1}(-\cos\alpha)+\cos\alpha P_{2l+2}(-\cos\alpha)\big)t^{2l+2}$$
+$$\boxed{\frac{B_z(z)}{\mu_oK_o}=\cos\alpha+ \sum_{l=2,4,..}^{\infty}\big(\cos\alpha P_l(\cos\alpha)-P_{l-1}(\cos\alpha)\big)t^{l}}$$
 
-Use $P_l(-u)=P_l(u)$ for $l=0, 2, ...$ and $P_l(-u)=-P_l(u)$:
+where $t=z/\sqrt{b^2+h^2}$. Note that the answer only contains terms proportional to $z^2$, $z^4$, ....
 
-$$\boxed{\frac{B_z(z)}{\mu_oK_o}=\cos\alpha + \sum_{l=0}^{\infty}\Big(\cos\alpha P_{2l+2}(\cos\alpha)-P_{2l+1}(\cos\alpha)\Big)\left(\frac{z}{\sqrt{b^2+h^2}}\right)^{2l+2}}$$
+%Replace $l$ with $2l+2$ so the sum over $l=0,1,...$:
 
-Note that the answer only contains terms proportional to $z^2$, $z^4$, ....
+%$$\frac{B_z(z)}{\mu_oK_o}=-u+ \sum_{l=0}^{\infty}\big(P_{2l+1}(u)-uP_{2l+2}(u)\big)t^{2l+2}$$
+
+%Rewrite using $t=z/\sqrt{b^2+h^2}$ and $u=-h/\sqrt{b^2+h^2}$ and use $\cos\alpha=-u$:
+
+%$$\frac{B_z(z)}{\mu_oK_o}=\cos\alpha + \sum_{l=0}^{\infty}\big(P_{2l+1}(-\cos\alpha)+\cos\alpha P_{2l+2}(-\cos\alpha)\big)t^{2l+2}$$
+
+%Use $P_l(-u)=P_l(u)$ for $l=0, 2, ...$ and $P_l(-u)=-P_l(u)$:
+
+%$$\boxed{\frac{B_z(z)}{\mu_oK_o}=\cos\alpha + \sum_{l=0}^{\infty}\Big(\cos\alpha P_{2l+2}(\cos\alpha)-P_{2l+1}(\cos\alpha)\Big)\left(\frac{z}{\sqrt{b^2+h^2}}\right)^{2l+2}}$$
 
 With this magnetic field, one can obtain the solution for the magnetic field inside of cylinder.
 
@@ -286,7 +335,7 @@ $$B_z(z)=-\frac{\partial \Phi_m(z)}{\partial z} = -\sum_{l=0}^{\infty}lz^{l-1}A_
 
 the azimuthal symmetry argument, one can find an expression for $\Phi(r,z)$.
 
-$$\frac{B_z(z)}{\mu_oK_o}=\cos\alpha + \sum_{l=0}^{\infty}\Big(\cos\alpha P_{2l+2}(\cos\alpha)-P_{2l+1}(\cos\alpha)\Big)\left(\frac{z}{\sqrt{b^2+h^2}}\right)^{2l+2}$$
+%$$\frac{B_z(z)}{\mu_oK_o}=\cos\alpha + \sum_{l=0}^{\infty}\Big(\cos\alpha P_{2l+2}(\cos\alpha)-P_{2l+1}(\cos\alpha)\Big)\left(\frac{z}{\sqrt{b^2+h^2}}\right)^{2l+2}$$
 
 The first four $A$ coefficients are
 
@@ -302,9 +351,9 @@ Or, in general
 
 $A_1=-\mu_oK_o\cos\alpha$
 
-and for $l=1,2,...$,
+and for $l=3,5,...$,
 
-$$A_{2l+1}=-\frac{\mu_oK_o}{2l+1}\frac{\cos\alpha P_{2l}(\cos\alpha)-P_{2l-1}(\cos\alpha)}{\left(\sqrt{b^2+h^2}\right)^{2l}}$$
+$$A_l=-\frac{\mu_oK_o}{l}\frac{\cos\alpha P_{l-1}(\cos\alpha)-P_{l-2}(\cos\alpha)}{(b^2+h^2)^{(l-1)/2}}$$
 
 One can then use
 
@@ -322,29 +371,11 @@ $$
 -B_r\hat{\mathbf r}-B_\theta\hat{\boldsymbol \theta}
 $$
 
-$$\Phi_m(r,\theta)=\sum_{l=0}^{\infty}r^lA_lP_l(\cos\theta)=A_0+rA_1P_1+r^2A_2P_2+...$$
+$$\Phi_m(r,\theta)=\sum_{l=0}^{\infty}r^lA_lP_l(\cos\theta)=A_0+rA_1P_1(\cos\theta)+r^2A_2P_2(\cos\theta)+...$$
 
-$$B_r=-{\partial \Phi_m \over \partial r}\hat{\boldsymbol \theta}=-A_1P_1-2rA_2P_2+...=-A_1\cos\theta-\sum_{l=1}^{\infty}(2l+1)r^{2l}A_{2l+1}P_{2l+1}(\cos\theta)$$
+$$B_r=-{\partial \Phi_m \over \partial r}\hat{\boldsymbol \theta}=-A_1P_1(\cos\theta)-2rA_2P_2(\cos\theta)+...$$
 
-$$\frac{B_r(r,\theta)}{\mu_oK_o}=
-\cos\alpha
-+
-\sum_{l=1}^{\infty}
-\Big(\cos\alpha P_{2l}(\cos\alpha)-P_{2l-1}(\cos\alpha)
-\Big)
-\left(\frac{r}{\sqrt{b^2+h^2}}\right)^{2l}
-P_{2l+1}(\cos\theta)$$
-
-$$B_\theta=-{1 \over r}{\partial \Phi_m \over \partial \theta}\hat{\boldsymbol \theta}=-\frac{1}{r}\left(rA_1\frac{d P_1}{d\theta}+r^2A_2\frac{d P_2}{d\theta}+...\right)=-A_1\frac{dP_1}{d\theta}-\sum_{l=1}^{\infty}r^{2l}A_{2l+1}\frac{d P_{2l+1}}{d\theta}$$
-
-$$\frac{B_\theta(r,\theta)}{\mu_oK_o}=
-\cos\alpha\sin\theta
-+
-\sum_{l=1}^{\infty}\frac{\cos\alpha P_{2l}(\cos\alpha)
--
-P_{2l-1}(\cos\alpha)}{2l+1}
-\left(\frac{r}{\sqrt{b^2+h^2}}\right)^{2l}
-\frac{d P_{2l+1}}{d\theta}$$
+$$B_\theta=-{1 \over r}{\partial \Phi_m \over \partial \theta}\hat{\boldsymbol \theta}=-\frac{1}{r}\left(rA_1\frac{d P_1(\cos\theta)}{d\theta}+r^2A_2\frac{d P_2(\cos\theta)}{d\theta}+...\right)$$
 
 %$$A_1=-\cos\alpha$$
 
