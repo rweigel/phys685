@@ -64,9 +64,11 @@ The total field is given by $\mathbf{B}=\mathbf{B}\_{ext} + \mathbf{B}_{b}$, whe
 1. Use an analog of Approach 1. in [HW 7.3.1](#7.3.1) to show that $\mathbf{B}=(1+\chi_m)\mathbf{B}\_{ext}$ inside the cylinder. That is, start with $\oint \mathbf{H}\bfcdot d\mathbf{l}=I_{f\thickspace encl}$.
 2. Use an analog of Approach 3. in [HW 7.3.1](#7.3.1) to show that $\mathbf{B}=(1+\chi_m)\mathbf{B}\_{ext}$ inside the cylinder. That is, use $\mathbf{M}=(\chi_m/(1+\chi_m))\mathbf{B}/\mu_o$, the equations for $\mathbf{K}\_b$, $\mathbf{J}\_b$, and $\oint\mathbf{B}\bfcdot d\mathbf{l}=\mu_oI_{encl}$.
 
-**Answer**
+**Solution**
 
 1\. Use an Amperian loop that is a circle in the $x$--$y$ plane centered on the origin, for which $d\mathbf{l}=sd\phi\hat{\boldsymbol{\phi}}$. Then $\mathbf{H}\bfcdot d\mathbf{l}=H_\phi s d\phi$. Given the system has azimuthal symmetry, $H_\phi$ cannot depend on $\phi$. As a result, $H_\phi$ is a constant with respect to integration and the line integral simplifies:
+
+In the following, it is assumed that $B_s$ and $B_z$ are zero so that $H_s$ and $H_z$ are zero. The justification for this is given at the end of this solution. This means that the induced magnetization $\mathbf{M}$ has $M_s=0$ and $M_z=0$ due to the relationship between $\mathbf{M}$ and $\mathbf{B}$ given in the problem statement.
 
 $$\oint \mathbf{H}\bfcdot d\mathbf{l}=\oint H_\phi s d\phi=H_\phi s\oint d\phi=2\pi s H_\phi$$
 
@@ -97,9 +99,7 @@ $$\oint \mathbf{B}\bfcdot d\mathbf{l}=\mu_o(I_{\text{free}} + I_{\text{b}})$$
 
 can be used. The bound current has contributions from the two surface currents and the volume currents, and their sum is zero.
 
-2\.
-
-Let $\chi=\chi_m/[(1+\chi_m)\mu_o]$ and assume $\mathbf{M}=M_\phi\hat{\boldsymbol\phi}$.
+2\. Let $\chi=\chi_m/[(1+\chi_m)\mu_o]$ and assume $\mathbf{M}=M_\phi(s)\hat{\boldsymbol\phi}$ (justification is given at the end of this solution).
 
 We were given $\mathbf{M}=\chi\mathbf{B}\quad \Rightarrow \quad M_\phi(s)=\chi B_\phi(s)$
 
@@ -114,7 +114,9 @@ $\mathbf{K}_{b\text{ inner}}=+\chi B_\phi(R_i)\zhat$
 
 $\mathbf{K}_{b\text{ outer}}=-\chi B_\phi(R_i)\zhat$
 
-$\displaystyle\mathbf{J}_b=\boldsymbol{\nabla}\times\mathbf{M}=\frac{1}{s}\frac{\partial}{\partial s}(sM_\phi(s))\zhat$
+$\displaystyle\mathbf{J}_b=\boldsymbol{\nabla}\times\mathbf{M}$
+
+If $\mathbf{M}=M_\phi(s)\hat{\boldsymbol\phi}$, then $\displaystyle\boldsymbol{\nabla}\times\mathbf{M}=\frac{1}{s}\frac{\partial}{\partial s}(sM_\phi(s))\zhat$
 
 Using $B_\phi = \chi M_\phi$ gives
 
@@ -122,19 +124,28 @@ $\displaystyle\mathbf{J}_b=\frac{\chi}{s}\frac{\partial}{\partial s}(sB_\phi(s))
 
 % Note that a symmetry argument is need to conclude non--phi components of B are zero.
 
+
+The total field is the sum of the external field and the field created by the bound currents:
+
+$B\_\phi(s)=B_{\phi\text{ }ext} + B_{\phi b}$
+
 Ampere's law for the bound currents gives
 
 $2\pi s B_{\phi b} = \mu_oI_{b\text{ }encl}$
 
-The total field is the sum of the external field and the field created by the bound currents:
-
-
-$\displaystyle\mathbf{B}=\mathbf{B}\_{ext} + \mathbf{B}\_{b} \quad \Rightarrow \quad B\_\phi(s)=B_{\phi\text{ }ext} + B_{\phi b}$
+This equation is used in the three regions as follows.
 
 ----
+
 $s\lt R_i$
 
-$I_{b\text{ }encl}=0$, so $2\pi s B_{\phi b} = \mu_oI_{b\text{ }encl}$ gives $B_{\phi b}=0$, so $B_\phi=B_{\phi\text{ ext}}$
+$I_{b\text{ }encl}=0$, so
+
+$2\pi s B_{\phi b} = \mu_oI_{b\text{ }encl}$
+
+gives
+
+$B_{\phi b}=0$, so $B_\phi=B_{\phi\text{ ext}}$
 
 ----
 
@@ -162,12 +173,17 @@ and finally
 
 $B_\phi(s)=(1+\chi_m)B_{\phi\text{ }ext}$.
 
+In the above, the bound current due to $\mathbf{J}_b$ was computed using a surface integral. One can 
+
 ----
-For $s\gt R_i$
+
+$s\gt R_i$
 
 $I_{b\text{ }encl}$ is the bound current on both surfaces plus the bound current flowing through the volume of the material. It is zero, which follows from
 
 $\displaystyle I_{b\text{ }encl}=2\pi R_iK_{b\text{ inner}} +2\pi R_oK_{b\text{ outer}} + \int_0^{2\pi}\int_{R_i}^{R_o}\frac{\chi}{s'}\frac{\partial}{\partial s'}(s'B_\phi(s'))s'ds'=0$
+
+Note that $\mathbf{J}_b$ is zero explicitly because we have found $B_\phi$ is proportional to $1/s$.
 
 $I_{b\text{ }encl}=0$, so $2\pi s B_{\phi b} = \mu_oI_{b\text{ }encl}$ from Ampere's law gives $B_{\phi b}=0$ and substituion into $B\_\phi(s)=B_{\phi\text{ }ext} + B_{\phi b}$ gives $B\_\phi(s)=B_{\phi\text{ }ext}$
 
@@ -175,11 +191,25 @@ $I_{b\text{ }encl}=0$, so $2\pi s B_{\phi b} = \mu_oI_{b\text{ }encl}$ from Ampe
 
 In 1. and 2., only $B_\phi$ was found. Ampere's law cannot be used to find $B_s$ and $B_z$.
 
-Symmetry arguments are need to claim $B_s$ and $B_z$ are zero.
+Symmetry arguments are need to claim $M_\phi=M_\phi(s)$ and $B_s$ and $B_z$ are zero.
 
-Suppose that from your perspective $I$ is upwards and $B_s$ is outwards. If you hung upsidedown, you would claim that a downward current corresponds to an outwards $B_s$. However, accoring to the Biot--Savart law, changing the direction of $I$ inverts the direction of the field and so upsidedown you should see an inwards $B_s$. The only way for consistency from the two perspectives is if $B_s$ is zero.
+* $M_\phi$
 
-If all of the currents flow in the $\zhat$ direction, then $B_z$ must be zero because of the cross product in the Biot--Savart law. We are given that the free current flows in the $\zhat$ direction but assumed that $\mathbf{M}=M_\phi\hat{\boldsymbol\phi}$, from which it follows that the bound currents flow in the $\pm \zhat$ direction.
+    The geometry is invariant with respect to translations in $z$ and rotations by $\phi$. As a result, $\mathbf{B}$ must be independent of $z$ and $\phi$. From $\mathbf{M}=(\chi_m/(1+\chi_m))\mathbf{B}/\mu_o$ it follows that $M_\phi$ must also be independent of $z$ and $\phi$.
+
+* $B_s$
+
+    Suppose that from your perspective $I$ is upwards and $B_s$ is outwards. If you hung upsidedown, you would claim that a downward current corresponds to an outwards $B_s$. However, accoring to the Biot--Savart law, changing the direction of $I$ inverts the direction of the field and so upsidedown you should see an inwards $B_s$. The only way for consistency between the two perspectives is if $B_s$ is zero.
+
+* $B_z$
+
+    We are given that the free current flows in the $\zhat$ and have justified $B_s=0$. 
+
+    If all of the currents (free and bound) flow in the $\zhat$ direction, then $B_z$ must be zero because of the cross product in the Biot--Savart law. If $B_z$ is zero, then $\mathbf{M}$ only has a $\hat{\boldsymbol{\phi}}$ component (because From $\mathbf{M}=(\chi_m/(1+\chi_m))\mathbf{B}/\mu_o$). From the equations for $\mathbf{K}_b$ and $\mathbf{J}_b$, it follows that the bound currents flow in the $\pm \zhat$ direction.
+
+    Suppose $B_z\ne 0$. From $\mathbf{M}(s)=(\chi_m/(1+\chi_m))\mathbf{B}(s)/\mu_o$, $M_z$ would be non--zero. This magnetization would create bound currents in the $\hat{\boldsymbol{\phi}}$ direction. For an infinitely long cylinder, these bound currents would not produce a $B_z$. From this contradiction we can conclude that $B_z$ must be zero.
+    
+    
 
 %Far from the $z$--axis, the field due to the external and bound currents must approach zero. Ampere's law and the fact that $B_z$ is independent of $z$ can be used to show that $B_z$ is independent of distance from the $z$--axis using a square loop in the $s$--$z$. Together, this implies $B_z=0$. (A similar argument was used to justify $B=0$ outside of a long solenoid in Example 5.9 of Griffiths.)
 
@@ -343,6 +373,8 @@ _Alternative approach 2. for $\psi\_m$_
 
 To check your answers, note that the solution for $\mathbf{A}$ using direct integration is given as an example in Jackson section 5.10 and Griffiths 5.11 and 6.1. (Note the differences in approach to the integration between Jackson and Griffiths).  From this, one can compute $\mathbf{B}=\boldsymbol{\nabla}\times \mathbf{A}$ and then use  $\mathbf{B}=\mu_o(\mathbf{H}+\mathbf{M})$ and $\mathbf{H}=-\nabla\psi_m$ to compute $\psi_m$. 
 
+----
+
 _Alternative approach for $\mathbf{A}$ given $\mathbf{B}$_
 
 An alternative approach to computing $\mathbf{A}$ outside is to use the same approach typically used to compute $\mathbf{A}$ inside an infinitely long solenoid (as in example 5.12 of Griffiths). First, note that the magnetic flux through a surface $\mathcal{S}$ bounded by a curve $\mathcal{C}$ is related to the line integral of $\mathbf{A}$ around $\mathcal{C}$:
@@ -416,7 +448,9 @@ Evaluation of this integral will give the same result as the flux integral for $
 
 # Long Cylinder
 
-An infinitely long cylinder with an inner radius $a$ and outer radius $b$ has a permeability of $\mu=2\mu_o$. A wire carrying current $I$ runs along its axis. 
+An infinitely long cylinder with an inner radius $a$ and outer radius $b$ has a permeability of $\mu=2\mu_o$. The centerline of the cylinder is along the $z$--axis.
+
+An infinitely long wire along the $z$--axis carries a current $I$ in the $+z$ direction. 
 
 1. Compute and plot $B_\phi(s)$.
 2. Compute all bound surface currents, $\mathbf{K}_b$.
@@ -424,39 +458,43 @@ An infinitely long cylinder with an inner radius $a$ and outer radius $b$ has a 
 
 Write all of your answers and label your plot at appropriate points in terms of $\mu_o, I, a,$ and $b$.
 
-[[Image:cylinder.png|300px]]
+**Answer**
 
-%**Answer**
+$$\mathbf{H}=\frac{I}{2\pi s}\hat{\boldsymbol{\phi}}$$
 
-%Assuming $I$ is in the $\hat{\mathbf{z}}$ direction,
+$$
+\mathbf{B}=
+\begin{cases}
+\displaystyle\frac{\mu_oI}{2\pi s}\hat{\boldsymbol{\phi}} & s<a
+\\\\
+\displaystyle\frac{2\mu_oI}{2\pi s}\hat{\boldsymbol{\phi}} & a<s< b
+\\\\
+\displaystyle\frac{\mu_oI}{2\pi s}\hat{\boldsymbol{\phi}} & s > b
+\end{cases}
+$$
 
-%* $\mathbf{H}=\frac{I}{2\pi\rho}\hat{\mathbf{\phi}}$
-%* $\mathbf{B} = \frac{\mu_oI}{2\pi\rho}\hat{\mathbf{\phi}}$ for $r<a$
-%* $\mathbf{B} = \frac{2\mu_oI}{2\pi\rho}\hat{\mathbf{\phi}}$ for $a<r< b$
-%* $\mathbf{B} = \frac{\mu_oI}{2\pi\rho}\hat{\mathbf{\phi}}$ for $r> b$
+$$\mathbf{M}=\chi_m\mathbf{H}=(\mu/\mu_o-1)\mathbf{H}=(\mu/\mu_o-1)\frac{I}{2\pi s}\hat{\boldsymbol{\phi}}$$
 
-%$\mathbf{M}=\chi_m\mathbf{H}=(\mu/\mu_o-1)\mathbf{H}=(\mu/\mu_o-1)\frac{I}{2\pi\rho}\hat{\mathbf{\phi}}$
+$\mathbf{K}_b=\mathbf{M}\times \hat{\mathbf{n}}$
 
-%$\mathbf{K}_b=\mathbf{M}\times \hat{\mathbf{n}}$
+On the inner surface of the cylinder, $\hat{\mathbf{n}}=-\hat{\mathbf{s}}$ and $\mathbf{M}=(\mu/\mu_o-1)\frac{I}{2\pi a}\hat{\boldsymbol{\phi}}$ so $\mathbf{K}_b = (2\mu_0/\mu_o-1)\frac{I}{2\pi a}\hat{\mathbf{z}}$.
 
-%On the inside of the cylinder, $\hat{\mathbf{n}}=-\hat{\mathbf{\rho}}$ and $\mathbf{M}=(\mu/\mu_o-1)\frac{I}{2\pi a}\hat{\mathbf{\phi}}$ so $\mathbf{K}_b = (2\mu_0/\mu_o-1)\frac{I}{2\pi a}\hat{\mathbf{z}}$.
+On the outer surface of the cylinder, $\hat{\mathbf{n}}=\hat{\mathbf{s}}$ and $\mathbf{M}=(\mu/\mu_o-1)\frac{I}{2\pi 2a}\hat{\boldsymbol{\phi}}$ so $\mathbf{K}_b = -(2\mu_0/\mu_o-1)\frac{I}{2\pi b}\hat{\mathbf{z}}$.
 
-%On the outside of the cylinder, $\hat{\mathbf{n}}=\hat{\mathbf{\rho}}$ and $\mathbf{M}=(\mu/\mu_o-1)\frac{I}{2\pi 2a}\hat{\mathbf{\phi}}$ so $\mathbf{K}_b = -(2\mu_0/\mu_o-1)\frac{I}{2\pi b}\hat{\mathbf{z}}$.
+Note that $\hat{\boldsymbol{\phi}}\times\hat{\mathbf{s}}=-\hat{\mathbf{z}}$.
 
-%Note that $\hat{\mathbf{\phi}}\times\hat{\mathbf{\rho}}=-\hat{\mathbf{z}}$.
+Also note that the net-bound current in the vertical direction is zero.
 
-%Also note that the net-bound current in the vertical direction is zero.
+$\mathbf{J}_b=\nabla\times \mathbf{M}=0$
 
-%$\mathbf{J}_b=\nabla\times \mathbf{M}=0$
+because
 
-%because
+$\mathbf{M}=(const)\hat{\boldsymbol{\phi}}/s$
 
-%$\mathbf{M}=(const)\hat{\mathbf{\phi}}/\rho$
+and the two terms in involving $M_\phi$ in
 
-%and the two terms in involving $M_\phi = (const)/\rho$ in
+$$\boldsymbol{\nabla} \times \mathbf{M} = \left({\frac {1}{s}}{\frac {\partial M_{z}}{\partial \phi }}-{\frac {\partial M_{\phi }}{\partial z}}\right){\hat {\boldsymbol {s}}}+\left({\frac {\partial M_{s}}{\partial z}}-{\frac {\partial M_{z}}{\partial s}}\right){\hat {\boldsymbol {\phi }}}+{\frac {1}{s}}\left({\frac {\partial \left(s M_{\phi }\right)}{\partial s}}-{\frac {\partial M_{s}}{\partial \phi }}\right){\hat {\mathbf {z} }}$$
 
-%$$\nabla \times \mathbf{M} = \left({\frac {1}{\rho }}{\frac {\partial M_{z}}{\partial \phi }}-{\frac {\partial M_{\phi }}{\partial z}}\right){\hat {\boldsymbol {\rho }}}+\left({\frac {\partial M_{\rho }}{\partial z}}-{\frac {\partial M_{z}}{\partial \rho }}\right){\hat {\boldsymbol {\phi }}}+{\frac {1}{\rho }}\left({\frac {\partial \left(\rho M_{\phi }\right)}{\partial \rho }}-{\frac {\partial M_{\rho }}{\partial \phi }}\right){\hat {\mathbf {z} }}$$
+evaluate to zero.
 
-%evaluate to zero.
-
-%To check your answer, use Ampere's Law $\oint \mathbf{B}\cdot d\mathbf{l}=\mu_o I_{enclosed}$ accounting for these bound currents and verify that you get the same magnetic field computed earlier.
+To check your answer, use Ampere's Law, $\oint \mathbf{B}\cdot d\mathbf{l}=\mu_o I_{\text{encl}}$, accounting for these bound currents as a part of $I_{\text{encl}}$ and verify that you get the same magnetic field computed earlier.
