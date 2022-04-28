@@ -2914,3 +2914,43 @@ Using one or more of the boundary conditions
 1. $(\mathbf{B}_2-\mathbf{B_1})\boldsymbol{\cdot}\hat{\mathbf{n}}=0$
 
 find $\psi$. Also find $\mathbf{B}$ and $\mathbf{A}$.
+
+# HW 11
+
+Problem 1. is mandatory. Problems 2. and 3. are my responses to problem 1. You do not need to turn in solutions to problems 2. and 3.
+
+## Write your own review problems
+
+Read through all of the HWs and then look through other textbooks or past qualifying exams (GMU's or other institutions) and find problems that are conceptually similar. Modify, shorten, or simplify the problem so that they would make a "good" final exam problem. 
+
+A "good" final exam problem is one for which (1) there is a way to obtain a solution quickly, (2) if the simple solution is not realized, the amount of work required to solve the problem the long way is not too long, (3) the problem is very similar conceptually to a problem that was on a previous homework or an example problem in Jackson or a difficult example problem in Griffiths.
+
+As an example, we have not used Green functions for polarization and magnetization problems. Can you think of a problem that could be solved with the Green function approach? As another example, one problem that I have given in the past is the geometry of the problem covered in Chapter 5.12 of Jackson, a thick shell with permeability $\mu$ in an external magnetic field, except with the replacement of $\mu$ with $\epsilon$ and the magnetic field with an electric field. The same steps that apply to the magnetic problem apply to the electric problem and so one can simply modify labels in the solution to the magnetic problem. (This was a take-home exam problem because if you don't see the short-cut, there is a lot of algebra).
+
+Post your problems to Discord by **Tuesday at 11:59 pm** (ideally as text so that I can easily aggregate them into a single file, but a PDF or screenshot is fine). You do not need to post solutions.
+
+Please read through all of the posted problems before class and think about how you would start them.
+
+Before class starts, I'll pick the problems that I think are best for review. Then I'll ask the author to (1) explain ways one can check their solution and (2) describe the general steps needed to solve the problem. Then I'll say "well, that is not quite how I would do it ...".
+
+Also, the later you post your problems, the more likely it will be that I pick your problem.
+
+## Cylinder Boundary Value Problem 
+
+A long cylinder of radius $s_o$ has a magnetization
+
+$$
+\mathbf{M}=(ps\sin 2\phi + qs\cos\phi)\hat{\mathbf s}
++
+(ps\cos 2\phi-2qs\sin\phi)\hat{\boldsymbol{\phi}}
+$$ 
+
+where $s$ is the cylindrical radial coordinate and $p$ and $q$ are constants. Find $\mathbf{B}$ due to the cylinder.
+
+## Cylinder with uniform $\mathbf{M}$ 
+
+A cylinder centered on the origin with radius $b$ and end caps in the $z=\pm L$ plane has a permanent magnetization $\mathbf{M}=M_o\hat{\mathbf{z}}$.
+
+1. Find the approximate magnetic potential, $\psi_m(z)$, by assuming $z\pm L\gg b$ and approximating an integrand of an appropriate integral in Section 5.9C of Jackson as a power series in the cylindrical radial coordinate $s'$ prior to integrating;
+1. Determine the exact $\psi_m(z)$; and
+1. Determine the $\mathbf{H}$ and $\mathbf{B}$ at all points on $z$-axis of the using the exact $\psi_m(z)$.
