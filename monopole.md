@@ -4,7 +4,6 @@ http://bolvan.ph.utexas.edu/~vadim/classes/17f/mme.pdf
 
 # Legendre Polynomials
 
-
 $
 \displaystyle\frac{1}{|\mathbf{x}-\mathbf{x}'|} =
 \begin{cases}

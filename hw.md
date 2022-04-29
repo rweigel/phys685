@@ -2632,6 +2632,8 @@ A conducting shell of radius $b$ has a potential of $\psi(b)$, where $\psi(b)$ i
 
 From uniqueness, you should end up with the same result as the previous problem.
 
+\newpage
+
 # HW 8
 
 ## Long Polarized Cylinder
@@ -2795,11 +2797,13 @@ $$
 
 $A_l$ and $B_l$ can be found using $\psi_i(b,\theta)=\psi_m(b,\theta)$ and $\mathbf{D}_i(b,\theta)-\mathbf{D}_m(b,\theta)=0$. The arguments provided obviate the need to use the boundary conditions at $r=z_o$ because they were implicitly used in simplifying the set of equations to be solved.
 
+\newpage
+
 # HW 9
 
 ## Force on Current Loop 
 
-The circular loop with radius $b$ lies in the $z=d$ plane ($d\gt 0$) and the $z$ axis passes through its center. There is a current $I$ in the loop in the direction shown in the following figure.
+The circular loop with radius $b$ lies in the $z=d$ plane ($d\gt 0$), and the $z$ axis passes through its center. There is a current $I$ in the loop in the direction shown in the following figure.
 
 <img src="figures/loop.svg"/>
 
@@ -2807,11 +2811,199 @@ A magnetic dipole at the origin creates a magnetic field of
 
 $$\mathbf{B}=\frac{\mu_o}{4\pi}\frac{m_o}{r^3}\left(2\cos\theta\hat{\mathbf{r}}+\sin\theta\hat{\boldsymbol{\theta}}\right)$$
 
-1\. Use eqn 5.12 in Jackson 3rd ed. ($\mathbf{F}=\int \mathbf{J}(\mathbf{x})\times \mathbf{B}(\mathbf{x})$) to find the force on the loop in cartesian coordinates.
+1\. Use eqn 5.12 in Jackson 3rd ed. ($\mathbf{F}=\int \mathbf{J}(\mathbf{x})\times \mathbf{B}(\mathbf{x})d^3x$) to find the force on the loop in cartesian coordinates.
 
 2\. Find the force on the loop in cartesian coordinates using eqn 5.69 of Jackson 3rd ed. ($\mathbf{F}=\boldsymbol{\nabla}(\mathbf{m}\cdot\mathbf{B})$).
 
-3\. Write your answer to 1. as a power series in terms of powers of $b/d$ (assume $b/d\ll 1)$.
+3\. Write your answer to 1. as a power series in terms of powers of $b/d$ (assume $b/d\ll 1)$ (if 1. and 2. don't match).
+
+**Solution**
+
+%There were several common errors. 
+
+%1. Some reported a force that depended on $r$ and $\theta$ either explicity or implicitly because their unit vectors appeared in their answer. It does not make sense for the force on an object to depend on a coordinate. It should depend on the parameters given in the problem. In addition, the force depended on a coordinate, we would write $\mathbf{F}(\mathbf{x})=\int \mathbf{J}\times \mathbf{B}d^3x'$, which we don't - see the previous problem.
+%1. When computing the gradient of a function that involved $r$, $r$ was treated as a constant. More on this in the solution.
+%1. The wrong delta function representation of $\mathbf{J}$. You know that you need to get $\int \mathbf{I}\times \mathbf{B} dl$ after evaluating the delta function in the volume integral given, so this could have been used as a check that you had the correct delta function representation of $\mathbf{J}$.
+
+1\.
+
+
+Many students had questions about representing $\mathbf{J}$ with a delta function. As a guide, recall that you know that after application of the delta function
+
+$$\mathbf{F}=\int \mathbf{J}\times \mathbf{B}\thinspace d^3x$$
+
+should be
+
+$$\mathbf{F}=\int \mathbf{I}\times\mathbf{B}\thinspace dl$$
+
+where $\mathbf{B}$ is evaluated at the location of the differential elements $dl$. It is easier to find the delta representation of $\mathbf{J}$ in cylindrical coordinates, but most attempted modifying Jackson's equation 5.33 for a current loop of radius $a$ in the $x$-$y$ plane and centered on the origin:
+
+$$J_{\phi}=I\sin\theta\thinspace\delta(\cos\theta)\frac{\delta (r-a)}{a}$$
+
+where
+
+$$\mathbf{J}=J_{\phi}(-\sin\phi\thinspace\hat{\mathbf{x}}+\cos\phi\thinspace\hat{\mathbf{y}})$$
+
+By delta function identity #5 on page 26 of Jackson 3rd Edition, $J_{\phi}$ above is equivalent to 
+
+$$J_{\phi}=I\delta(\theta-\pi/2)\frac{\delta (r-a)}{a}$$
+
+You can (correctly) guess and that show that for this problem, replacing $\pi/2$ with $\theta_o$ and $a$ with $r_o$,  where $\tan\theta_o=b/d$ and $r_o=\sqrt{d^2+b^2}$ will result the volume integral $\int \mathbf{J}\times \mathbf{B}\thinspace d^3x$ reducing to the line integral $\int \mathbf{I}\times\mathbf{B}\thinspace dl$.
+
+
+----
+
+_Note_
+
+Several students asked how to derive Jackson's equation or the guessed modified equation, so I'll derive it here. A student also mentioned that they found [a post on StackExchange](https://physics.stackexchange.com/questions/128732/describing-a-circular-current-loop-as-delta-functions), but that it didn't quite help. We need to find
+
+$$\mathbf{J} = J(r,\theta)(-\sin\phi\thinspace\hat{\mathbf{x}}+\cos\phi\thinspace\hat{\mathbf{y}})$$
+
+where $J(r,\theta)$ has the property that it is zero except for $(r,\theta)$ on the loop. $\delta(r-r_o)$ is zero except on the surface of a sphere of radius $r_o$ and $\delta(\theta-\theta_o)$ is zero except on the surface of a cone with apex angle $\theta_o$. The product of these two delta functions (corresponding to the intersection of these two surfaces) is non-zero only at positions on the loop. As in charge distribution problems, we need to find a constant $C$ in
+
+$$J(r,\theta)=C\delta(r-r_o)\delta(\theta-\theta_o)$$
+
+where $\tan\theta_o=b/d$ and $r_o=\sqrt{d^2+b^2}$. To determine $C$, note that integrating $J$ over all space is equivalent to multiplying the current by the length of the wire it flows through.
+
+$$2\pi b I = \int J\thinspace d^3x=C\int \delta(r-r_o)\delta(\theta-\theta_o)\sin\theta\thinspace r^2\thinspace dr\thinspace d\theta\thinspace d\phi$$
+
+$$2\pi b I = C2\pi\sin\theta_o r_o^2\Rightarrow C = \frac{bI}{r_o^2\sin\theta_o }$$
+
+$$J(r,\theta)=\frac{I b}{\sin\theta_o r_o^2}\delta(r-r_o)\delta(\theta-\theta_o)=\frac{I}{r_o}\delta(r-r_o)\delta(\theta-\theta_o)$$
+
+where $b = r_o\sin\theta_o$ was used for the last equality. When $\theta_o=\pi/2$, $r_o=b$ we recover Jackson's equation.
+
+----
+
+$$
+\begin{align*}
+\mathbf{F} & = \int \mathbf{J}\times \mathbf{B}d^3x\\
+& = \int  J(r,\theta)(-\sin\phi\hat{\mathbf{x}}+\cos\phi\hat{\mathbf{y}})\times \mathbf{B}(r,\theta)r^2\sin\theta d\theta d\phi\\
+& = \int  \frac{I}{r_o}\delta(r-r_o)\delta(\theta-\theta_o)(-\sin\phi \hat{\mathbf{x}}+\cos\phi\hat{\mathbf{y}})\times \mathbf{B}(r,\theta)r^2\sin\theta d\theta d\phi\\
+& = \int I (-\sin\phi\hat{\mathbf{x}}+\cos\phi\hat{\mathbf{y}})\times \mathbf{B}(r_o,\theta_o) r_o\sin\theta_o d\phi\\
+& = \int I (-\sin\phi\hat{\mathbf{x}}+\cos\phi\hat{\mathbf{y}})\times \mathbf{B}(r_o,\theta_o) b d\phi
+\end{align*}
+$$
+
+Note that with $dl=b d\phi$ the last integral above can be written as 
+
+$$
+\mathbf{F} = \int \mathbf{I}\times \mathbf{B}(r_o,\theta_o)dl
+$$
+
+Evaluating the cross product gives (see the note below for a more straightforward approach)
+
+$$
+\begin{align*}
+(-\sin\phi\thinspace\hat{\mathbf{x}}+\cos\phi\thinspace\hat{\mathbf{y}})\times \mathbf{B}(r_o,\theta_o)
+&=
+\hat{\boldsymbol{\phi}}\times \frac{\mu_o}{4\pi}\frac{m_o}{r^3}\left(2\cos\theta\hat{\mathbf{r}}+\sin\theta\hat{\boldsymbol{\theta}}\right)\\
+&=
+\frac{\mu_oI}{4\pi}\frac{m_o}{r^3}(2\cos\theta\hat{\boldsymbol{\phi}}\times\hat{\mathbf{r}}+\sin\theta\hat{\boldsymbol{\phi}}\times\hat{\boldsymbol{\theta}})\\
+&=
+\frac{\mu_oI}{4\pi}\frac{m_o}{r^3}(2\cos\theta\hat{\boldsymbol{\theta}}-\sin\theta\hat{\mathbf{r}})\end{align*}
+$$
+
+Non-cartesian vectors must be converted to cartesian prior to integration. Use the spherical-to-cartesian transformation matrix
+
+$$\begin{bmatrix}{\hat{\boldsymbol{r}}} \\ {\hat{\boldsymbol{\theta }}} \\ {\hat{\boldsymbol{\phi }}}\end{bmatrix} = \begin{bmatrix}\sin \theta\cos \phi & \sin\theta \sin\phi & \cos\theta \\ \cos\theta \cos\phi & \cos\theta \sin\phi & -\sin\theta \\ -\sin\phi & \cos\phi & 0 \end{bmatrix} \begin{bmatrix}{\hat{\mathbf{x}}} \\ {\hat{\mathbf{y}}} \\{\hat{\mathbf{z}}}\end{bmatrix}$$
+
+to write the spherical unit vectors $\hat{\boldsymbol{\theta}}$ and $\hat{\mathbf{r}}$ using cartesian unit vectors and then integrate with respect to $d\phi$. The integrals multiplied by $\xhat$ and $\yhat$ should evaluate to zero. The result is
+
+$$\mathbf{F}=-\frac{3}{2}\frac{\mu_om_oIdb^2}{(b^2+d^2)^{5/2}}\hat{\mathbf{z}}$$
+
+----
+
+_Note_
+
+One can get equivalent results by converting $\mathbf{B}$ into cartesian using the above matrix and doing the cross product with $\mathbf{J}$ written with cartesian unit vectors. The components of $B$ in cartesian coordinates, with $r=\sqrt{x^2+y^2+z^2}$, are
+
+$$B_x=\frac{\mu_oI\pi a^2}{4\pi}\frac{3xz}{(x^2+y^2+z^2)^{5/2}}=\frac{\mu_oI\pi a^2}{4\pi}\frac{3xz}{r^5}$$
+
+$$B_y=\frac{\mu_oI\pi a^2}{4\pi}\frac{3yz}{r^5}$$
+
+$$B_z=\frac{\mu_oI\pi a^2}{4\pi}\frac{3z^2-r^2}{r^5}$$
+
+----
+
+_Checking answer_
+
+The problem statement asked for it to be solved starting with a general equation. However, there is an easier way to get the solution.
+
+Compute the horizontal, $B_s$, and vertical, $B_z$, magnetic field at all points on the loop. (Equations for both are given above.) Then compute the horizontal and vertical forces created by these two fields individually. 
+
+That is, use $\mathbf{I}\times\mathbf{B}=\mathbf{I}\times (B_s\hat{\mathbf{s}} + B_z\zhat)=(\mathbf{I}\times B_s \hat{\mathbf{s}}) + (\mathbf{I}\times B_z\zhat)$ with $\mathbf{I}=-I\hat{\boldsymbol{\phi}}$ and take the cross products of the cylindrical unit vectors.
+
+From $\mathbf{I}\times B_z\zhat$, $B_z$ results in a horizontal force of $-IdlB_z(r_o,\theta_o)\hat{\mathbf{s}}$ on each $dl$.  This horizontal force averages to zero because the total vertical force is obtained by using $dl=bd\phi$ and integrating over $\phi$ from $0$ to $2\pi$ and the integral of $\hat{\mathbf{s}}$ is zero. This should be clear from a diagram that this force tends to compress the ring as its direction is towards the center of the ring all $dl$.
+
+From $\mathbf{I}\times B_s\zhat$, $B_s$ results in a vertical force of $-IdlB_s\hat{\mathbf{z}}$ on each $dl$.
+
+
+$$\int_0^{2\pi}-IB_sbd\phi\hat{\mathbf{z}}$$
+
+The magnitude of horizontal field is $B_s=\sqrt{B_x^2+B_y^2}$ and $B_x$ and $B_y$ given earlier. Neither depend on $\phi$. We have
+
+$$B_s(x,y)=\sqrt{B_x^2+B_y^2}=\frac{\mu_o}{4\pi}\frac{3m_oz}{r^5}\sqrt{x^2+y^2}$$
+
+On the loop, $z=d$, $x^2+y^2=b^2$, and $r^2=b^2+d^2$. Putting this all together gives a net force of
+
+$$\mathbf{F}=-\frac{3}{2}\frac{\mu_om_oIdb^2}{(b^2+d^2)^{5/2}}\hat{\mathbf{z}}$$
+
+----
+
+2\.
+
+$$\mathbf{m}=Ib^2\hat{\mathbf{z}}$$
+
+$$\mathbf{m}\cdot\mathbf{B}=Ib^2B_z$$
+
+From above,
+
+$$B_z=\frac{\mu_oI\pi a^2}{4\pi}\frac{3z^2-r^2}{r^5}$$
+
+The formula 
+
+$$\mathbf{F}=\boldsymbol{\nabla}(\mathbf{m}\cdot\mathbf{B})$$
+
+was derived by expanding $\mathbf{B}$ about around a point near a current loop and under the assumption that the change in $\mathbf{B}$ was small over the area of the loop and so the result must be evaluated at a point near the current loop, for which I use $(x,y,z)=(0,0,d)$. Jackson states that $\mathbf{B}$ is expanded about a "suitable origin" but does not elaborate on what constitutes suitableness. By default, it makes the most sense to expand about the center of the current distribution, but if the field changes more rapidly on one part of the current distribution, one may get a more accurate answer if the expansion is performed where the field changes the most. (However, if the answer strongly depends on the origin, probably this approximate formula should not be used.)
+
+Using $\mathbf{m}=I\mathbf{a}=-I\pi b^2\zhat$,
+
+$$\boldsymbol{\nabla}(\mathbf{m}\cdot\mathbf{B})=\boldsymbol{\nabla}\left[(-I\pi b^2\zhat)\bfcdot \mathbf{B}\right]=-I\pi b^2\boldsymbol{\nabla}B_z=-I\pi b^2\zhat\frac{\partial B_z}{\partial z}$$
+
+It is import to not plug in values for $r$ and $z$ prior to computing the derivative (if constants are used for both, one gets a force of zero). The formula for $\mathbf{F}$ given above was derived under the assumption that the result of the gradient is evaluated at the point as opposed to the argument of the gradient being evaluated at a point. That is, one needs to substitute values for the variables after the derivatives are computed. (Think of finding the slope of $y=x^2$ at $x=2$. You don't first set $x=2$, giving $y=4$ and $dy/dx = 0$).
+
+
+After computing the derivative using
+
+$$B_z(x,y,z)=\frac{\mu_oI\pi a^2}{4\pi}\frac{3z^2-r^2}{r^5}$$
+
+with $r=\sqrt{x^2+y^2+z^2}$ and setting $(x,y,z)=(0,0,d)$ the result is
+
+$$\mathbf{F}=-\frac{3}{2}\frac{\mu_om_oIb^2}{d^4}\hat{\mathbf{z}}$$
+
+If interested, try evaluating the gradient of $B_z$ about a different location, say $0,b,z_o$ -- you should get the same result to first order in a $b/d$  expansion. However, there will be a net force in the $y$-direction, which does not match the exact result. Therefore this choice of origin seems not "suitable". But to know it was not suitable, we had to know the exact result! As a result, I would argue that the approximate formula for an arbitrary current distribution is mostly useful for interpretation rather than calculation;  $\mathbf{F}=\boldsymbol{\nabla}(\mathbf{m}\cdot\mathbf{B})$ means a gradient in its argument will result in a force.
+
+The most common error students made was setting $r=\sqrt{b^2+d^2}$ in
+
+$$B_z(x,y,z)=\frac{\mu_oI\pi a^2}{4\pi}\frac{3z^2-r^2}{r^5}$$
+
+instead of using $r = \sqrt{x^2+y^2+z^2}$.
+
+An alternative approach is to use the fact that the force of the dipole at the origin on the ring will be equal and opposite to the force of the ring on the dipole at the origin. Using the dipole moment of $m_o\zhat$ for the dipole at the origin and the $\mathbf{B}$ due to the ring at the origin will give a force that matches the answer to part 1. The reason we get two different answers is the equation for $\mathbf{F}$ was derived under the assumption that $\mathbf{B}$ is nearly constant in the region of the current distribution. The field due to the dipole at the origin is not constant in the region of the ring. However, the field due to the ring is constant over the current distribution of the dipole at the origin because the dipole at the origin is infinitesimal (a "perfect" magnetic dipole). (We are not told that the dipole at the origin is a perfect dipole, but it must be because the equation for its field is the same as that for a perfect dipole.)
+
+3.
+
+The result from 1. was
+
+$$\mathbf{F}=-\frac{3}{2}\frac{\mu_om_oIdb^2}{(b^2+d^2)^{5/2}}\hat{\mathbf{z}}$$
+
+or, after factoring out a $d^5$ in the denominator,
+
+$$\mathbf{F}=-\frac{3}{2}\frac{\mu_om_oIb^2}{d^4\left(1+\left(\frac{b}{d}\right)^2\right)^{5/2}}\hat{\mathbf{z}}\simeq -\frac{3}{2}\frac{\mu_om_oIb^2}{d^4}\hat{\mathbf{z}}\left(1-\frac{5}{2}\frac{b^2}{d^2}\right)$$
+
+which matches the result from 3. in the limit that $b/d\rightarrow 0$, as expected because the relevant length scales that determine how much $\mathbf{B}$ changes over the loop are the distance of the loop from the dipole to the length scale of the loop.
+
 
 ## Surface Current on Cylinder 
 
@@ -2819,7 +3011,7 @@ A hollow and open-ended cylinder of height $2h$ and radius $b$ is centered on th
 
 <img src="figures/cylinder_surface_current.svg"/>
 
-1\. Find $\mathbf{B}(z)$ using the Biot--Savart formula
+1\. Find $\mathbf{B}(z)$ using the Biot--Savart formula.
 
 2\. Use the formula
 
@@ -2827,15 +3019,231 @@ $$\frac{1}{\sqrt{1-2ut+t^2}}=\sum_{l=0}^{\infty}P_l(u)t^l$$
 
 to express $B_z(z)$ as a power series involving the Legendre polynomials, $P_l$, and $z^l$.
 
+**Solution**
+
+1\.
+
+$$\mathbf{B}(\mathbf{x})=\frac{\mu_o}{4\pi}\int\frac{\mathbf{K}\times (\mathbf{x}-\mathbf{x'})}{|\mathbf{x}-\mathbf{x'}|^3}da'$$
+
+Using
+
+$\mathbf{x}'=b\hat{\mathbf{s}'} + z'\zhat = b\cos\phi'\xhat + b\sin\phi'\yhat+z'\zhat$,
+
+$\mathbf{x}=z\zhat$, and
+
+$\mathbf{K}=K_o\hat{\boldsymbol{\phi'}}=K_o(-\sin\phi'\xhat+\cos\phi'\yhat)$
+
+The numerator of the integrand is
+
+$$\mathbf{K}\times (\mathbf{x}-\mathbf{x'})=K_o\hat{\boldsymbol{\phi'}}\times(b\hat{\mathbf{s}'} + z'\zhat)=K_ob\zhat+K_oz'\hat{\mathbf{s}'}$$
+
+and the denominator is
+
+$$|\mathbf{x}-\mathbf{x'}|^3=\left(b^2+(z-z')^2\right)^{3/2}$$
+
+$$\mathbf{B}(z)=\frac{\mu_o K_o b}{4\pi}\int_0^{2\pi}\int_{-h}^{h}\frac{1}{\left(b^2+(z-z')^2\right)^{3/2}} bd\phi' dz'(K_ob\zhat+K_oz'\hat{\mathbf{s}'})$$
+
+The integral of $\hat{\mathbf{s}'}$ over $\phi'=0$ to $2\pi$ will be zero and this is expected based on cancellation symmetry (for each $dI_1$ on the surface, there is another $dI_2$ whos horizontal field cancels that from $dI_1$). This leaves
+
+$$B_z(z)=\frac{\mu_o K_o b }{4\pi}2\pi b\int_{-h}^{h}\frac{1}{\left(b^2+(z-z')^2\right)^{3/2}}  dz'$$
+
+Alterntatively, one may arrive at this by starting with the equation for the field due to a loop in the $x$--$y$ plane and centered on the origin, which is 
+
+$$B_z(z)=\frac{\mu_o}{4\pi}\frac{2\pi b^2 I}{(b^2 + z^2)^{3/2}}$$
+
+To find the field due to a cylinder, let $z\rightarrow z-z'$ and $I\rightarrow dI=K_odz'$ and integrate:
+
+$$B_z(z)=\frac{\mu_o}{4\pi}\int_{-h}^{h} \frac{2\pi b^2 K_odz'}{(b^2+(z-z')^2)^{3/2}}$$
+
+Integration gives
+
+$$B_z(z) = \frac{\mu_oK_o}{2}\left[\frac{z+h}{\sqrt{b^2+(z+h)^2}}-\frac{z-h}{\sqrt{b^2+(z-h)^2}}\right]$$
+
+
+_Checks_:
+
+1. For $z=0$ and $h\ll b$, the equivalent system is a loop of current in the $x$--$y$ plane with a total current of $I=K_o 2h$. This matches the answer of the simple problem of finding the magnetic field at the center of a current loop carrying a current $I$. Alternatively, it is the result one finds using $z=0$ and $h\ll b$ in the starting equation of
+
+    $$B_z(z) = \frac{\mu_oK_o}{2}\left[\frac{z+h}{\sqrt{b^2+(z+h)^2}}-\frac{z-h}{\sqrt{b^2+(z-h)^2}}\right]$$
+
+2. For $h\gg b$, the system approaches an infinite solenoid, and the solution should be independent of $z$ near the center. Setting $b=0$ and $z=0$ in the above equation gives 
+ 
+    $$B_z(z) = \frac{\mu_oK_o}{2}\left[\frac{h}{|h|}-\frac{-h}{|-h|}\right]=\mu_oK_o$$
+
+    which is the field inside an ideal solenoid.
+    
+    More formally, one could use the conditions $b/h\ll 1$ and $z/h \ll 1$ and the binomial expansion of the exact formula for $B_z(z)$). See the next part of the problem.
+
+2\. We need to expand
+
+$$B_z(z) = \frac{\mu_oK_o}{2}\left[\frac{z+h}{\sqrt{b^2+(z+h)^2}}-\frac{z-h}{\sqrt{b^2+(z-h)^2}}\right]$$
+
+Let $B_z(z)=B_z^+-B_z^-$. Expanding the square in the denominator of $B_z^+$ gives
+ 
+$$B_z^+(z) = \frac{\mu_oK_o}{2}\left[\frac{z+h}{\sqrt{b^2+h^2+2zh+z^2}}\right]$$
+
+Factoring out $b^2+h^2$ in the denominator gives
+
+$$B_z^+(z) = \frac{\mu_oK_o}{2\sqrt{b^2+h^2}}\left[\frac{z+h}{\sqrt{1+2zh/(b^2+h^2)+z^2/(b^2+h^2)}}\right]$$
+
+Defining $t=z/\sqrt{b^2+h^2}$ gives
+
+$$B_z^+(z) = \frac{\mu_oK_o}{2\sqrt{b^2+h^2}}(z+h)\left[\frac{1}{\sqrt{1+2ht/\sqrt{b^2+h^2}+t^2}}\right]$$
+
+Defining $u=-h/\sqrt{b^2+h^2}$ (note that $u$ is related to the angle $\alpha$ from the $z$--axis to the rim of the cylinder: $\cos\alpha = -u = h/\sqrt{b^2+h^2}$), we have
+
+$$B_z^+(z) = \frac{\mu_oK_o}{2\sqrt{b^2+h^2}}(z+h)\left[\frac{1}{\sqrt{1-2ut+t^2}}\right]$$
+
+Using the given formula,
+
+$$B_z^+(z) = \frac{\mu_oK_o}{2\sqrt{b^2+h^2}}(z+h)\sum_{l=0}^{\infty}P_l(u)t^l$$
+
+or, using $z=t\sqrt{b^2+h^2}$,
+
+$$B_z^+(z) = \frac{\mu_oK_o}{2\sqrt{b^2+h^2}}(t\sqrt{b^2+h^2}+h)\sum_{l=0}^{\infty}P_l(u)t^l$$
+
+which simplifies to
+
+$$B_z^+(z) = \frac{\mu_oK_o}{2}(t-u)\sum_{l=0}^{\infty}P_l(u)t^l$$
+
+$B_z^-(z)$ is obtained by replacing $u$ with $-u$ in the expression for $B_z^+(z)$. Then 
+
+$$B_z(z)=B_z^+(z)-B_z^-(z) = \frac{\mu_oK_o}{2}\left[(t-u)\sum_{l=0}^{\infty}P_l(u)t^l-(t+u)\sum_{l=0}^{\infty}P_l(-u)t^l\right]$$
+
+or
+
+$$\frac{B_z(z)}{\mu_oK_o}= \frac{1}{2}\left[(t-u)\sum_{l=0}^{\infty}P_l(u)t^l-(t+u)\sum_{l=0}^{\infty}P_l(-u)t^l\right]$$
+
+To simplify, use $P_l(-u)=P_l(u)$ for $l=0, 2, ...$ and $P_l(-u)=-P_l(u)$ for $l=1,3,...$. Then
+
+$$\frac{B_z(z)}{\mu_oK_o}= -u\sum_{l=0,2,...}^{\infty}P_l(u)t^l+\sum_{l=1,3,...}^{\infty}P_l(u)t^{l+1}$$
+
+Shift the index on second sum so $t^l$ appears in both sums:
+
+$$\frac{B_z(z)}{\mu_oK_o}= -u\sum_{l=0,2,...}^{\infty}P_l(u)t^l+\sum_{l=2,4,...}^{\infty}P_{l-1}(u)t^{l}$$
+
+Remove $l=0$ from first sum so both sums are over the same $l$--values:
+
+$$\frac{B_z(z)}{\mu_oK_o}=-u- \sum_{l=2,4,..}^{\infty}uP_l(u)t^l+\sum_{l=2,4,...}^{\infty}P_{l-1}(u)t^{l}$$
+
+Combine sums:
+
+$$\frac{B_z(z)}{\mu_oK_o}=-u+ \sum_{l=2,4,..}^{\infty}\big(P_{l-1}(u)-uP_l(u)\big)t^{l}$$
+
+Using $\cos\alpha = -u$ gives
+
+$$\frac{B_z(z)}{\mu_oK_o}=\cos\alpha+ \sum_{l=2,4,..}^{\infty}\big(P_{l-1}(-\cos\alpha)+\cos\alpha P_l(-\cos\alpha)\big)t^{l}$$
+
+Using $P_l(-u)=P_l(u)$ for $l=0, 2, ...$ and $P_l(-u)=-P_l(u)$ for $l=1,3,...$ gives
+
+$$\boxed{\frac{B_z(z)}{\mu_oK_o}=\cos\alpha+ \sum_{l=2,4,..}^{\infty}\big(\cos\alpha P_l(\cos\alpha)-P_{l-1}(\cos\alpha)\big)t^{l}}$$
+
+where $t=z/\sqrt{b^2+h^2}$. The answer only contains terms proportional to $z^2$, $z^4$, ....
+
+%Replace $l$ with $2l+2$ so the sum over $l=0,1,...$:
+
+%$$\frac{B_z(z)}{\mu_oK_o}=-u+ \sum_{l=0}^{\infty}\big(P_{2l+1}(u)-uP_{2l+2}(u)\big)t^{2l+2}$$
+
+%Rewrite using $t=z/\sqrt{b^2+h^2}$ and $u=-h/\sqrt{b^2+h^2}$ and use $\cos\alpha=-u$:
+
+%$$\frac{B_z(z)}{\mu_oK_o}=\cos\alpha + \sum_{l=0}^{\infty}\big(P_{2l+1}(-\cos\alpha)+\cos\alpha P_{2l+2}(-\cos\alpha)\big)t^{2l+2}$$
+
+%Use $P_l(-u)=P_l(u)$ for $l=0, 2, ...$ and $P_l(-u)=-P_l(u)$:
+
+%$$\boxed{\frac{B_z(z)}{\mu_oK_o}=\cos\alpha + \sum_{l=0}^{\infty}\Big(\cos\alpha P_{2l+2}(\cos\alpha)-P_{2l+1}(\cos\alpha)\Big)\left(\frac{z}{\sqrt{b^2+h^2}}\right)^{2l+2}}$$
+
+With this magnetic field, one can obtain the solution for the magnetic field inside of cylinder.
+
+Inside of the cylinder, $\nabla^2\Phi_m=0$ is satisfied, where $\mathbf{B}=-\boldsymbol{\nabla}\Phi_m$. The problem has azimuthal symmetry and so $\Phi_m$ must be expressible in form
+
+$$\Phi_m(r,\theta)=\sum_{l=0}^{\infty}\left(A_lr^l + B_lr^{-l-1}\right)P_l(\cos\theta)$$
+
+Using $\Phi_m(z)=\sum_{l=0}^{\infty}z^lA_l$ and
+
+$$B_z(z)=-\frac{\partial \Phi_m(z)}{\partial z} = -\sum_{l=0}^{\infty}lz^{l-1}A_l=-A_1-2A_2z-3A_3z^2+...$$
+
+%$$\frac{B_z(z)}{\mu_oK_o}=\cos\alpha + \sum_{l=0}^{\infty}\Big(\cos\alpha P_{2l+2}(\cos\alpha)-P_{2l+1}(\cos\alpha)\Big)\left(\frac{z}{\sqrt{b^2+h^2}}\right)^{2l+2}$$
+
+The first four $A$ coefficients are
+
+$$A_1=-\mu_oK_o\cos\alpha$$
+
+$A_2=0$
+
+$$A_3=-\frac{\mu_oK_o}{3}\frac{\cos\alpha P_2(\cos\alpha)-P_1(\cos\alpha)}{b^2+h^2}$$
+
+$$A_4=0$$
+
+Or, in general
+
+$A_1=-\mu_oK_o\cos\alpha$
+
+and for $l=3,5,...$,
+
+$$A_l=-\frac{\mu_oK_o}{l}\frac{\cos\alpha P_{l-1}(\cos\alpha)-P_{l-2}(\cos\alpha)}{(b^2+h^2)^{(l-1)/2}}$$
+
+One can then use
+
+$$\mathbf{B}(r,\theta) = -\mathbf{\nabla}\Phi_m(r,\theta)=-\mathbf{\nabla}\sum_{l=0}^{\infty}A_lr^lP_l(\cos\theta)$$
+
+to arrive at an expression for $\mathbf{B}$ inside the cylinder. Technically the solution is valid for $r\lt b$ (required for Laplace's equation to be true), and $r\lt \sqrt{b^2+h^2}$ (required for the power series expansion). So the solution is valid inside the cylinder and inside a dome on both ends of the cylinder.
+
+$$
+\mathbf{B}(r,\theta) = 
+-\mathbf{\nabla} \Phi_m(r,\theta) = 
+-
+{\partial \Phi_m \over \partial r}\hat{\mathbf r}
+-
+{1 \over r}{\partial \Phi_m \over \partial \theta}\hat{\boldsymbol \theta}=
+-B_r\hat{\mathbf r}-B_\theta\hat{\boldsymbol \theta}
+$$
+
+$$\Phi_m(r,\theta)=\sum_{l=0}^{\infty}r^lA_lP_l(\cos\theta)=A_0+rA_1P_1(\cos\theta)+r^2A_2P_2(\cos\theta)+...$$
+
+$$B_r=-{\partial \Phi_m \over \partial r}\hat{\boldsymbol \theta}=-A_1P_1(\cos\theta)-2rA_2P_2(\cos\theta)+...$$
+
+$$B_\theta=-{1 \over r}{\partial \Phi_m \over \partial \theta}\hat{\boldsymbol \theta}=-\frac{1}{r}\left(rA_1\frac{d P_1(\cos\theta)}{d\theta}+r^2A_2\frac{d P_2(\cos\theta)}{d\theta}+...\right)$$
+
+%$$A_1=-\cos\alpha$$
+
+%$$A_2=0$$
+
+%$$A_3=\frac{P_1(d)/d-P_2(d)}{3}$$
+
+%$$A_4=0$$
+
+%$$A_5=\frac{P_3(d)/d-P_4(d)}{5}$$
+
+%$$...$$
+
+%or
+
+%$$P_l=\frac{P_{l-2}(d)/d-P_{l-1}(d)}{l}\quad l=3,5,...$$
+
+%$$P_l=0\quad l=2,4,...$$
+
+%Similar to electrostatic problems, the constant $A_o$ is arbitrary and cannot be fixed unless one is given $\Phi_m$ at a location in space.
+
+
+_Alternative Method 2._
+
+See http://dx.doi.org/10.1119/1.4906516, which uses a method that is similar to Method 1., but a general relationship was not derived.
+
+_Alternative Method 3._
+
+Use $J_{\phi}=I\sin(\theta'-\theta_o)\delta(r'-r_o)/r_o$ with $r_o=\sqrt{z^2+b^2}$ and $\tan\theta_o=b/z$ and follow the steps needed to arrive at Equation 5.44 of Jackson, which is the vector potential due to a ring in the $x-y$ plane and centered on the $z$-axis.  The equation will be valid for a ring that is shifted by a distance $z$. Set $I=K_odz$ and integrate from $z=-L$ to $z=L$. One will need to use equation 5.47 and integration by parts.
+
 ## Reading
 
-Read 5.6--5.12 of Jackson and Chapter 6 of Griffiths and be prepared to ask question during class. (Questions on Discord are also welcome).
+Read 5.6--5.12 of Jackson and Chapter 6 of Griffiths, and be prepared to ask questions during class. (Questions on Discord are also welcome).
+
+\newpage
 
 # HW 10
 
 ## Amperes' Law 
 
-A long cylindrical shell carries a unfirom current on its surface of density $K_o$ as shown.
+A long cylinder carries a current on its surface of density $K_o$ as shown.
 
 <img src="figures/long_cylinder.svg"/>
 
@@ -2845,37 +3253,220 @@ $$\mathbf{B}=B_s(s,\phi,z)\hat{\mathbf{s}}+B_{\phi}(s,\phi,z)\hat{\boldsymbol{\p
 
 Amperes' law can be used to easily compute $B_\phi(s)$ (for all $s$!). The more difficult part is justifying
 
-* $B_s(s,\phi,z)=0$
-* $B_z(s,\phi,z)=0$
-* $B_{\phi}$ does not depend on $\phi$ and $z$
+1. $B_s(s,\phi,z)=0$
+1. $B_z(s,\phi,z)=0$
+1. $B_{\phi}$ does not depend on $\phi$ and $z$
 
-1. Provide justifications.
+Provide justifications for 1.--3.
 
-2.  It is generally easy to use Ampere's law to to find _one component_ of the magnetic field for cases when Ampere's law applies. The explanation for why Ampere's law applies and what symmetry arguments are needed to show that the the other components of the field are zero are often not understood. This leads to attempts to use Ampere's law when it does not apply and only a vague understanding of the derivation of the magnetic boundary conditions.
+4. It is generally easy to use Ampere's law to to find _one component_ of the magnetic field for cases when Ampere's law applies. The explanation for why Ampere's law applies and what symmetry arguments are needed to show that the the other components of the field are zero are often not appreciated or understood. The problem with this is that it leads to attempts to use Ampere's law when it does not apply and only a vague understanding of the derivation of the magnetic boundary conditions.
 
-    Find two textbooks that describe the use of Ampere's law (on any problem, but the problems described must be identical). Compare their justifications and give your opinion on whether the symmetry arguments we addressed sufficiently. It will be best of everyone does not choose the two obvious textbooks of Jackson and Griffiths.
+   Find two textbooks that describe the use of Ampere's law (on any problem, but the problems described must be identical). Compare their justifications and give your opinion on whether the symmetry arguments we addressed sufficiently. It will be best of everyone does not choose the two obvious textbooks of Jackson and Griffiths.
+
+**Solution**
+
+Recall that Amperes' law generally only gives information about one component of the field (when there is enough symmetry to do so). Arguments are needed to determine all components of the field and why Amperes' law can be used to find one component of the field.
+
+We can answer this question after providing justifications for the following statements.
+
+1. The field due to infinitely long wire along the $z$-axis is in the $\hat{\boldsymbol{\phi}}$ direction.
+1. The field due to wires placed uniformly along the surface of a cylinder to form a surface current $K_o$ is in the $\hat{\boldsymbol{\phi}}$ direction.
+
+To show 1., consider a differential element of wire on the $z$-axis at an arbitrary position $z'$.
+
+$$\mathbf{B}_{dI}=\frac{\mu_o I}{4\pi}\frac{d\mathbf{l}\times\hat{\textbf{\char"0509}}}{\char"0509^2}$$
+
+where
+
+$$\mathbf{\char"0509}=s\hat{\mathbf{s}}-z'\hat{\mathbf{z}}$$
+
+and
+
+$$d\mathbf{l}=dz'\thinspace\hat{\mathbf{z}}$$
+
+The cross product $d\mathbf{l}\times\hat{\textbf{\char"0509}}$ is in the direction $\hat{\mathbf{z}}\times\hat{\mathbf{s}}=\hat{\boldsymbol{\phi}}$. So all differential elements of current on the wire create a $\mathbf{B}$ in the $\hat{\boldsymbol{\phi}}$ direction.
+
+Therefore, the magnetic field due to an infinitely long current--carrying wire is always tangent to a circle centered on the wire and in a plane perpendicular to the wire.
+
+To show 2., consider the magnetic field at a point of interest in the $x$-$y$ plane on the $s$ axis created by the wires placed along the cylindrical surface at equal distances above and below the $s$ axis as shown in the diagram. The current at $U$ and $L$ flows out of the page. Each wire creates a field that is tangent to a circle centered on the wire and with a direction determined by the right-hand rule. The field for the upper and lower wires is not each in the $\hat{\boldsymbol{\phi}}$ in this coordinate system. The $\hat{\mathbf{s}}$ components of the fields cancel, leaving only a component in the $\hat{\boldsymbol{\phi}}$ direction. So every wire on the top half of the circle shown has a wire on the bottom half with a canceling $\hat{\mathbf{s}}$-component and so the field must be in the $\hat{\boldsymbol{\phi}}$ direction.
+
+<img src="figures/ampere_long_cylinder.svg"/>
+
+This explains why $B_s=B_z=0$. $B_{\phi}$ does not depend on $\phi$ because the diagram is the same for any $\phi$ (the $x$-axis could be drawn in any direction on this diagram, and the angle $\phi$ is the angle between the $x$-axis and the $\mathbf{s}$ axis). $B_{\phi}$ does not depend on $z$ because the diagram is not changed if the plane shown in the figure was shifted in the $z$ direction.
 
 ## Long Cylindrical Shell Containing Magnetizable Material
 
 A long thick cylindrical shell with inner radius $R_i$ and outer radius $R_o$ has a magnetic susceptibility of $\chi_m$ and is initially unmagnetized. The cylinder is centered on the origin and aligned with the $z$--axis.
 
-There is a long wire that carries current $I_o$ that runs along the $z$--axis in the $+z$ direction.
-
 <img src="figures/long_magnetic_cylinder.svg"/>
+
+There is a long wire that carries current $I_o$ that runs along the $z$--axis.
 
 The total field is given by $\mathbf{B}=\mathbf{B}\_{ext} + \mathbf{B}_{b}$, where $\mathbf{B}_b$ is the field due to $\mathbf{K}_b$ and $\mathbf{J}_b$ that are induced by the external magnetic field due to the current--carrying wire. 
 
 1. Use an analog of Approach 1. in [HW 7.3.1](#7.3.1) to show that $\mathbf{B}=(1+\chi_m)\mathbf{B}\_{ext}$ inside the cylinder. That is, start with $\oint \mathbf{H}\bfcdot d\mathbf{l}=I_{f\thickspace encl}$.
 2. Use an analog of Approach 3. in [HW 7.3.1](#7.3.1) to show that $\mathbf{B}=(1+\chi_m)\mathbf{B}\_{ext}$ inside the cylinder. That is, use $\mathbf{M}=(\chi_m/(1+\chi_m))\mathbf{B}/\mu_o$, the equations for $\mathbf{K}\_b$, $\mathbf{J}\_b$, and $\oint\mathbf{B}\bfcdot d\mathbf{l}=\mu_oI_{encl}$.
 
+**Solution**
+
+1\. Use an Amperian loop that is a circle in the $x$--$y$ plane centered on the origin, for which $d\mathbf{l}=sd\phi\hat{\boldsymbol{\phi}}$. Then $\mathbf{H}\bfcdot d\mathbf{l}=H_\phi s d\phi$. Given the system has azimuthal symmetry, $H_\phi$ cannot depend on $\phi$. As a result, $H_\phi$ is a constant with respect to integration and the line integral simplifies:
+
+$$\oint \mathbf{H}\bfcdot d\mathbf{l}=\oint H_\phi s d\phi=H_\phi s\oint d\phi=2\pi s H_\phi$$
+
+In the following, it is assumed that $B_s$ and $B_z$ are zero so that $H_s$ and $H_z$ are zero. The justification for this is given at the end of this solution. Due to the relationship between $\mathbf{M}$ and $\mathbf{B}$ given in the problem statement, the induced magnetization $\mathbf{M}$ has $M_s=0$ and $M_z=0$ 
+
+The free current flowing through the Amperian loop is $I_o$. The sign convention for the line integral is such that $I_{free}=+I_o$ (positive $I_{free}$ corresponds to current flowing through the loop in the direction of thumb when wrapping fingers around loop in the direction of $d\mathbf{l}$).
+
+Thus, from $\mathbf{H}\bfcdot d\mathbf{l}=I_{\text{f encl}}$ we have
+
+$$H_\phi=\frac{I_o}{2\pi s}$$
+
+This equation applies to all $s > 0$. To find $B_\phi$, we use $\mathbf{H}=\mathbf{B}/\mu=\mathbf{B}/[\mu_o(1+\chi_m)]$ and the field due to the current--carrying wire is $B_{\phi\text{ ext}}=\mu_oI_o/2\pi s$, giving
+
+$$
+B_\phi=\begin{cases}
+\displaystyle\frac{\mu_o I_o}{2\pi s}=B_{\phi\text{ ext}}
+& s\lt R_i
+\\\\
+\displaystyle\frac{\mu_o (1+\chi_m)I_o}{2\pi s} = (1+\chi_m)B_{\phi\text{ ext}}
+& R_i\lt s\lt R_o
+\\\\
+\displaystyle\frac{\mu_o I_o}{2\pi s} = B_{\phi\text{ ext}}
+& s\lt R_i
+\end{cases}
+$$
+
+The field differs from $\mathbf{B}\_\text{ext}$ only inside the material. This is remnicent of problems where $\oint \mathbf{D}\bfcdot d\mathbf{a}=q\_{\text{free encl}}$ was used to find the electric field inside of polarizable material. We can verify this by computing the bound current densities. There will be a bound surface current on the inner and outer surfaces and a volume current density inside the material. These azimuthally symmetric currents do not produce a magnetic field for $s\lt R_i$. For $s\gt R_o$, Ampere's law
+
+$$\oint \mathbf{B}\bfcdot d\mathbf{l}=\mu_o(I_{\text{free}} + I_{\text{b}})$$
+
+can be used. The bound current has contributions from the two surface currents and the volume currents, and their sum is zero.
+
+2\. Let $\chi=\chi_m/[(1+\chi_m)\mu_o]$ and assume $\mathbf{M}=M_\phi(s)\hat{\boldsymbol\phi}$ (justification is given at the end of this solution).
+
+We were given $\mathbf{M}=\chi\mathbf{B}$ and can argue that $\mathbf{M}=M_\phi(s)\hat{\mathbf{s}}$ thus, 
+
+$\mathbf{K}_{b\text{ inner}}=\mathbf{M}(R_i)\times\hat{\mathbf{n}}=M_\phi(R_i)\hat{\boldsymbol{\phi}}\times(-\hat{\mathbf{s}})=+M_\phi(R_i)\zhat$
+
+$\mathbf{K}_{b\text{ outer}}=\mathbf{M}(R_o)\times\hat{\mathbf{n}}=M_\phi(R_o)\hat{\boldsymbol{\phi}}\times(+\hat{\mathbf{s}})=-M_\phi(R_o)\zhat$
+
+
+Using $B_\phi = \chi M_\phi$ gives
+
+$\mathbf{K}_{b\text{ inner}}=+\chi B_\phi(R_i)\zhat$
+
+$\mathbf{K}_{b\text{ outer}}=-\chi B_\phi(R_o)\zhat$
+
+$\displaystyle\mathbf{J}_b=\boldsymbol{\nabla}\times\mathbf{M}$
+
+If $\mathbf{M}=M_\phi(s)\hat{\boldsymbol\phi}$, then $\displaystyle\boldsymbol{\nabla}\times\mathbf{M}=\frac{1}{s}\frac{\partial}{\partial s}(sM_\phi(s))\zhat$
+
+Using $B_\phi = \chi M_\phi$ gives
+
+$\displaystyle\mathbf{J}_b=\frac{\chi}{s}\frac{\partial}{\partial s}(sB_\phi(s))\zhat$
+
+% Note that a symmetry argument is need to conclude non--phi components of B are zero.
+
+
+The total field is the sum of the external field and the field created by the bound currents:
+
+$B\_\phi(s)=B_{\phi\text{ }ext} + B_{\phi b}$
+
+Ampere's law for the bound currents gives
+
+$2\pi s B_{\phi b} = \mu_oI_{b\text{ }encl}$
+
+This equation is used in the three regions as follows.
+
+----
+
+$s\lt R_i$
+
+$I_{b\text{ }encl}=0$, so
+
+$2\pi s B_{\phi b} = \mu_oI_{b\text{ }encl}$
+
+gives
+
+$B_{\phi b}=0$, so $B_\phi=B_{\phi\text{ ext}}$
+
+----
+
+$R_i\lt s\lt R_o$
+
+$I_{b\text{ }encl}$ is due to $\mathbf{K}_{b\text{ inner}}$ and $\mathbf{J}_b$ 
+
+$\displaystyle I_{b\text{ }encl}=2\pi R_iK_{b\text{ inner}} + \int_0^{2\pi}\int_{R_i}^s\frac{\chi}{s'}\frac{\partial}{\partial s'}(s'B_\phi(s'))s'ds'$
+
+$\displaystyle I_{b\text{ }encl}=2\pi \chi R_iB_\phi(R_i)+2\pi\chi\big[sB_\phi(s)-R_iB_\phi(R_i)\big]$
+
+The first and last terms cancel, leaving
+
+$\displaystyle I_{b\text{ }encl}=2\pi\chi sB_\phi(s)$
+
+Substitution of this into $2\pi s B_{\phi b} = \mu_oI_{b\text{ }encl}$ from Ampere's law gives
+
+$B_{\phi b}(s)=\chi B_{\phi}(s)$
+
+Substituion into $B\_\phi(s)=B_{\phi\text{ }ext} + B_{\phi b}$ gives
+
+$B\_\phi(s)=B_{\phi\text{ }ext} + \chi B_{\phi}$
+
+and finally
+
+$B_\phi(s)=(1+\chi_m)B_{\phi\text{ }ext}$.
+
+In the above, the bound current due to $\mathbf{J}_b$ was computed using a surface integral. One can 
+
+----
+
+$s\gt R_i$
+
+$I_{b\text{ }encl}$ is the bound current on both surfaces plus the bound current flowing through the volume of the material. It is zero, which follows from
+
+$\displaystyle I_{b\text{ }encl}=2\pi R_iK_{b\text{ inner}} +2\pi R_oK_{b\text{ outer}} + \int_0^{2\pi}\int_{R_i}^{R_o}\frac{\chi}{s'}\frac{\partial}{\partial s'}(s'B_\phi(s'))s'ds'=0$
+
+Note that $\mathbf{J}_b$ is zero explicitly because we have found $B_\phi$ is proportional to $1/s$.
+
+$I_{b\text{ }encl}=0$, so $2\pi s B_{\phi b} = \mu_oI_{b\text{ }encl}$ from Ampere's law gives $B_{\phi b}=0$ and substituion into $B\_\phi(s)=B_{\phi\text{ }ext} + B_{\phi b}$ gives $B\_\phi(s)=B_{\phi\text{ }ext}$
+
+----
+
+In 1. and 2., only $B_\phi$ was found. Ampere's law cannot be used to find $B_s$ and $B_z$.
+
+Symmetry arguments are need to claim $M_\phi=M_\phi(s)$ and $B_s$ and $B_z$ are zero.
+
+* $M_\phi$
+
+    The geometry is invariant with respect to translations in $z$ and rotations by $\phi$. As a result, $\mathbf{B}$ must be independent of $z$ and $\phi$. From $\mathbf{M}=(\chi_m/(1+\chi_m))\mathbf{B}/\mu_o$ it follows that $M_\phi$ must also be independent of $z$ and $\phi$.
+
+* $B_s$
+
+    Suppose that from your perspective $I$ is upwards and $B_s$ is outwards. If you hung upsidedown, you would claim that a downward current corresponds to an outwards $B_s$. However, accoring to the Biot--Savart law, changing the direction of $I$ inverts the direction of the field and so upsidedown you should see an inwards $B_s$. The only way for consistency between the two perspectives is if $B_s$ is zero.
+
+* $B_z$
+
+    We are given that the free current flows in the $\zhat$ and have justified $B_s=0$. 
+
+    If all of the currents (free and bound) flow in the $\zhat$ direction, then $B_z$ must be zero because of the cross product in the Biot--Savart law. If $B_z$ is zero, then $\mathbf{M}$ only has a $\hat{\boldsymbol{\phi}}$ component (because From $\mathbf{M}=(\chi_m/(1+\chi_m))\mathbf{B}/\mu_o$). From the equations for $\mathbf{K}_b$ and $\mathbf{J}_b$, it follows that the bound currents flow in the $\pm \zhat$ direction.
+
+    Suppose $B_z\ne 0$. From $\mathbf{M}(s)=(\chi_m/(1+\chi_m))\mathbf{B}(s)/\mu_o$, $M_z$ would be non--zero. This magnetization would create bound currents in the $\hat{\boldsymbol{\phi}}$ direction. For an infinitely long cylinder, these bound currents would not produce a $B_z$. From this contradiction we can conclude that $B_z$ must be zero.
+    
+    
+
+%Far from the $z$--axis, the field due to the external and bound currents must approach zero. Ampere's law and the fact that $B_z$ is independent of $z$ can be used to show that $B_z$ is independent of distance from the $z$--axis using a square loop in the $s$--$z$. Together, this implies $B_z=0$. (A similar argument was used to justify $B=0$ outside of a long solenoid in Example 5.9 of Griffiths.)
 
 ## Sphere with uniform $\mathbf{M}$ 
 
-In Example 6.1 of Griffiths, 4rd edition, direct integration is used to find $\mathbf{A}$ and $\mathbf{B}$ for a uniformly magnetized sphere: $\mathbf{M}=M_o\hat{\mathbf{z}}$. The approach is to compute $\mathbf{J}_b$ and $\mathbf{K}_b$ using $\mathbf{J}_b=\boldsymbol{\nabla}\times \mathbf{M}$ and $\mathbf{K}_b=\mathbf{M}\times\hat{\mathbf{n}}$ and
+In Example 6.1 of Griffiths, 4rd edition, direct integration is used to find $\mathbf{A}$ and $\mathbf{B}$ for a uniformly magnetized sphere: $\mathbf{M}=M_o\hat{\mathbf{z}}$. The approach is to compute $\mathbf{J}_b$ and $\mathbf{K}_b$ using
 
-$$\mathbf{A}(\mathbf{r})=\frac{\mu_o}{4\pi}\int\frac{\mathbf{K}_b}{|\mathbf{r}-\mathbf{r}'|}da'+\frac{\mu_o}{4\pi}\int\frac{\mathbf{J}_b}{|\mathbf{r}-\mathbf{r}'|}d\tau'$$
+$\mathbf{J}_b=\boldsymbol{\nabla}\times \mathbf{M}$ and $\mathbf{K}_b=\mathbf{M}\times\hat{\mathbf{n}}$
 
-to compute $\mathbf{A}(\mathbf{r})$. Then $\mathbf{B}=\boldsymbol{\nabla}\times\mathbf{A}$ is used to find $\mathbf{B}$. 
+Because $\mathbf{J}_b=0$, he starts with
+
+$$\mathbf{A}=\frac{\mu_o}{4\pi}\int\frac{\mathbf{K}_b}{|\mathbf{r}-\mathbf{r}'|}da'$$
+
+and integrates to compute $\mathbf{A}$ and then the relationship $\mathbf{B}=\boldsymbol{\nabla}\times\mathbf{A}$ is used to find $\mathbf{B}$. 
 
 Chapter 5.10 of Jackson contains a related solution.
 
@@ -2887,13 +3478,9 @@ $$\boldsymbol{\nabla}\boldsymbol{\cdot}\mathbf{B}=0\quad\text{and}\quad \boldsym
 
 where $\mathbf{J}_f$ is the free current. Using $\boldsymbol{\nabla}\boldsymbol{\cdot}\mathbf{B}=0$ and the defining relationship for $\mathbf{H}$, which is $\mathbf{B}=\mu_o(\mathbf{H}+\mathbf{M})$, we can write
 
-$$\boldsymbol{\nabla}\boldsymbol{\cdot}\mathbf{H}=-\boldsymbol{\nabla}\boldsymbol{\cdot}\mathbf{M}$$
+$$\boldsymbol{\nabla}\boldsymbol{\cdot}\mathbf{H}=-\boldsymbol{\nabla}\boldsymbol{\cdot}\mathbf{M}\quad\text{and}\quad \boldsymbol{\nabla}\times\mathbf{H}=\mathbf{J}_f$$
 
-When $\mathbf{J}_f=0$, $\boldsymbol{\nabla}\times\mathbf{H}=0$ and thus one can write $\mathbf{H}$ as the gradient of a scalar function $\psi_m$
-
-$$\mathbf{H}=-\boldsymbol{\nabla}\psi_m$$
-
-Substitution into $\boldsymbol{\nabla}\boldsymbol{\cdot}\mathbf{H}=-\boldsymbol{\nabla}\boldsymbol{\cdot}\mathbf{M}$ gives
+When $\mathbf{J}_f=0$, $\boldsymbol{\nabla}\times\mathbf{H}=0$ and thus one can write $\mathbf{H}$ as the gradient of a scalar function that will be called $\psi_m$: $\mathbf{H}=-\boldsymbol{\nabla}\psi_m$ and so
 
 $$\nabla^2\psi_m=\boldsymbol{\nabla}\boldsymbol{\cdot}\mathbf{M}$$
 
@@ -2913,11 +3500,200 @@ Using one or more of the boundary conditions
 1. $\psi_m$ is continuous
 1. $(\mathbf{B}_2-\mathbf{B_1})\boldsymbol{\cdot}\hat{\mathbf{n}}=0$
 
-find $\psi$. Also find $\mathbf{B}$ and $\mathbf{A}$.
+find $\mathbf{B}$ and then $\mathbf{A}$.
+
+**Solution**
+
+To solve this using the boundary value method, start with
+
+$$\psi(r,\theta)=\sum_{l=0}^{\infty}\left(A_lr^l + B_lr^{-l-1}\right)P_l(\cos\theta)$$
+
+BC 1. gives $B_l=0$ for the inner potential, $\psi_i$. BC 2. gives $A_l=0$ for the outer potential, $\psi_o$. The potentials thus simplify to
+
+$$\psi_i=\sum_{l=0}^{\infty}A_lr^lP_l(\cos\theta)\qquad\psi_o=\sum_{l=0}^{\infty}\frac{B_l}{r^{l+1}}P_l(\cos\theta)$$
+
+BC 3. gives
+
+$$B_l=A_la^{2l+1}$$
+
+Using $\mathbf{B}=\mu_o(\mathbf{H}+\mathbf{M})$, BC 4., $(\mathbf{B}_2-\mathbf{B_1})\boldsymbol{\cdot}\hat{\mathbf{n}}=0$, can be re-written as
+
+$\Big[\mathbf{H}_o(a,\theta)+\mathbf{M}_o(a,\theta)-\mathbf{H}_i(a,\theta)-\mathbf{M}_i(a,\theta)\Big]\boldsymbol{\cdot}\hat{\mathbf{n}}=0$
+
+Using $\mathbf{M}_o=0$, $\mathbf{M}_i=M_o\hat{\mathbf{z}}$, $\hat{\mathbf{n}}=\hat{\mathbf{r}}$, $\hat{\mathbf{r}}\bfcdot\zhat=\cos\theta$, and $\mathbf{H}=-\boldsymbol{\nabla}\psi_m$ gives
+
+$$-\frac{\partial \psi_o}{\partial r}\Biggm\lvert_{r=a}+\frac{\partial \psi_i}{\partial r}\Biggm\lvert_{r=a}-\thinspace M_o\cos\theta=0$$
+
+From this,
+
+$$A_1=M_o-\frac{2B_1}{a^3}$$
+
+and
+
+$$A_l=-aB_l\frac{l+1}{l}\quad l\ne 1$$
+
+Using $B_l=A_la^{2l+1}$ found from BC 3., the result is
+
+$$B_1=A_1a^3$$
+
+and
+
+$$B_l=A_l=0\quad l\ne 1$$
+
+Finally,
+
+$$\psi_i=\frac{M_o}{3}r\cos\theta\qquad\qquad \psi_o=\frac{M_o}{3}\frac{a^3}{r^2}\cos\theta$$
+
+which is equivalent to Eqn. 5.104 of Jackson.
+
+The gradient in spherical coordinates for a function with no $\phi$ dependence is
+
+$$\boldsymbol{\nabla}=\hat{\mathbf{r}}\frac{\partial}{\partial r}+\hat{\boldsymbol{\theta}}\frac{1}{r}\frac{\partial}{\partial r}$$
+
+and so $\mathbf{H}=-\boldsymbol{\nabla}\psi$ gives
+
+$$\mathbf{H}_i=\frac{M_o}{3}\left(-\cos\theta\hat{\mathbf{r}}+\sin\theta\hat{\boldsymbol{\theta}}\right)=-\frac{M_o}{3}\hat{\mathbf{z}}=-\frac{1}{3}\mathbf{M}$$
+
+and
+
+$$\mathbf{H}_o=\frac{M_o}{3}\frac{a^3}{r^3}\left(2\cos\theta\hat{\mathbf{r}}+\sin\theta\hat{\boldsymbol{\theta}}\right)$$
+
+Using $\mathbf{B}=\mu_o(\mathbf{H}+\mathbf{M})$ gives
+
+$$\mathbf{B}_i=\mu_o(\mathbf{H}_i+M_o\hat{\mathbf{z}})=\frac{2}{3}\mu_oM_o\hat{\mathbf{z}}=\frac{2}{3}\mu_o\mathbf{M}$$
+
+and
+
+$$\mathbf{B}_o=\mu_o\mathbf{H}_o=\mu_o\frac{M_o}{3}\frac{a^3}{r^3}\left(2\cos\theta\hat{\mathbf{r}}+\sin\theta\hat{\boldsymbol{\theta}}\right)$$
+
+To compute $\mathbf{A}$, one could use the method given in Jackson section 5.10 (equation 5.109). Alternatively, $\mathbf{A}$ can be arrived at by analogy. 
+
+Outside, $\mathbf{B}$ has the form of of a magnetic dipole $\mathbf{m}=m\zhat$ at the origin, for which the field is (eqn 5.88 of Griffiths)
+
+$$\mathbf{B}_{\text{dipole}}=\frac{\mu_o m}{4\pi r^3}\left(2\cos\theta\hat{\mathbf{r}}+\sin\theta\hat{\boldsymbol{\theta}}\right)$$
+
+As a result, $\mathbf{B}_o$ is equivalent to the field due to a a dipole moment of $\mathbf{m} = \hat{\mathbf{z}}4\pi a^3M_o/3$ at the origin.
+
+Using this with the magnetic dipole equation (eqn 5.55 of Jackson) gives
+
+$$\mathbf{A}_{\text{dipole}}=\frac{\mu_o}{4\pi}\frac{\mathbf{m}\times \mathbf{r}}{r^3}$$
+
+$$\mathbf{A}_o=\frac{\mu_o}{4\pi}\frac{\mathbf{m}\times \mathbf{r}}{r^3}=\frac{\mu_o}{4\pi}\frac{4\pi a^3M_o}{3}\frac{\hat{\mathbf{z}}\times \hat{\mathbf{r}}}{r^2}=\mu_o\frac{M_oa^3}{3}\frac{\sin\theta}{r^2}\hat{\boldsymbol{\phi}}$$
+
+Inside, the magnetic field is uniform, which is the case for an infinitely long solenoid. From example 5.12 of Griffiths the vector potential for an infinitely long solenoid with current $I$ and $n$ turns per unit length is 
+
+$$\mathbf{A}_i=\frac{\mu_o I n}{2}s\thinspace\hat{\boldsymbol{\phi}}$$
+
+The magnetic field inside the solenoid is $\mu_o I n$, so we set this equal to $B_i$ and write
+
+$$\mathbf{A}_i=\frac{B_i}{2}s\thinspace\hat{\boldsymbol{\phi}}$$
+
+The magnitude of the magnetic field inside the sphere is $B_i=2\mu_oM_o/3$, so
+
+$$\mathbf{A}_i=\mu_o\frac{M_o}{3}s\hat{\boldsymbol{\phi}}$$
+
+$s$ is the cylindrical radius, which in spherical coordinates is $s=r\sin\theta$, so finally 
+
+$$\mathbf{A}_i=\mu_o\frac{M_o}{3}r\sin\theta\thinspace\hat{\boldsymbol{\phi}}$$
+
+----
+
+_Alternative approch 1. for $\psi\_m$_
+
+With the direct integration method, one needs to evaluate
+
+$$\psi_m=\frac{1}{4\pi}\oint_S\frac{\hat{\mathbf{n}}'\boldsymbol{\cdot}\mathbf{M}(\mathbf{x}')}{|\mathbf{x}-\mathbf{x}'|}da'$$
+
+(see Jackson equation 5.100).  With $\hat{\mathbf{n}}'=\hat{\mathbf{r}}'$ and $\mathbf{M}=M_o\hat{\mathbf{z}}$, the numerator is
+
+$$\hat{\mathbf{n}}'\boldsymbol{\cdot}\mathbf{M}=M_o\hat{\mathbf{r}}'\boldsymbol{\cdot}\hat{\mathbf{z}}= M_o\cos\theta'$$
+
+and the integral is identical to that for a uniformly polarized sphere or a sphere with a surface charge that varies as $\cos\theta$; both problems are typically given as textbook examples and their solutions can be used to quickly write down the answer. 
+
+----
+
+_Alternative approach 2. for $\psi\_m$_
+
+To check your answers, note that the solution for $\mathbf{A}$ using direct integration is given as an example in Jackson section 5.10 and Griffiths 5.11 and 6.1. (Note the differences in approach to the integration between Jackson and Griffiths).  From this, one can compute $\mathbf{B}=\boldsymbol{\nabla}\times \mathbf{A}$ and then use  $\mathbf{B}=\mu_o(\mathbf{H}+\mathbf{M})$ and $\mathbf{H}=-\nabla\psi_m$ to compute $\psi_m$. 
+
+----
+
+_Alternative approach for $\mathbf{A}$ given $\mathbf{B}$_
+
+An alternative approach to computing $\mathbf{A}$ outside is to use the same approach typically used to compute $\mathbf{A}$ inside an infinitely long solenoid (as in example 5.12 of Griffiths). First, note that the magnetic flux through a surface $\mathcal{S}$ bounded by a curve $\mathcal{C}$ is related to the line integral of $\mathbf{A}$ around $\mathcal{C}$:
+
+$$\int_{\mathcal{S}}\mathbf{B}\boldsymbol{\cdot}d\mathbf{a}=\int_{\mathcal{S}} (\boldsymbol{\nabla}\times \mathbf{A})\boldsymbol{\cdot}d\mathbf{a}=\oint_{\mathcal{C}} \mathbf{A}\boldsymbol{\cdot}d\mathbf{l}$$
+
+where the last equality follows from Stokes' theorem. (Note that surface is not required to be closed; if it is closed, the line integral is zero.)
+
+Inside the sphere, choose any loop with $r_{loop} < a$ that is parallel to the $x-y$ plane centered on the $z$-axis to compute $A_{\phi}$, which by symmetry$^*$ must be constant around the loop. Then
+
+$$\oint \mathbf{A}(r,\theta,\phi)\boldsymbol{\cdot}d\mathbf{l}=\oint A_{\phi}(r,\theta) r_{loop}d\phi=2\pi r_{loop} A_{\phi}(r,\theta)=2\pi r\sin\theta A_{\phi}$$
+
+where $r_{loop}$ was written in spherical coordinates using $r_{loop}=r\sin\theta$. 
+
+$^*$ The symmetry argument is that $A_{\phi}$ does not depend on $\phi$ because the geometry is invariant with a rotation by $\phi$. 
+
+At this point we have not addressed $A_r$ and $A_{\theta}$. Providing a symmetry argument for why these are zero is somewhat complicated, in part because an argument is needed for loops that are fully inside or outside of the sphere. Inside the sphere, one could use the same arguments used to justify a uniform magnetic field inside of a long solenoid. Outside the sphere, one would need to make an argument for why after integration, $\int \mathbf{A} d^3x'/|\mathbf{x}-\mathbf{x}'|$ will only have a $\phi$ component. As an alternative, one could use the fact that if $A_r=0$ and $A_{\theta}=0$, $\mathbf{B}=\boldsymbol{\nabla}\times \mathbf{A}$ and $\boldsymbol{\nabla}\cdot\mathbf{A}=0$ and use uniqueness to justify the claim $A_r=0$ and $A_{\theta}=0$.
+
+The magnetic field is constant, so the flux calculation does not require integration:
+
+$$\int \mathbf{B}\boldsymbol{\cdot}d\mathbf{a}=B_{iz}\pi r_{loop}^2=B_{iz}\pi(r\sin\theta)^2$$
+
+Solving for $A_{\phi}$ gives
+
+$$A_{\phi i}=\frac{B_{iz}}{2}r\sin\theta=\frac{1}{3}\mu_oM_or\sin\theta$$
+
+Outside the sphere, one must choose a loop with $r_{loop} > a$ that is at a position $z$ above or below the $x-y$ plane (choosing a loop in the $x-y$ plane will give $A_{\phi}$ that is only valid for $\theta=\pi/2$). Note that if the loop is at $|z|<a$, the flux has contributions from both the inside and outside magnetic field. To compute the flux, it is most convenient to use the cylindrical equation for $\mathbf{B}$, which is
+
+$$B_{zo}(s,z)=\mu_o\frac{M_oa^3}{3}\frac{2z^2-s^2}{(s^2+z^2)^{5/2}}$$
+
+For $|z|\lt a$, the flux calculation requires adding the flux through the area inside inside the sphere to the flux through the area outside the sphere:
+
+$$\int \mathbf{B}\boldsymbol{\cdot}d\mathbf{a} = B_{zi} \pi (a\sin\theta)^2 +  \int_0^{2\pi}\int_{a\sin\theta}^{s}B_{zo}(s')s'ds'd\phi $$
+
+Using $B_{zi}=\frac{2}{3}\mu_oM_o$,
+
+$$\int \mathbf{B}\boldsymbol{\cdot}d\mathbf{a} = \frac{2}{3}\mu_oM_o\pi (a\sin\theta)^2 +  \int_0^{2\pi}\int_{a\sin\theta}^{s}B_{zo}(s')s'ds'd\phi$$
+
+$$\int_0^{2\pi}\int_{a\sin\theta}^{s}B_{zo}(s')s'ds'd\phi =\mu_o\frac{2\pi M_oa^3}{3}\int_{a\sin\theta}^{s}\frac{2z^2-s^2}{(s^2+z^2)^{5/2}}s'ds'$$
+
+$$
+\begin{align}
+\int_{a\sin\theta}^{s}\frac{2z^2-s^2}{(s^2+z^2)^{5/2}}s'ds' & = \left[-\frac{2}{3}\frac{z^2}{(s^2+z^2)^{3/2}}+\frac{s^2+\frac{2}{3}z^2}{(s^2+z^2)^{3/2}}\right]_{a\sin\theta}^{s}\\
+& =-\frac{2}{3}\frac{z^2}{(s^2+z^2)^{3/2}}+\frac{s^2+\frac{2}{3}z^2}{(s^2+z^2)^{3/2}}+\frac{2}{3}\frac{z^2}{(a^2\sin^2\theta+z^2)^{3/2}}-\frac{a^2\sin^2\theta+\frac{2}{3}z^2}{(a^2\sin^2\theta+z^2)^{3/2}}\\
+& =-\frac{2}{3}\frac{z^2}{r^3}+\frac{s^2+\frac{2}{3}z^2}{r^3}+\frac{2}{3}\frac{z^2}{a^3}-\frac{a^2\sin^2\theta+\frac{2}{3}z^2}{a^3}\\
+& =\frac{s^2}{r^3}-\frac{a^2\sin^2\theta}{a^3}
+\end{align}
+$$
+
+where $a^2\sin^2\theta+z^2=a^2$ and $r^2=s^2+z^2$ was used.
+
+and the line integral of $\mathbf{A}$ is the same as it was when the area was fully inside the sphere.
+
+$$
+\begin{align}
+\int \mathbf{B}\boldsymbol{\cdot}d\mathbf{a} & = \frac{2}{3}\mu_oM_o\pi (a\sin\theta)^2 +  \mu_o\frac{2\pi M_oa^3}{3}\left[\frac{s^2}{r^3}-\frac{a^2\sin^2\theta}{a^3}\right]\\
+& = \mu_o\frac{2\pi M_oa^3}{3}\frac{s^2}{r^3}\\
+& = \mu_o\frac{2\pi M_oa^3}{3}\frac{\sin^2\theta}{r}
+\end{align}
+$$
+
+Setting this equal to $\oint\mathbf{A}\cdot d\mathbf{l}=2\pi r\sin\theta A_{\phi}$ and solving for $A_{\phi o}$ gives
+
+$$A_{\phi o}=\mu_o\frac{M_oa^2}{3}\frac{\sin\theta}{r^2}$$
+
+Recall that this solution is only valid for $|z|\le a$. For $|z|\gt a$, the only contribution to the flux is from the magnetic field outside of the sphere: 
+
+$$\int \mathbf{B}\boldsymbol{\cdot}d\mathbf{a}=\int_0^{2\pi}\int_{0}^{s}B_{zo}(s')s'ds'd\phi$$
+
+Evaluation of this integral will give the same result as the flux integral for $|z|\le a$ and so the vector potential outside the sphere is the same and given by $A_{\phi o}$ found above.
+
+\newpage
 
 # HW 11
 
-Problem 1. is mandatory. Problems 2. and 3. are my responses to problem 1. You do not need to turn in solutions to problems 2. and 3.
+My responses to this HW are posted at [final](final.html). I'll post student responses on that page and update it periodically.
 
 ## Write your own review problems
 
@@ -2927,30 +3703,10 @@ A "good" final exam problem is one for which (1) there is a way to obtain a solu
 
 As an example, we have not used Green functions for polarization and magnetization problems. Can you think of a problem that could be solved with the Green function approach? As another example, one problem that I have given in the past is the geometry of the problem covered in Chapter 5.12 of Jackson, a thick shell with permeability $\mu$ in an external magnetic field, except with the replacement of $\mu$ with $\epsilon$ and the magnetic field with an electric field. The same steps that apply to the magnetic problem apply to the electric problem and so one can simply modify labels in the solution to the magnetic problem. (This was a take-home exam problem because if you don't see the short-cut, there is a lot of algebra).
 
-Post your problems to Discord by **Tuesday at 11:59 pm** (ideally as text so that I can easily aggregate them into a single file, but a PDF or screenshot is fine). You do not need to post solutions.
+Post your problems (ideally 2 or more) to Discord by **Tuesday at 11:59 pm** (ideally as text so that I can easily aggregate them into a single file, but a PDF or screenshot is fine). You do not need to post solutions.
 
 Please read through all of the posted problems before class and think about how you would start them.
 
 Before class starts, I'll pick the problems that I think are best for review. Then I'll ask the author to (1) explain ways one can check their solution and (2) describe the general steps needed to solve the problem. Then I'll say "well, that is not quite how I would do it ...".
 
 Also, the later you post your problems, the more likely it will be that I pick your problem.
-
-## Cylinder Boundary Value Problem 
-
-A long cylinder of radius $s_o$ has a magnetization
-
-$$
-\mathbf{M}=(ps\sin 2\phi + qs\cos\phi)\hat{\mathbf s}
-+
-(ps\cos 2\phi-2qs\sin\phi)\hat{\boldsymbol{\phi}}
-$$ 
-
-where $s$ is the cylindrical radial coordinate and $p$ and $q$ are constants. Find $\mathbf{B}$ due to the cylinder.
-
-## Cylinder with uniform $\mathbf{M}$ 
-
-A cylinder centered on the origin with radius $b$ and end caps in the $z=\pm L$ plane has a permanent magnetization $\mathbf{M}=M_o\hat{\mathbf{z}}$.
-
-1. Find the approximate magnetic potential, $\psi_m(z)$, by assuming $z\pm L\gg b$ and approximating an integrand of an appropriate integral in Section 5.9C of Jackson as a power series in the cylindrical radial coordinate $s'$ prior to integrating;
-1. Determine the exact $\psi_m(z)$; and
-1. Determine the $\mathbf{H}$ and $\mathbf{B}$ at all points on $z$-axis of the using the exact $\psi_m(z)$.
