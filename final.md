@@ -13,7 +13,32 @@
 
     All other equations, including the general solution to Laplace's equation in 2--D in cartesian, cylindrical, and spherical, you'll need to know.
 
+# Chapter 2 & 3
+
+(DT) Consider a large parallel plate capacitor with a hemispherical bulge on the grounded plate.  The bulge has radius a and bulges toward the second plate.  The distance between the plates is $b$, $b\gt a$.  The second plate is at potential $V_o$.
+
+1. Find the potential everywhere inside the capacitor.
+2. Determine the surface charge density on the flat portion of the grounded plate.
+3. Determine the surface charge density on the bulge.
+
+# Chapter 4
+
+(DT) We have two concentric conducting spheres.  The inner sphere has radius a and total charge $+Q$, and the outer sphere has radius b and total charge $-Q$  The center of the spheres is located at the origin, and the $x$--$y$ plane bisects the spheres horizontally. The space between the spheres above the$x$--$y$ plane is filled with a dielectric of constant $\epsilon$.  The space below the$x$--$y$ is empty.
+
+1. Find the electric field everywhere between the spheres.
+2. Determine the surface charge density on the inner sphere.
+3. Calculate the polarization surface chage density on the dielectric surface at r=a.
+
 # Chapter 5
+
+## Sphere with Surface Current
+
+(GS) A sphere of radius $b$ is centered on the origin with a surface current: $\mathbf{K} = K_0 \hat{\boldsymbol{\phi}}$.
+
+Find the magnetic field at:
+
+1. a point a distance $z_o$ on the z axis such that $z_o \gt b$ , and
+2. a point in the x y plane a distance $r_o$ such that $r_o \gt b$
 
 ## Long Cylinder
 
@@ -117,3 +142,13 @@ $$
 1. Are all of these equations equivalent? Discuss.
 2. In Griffiths, primed coordinates are used, but in Jackson they are. Discuss.
 3. Compute $\mathbf{m}$ using any of the above equations for a origin--centered uniformly charged sphere of radius $R$ rotating around the $z$ axis with angular velocity $\omega$.
+
+##
+
+(DT) A circular loop of radius R lies on the x-y plane with its center at the origin.  It carries a uniform current I.  A sphere of radius a, a << R, and permeability $\mu$ is located at z = h, h >> a.  The sphere is above the loop along the z-axis. 
+
+a) Determine the magnetic field B inside and outside the sphere.
+b) Determine the magnetization M within the sphere.
+
+
+
