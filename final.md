@@ -15,7 +15,7 @@
 
 # Chapter 2 & 3
 
-(DT) Consider a large parallel plate capacitor with a hemispherical bulge on the grounded plate.  The bulge has radius a and bulges toward the second plate.  The distance between the plates is $b$, $b\gt a$.  The second plate is at potential $V_o$.
+(DT) Consider a large parallel plate capacitor with a hemispherical bulge on the grounded plate.  The bulge has radius a and bulges toward the second plate.  The distance between the plates is $b$, $b\gg a$.  The second plate is at potential $V_o$.
 
 1. Find the potential everywhere inside the capacitor.
 2. Determine the surface charge density on the flat portion of the grounded plate.
