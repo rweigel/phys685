@@ -23,11 +23,11 @@
 
 # Chapter 4
 
-(DT) We have two concentric conducting spheres.  The inner sphere has radius a and total charge $+Q$, and the outer sphere has radius b and total charge $-Q$  The center of the spheres is located at the origin, and the $x$--$y$ plane bisects the spheres horizontally. The space between the spheres above the$x$--$y$ plane is filled with a dielectric of constant $\epsilon$.  The space below the$x$--$y$ is empty.
+(DT) We have two concentric conducting spheres.  The inner sphere has radius a and total charge $+Q$, and the outer sphere has radius b and total charge $-Q$  The center of the spheres is located at the origin, and the $x$--$y$ plane bisects the spheres horizontally. The space between the spheres above the $x$--$y$ plane is filled with a dielectric of constant $\epsilon$.  The space below the $x$--$y$ is empty.
 
 1. Find the electric field everywhere between the spheres.
 2. Determine the surface charge density on the inner sphere.
-3. Calculate the polarization surface chage density on the dielectric surface at r=a.
+3. Calculate the polarization surface chage density on the dielectric surface at $r=a$.
 
 # Chapter 5
 
@@ -37,8 +37,8 @@
 
 Find the magnetic field at:
 
-1. a point a distance $z_o$ on the z axis such that $z_o \gt b$ , and
-2. a point in the x y plane a distance $r_o$ such that $r_o \gt b$
+1. a point a distance $z_o$ on the $z$--axis such that $z_o \gt b$ , and
+2. a point in the $x$--$y$ plane a distance $r_o$ such that $r_o \gt b$
 
 ## Long Cylinder
 
@@ -117,7 +117,7 @@ A cylinder centered on the origin with radius $b$ and end caps in the $z=\pm L$ 
 
 ## Cylinder with $\mathbf{K}=K_o(\phi)\zhat$
 
-$\mathbf{A}(s,\phi,s',\phi')$ for long straight wire that carries a current $I$ and passes through $\phi', s'$. Then find $\mathbf{A}(s,\phi)$ for a long cylinder aligned with the $z$ axis and centered on the origin that carries a surface current $\mathbf{K}(\phi)$.
+Find $\mathbf{A}(s,\phi,s',\phi')$ for long straight wire that carries a current $I$ and passes through $\phi', s'$. Then find $\mathbf{A}(s,\phi)$ for a long cylinder aligned with the $z$ axis and centered on the origin that carries a surface current $\mathbf{K}(\phi)$.
 
 ## Magnetic Moment
 
@@ -145,10 +145,10 @@ $$
 
 ##
 
-(DT) A circular loop of radius R lies on the x-y plane with its center at the origin.  It carries a uniform current I.  A sphere of radius a, a << R, and permeability $\mu$ is located at z = h, h >> a.  The sphere is above the loop along the z-axis. 
+(DT) A circular loop of radius $R$ lies on the $x$--$y$ plane with its center at the origin.  It carries a uniform current $I$.  A sphere of radius $a$, $a \ll R$, and permeability $\mu$ is located at $z = h$, $h \gg a$.  The sphere is above the loop along the $z$--axis. 
 
-a) Determine the magnetic field B inside and outside the sphere.
-b) Determine the magnetization M within the sphere.
+1. Determine the magnetic field $\mathbf{B}$ inside and outside the sphere.
+2. Determine the magnetization $\mathbf{M}$ within the sphere.
 
 
 
