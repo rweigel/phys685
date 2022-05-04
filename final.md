@@ -41,6 +41,24 @@ Calculate the charge distribution induced on a conducting sphere by a quadrupole
 
 A chef wishes to bake a cake in the heat of a neutron star, and so they carve out a cubical cavity with side length $l$ and fill it with unmagnetized cake batter with some magnetic susceptibility tensor $\chi$. Neutron star interior is, as the name suggests, comprised entirely of neutrons and retains no charge or atomic structure, and therefore is \textit{not} a magnetic or dielectric material, or even a conductor, that is, consider those 5 walls of the cubical oven to be grounded. The thin atmosphere of the neutron star is filled with an ungodly magnetic field that can be a quadrillion times stronger than the Earth's; consider this magnetic field  $\textbf{B}$ to run through the interior of the neutron star as well in a constant direction. Consider also the 6th wall of the oven to be this layer of atmosphere with a constant surface current $\textbf{K}$. When the chef determines the cake is finished they remove it from the oven and observes a magnetization of the dessert even after being removed from the magnetic field, that is, a magnetic moment baked in. In summary, the chef has found themself with a 3D Cartesian boundary value problem with 5 vanishing boundaries, a constant magnetic field $\textbf{B}$, magnetic susceptibility $\chi$, as well as a surface current $\textbf{K}$ on the remaining face of the cube. Ignoring all relativistic, thermal, quantum, and gravitational effects, calculate the magnetization $\textbf{M}$ of the cake in terms of the given vectors and tensor.
 
+## Circular Loop in Soft Iron Cavity
+
+(MS) A circular loop of wire of radius $a$ and negligible thickness carries a current $I$. The loop is centered in a spherical cavity of radius $b \gt a$ in a large block of soft iron. Assume that the relative permeability of the iron is effectively infinite and that of the medium in the cavity, unity.
+
+In the approximation of $b \gg a$, show that the magnetic field at the center of the loop is  augmented by a factor $1 + a^3/2b^3$ by the presence of the iron.
+
+## Spinning Sphere
+
+(MS) Total charge $Q$ is uniformly distributed on a spherical surface of radius R. The sphere is centered at the origin and spins around the z axis with angular velocity ω. Assume magnetic permeability $\mu_0$ everywhere.
+
+1. Show that away from the spherical surface, the magnetic field can be expressed as $\mathbf{H}=- \boldsymbol{\nabla}\Phi_m$, with $\nabla^2\Phi_m= 0$.
+
+2. Find the surface current density $K$ and the boundary conditions for the magnetic induction $B$ at $r = R$.
+
+3. Find $\Phi_m$ inside and outside of the sphere.
+
+4. Find $B$ inside the sphere.
+
 ## Duct Filled with 
 
 (EG) Consider a long duct filled with uniformly magnetized material $\bf{M}=M_0\bf{\hat{y}}$ of susceptibility $\chi_m$. Find the magnetic field $\bf{B}$ due to the magnetic material in the duct. This could be a good example of using Green's functions, as we can turn this into a BVP (since $\boldsymbol{\nabla}\times \bf{H}=0$). We can use the analog with the sheet of charge, and use Green's second identity to solve the BVP.
