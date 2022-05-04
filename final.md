@@ -15,21 +15,35 @@
 
 # Chapter 2 & 3
 
+## Bulge
+
 (DT) Consider a large parallel plate capacitor with a hemispherical bulge on the grounded plate.  The bulge has radius a and bulges toward the second plate.  The distance between the plates is $b$, $b\gg a$.  The second plate is at potential $V_o$.
 
 1. Find the potential everywhere inside the capacitor.
 2. Determine the surface charge density on the flat portion of the grounded plate.
 3. Determine the surface charge density on the bulge.
 
+## Quadrupole in Sphere
+
+Calculate the charge distribution induced on a conducting sphere by a quadrupole arrangement of charges inside the sphere; use a method analogous to this same problem we did with a dipole by considering image charges banished to infinity.
+
 # Chapter 4
 
-(DT) We have two concentric conducting spheres.  The inner sphere has radius a and total charge $+Q$, and the outer sphere has radius b and total charge $-Q$  The center of the spheres is located at the origin, and the $x$--$y$ plane bisects the spheres horizontally. The space between the spheres above the $x$--$y$ plane is filled with a dielectric of constant $\epsilon$.  The space below the $x$--$y$ is empty.
+(DT) We have two concentric conducting spheres.  The inner sphere has radius $a$ and total charge $+Q$, and the outer sphere has radius b and total charge $-Q$  The center of the spheres is located at the origin, and the $x$--$y$ plane bisects the spheres horizontally. The space between the spheres above the $x$--$y$ plane is filled with a dielectric of constant $\epsilon$.  The space below the $x$--$y$ is empty.
 
 1. Find the electric field everywhere between the spheres.
 2. Determine the surface charge density on the inner sphere.
 3. Calculate the polarization surface chage density on the dielectric surface at $r=a$.
 
 # Chapter 5
+
+## Ungodly Cooking
+
+A chef wishes to bake a cake in the heat of a neutron star, and so they carve out a cubical cavity with side length $l$ and fill it with unmagnetized cake batter with some magnetic susceptibility tensor $\chi$. Neutron star interior is, as the name suggests, comprised entirely of neutrons and retains no charge or atomic structure, and therefore is \textit{not} a magnetic or dielectric material, or even a conductor, that is, consider those 5 walls of the cubical oven to be grounded. The thin atmosphere of the neutron star is filled with an ungodly magnetic field that can be a quadrillion times stronger than the Earth's; consider this magnetic field  $\textbf{B}$ to run through the interior of the neutron star as well in a constant direction. Consider also the 6th wall of the oven to be this layer of atmosphere with a constant surface current $\textbf{K}$. When the chef determines the cake is finished they remove it from the oven and observes a magnetization of the dessert even after being removed from the magnetic field, that is, a magnetic moment baked in. In summary, the chef has found themself with a 3D Cartesian boundary value problem with 5 vanishing boundaries, a constant magnetic field $\textbf{B}$, magnetic susceptibility $\chi$, as well as a surface current $\textbf{K}$ on the remaining face of the cube. Ignoring all relativistic, thermal, quantum, and gravitational effects, calculate the magnetization $\textbf{M}$ of the cake in terms of the given vectors and tensor.
+
+## Duct Filled with 
+
+(EG) Consider a long duct filled with uniformly magnetized material $\bf{M}=M_0\bf{\hat{y}}$ of susceptibility $\chi_m$. Find the magnetic field $\bf{B}$ due to the magnetic material in the duct. This could be a good example of using Green's functions, as we can turn this into a BVP (since $\boldsymbol{\nabla}\times \bf{H}=0$). We can use the analog with the sheet of charge, and use Green's second identity to solve the BVP.
 
 ## Sphere with Surface Current
 
@@ -143,7 +157,7 @@ $$
 2. In Griffiths, primed coordinates are used, but in Jackson they are. Discuss.
 3. Compute $\mathbf{m}$ using any of the above equations for a origin--centered uniformly charged sphere of radius $R$ rotating around the $z$ axis with angular velocity $\omega$.
 
-##
+## Loop and Sphere
 
 (DT) A circular loop of radius $R$ lies on the $x$--$y$ plane with its center at the origin.  It carries a uniform current $I$.  A sphere of radius $a$, $a \ll R$, and permeability $\mu$ is located at $z = h$, $h \gg a$.  The sphere is above the loop along the $z$--axis. 
 
