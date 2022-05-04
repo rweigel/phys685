@@ -37,9 +37,15 @@ Calculate the charge distribution induced on a conducting sphere by a quadrupole
 
 # Chapter 5
 
+## Parabolic Wire
+
+(NL) A wire has a wire with current $I$ in the shape of a parabola. Using the Biot-Savart Law, find the $\mathbf{B}$ at the focus. Then find $\mathbf{B}$ in terms of $r, \phi, z$.
+
 ## Ungodly Cooking
 
-A chef wishes to bake a cake in the heat of a neutron star, and so they carve out a cubical cavity with side length $l$ and fill it with unmagnetized cake batter with some magnetic susceptibility tensor $\chi$. Neutron star interior is, as the name suggests, comprised entirely of neutrons and retains no charge or atomic structure, and therefore is \textit{not} a magnetic or dielectric material, or even a conductor, that is, consider those 5 walls of the cubical oven to be grounded. The thin atmosphere of the neutron star is filled with an ungodly magnetic field that can be a quadrillion times stronger than the Earth's; consider this magnetic field  $\textbf{B}$ to run through the interior of the neutron star as well in a constant direction. Consider also the 6th wall of the oven to be this layer of atmosphere with a constant surface current $\textbf{K}$. When the chef determines the cake is finished they remove it from the oven and observes a magnetization of the dessert even after being removed from the magnetic field, that is, a magnetic moment baked in. In summary, the chef has found themself with a 3D Cartesian boundary value problem with 5 vanishing boundaries, a constant magnetic field $\textbf{B}$, magnetic susceptibility $\chi$, as well as a surface current $\textbf{K}$ on the remaining face of the cube. Ignoring all relativistic, thermal, quantum, and gravitational effects, calculate the magnetization $\textbf{M}$ of the cake in terms of the given vectors and tensor.
+(AG) A chef wishes to bake a cake in the heat of a neutron star, and so they carve out a cubical cavity with side length $l$ and fill it with unmagnetized cake batter with some magnetic susceptibility tensor $\chi$. Neutron star interior is, as the name suggests, comprised entirely of neutrons and retains no charge or atomic structure, and therefore is $\textit{not}$ a magnetic or dielectric material, or even a conductor, that is, consider those 5 walls of the cubical oven to be grounded. The thin atmosphere of the neutron star is filled with an ungodly magnetic field that can be a quadrillion times stronger than the Earth's; consider this magnetic field  $\textbf{B}$ to run through the interior of the neutron star as well in a constant direction. Consider also the 6th wall of the oven to be this layer of atmosphere with a constant surface current $\textbf{K}$. When the chef determines the cake is finished they remove it from the oven and observes a magnetization of the dessert even after being removed from the magnetic field, that is, a magnetic moment baked in. 
+
+In summary, the chef has found themself with a 3D Cartesian boundary value problem with 5 vanishing boundaries, a constant magnetic field $\textbf{B}$, magnetic susceptibility $\chi$, as well as a surface current $\textbf{K}$ on the remaining face of the cube. Ignoring all relativistic, thermal, quantum, and gravitational effects, calculate the magnetization $\textbf{M}$ of the cake in terms of the given vectors and tensor.
 
 ## Circular Loop in Soft Iron Cavity
 
@@ -61,7 +67,7 @@ In the approximation of $b \gg a$, show that the magnetic field at the center of
 
 ## Duct Filled with 
 
-(EG) Consider a long duct filled with uniformly magnetized material $\bf{M}=M_0\bf{\hat{y}}$ of susceptibility $\chi_m$. Find the magnetic field $\bf{B}$ due to the magnetic material in the duct. This could be a good example of using Green's functions, as we can turn this into a BVP (since $\boldsymbol{\nabla}\times \bf{H}=0$). We can use the analog with the sheet of charge, and use Green's second identity to solve the BVP.
+(EG) Consider a long duct filled with uniformly magnetized material $\mathbf{M}=M_0\mathbf{\hat{y}}$ of susceptibility $\chi_m$. Find the magnetic field $\bf{B}$ due to the magnetic material in the duct. This could be a good example of using Green's functions, as we can turn this into a BVP (since $\boldsymbol{\nabla}\times \bf{H}=0$). We can use the analog with the sheet of charge, and use Green's second identity to solve the BVP.
 
 ## Sphere with Surface Current
 
