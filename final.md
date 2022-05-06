@@ -17,7 +17,7 @@
 
 ## Bulge
 
-(DT) Consider a large parallel plate capacitor with a hemispherical bulge on the grounded plate.  The bulge has radius a and bulges toward the second plate.  The distance between the plates is $b$, $b\gg a$.  The second plate is at potential $V_o$.
+(DT) Consider a large parallel plate capacitor with a hemispherical bulge on the grounded plate.  The bulge has radius $a$ and bulges toward the second plate.  The distance between the plates is $b$, $b\gg a$.  The second plate is at potential $V_o$.
 
 1. Find the potential everywhere inside the capacitor.
 2. Determine the surface charge density on the flat portion of the grounded plate.
@@ -67,7 +67,7 @@ In the approximation of $b \gg a$, show that the magnetic field at the center of
 
 ## Duct Filled with 
 
-(EG) Consider a long duct filled with uniformly magnetized material $\mathbf{M}=M_0\mathbf{\hat{y}}$ of susceptibility $\chi_m$. Find the magnetic field $\bf{B}$ due to the magnetic material in the duct. This could be a good example of using Green's functions, as we can turn this into a BVP (since $\boldsymbol{\nabla}\times \bf{H}=0$). We can use the analog with the sheet of charge, and use Green's second identity to solve the BVP.
+(EG) Consider a long duct filled with uniformly magnetized material $\mathbf{M}=M_0\mathbf\yhat$ of susceptibility $\chi_m$. Find the magnetic field $\bf{B}$ due to the magnetic material in the duct. This could be a good example of using Green's functions, as we can turn this into a BVP (since $\boldsymbol{\nabla}\times \bf{H}=0$). We can use the analog with the sheet of charge, and use Green's second identity to solve the BVP.
 
 ## Sphere with Surface Current
 

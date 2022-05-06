@@ -1,0 +1,589 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>eval</title>
+  <link id="favicon" rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%220.9em%22 font-size=%22100%22>📖</text></svg>">
+  <style>
+    #toc>ol ol {
+      display: none
+    }
+
+    body {
+      background-image: url("https://rweigel.github.io/biedit/img/paper.png")
+    }
+
+    #toc {
+      flex: 1 1 20%;
+      max-width: 12em;
+      overflow: hidden auto;
+    }
+
+    #display {
+      flex: 1 1 80%;
+      overflow: hidden auto;
+      overflow-wrap: break-word;
+    }
+
+    #toc ol {
+      list-style-type: decimal;
+      margin: 0.25em 0.5em 0em 0.25em;
+      padding-inline-start: 1em;
+    }
+
+    #toc a {
+      text-decoration: none;
+    }
+
+    #display a {
+      text-decoration: none black;
+      text-underline-offset: 2px;
+    }
+
+    .title {
+      text-align: center;
+      font-size: 250%;
+      font-weight: bold;
+      color: black;
+      margin-bottom: 0px;
+    }
+
+    .subtitle {
+      text-align: center;
+      font-size: 150%;
+      font-weight: bold;
+      color: black;
+      margin-top: 0.2em;
+    }
+
+    .hanchor {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    h1 {
+      color: darkblue;
+      border-bottom: 2px solid darkblue;
+    }
+
+    h2 {
+      border-bottom: 1px solid black;
+    }
+
+    h3 {
+      border-bottom: 1px dotted black;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      width: 100%;
+      margin-block: 0.5em;
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    #display .block ul {
+      width: 100%;
+      margin-left: 1em;
+      padding-left: 1em;
+    }
+
+    #display .block ol {
+      width: 100%;
+      margin-left: 1em;
+      padding-left: 1em;
+    }
+
+    code {
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.03);
+      border-radius: 0px;
+      font-size: 1.2em;
+      white-space: pre-wrap;
+      margin-top: 3px;
+      margin-right: 3px;
+    }
+
+    #display pre code {
+      border-right: 1px solid black;
+    }
+
+    #display code.language-Python {
+      background-color: rgba(0, 0, 0, 0);
+      font-size: 1.2em;
+    }
+
+    #display pre {
+      width: 100%;
+      text-indent: 0.75em;
+      margin: 0px;
+      white-space: pre-wrap;
+      border-left: 3px solid black;
+      background-color: rgba(0, 0, 0, 0.03);
+      line-height: 1.5;
+      overflow-x: clip;
+    }
+
+    #display pre.language-Python {
+      border-left: 5px solid blue;
+      padding: 0.5em;
+      margin-left: 1em;
+      margin-right: 1em;
+      line-height: 1.5;
+      overflow-x: auto;
+    }
+
+    .block {
+      display: flex;
+      flex: 1 1 auto;
+    }
+
+    .block.inline-html {
+      display: block;
+    }
+
+    .hr {
+      width: 100%;
+      height: 1px;
+      display: block;
+      margin: 0.5em;
+      margin-block: 0.5em;
+      border-top: 1px solid black;
+    }
+
+    #display li>div {
+      display: flex;
+    }
+
+    p {
+      width: 100%;
+      display: block;
+      margin-block: 0.5em;
+    }
+
+    #display li {
+      width: 100%;
+    }
+
+    li .block p {
+      width: 100%;
+      display: block;
+      margin-top: 0.5em;
+      margin-bottom: 0.5em;
+    }
+
+    li .block:first-of-type p {
+      width: 100%;
+      display: block;
+      margin-top: 0em;
+      margin-bottom: 0em;
+    }
+
+    .inline-html .block .line-number {
+      display: none;
+    }
+
+    .section>.block ol~.line-number {
+      display: none;
+    }
+
+    .section>.block ul~.line-number {
+      display: none;
+    }
+
+    .section>.block pre~.line-number {
+      display: none;
+    }
+
+    .section>.block code~.line-number {}
+
+    pre .line-number {
+      font-size: 8px;
+      text-align: right;
+      text-indent: 0px;
+    }
+
+    .line-number {
+      text-align: right;
+      width: 24px;
+      font-family: monospace;
+      white-space: pre-line;
+      overflow-wrap: break-word;
+      font-size: 8px;
+      border-top: 1px solid black;
+      border-bottom: 1px solid black;
+      border-right: 1px solid black;
+    }
+
+    figure {
+      display: block;
+      margin-block: 0em;
+      margin-inline: 0px;
+    }
+
+    .blockquote {
+      width: 100%;
+      display: block;
+      margin: 1em;
+      border: 1px solid black;
+      padding: 1em;
+      border-radius: 0.5em;
+    }
+
+    details>summary {
+      font-weight: bold;
+    }
+
+    details {
+      padding-left: 0.5em;
+    }
+
+    details[open] {
+      border: 1px solid black;
+      padding: 0em 0em 0em 0.5em;
+    }
+
+    table {
+      padding: 0px;
+      display: block;
+      width: 100%;
+    }
+
+    table tr {
+      border-top: 1px solid rgb(204, 204, 204);
+      background-color: white;
+      margin: 0px;
+      padding: 0px;
+    }
+
+    table tr:nth-child(2n) {
+      background-color: rgb(248, 248, 248);
+    }
+
+    table tr th {
+      font-weight: bold;
+      border: 1px solid rgb(204, 204, 204);
+      text-align: left;
+      margin: 0px;
+      padding: 6px 13px;
+    }
+
+    table tr td {
+      border: 1px solid rgb(204, 204, 204);
+      text-align: left;
+      margin: 0px;
+      padding: 6px 13px;
+    }
+
+    table tr th :first-child,
+    table tr td :first-child {
+      margin-top: 0px;
+    }
+
+    table tr th :last-child,
+    table tr td :last-child {
+      margin-bottom: 0px;
+    }
+
+    .katex {
+      font-size: inherit !important;
+    }
+
+    .katex-display {
+      text-align: center;
+      margin: 0em;
+      font-size: 1em !important;
+    }
+
+    .katex-display.fleqn>.katex {
+      padding-left: 0em;
+      margin: 0em;
+    }
+
+    @media print {
+      * {
+        overflow: visible !important;
+      }
+
+      .katex .hide-tail {
+        overflow: hidden !important;
+      }
+
+      .page {
+        break-after: page;
+      }
+
+      body,
+      html {
+        margin: 0in;
+        color: rgb(0, 0, 0);
+        background-color: rgb(255, 255, 255);
+        border: none;
+        overflow: auto;
+        display: inline;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        break-after: avoid;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        width: 100%;
+        margin-block: 0.1em;
+      }
+
+      h1 {
+        font-size: 1.25em;
+        border-bottom: 1px solid darkblue;
+      }
+
+      h2 {
+        font-size: 1.15em;
+        border-bottom: 1px solid darkblue;
+      }
+
+      h3 {
+        font-size: 1.1em;
+      }
+
+      h4,
+      h5,
+      h6 {
+        font-size: 1.05em;
+      }
+
+      p {
+        margin-top: 0px;
+        margin-bottom: 0.5em;
+      }
+
+      .title {
+        break-before: page;
+        margin-top: 0px;
+      }
+
+      #toc {
+        display: none;
+        font-size: 100%;
+        margin: 0px;
+        width: 100%;
+        overflow-y: hidden;
+        padding-left: 0px;
+        padding-right: 0px;
+      }
+
+      #display {
+        margin-left: 0em;
+        width: 100%;
+        padding-left: 0px;
+        padding-right: 0px;
+        border: none;
+        overflow-wrap: break-word;
+      }
+
+      .katex {
+        font: 1em / 1.1 KaTeX_Main, "Times New Roman", serif;
+        white-space: nowrap;
+        text-indent: 0px;
+        text-rendering: auto;
+      }
+
+      .katex-display {
+        margin-top: 0px !important;
+        font-size: 1em !important;
+      }
+    }
+  </style>
+  <script>
+    function tocClickListen() {
+      // No jQuery b/c also used in stand-alone HTML.
+      hs = document.querySelectorAll('#toc > ol ol');
+      for (var i = 0; i < hs.length; i++) {
+        if (hs[i].previousElementSibling) {
+          var el = hs[i].previousElementSibling.firstElementChild;
+          if (el.length == 0) {
+            continue;
+          }
+          el.addEventListener('click', event => {
+            var ns = event.target.parentNode.nextElementSibling;
+            if (ns.style.display === 'none') {
+              ns.style.display = 'block';
+            } else {
+              ns.style.display = 'none';
+            }
+          });
+        }
+      }
+    }
+    if (
+        document.readyState === "complete" ||
+        (document.readyState !== "loading" && 
+          !document.documentElement.doScroll)
+    ) {
+      tocClickListen();
+    } else {
+      document.addEventListener("DOMContentLoaded", tocClickListen);
+    }
+  </script>
+</head>
+
+<body style="position: absolute; display:flex; min-width:50%; max-height:100%;">
+  <div id="toc" style="display: block;">
+    <ol>
+      <li><a number="1" href="#introduction" class="">Introduction</a></li>
+      <li><a number="2" href="#class-approach" class="highlighted">Class Approach</a></li>
+    </ol>
+  </div>
+  <div id="display">
+    <div class="section">
+    </div>
+    <div class="section">
+      <div class="block">
+        <h1 class=""><a name="introduction" number="1" class="hanchor" href="#introduction"><span class="hnumber">1 </span> <span class="htext">Introduction</span></a></h1>
+      </div>
+      <div class="block">
+        <p class="">After years of experimentation, I have found the following class approach results in the most learning. It is quite different from the usual formula of 1. A lecture (covering topics that can be found in many textbooks), 2. A homework with some problems related to the lecture.</p>
+      </div>
+      <div class="block">
+        <p class="">I’d like some feedback on this approach. Please read through the following and fill out the course evaluations (before Sunday at 11:59 pm). You should have a link in your email. I am <em>most</em> interested in written comments, especially on ideas for variations on the approach described below.</p>
+      </div>
+    </div>
+    <div class="section">
+      <div class="block">
+        <h1 class="highlighted"><a name="class-approach" number="2" class="hanchor" href="#class-approach"><span class="hnumber">2 </span> <span class="htext">Class Approach</span></a></h1>
+      </div>
+      <div class="block">
+        <p><em>HW</em></p>
+      </div>
+      <div class="block">
+        <p>The course is centered on the HW problems. They have</p>
+      </div>
+      <div class="block">
+        <ol>
+          <li>
+            <div class="block">
+              <p>Basic problems</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p>Advanced problems</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+      <div class="block">
+        <p><em>In class</em></p>
+      </div>
+      <div class="block">
+        <ol class="">
+          <li class="">
+            <div class="block">
+              <p>Review the fundamentals required for the basic problems on the next HW.</p>
+            </div>
+          </li>
+          <li class="">
+            <div class="block">
+              <p>Discuss questions about advanced problems just turned in. I don’t expect all students will have been able to solve all of the advanced problems fully, but I do expect they will have thought enough about it that my discussion is helpful. I think of the advanced problems as a “primer” so that students will be very interested in the follow-up in-class discussion. </p>
+            </div>
+          </li>
+        </ol>
+      </div>
+      <div class="block">
+        <p><em>My expectations/assumptions</em></p>
+      </div>
+      <div class="block">
+        <ol class="">
+          <li class="">
+            <div class="block">
+              <p>You can read the background theory in books.</p>
+            </div>
+          </li>
+          <li class="">
+            <div class="block">
+              <p>Class time is better spent discussing topics <em>after</em> you have had a chance to think about them. (I base this on experience; sometimes, I would quiz students on what I lectured on and wonder if 1/2 of the students were actually present.)</p>
+            </div>
+          </li>
+          <li class="">
+            <div class="block">
+              <p>When you are forced to form questions and verbalize things, you learn and remember. I try to have as much of this as possible during class.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+      <div class="block">
+        <p class=""><em>What I emphasize</em></p>
+      </div>
+      <div class="block">
+        <ol class="">
+          <li class="">
+            <div class="block">
+              <p>Finding and writing good problems. Avoid problems with solutions easily found online. (However, it is often easy to find a solution to a related problem, which is fine because the process of mapping one problem to another is helpful.)</p>
+            </div>
+          </li>
+          <li class="">
+            <div class="block">
+              <p>Writing detailed solutions that guide your thinking and demonstrate good problem-solving strategies (as opposed to just a few critical steps seen in solutions manuals).</p>
+            </div>
+          </li>
+          <li class="">
+            <div class="block">
+              <p>Getting students to ask questions. (Often it is difficult to get students to engage, but this semester it was easy.)</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+      <div class="block">
+        <p><em>Other thoughts</em></p>
+      </div>
+      <div class="block">
+        <ol class="">
+          <li class="">
+            <div class="block">
+              <p>I learned the most when I had to present solutions in class. I’d like to do that more of this in my classes, but it takes time. Also, most students don’t like it.</p>
+            </div>
+          </li>
+          <li class="">
+            <div class="block">
+              <p>My approach (and the standard approach) does not work for significantly underprepared students. I haven’t figured out how to handle this.</p>
+            </div>
+          </li>
+          <li class="">
+            <div class="block">
+              <p>Probably some will say they prefer take-home exams. I do too. But for core classes, I think closed-book exams are better because they force you to internalize and synthesize information.</p>
+            </div>
+          </li>
+          <li class="">
+            <div class="block">
+              <p>I’d prefer getting more questions prior to when homeworks are due. You learn a lot from trying to write a sensible question. And often you figure out the answer as you write it.</p>
+            </div>
+          </li>
+          <li class="">
+            <div class="block">
+              <p>One of the notes I have for this semester is writing up a sort of cheat sheet that highlights the equations and types of problems. I’m very tempted to do it even though it is probably better if students create their own. I may create one for a topic as a template and ask for ones to be created for other topics.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
