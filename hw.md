@@ -2478,7 +2478,7 @@ $$\psi=
 
 The net charge on the line is $2L\lambda$ and so this leading order term is as expected (far from the line, the potential should be $kq/r$, where $q$ is the charge on the line). There is no "dipole" term ($1/r^2$) because the charge distribution is symmetric about the origin (see 3.4.2 of Griffiths, which give an alternative equation for the dipole term in terms of the dipole moment expressed as an integral).
 
-## Polarized Obect
+## Polarized Object
 
 A cylinder of radius $b$ and height $2h$ is centered on the origin, has a centerline aligned with the $z$--axis, and has a "frozen--in" polarization of $\mathbf{P}=P_o\zhat$.
 
@@ -2573,12 +2573,12 @@ Using $\displaystyle\psi(r)-\psi(\infty) = -\int_\infty^r E_r(r') dr'$ and $\psi
 
 Then $\displaystyle\psi(r)-\psi(c) = -\int_c^r E_r(r')dr'$ can be used to find $\psi(r)$ for $b \lt r \lt c$, where $\psi(c)$ is known from the potential found for $r\gt c$.
 
-The potnetial for $r\lt b$ can be found in a similar way. The result is
+The potential for $r\lt b$ can be found in a similar way. The result is
 
 $$
 \psi = 
 \begin{cases}
-\displaystyle \frac{q}{4\pi\epsilon_o}\frac{1}{r^2}\quad r \ge c\\\\
+\displaystyle \frac{q}{4\pi\epsilon_o}\frac{1}{r}\quad r \ge c\\\\
 \displaystyle\frac{q}{4\pi\epsilon}\left[\frac{1}{r}+\frac{1}{1+\chi_e}\left(\frac{1}{r}-\frac{1}{c}\right)\right]\quad b \le r \le c\\\\
 \displaystyle \frac{q}{4\pi\epsilon_o}\left[\frac{1}{r}+\frac{1}{1+\chi_e}\left(\frac{1}{b}-\frac{1}{c}\right)\right]\quad r \le b
 \end{cases}
@@ -2588,7 +2588,7 @@ The previous two checks apply. In addition, we expect continuity to apply, so th
 
 _Approach 2._
 
-Write $\psi = A+B/r$ in all three regions. There will be six unknowns. The six conditions are $\psi(r\rightarrow \infty)=0$, $\psi(r\rightarrow 0)=q/4\pi\epsilon_o(1/r^2)$, continuity at $r=b$ and $r=c$, and the jump condition at $r=b$ and $r=c$.
+Write $\psi = A+B/r$ in all three regions. There will be six unknowns. The six conditions are $\psi(r\rightarrow \infty)=0$, $\psi(r\rightarrow 0)=q/4\pi\epsilon_o(1/r)$, continuity at $r=b$ and $r=c$, and the jump condition at $r=b$ and $r=c$.
 
 _Approach 3._
 
