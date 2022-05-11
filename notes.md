@@ -1,106 +1,3 @@
-# Gauss' Law 
-
-## Lecture Follow-Up Questions 
-
-An uncharged conducting sphere of radius $2b$ is centered on the origin and has a spherical cavity of radius $b$ that is also centered on the origin.
-
-1. If a charge of $+q$ is at the origin, explain why the surfaces at $r=2b$ and $r=b$ each have a net charge of $+q$ and $-q$, respectively, and not, say, $+q/2$ and $-q/2$.
-1. Repeat this question for the case where the inner surface of the cavity is not spherical (but the charge at the origin is still in a cavity)
-
-**Solution**
-
-Several students used the justification of "E is zero inside a conductor". This is not a full justification. If someone said "$+q/2$ and $-q/2$ give E of zero inside the conductor", your proof that this statement is wrong would require using Gauss' law.
-
-1.
-
-Gauss' law using a sphere of radius $b\lt r\lt 2b$:
-
-$$\oint \mathbf{E}\cdot d\mathbf{a} = \frac{Q_{encl}}{\epsilon_o} = \frac{q + q_{r=b}}{\epsilon_o}$$
-
-LHS is zero because field is zero inside conductor. So $q_{r=b}=-q$.
-
-2. 
-
-Same approach but the surface is not a sphere but rather a surface that is always inside conductor; $q_{r=b}=-q$.
-
-## Infinite Line of Charge 
-
-In general, in cylindrical coordinates, the electric field has the form
-
-$$\mathbf{E}(s,\phi,z)=E_s(s,\phi,z)\hat{\mathbf{s}}+E_{\phi}(s,\phi,z)\hat{\boldsymbol{\phi}}+E_z(s,\phi,z)\hat{\mathbf{z}}$$
-
-where $s$ is the radial coordinate in cylindrical coordinates.
-
-Consider an infinite line of charge with a uniform charge per unit length of $\lambda_o$ on the $z$-axis. The typical approach to finding that the equation for the electric field is
-
-$$\mathbf{E}(s)=\frac{\lambda_o}{2\pi\epsilon_o}\frac{\hat{\mathbf{s}}}{s}$$
-
-is to use a cylindrical Gaussian surface and Gauss' law. When using Gauss' law, one must make arguments for why
-
-1. $E_s$ does not depend on $\phi$ and $z$
-
-2. $E_z=0$
-
-With these two justifications and Gauss' law, one arrives at only an equation for the radial component of the electric field, $E_s$. To complete the solution, one also needs to provide an argument for why 
-
-3. $E_{\phi}=0$.
-
-Derive the equation given above for the electric field using Gauss' law and explicitly state arguments for 1.-3.
-
-**Solution**
-
-I gave this problem because I have come to realize that students can use Gauss' law to find the electric field, but can't often answer conceptual questions about justifications for the steps needed to get the solution. The problem is that most textbooks don't emphasize the arguments or provide follow-up questions to test their understanding of the arguments and so students don't think too deeply about them.
-
-Understanding the reasoning for this problem is critical for understanding the boundary condition equations
-
-$$(\mathbf{E}\_2-\mathbf{E}\_1)\cdot \hat{\mathbf{n}} = \mathbf{E}\_{2\perp}-\mathbf{E}\_{1\perp} = \left[-\frac{\partial \Psi_2}{\partial n}+\frac{\partial \Psi_1}{\partial n}\right]_{n=0}=\frac{\sigma}{\epsilon_o}$$
-
-$$\mathbf{E}\_{2\parallel}-\mathbf{E}\_{2\parallel}=(\mathbf{E}\_2-\mathbf{E}\_1)\cdot \hat{\mathbf{t}}=0$$
-
-where $n$ is the coordinate that is perpendicular to the boundary surface and outward to the volume enclosed by the boundary surface; $t$ is any coordinate parallel to the surface.
-
-Several students used the solution for $\mathbf{E}$ given for arguments 1.-3., but this is circular reasoning. The point of the problem is to justify all of the steps needed to get to the solution.
-
-I did not expect a solution with the level of detail in what follows. I generally looked for arguments or words that seemed close to something said below. I did not write extended comments on your solutions for statements that were wrong - you should be able to determine what was wrong by reading the following solution.
-
-1. $E_s$ does not depend on $z$ because the charge distribution does not change if we shift the origin of $z$. Said another way, two people who solve this problem using a different location for $z=0$ should get the same result. $E_s$ does not depend on $\phi$ because if we rotate the charge distribution around the $z$-axis by $\phi$, the charge distribution does not change. Said another way, two people who solve the problem using a different $\phi=0$ line perpendicular to the line of charge should get the same answer. The same argument can be used to argue that $E_z$ and $E_{\phi}$ do not depend on $\phi$ and $z$, but this is not needed because in 2. and 3. they are found to be zero.
-
-2. $E_z=0$ - Assume the line extends from $z=\pm L$. Adding the electric field due to a differential charge at $z$ to that from a differential charge at $-z$ gives an electric field that points in the $\hat{\mathbf{s}}$ direction in the $x-y$ plane. An infinite line of charge can be created by letting $L\rightarrow\infty$. Or, for very small $s$, in the $x-y$ plane the line of charge appears infinite.
-
-3. $E_{\phi}=0$ by the same argument as 2.
-
-_Detailed solution using 1.-3. and Gauss' law_
-
-$$\mathbf{E}(s,\phi,z)=E_s(s,\phi,z)\hat{\mathbf{s}}+E_{\phi}(s,\phi,z)\hat{\boldsymbol{\phi}}+E_z(s,\phi,z)\hat{\mathbf{z}}$$
-
-A Gaussian cylinder of radius $s$ and a height $h$ and centerline along the $z$-axis has three surfaces, with normals of $\hat{\mathbf{z}}$ on the top cap, $-\hat{\mathbf{z}}$ on the bottom cap, and $\hat{\mathbf{s}}$ on the curved side.
-
-$$\oint \mathbf{E}\cdot \hat{\mathbf{n}}da = \int_\text{top cap} \mathbf{E}\cdot \hat{\mathbf{z}} da +  \int_\text{bottom cap} \mathbf{E}\cdot (-\hat{\mathbf{z}}) da + \int_\text{side}\mathbf{E}\cdot \hat{\mathbf{s}} da$$
-
-$\mathbf{E}\cdot \hat{\mathbf{z}} = E_z(s,\phi,z)$ and we have argued that $E_z=0$, so the first two integrals are zero.
-
-$\mathbf{E}\cdot \hat{\mathbf{s}} = E_s(s,\phi,z)$, so the last integral is, using $da=sdzd\phi$,
-
-$$\int_\text{side}\mathbf{E}\cdot \hat{\mathbf{s}} da = \int_{z=-h/2}^{h/2}\int_{\phi=0}^{2\pi} E_s(s,\phi,z) sdz\thinspace d\phi$$
-
-Because $E_s$ is independent of $z$, we can write
-
-$$\int_{z=-h/2}^{h/2}\int_{\phi=0}^{2\pi} E_s(s,\phi,z) sdz\thinspace d\phi=\int_{z=-h/2}^{h/2}\int_{\phi=0}^{2\pi} E_s(s,\phi) sdz\thinspace d\phi=h\int_{\phi=0}^{2\pi} E_s(s,\phi) sd\phi$$
-
-Because $E_s$ is independent of $\phi$, we can write
-
-$$h\int_{\phi=0}^{2\pi} E_s(s,\phi) sd\phi=h\int_{\phi=0}^{2\pi} E_s(s) sd\phi$$
-
-Because $s$ and $\phi$ are orthogonal,
-
-$$h\int_{\phi=0}^{2\pi} E_s(s) sd\phi=hE_s(s) s\int_{\phi=0}^{2\pi} d\phi=hE_s(s) s2\pi$$
-
-Note that Gauss' law only gave us $E_s$ - we had to argue why $E_{\phi}$ and $E_z$ were zero. In addition, in order to do the integration in Gauss' law, we needed to provide additional justification for why $E_s$ could only depend on $s$. So this Gauss' law problem had two separate components: 1. arguments that reduce and simplify the general solution
-
-$$\mathbf{E}(s,\phi,z)=E_s(s,\phi,z)\hat{\mathbf{s}}+E_{\phi}(s,\phi,z)\hat{\boldsymbol{\phi}}+E_z(s,\phi,z)\hat{\mathbf{z}}$$
-
-and then 2. evaluation of the integral in Gauss' law. I find that students that don't understand 1. are not able to articulate why a given Gaussian surface can't be used to find the electric field. For example, their answer to why a Gaussian sphere could not be used to find the electric field in this problem typically only involves an ambiguous statement about symmetry; "symmetry" is ambiguous because both a Gaussian sphere and a Gaussian cylinder have symmetry).
-
 # $\delta$ and $\Theta$
 
 ## Delta Function (5 pts) 
@@ -172,87 +69,6 @@ Some students assumed the charge was on the surface of the cylinder. In this cas
 3. $\rho=\frac{Q}{\pi b^2}\delta(z)\Theta(b-s)$
 
 4. $\rho = \frac{Q}{\pi b^2}\frac{\delta(\theta-\pi/2)}{r}\Theta(b-r)$
-|}
-# Continuous Charge Distributions 
-
-A square non-conducting sheet of charge with side length $w$ has a uniform charge density of $\sigma_o$, lies in the $x-y$ plane, and is centered on the origin.
-
-1. Find an integral or integrals that must be evaluated to find $\mathbf{E}(z)$, the electric field on the $z$-axis.
-1. Evaluate the integral or integrals and show that for $z/w\ll 1$, $\mathbf{E}(z)$ reduces to the equation for an infinite non-conducting sheet of charge.
-
-{| class="wikitable collapsible collapsed"
-! align="left" |&nbsp;Solution
-|-
-|
-There are several ways to solve this problem. On can first find the field for a line of charge with a charge density of $\lambda$ and length $w$ that lies on the $x$-axis and is centered on the origin - the result is (see Griffiths 4th Edition example 2.2):
-
-$$\mathbf{E}(z)=\frac{k\lambda w}{z\sqrt{z^2+w^2/4}}\hat{\mathbf{z}}$$
-
-Then integrate the field due to differential lines of charges. One needs to account for the fact that the $z$ in this equation will not be the same as the $z$ in this problem. If the differential lines of charge are in the $x$-$y$ plane and lie on the line $x=x'$, then replace the $z$ with $z^2+x'^2$ and use $\lambda = \sigma_odx'$, You can check your answer for this approach by using the result of the following approach after integration with respect to $x'$. 
-
-$$\mathbf{E}_{dq'}(x,y,z) = \frac{dq'}{4\pi\epsilon_0}\frac{\hat{\bf\char"0509}}{\char"0509^2}$$
-
-A second approach requires two integrations. Start with
-
-$$\mathbf{E}_{dq'}(x,y,z) = \frac{dq'}{4\pi\epsilon_0}\frac{\hat{\bf\char"0509}}{\char"0509^2}$$
-
-which expands to
-
-$$\mathbf{E}_{dq'}(x,y,z) =\frac{dq'}{4\pi\epsilon_0}\frac{\mathbf{r}-\mathbf{r}'}{|\mathbf{r}-\mathbf{r}'|^3}$$
-
-(A third approach is to find the potential $\Psi_{dq'}(x,y,z) = dq'/(4\pi\epsilon_0\char"0509)$ and then use $\mathbf{E}=-\nabla \Psi$.)
-
-and the general definitions
-
-$$\mathbf{r}=x\hat{\mathbf{x}}+y\hat{\mathbf{y}}+z\hat{\mathbf{z}}$$
-
-$$\mathbf{r}'=x'\hat{\mathbf{x}}+y'\hat{\mathbf{y}}+z'\hat{\mathbf{z}}$$
-
-In this problem, $z'=0$ because all charges are in the $x-y$ plane. Using $dq' = \sigma_odx'dy'$, gives
-
-$$\mathbf{E}(x,y,z) = \int_{-w/2}^{w/2}\int_{-w/2}^{w/2}\frac{ \sigma_odx'dy'}{4\pi\epsilon_0}\frac{(x-x')\hat{\mathbf{x}}+(y-y')\hat{\mathbf{y}}+z\hat{\mathbf{z}}}{\big((x-x')^2+(y-y')^2+z^2\big)^{3/2}}$$
-
-$\mathbf{E}(z)$ is obtained by setting $x=y=0$:
-
-$$\mathbf{E}(z) = \int_{-w/2}^{w/2}\int_{-w/2}^{w/2}\frac{ \sigma_odx'dy'}{4\pi\epsilon_0}\frac{-x'\hat{\mathbf{x}}+-y'\hat{\mathbf{y}}+z\hat{\mathbf{z}}}{\big(x'^2+y'^2+z^2\big)^{3/2}}$$
-
-The $\hat{\mathbf{x}}$ and $\hat{\mathbf{y}}$ integrals are zero because their integrands are odd functions. Many students argued they are zero "by symmetry". The word "symmetry" is too general because there are many types of symmetry. It is better to state what kind of symmetry: consider differential charges at $(x,y)$ and $(-x,-y)$ - their horizontal electric fields exactly cancel (ideally provide a diagram). The sheet of charge can be constructed by placing charges with canceling horizontal components and so the horizontal electric field is zero.
-
-To simplify the integration for the $\hat{\mathbf{y}}$ term, define
-
-$$I = \int_{-w/2}^{w/2}dy'\int_{-w/2}^{w/2}\frac{dx'}{(x'^2+a^2)^{3/2}}$$
-
-where $a^2\equiv y'^2+z^2$ and then $E_z(z)=k\sigma_ozI$. This integral can be looked up or found using Mathematica or Wolfram Alpha. Some students reported "computation time exceeded" with Wolfram Alpha. This was probably caused by entering the double integral instead of doing a single integral at a time.
-
-Integration with respect to $x'$ gives
-
-$$I= \int_{-w/2}^{w/2}dy'\frac{x'}{a^2(x'^2+a^2)^{1/2}}\Bigg|_{-w/2}^{w/2}=\int_{-w/2}^{w/2}dy'\frac{w}{a^2(a^2+w^2/4)^{1/2}}$$
-
-Using the earlier definition $a^2\equiv y'^2+z^2$ and a new definition $b^2\equiv z^2+w^2/4$ gives
-
-$$I=\int_{-w/2}^{w/2}\frac{wdy'}{(y'^2+z^2)\sqrt{y'^2+b^2}}$$
-
-This integral can be looked up and the result is (using $\tan^{-1}(u)=-\tan^{-1}(u)$)
-
-$$I=\frac{4}{z}\tan^{-1}\left[\frac{w^2}{4z}\frac{1}{\sqrt{z^2+w^2/2}}\right]$$
-
-The final result, using $E_z(z)=k\sigma_ozI$ defined earlier, is 
-
-$$E_z(z)=\frac{\sigma_o}{\pi \epsilon_o}\tan^{-1}\left[\frac{w^2}{4z}\frac{1}{\sqrt{z^2+w^2/2}}\right]$$
-
-For $z\ll w$, the argument to the inverse tangent is
-
-$$\frac{w^2}{4z}\frac{1}{\sqrt{z^2+w^2/2}}\simeq \frac{w}{z}\frac{\sqrt{2}}{4}$$
-
-so for $z \gt 0$ and $z\ll w$
-
-$$E_z(z)\rightarrow\frac{\sigma_o}{\pi\epsilon_o}\tan^{-1}(+\infty) = \frac{\sigma_o}{2\epsilon_o}$$
-
-For $z \lt 0$ and $z\ll w$
-
-$$E_z(z)\rightarrow\frac{\sigma_o}{\pi\epsilon_o}\tan^{-1}(-\infty) = -\frac{\sigma_o}{2\epsilon_o}$$
-
-and so the solution matches that for an infinite sheet of charge. Another problem one could ask is to show that for $z\gg w$, $E_z\rightarrow k\sigma_ow^2/z^2$ (far away, the sheet of charge appears as a charge $\sigma_ow^2$ at the origin). To show this, one would need to Taylor series expand the argument of the inverse tangent for small $w/z$.
 |}
 
 # Method of Images Review 
@@ -3039,7 +2855,7 @@ $\displaystyle Y_{l0}(\theta,\phi)=\sqrt{\frac{2l+1}{4\pi}}P_l(\cos\theta)$
 
 $P_l^m(\cos\theta)e^{im\phi}$ are angular part of product form solutions to Laplace's equation (Eqn. 3.2 of Jackson), $Y_{l,-m}=(-1)^mY_{lm}^\*$, and $Y_{lm}$ are normalized
 
-$\displaystyle\int_0^{2\pi}d\phi\int_0^{\pi}Y^\*_{l'm'}(\theta,\phi)Y_{lm}(\theta,\phi)\sin\theta d\theta=\delta_{ll'}\delta_{mm'}$
+$\displaystyle\int_0^{2\pi}d\phi\int_0^{\pi}Y^\*\_{l'm'}(\theta,\phi)Y\_{lm}(\theta,\phi)\sin\theta d\theta=\delta_{ll'}\delta_{mm'}$
 
 The above is a 2-D example of properties that have been used before for 1-D orthogonal functions, e.g.,
 
@@ -3193,3 +3009,257 @@ $\displaystyle q_{lm} = \int (r')^lY^*_{lm}(\theta',\phi')\rho(r',\theta',\phi')
 To plot $\Phi$ for a grid of $(r,\theta,\phi)$ values, one integration is needed for each grid point for Legendre form. In the spherical harmonic form, three integrations are needed. Then for each grid point, only evaluation of $Y_{lm}(\theta,\phi)/r^{l+1}$ is needed.  
 
 If only one value of $(r,\theta,\phi)$ is needed, 3x as many integrations needed for spherical harmonic form over Legendre form
+
+# Magnetic
+
+## Cylinder Boundary Value Problem 
+
+A long cylinder of radius $s_o$ has a magnetization
+
+$$
+\mathbf{M}=(ps\sin 2\phi + qs\cos\phi)\hat{\mathbf s}
++
+(ps\cos 2\phi-2qs\sin\phi)\hat{\boldsymbol{\phi}}
+$$ 
+
+where $s$ is the cylindrical radial coordinate and $p$ and $q$ are constants. Find $\mathbf{B}$ due to the cylinder.
+
+**Partial Solution**
+
+$$\mathbf{M}=(p\rho\sin 2\phi + q\rho\cos\phi)\hat{\boldsymbol{\rho}}+(p\rho\cos 2\phi-2q\rho\sin\phi)\hat{\boldsymbol{\phi}}$$ 
+
+$$\boldsymbol{\nabla}\cdot\mathbf{M}=\frac{1}{s}\frac{\partial (sM_s)}{\partial s} + \frac{1}{s}\frac{\partial M_{\phi}}{\partial s}=0$$
+
+1. $\psi_m$ finite for $r=0$
+1. $\psi_m\rightarrow 0$ as $r\rightarrow\infty$
+1. $\psi_m$ is continuous
+1. $(\mathbf{B}_2-\mathbf{B_1})\boldsymbol{\cdot}\hat{\mathbf{n}}=0$
+
+Start with 
+
+$$\psi_i=As\cos\phi + Bs^2\sin2\phi\qquad\qquad \psi_o=as\cos\phi + bs^2\sin2\phi$$
+
+**BC 3**
+
+$$\psi_i(s_o,\phi)=\psi_o(s_o,\phi)$$
+
+$$A=\frac{a}{s_o^2}\qquad\qquad B=\frac{b}{s_o^2}$$
+
+**BC 4**
+
+$$\mathbf{B} = \mu_o(\mathbf{H}+\mathbf{M})$$
+
+$$\mathbf{B}_i = \mu_o(\mathbf{H}_i+\mathbf{M}_i) = \mu_o\left(-\frac{\partial \psi_i}{\partial s}+\mathbf{M}\right)$$
+
+$$\mathbf{B}_o = \mu_o(\mathbf{H}_o+\mathbf{M}_o) = -\mu_o\frac{\partial \psi_o}{\partial s}$$
+
+$$\mathbf{B}\_i\cdot\hat{\mathbf{n}}=\mu_o\left(-\frac{\partial \psi_i}{\partial s}\Bigg|_{s=s_o}+M_s(s_o,\phi)\right)$$
+
+$$\mathbf{B}\_o\cdot\hat{\mathbf{n}}=-\mu_o\frac{\partial \psi_o}{\partial s}\Bigg|_{s=s_o}$$
+
+$$(\mathbf{B}_o-\mathbf{B}_i)\boldsymbol{\cdot}\hat{\mathbf{n}}=0$$
+
+$$\hat{\mathbf{n}}=\hat{\mathbf{s}}$$
+
+$$-\frac{\partial \psi_o}{\partial s}\Bigg|\_{s=s_o}+\frac{\partial \psi_i}{\partial s}\Bigg|_{s=s_o}-M(s_o,\phi)=0$$
+
+$$\frac{a}{s_o^2} + A = qs_o\qquad\qquad \frac{2b}{s_o^3} + 2Bs_o = ps_o$$
+
+$$a = \frac{qs_o^3}{2}\qquad\qquad A = \frac{qs_o}{2}\qquad\qquad b = \frac{ps_o^4}{4}\qquad\qquad B = \frac{p}{4}$$
+
+$$\psi_i=\frac{q}{2}ss_o\cos\phi+\frac{p}{4}s^2\sin 2\phi$$
+
+$$\psi_o=\frac{q}{2}\frac{s_o^3}{s}\cos\phi+\frac{p}{4}\frac{s_o^4}{s^2}\sin 2\phi$$
+
+An alternative method of solution uses direct integration of $\mathbf{K}_b$ and $\mathbf{J}_b$.
+
+## Cylinder with uniform $\mathbf{M}$ 
+
+A cylinder centered on the origin with radius $b$ and end caps in the $z=\pm L$ plane has a permanent magnetization $\mathbf{M}=M_o\hat{\mathbf{z}}$.
+
+1. Find the approximate magnetic potential, $\psi_m(z)$, by assuming $z\pm L\gg b$ and approximating an integrand of an appropriate integral in Section 5.9C of Jackson as a power series in the cylindrical radial coordinate $s'$ prior to integrating;
+1. Determine the exact $\psi_m(z)$; and
+1. Determine the $\mathbf{H}$ and $\mathbf{B}$ at all points on $z$-axis of the using the exact <strike>cylinder</strike> $\psi_m(z)$.
+
+**Solution**
+
+----
+_Note_
+
+An alternative way of obtaining a solution is to note that 
+    
+$$\mathbf{K}_b=\mathbf{M}\times\hat{\mathbf{n}}=M_o\hat{\mathbf{z}}\times\hat{\mathbf{s}}=M_o\hat{\boldsymbol{\phi}}$$
+    
+$$\mathbf{J}_b=\boldsymbol{\nabla}\times\mathbf{M}=0$$
+
+Therefore, the problem is equivalent to a solenoid with a finite length with a surface current of $K_{\phi}=2M_o/\mu_o$. The method of solution suggested here is intentionally more complex as it applies to a more general set of problems.
+
+----
+
+1\. The macroscopic Maxwell equations associated with the magnetic field are 
+
+$$\boldsymbol{\nabla}\boldsymbol{\cdot}\mathbf{B}=0\quad\text{and}\quad \boldsymbol{\nabla}\times\mathbf{H}=\mathbf{J}_f$$
+
+where $\mathbf{J}_f$ is the free current (i.e., not bound current). Using the definition of the magnetization implied by $\mathbf{B}=\mu_o(\mathbf{H}+\mathbf{M})$ and $\boldsymbol{\nabla}\boldsymbol{\cdot}\mathbf{B}=0$, the macroscopic equations can be written as
+
+$$\boldsymbol{\nabla}\boldsymbol{\cdot}\mathbf{H}=-\boldsymbol{\nabla}\boldsymbol{\cdot}\mathbf{M}\quad\text{and}\quad \boldsymbol{\nabla}\times\mathbf{H}=\mathbf{J}_f$$
+
+When $\mathbf{J}_f=0$, $\boldsymbol{\nabla}\times\mathbf{H}=0$ so one can write $\mathbf{H}$ as the gradient of a scalar function that will be called $\psi_m$: $\mathbf{H}=-\boldsymbol{\nabla}\psi_m$ and so
+
+$$\nabla^2\psi_m=\boldsymbol{\nabla}\boldsymbol{\cdot}\mathbf{M}$$
+
+From this, it follows that
+
+$$\psi_m=-\frac{1}{4\pi}\int\frac{\boldsymbol{\nabla}'\boldsymbol{\cdot}\mathbf{M}(\mathbf{x}')}{|\mathbf{x}-\mathbf{x}'|}d^3x'$$
+
+If $\mathbf{M}$ has a discontinuity on a surface $\mathcal{S}$ of the volume $\mathcal{V}$ such that it is zero outside of $\mathcal{V}$, this can be written as
+
+$$\psi_m=-\frac{1}{4\pi}\int_V\frac{\boldsymbol{\nabla}'\boldsymbol{\cdot}\mathbf{M}(\mathbf{x}')}{|\mathbf{x}-\mathbf{x}'|}d^3x'+\frac{1}{4\pi}\oint_S\frac{\hat{\mathbf{n}}'\boldsymbol{\cdot}\mathbf{M}(\mathbf{x}')}{|\mathbf{x}-\mathbf{x}'|}da'$$
+
+In this problem, the first form 
+
+$$\psi_m=-\frac{1}{4\pi}\int\frac{\boldsymbol{\nabla}'\boldsymbol{\cdot}\mathbf{M}(\mathbf{x}')}{|\mathbf{x}-\mathbf{x}'|}d^3x'$$
+
+can be used if $\mathbf{M}$ is represented using the Heaviside step function $\Theta$:
+
+$$\mathbf{M}=M_o\Theta(a-s)\Big[\Theta(z+L)-\Theta(z-L)\Big]\hat{\mathbf{z}}$$
+
+so that
+
+$$
+\begin{align}
+\boldsymbol{\nabla}\boldsymbol{\cdot}\mathbf{M}=&\frac{\partial}{\partial z}\left(M_o\Theta(a-s)\big[\Theta(z+L)-\Theta(z-L)\big]\right)\\
+\\
+=& M_o\Theta(a-s)\big[\delta(z+L)-\delta(z-L)\big]
+\end{align}
+$$
+
+(Verify graphically that this makes sense by plotting $M$ as a function of $z$; for example when $z=L$, from the graph we expect the slope of $\frac{\partial M_z}{\partial z}$ to be $-\infty$.)
+
+(This solution requires a few more steps than using the alternative form for $\psi_m$ but here I'll use this approach as a review of the $\Theta$ and $\delta$ functions.)
+
+For points on the $z-$axis,
+
+$\mathbf{x}=z\thinspace\hat{\mathbf{z}}$ and $\mathbf{x}'=x'\hat{\mathbf{x}}+y'\hat{\mathbf{y}}+z'\hat{\mathbf{z}}$
+
+$$
+\begin{align}
+\psi_m & =-\frac{M_o}{4\pi}\int_0^{\infty}\int_0^{2\pi}\int_{-\infty}^{\infty}\frac{\Theta(a-s')\left(\delta(z+L)-\delta(z-L)\right)}{\sqrt{s'^2+(z-z')^2}}s'ds' d\phi' dz'\\
+& =-\frac{M_o}{4\pi}\int_0^{a}\int_0^{2\pi}\int_{-\infty}^{\infty}\frac{\delta(z+L)-\delta(z-L)}{\sqrt{s'^2+(z-z')^2}}s'ds' d\phi' dz'\\
+&=-\frac{M_o}{4\pi}\int_0^{a}\int_0^{2\pi}\left(\frac{1}{\sqrt{s'^2+(z+L)^2}}-\frac{1}{\sqrt{s'^2+(z-L)^2}}\right)s'ds' d\phi'\\
+& =-\frac{M_o}{2}\int_0^{a}\left(\frac{1}{\sqrt{s'^2+(z+L)^2}}-\frac{1}{\sqrt{s'^2+(z-L)^2}}\right)s'ds'\\
+& =-\frac{M_o}{2}\int_0^{a}\left(\frac{1}{|z+L|\sqrt{1+s'^2/(z+L)^2}}-\frac{1}{|z-L|\sqrt{1+s'^2/(z-L)^2}}\right)s'ds'
+\end{align}
+$$
+
+Several students attempted to use the expansion of $1/|\mathbf{x}-\mathbf{x}'|$ with $r=z$ in terms of Legendre polynomials. This is a good idea, but there are several complications.
+
+Complication A: One could use the last two equations on page 103 of Jackson to conclude that
+
+$$\frac{1}{|\mathbf{x}-\mathbf{x}'|}=\sum_{l=0}^{\infty}\frac{c^l}{z^{l+1}}P_l(\cos\alpha)\qquad z\gt c$$
+
+$$\frac{1}{|\mathbf{x}-\mathbf{x}'|}=\sum_{l=0}^{\infty}\frac{z^{l+1}}{c^l}P_l(\cos\alpha)\qquad z\lt c$$
+
+where $\cos\alpha=L/\sqrt{s'^2+L^2}$ and $c=\sqrt{s'^2+L^2}$. To find the potential for a disk of charge, one needs to integrate from $s'=0$ to $s'=b$. This integration is complicated by the fact that the argument to the Legendre polynomials depends on $s'$. For this problem, there is a similar complication as one also needs to integrate from $s'=0$ to $s'=b$.
+
+Complication B:  The expansions given above are for $z\gt c$ and $z\lt c$. So if you integrated these expansions, the result would be valid for $z\gt c_{max}$ and $z\lt c_{max}$, where $c^2_{max}=b^2+L^2$. However, the problem statement asks for the potential when $z\pm L\gg b$, which is not the same as either of these conditions. (To see this, draw out the regions where the solutions apply for $z\gt c_{max}$, $z\lt c_{max}$, and $z\pm L\gg b$). The region $z\pm L\gg b$ corresponds to a $z$ that is a large distance away from both caps. If $L$ is large compared to $b$, such a point could be the origin.
+
+----
+
+_Note_
+
+The equation in the steps shown above that occurs after evaluation of the Heavyside step and Dirac delta functions is what would have been found if we had started with
+
+$$\psi_m=-\frac{1}{4\pi}\int_{\mathcal{V}}\frac{\boldsymbol{\nabla}'\boldsymbol{\cdot}\mathbf{M}(\mathbf{x}')}{|\mathbf{x}-\mathbf{x}'|}d^3x'+\frac{1}{4\pi}\oint_{\mathcal{S}}\frac{\hat{\mathbf{n}}'\boldsymbol{\cdot}\mathbf{M}(\mathbf{x}')}{|\mathbf{x}-\mathbf{x}'|}da'$$
+ 
+Inside $\mathcal{V}$, $\boldsymbol{\nabla}'\boldsymbol{\cdot}\mathbf{M}=0$, which leaves only the surface integral. The surface integral on the curved surface of the cylinder is zero because $\hat{\mathbf{s}}\boldsymbol{\cdot}\mathbf{M}$; the top and bottom caps of the cylinder only contribute and ($\mathbf{n}=\pm \hat{\mathbf{z}}$ on the top/bottom of the cylinder.
+
+At least one student attempted to use the expansion of $1/|\mathbf{x}-\mathbf{x}'|$ for $r=z$ in terms of Legendre polynomials. This is a good idea, but there is a complication that one needs to address. The angle $\alpha$ is not $\theta$ and so $P_l(\cos\alpha$ will depend on $\phi$. This complication was discussed at length in my notes on this expansion. See the example for the offset charged ring given in section 3.3 of Jackson for how to handle this.
+
+----
+
+For $a^2/(z\pm L)^2\ll 1$ and using $(1+\Delta)^n\simeq 1+n\Delta$
+
+$$
+\begin{align}
+\psi_m & \simeq -\frac{M_o}{2}\int_0^{a}\frac{s'ds'}{|z+L|}\left(1-\frac{s'^2}{2(z+L)^2}\right) + \frac{M_o}{2}\int_0^{a}\frac{s'ds'}{|z-L|}\left(1-\frac{s'^2}{2(z-L)^2}\right)\\\\
+& = \frac{M_o}{2}\left[\frac{a^2}{2}\left(\frac{1}{|z-L|}-\frac{1}{|z+L|}\right)+\frac{a^4}{4}\left(\frac{1}{|z-L|^3}-\frac{1}{|z+L|^3}\right)\right]
+\end{align}
+$$
+
+The absolute value signs are important here. If the condition was $a^2/(z\pm L)^2\lt 1$, it would mean that we are finding a solution that applies to all points on the $z$-axis except in a region of $\pm a$ above and below the ends of the cylinder. If $L\gg a$, the region where the solution is valid would include the origin and $z\gg L$ and these regions have a different functional for for the potential.
+
+2.
+
+The exact integral of
+
+$$\psi_m=-\frac{M_o}{2}\int_0^{a}\left(\frac{1}{\sqrt{s'^2+(z+L)^2}}-\frac{1}{\sqrt{s'^2+(z-L)^2}}\right)s'ds'$$
+
+is
+
+$$\psi_m=\frac{M_o}{2}\left(\sqrt{a^2+(z-L)^2}-\sqrt{a^2+(z+L)^2}-|z-L|+|z+L|\right)$$
+
+When the absolute values are accounted for, the potential function depends on if the point is inside or outside of the cylinder:
+
+$$
+\psi_m=\begin{cases}
+\begin{array}{ll}
+\frac{M_o}{2}\left(\sqrt{a^2+(z-L)^2}-\sqrt{a^2+(z+L)^2}+2z\right) & \mbox{if } |z| \le L \\
+\frac{M_o}{2}\left(\sqrt{a^2+(z-L)^2}-\sqrt{a^2+(z+L)^2}+2L\right) & \mbox{if } |z| \ge L
+\end{array}
+\end{cases}
+$$
+
+To verify consistency with the approximate answer, factor out $z\pm L$ from the square root terms and use $(1+\Delta)^n\simeq 1+n\Delta$ with $\Delta = a/(z\pm L)$. (And be careful to use $\sqrt{u^2}=|u|$ when $u$ can be positive or negative!
+
+$$
+\begin{align}
+\psi_m & = \frac{M_o}{2}\left(\sqrt{a^2+(z-L)^2}-\sqrt{a^2+(z+L)^2}-|z-L|+|z+L|\right)\\\\
+& = \frac{M_o}{2}\left(|z-L|\sqrt{1+a^2/(z-L)^2}-|z+L|\sqrt{1+a^2/(z+L)^2}-|z-L|+|z+L|\right)\\\\
+& \simeq \frac{M_o}{2}\frac{a^2}{2}\left(\frac{|z-L|}{(z-L)^2}-\frac{|z+L|}{(z+L)^2}\right)\\\\
+& = \frac{M_oa^2}{4}\left(\frac{1}{|z-L|}-\frac{1}{|z+L|}\right)
+\end{align}
+$$
+
+3.
+
+Using
+
+$$
+\begin{align}
+\mathbf{B}(z) & =\mu_o\mathbf{H}(z)+\mu_o\mathbf{M}(z)\\
+& =-\mu_o\boldsymbol{\nabla}\psi_{m}+\mu_oM_o\big[\Theta(z+L)-\Theta(z-L)\big]\hat{\mathbf{z}}
+\end{align}
+$$
+
+and
+
+$$\boldsymbol{\nabla}\psi_{m}=\hat{\mathbf{z}}\frac{\partial \psi_m}{\partial z}$$
+
+and recalling that $\partial |x|/\partial x=x/|x|$ gives
+
+$$\frac{\partial \psi_m}{\partial z}=\frac{M_o}{2}\left(\frac{z-L}{\sqrt{a^2+(z-L)^2}}-\frac{z+L}{\sqrt{a^2+(z+L)^2}}-\frac{z-L}{|z-L|}+\frac{z+L}{|z+L|}\right)$$
+
+(An alternative is to use the form of the solution given that applies inside and outside of the cylinder and then compute their derivatives separately to avoid needing to use $\partial |x|/\partial x=x/|x|$.)
+
+The solution depends whether $z$ corresponds to inside or outside of the cylinder:
+
+$|z|\ge L$
+$$H_z=-\frac{\partial \psi_m}{\partial z}=-\frac{M_o}{2}\left(\frac{z-L}{\sqrt{a^2+(z-L)^2}}-\frac{z+L}{\sqrt{a^2+(z+L)^2}}\right)$$
+
+$|z|\le L$
+$$H_z=-\frac{\partial \psi_m}{\partial z}=-\frac{M_o}{2}\left(\frac{z-L}{\sqrt{a^2+(z-L)^2}}-\frac{z+L}{\sqrt{a^2+(z+L)^2}}+2\right)$$
+
+This, along with the evaluation of the step function in the equation above for $\mathbf{B}(z)$ gives a single equation for the magnetic field
+
+$$\mathbf{B}=\frac{\mu_oM_o}{2}\left[\frac{z+L}{\sqrt{a^2+(z+L)^2}}-\frac{z-L}{\sqrt{a^2+(z-L)^2}}\right]$$
+    
+So the system is equivalent to a solenoid of height $L$ and radius $a$, which is a standard example problem with a solution along the $z-$axis of
+
+$$B_z=\frac{\mu_o K}{2}\left[\frac{z+L}{\sqrt{a^2+(z+L)^2}}-\frac{z-L}{\sqrt{a^2+(z-L)^2}}\right]$$
+
+This observation also points to another way to check your answer. In the limit that $z\gg a \gg L$, the field should approach that from a magnetic dipole along its axis. In this limit, the cylinder looks like a ring, which has an axial field of
+
+$$B_z=\frac{\mu_o Ia^2}{2}\frac{1}{(a^2+z^2)^{3/2}}$$
+
+

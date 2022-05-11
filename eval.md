@@ -4,6 +4,8 @@ After years of experimentation, I have found the following class approach result
 
 I'd like some feedback on this approach. Please read through the following and fill out the course evaluations (before Sunday at 11:59 pm). You should have a link in your email. I am _most_ interested in written comments, especially on ideas for variations on the approach described below.
 
+\newpage
+
 # Class Approach
 
 *HW*
