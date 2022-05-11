@@ -203,9 +203,9 @@ The cross--section of this geometry is shown in the following figure.
 
 1\. The general solution to $\nabla^2\psi(s)=0$ is $\psi(s)=A+B\ln s$ or, equivalently, $\psi(s)=A'\ln(s/B')$. Laplace's equation is satisfied in the inner ($i$) and outer ($o$) regions, so we seek solutions to
 
-$\psi_i=A_i\ln s/B_i$
+$\psi_i=A_i\ln (s/B_i)$
 
-$\psi_o=A_o\ln s/B_o$
+$\psi_o=A_o\ln (s/B_o)$
 
 given the boundary conditions
 

@@ -1,4 +1,4 @@
-# Logistics
+**Study Guide**
 
 * Wednesday, May 11th from 4:30 – 7:10 pm in the regular classroom. 
 * Approximately four problems
@@ -13,174 +13,138 @@
 
     All other equations, including the general solution to Laplace's equation in 2--D in cartesian, cylindrical, and spherical, you'll need to know.
 
-# Chapter 2 & 3
+----
 
-## Bulge
+**PHYS 685 Final Exam**
 
-(DT) Consider a large parallel plate capacitor with a hemispherical bulge on the grounded plate.  The bulge has radius a and bulges toward the second plate.  The distance between the plates is $b$, $b\gg a$.  The second plate is at potential $V_o$.
+---> **Solve 3 of 4 problems** <---
 
-1. Find the potential everywhere inside the capacitor.
-2. Determine the surface charge density on the flat portion of the grounded plate.
-3. Determine the surface charge density on the bulge.
+Wednesday, May 11th, 2022
 
-## Quadrupole in Sphere
+2 hours and 40 minutes
 
-Calculate the charge distribution induced on a conducting sphere by a quadrupole arrangement of charges inside the sphere; use a method analogous to this same problem we did with a dipole by considering image charges banished to infinity.
-
-# Chapter 4
-
-(DT) We have two concentric conducting spheres.  The inner sphere has radius $a$ and total charge $+Q$, and the outer sphere has radius b and total charge $-Q$  The center of the spheres is located at the origin, and the $x$--$y$ plane bisects the spheres horizontally. The space between the spheres above the $x$--$y$ plane is filled with a dielectric of constant $\epsilon$.  The space below the $x$--$y$ is empty.
-
-1. Find the electric field everywhere between the spheres.
-2. Determine the surface charge density on the inner sphere.
-3. Calculate the polarization surface chage density on the dielectric surface at $r=a$.
-
-# Chapter 5
-
-## Ungodly Cooking
-
-A chef wishes to bake a cake in the heat of a neutron star, and so they carve out a cubical cavity with side length $l$ and fill it with unmagnetized cake batter with some magnetic susceptibility tensor $\chi$. Neutron star interior is, as the name suggests, comprised entirely of neutrons and retains no charge or atomic structure, and therefore is \textit{not} a magnetic or dielectric material, or even a conductor, that is, consider those 5 walls of the cubical oven to be grounded. The thin atmosphere of the neutron star is filled with an ungodly magnetic field that can be a quadrillion times stronger than the Earth's; consider this magnetic field  $\textbf{B}$ to run through the interior of the neutron star as well in a constant direction. Consider also the 6th wall of the oven to be this layer of atmosphere with a constant surface current $\textbf{K}$. When the chef determines the cake is finished they remove it from the oven and observes a magnetization of the dessert even after being removed from the magnetic field, that is, a magnetic moment baked in. In summary, the chef has found themself with a 3D Cartesian boundary value problem with 5 vanishing boundaries, a constant magnetic field $\textbf{B}$, magnetic susceptibility $\chi$, as well as a surface current $\textbf{K}$ on the remaining face of the cube. Ignoring all relativistic, thermal, quantum, and gravitational effects, calculate the magnetization $\textbf{M}$ of the cake in terms of the given vectors and tensor.
-
-## Circular Loop in Soft Iron Cavity
-
-(MS) A circular loop of wire of radius $a$ and negligible thickness carries a current $I$. The loop is centered in a spherical cavity of radius $b \gt a$ in a large block of soft iron. Assume that the relative permeability of the iron is effectively infinite and that of the medium in the cavity, unity.
-
-In the approximation of $b \gg a$, show that the magnetic field at the center of the loop is  augmented by a factor $1 + a^3/2b^3$ by the presence of the iron.
-
-## Spinning Sphere
-
-(MS) Total charge $Q$ is uniformly distributed on a spherical surface of radius R. The sphere is centered at the origin and spins around the z axis with angular velocity ω. Assume magnetic permeability $\mu_0$ everywhere.
-
-1. Show that away from the spherical surface, the magnetic field can be expressed as $\mathbf{H}=- \boldsymbol{\nabla}\Phi_m$, with $\nabla^2\Phi_m= 0$.
-
-2. Find the surface current density $K$ and the boundary conditions for the magnetic induction $B$ at $r = R$.
-
-3. Find $\Phi_m$ inside and outside of the sphere.
-
-4. Find $B$ inside the sphere.
-
-## Duct Filled with 
-
-(EG) Consider a long duct filled with uniformly magnetized material $\bf{M}=M_0\bf{\hat{y}}$ of susceptibility $\chi_m$. Find the magnetic field $\bf{B}$ due to the magnetic material in the duct. This could be a good example of using Green's functions, as we can turn this into a BVP (since $\boldsymbol{\nabla}\times \bf{H}=0$). We can use the analog with the sheet of charge, and use Green's second identity to solve the BVP.
-
-## Sphere with Surface Current
-
-(GS) A sphere of radius $b$ is centered on the origin with a surface current: $\mathbf{K} = K_0 \hat{\boldsymbol{\phi}}$.
-
-Find the magnetic field at:
-
-1. a point a distance $z_o$ on the $z$--axis such that $z_o \gt b$ , and
-2. a point in the $x$--$y$ plane a distance $r_o$ such that $r_o \gt b$
-
-## Long Cylinder
-
-An infinitely long cylinder with an inner radius $a$ and outer radius $b$ has a permeability of $\mu=2\mu_o$. The centerline of the cylinder is along the $z$--axis.
-
-An infinitely long wire along the $z$--axis carries a current $I$ in the $+z$ direction. 
-
-1. Compute and plot $B_\phi(s)$.
-2. Compute all bound surface currents, $\mathbf{K}_b$.
-3. Compute the bound volume current density, $\mathbf{J}_b$.
-
-Write all of your answers and label your plot at appropriate points in terms of $\mu_o, I, a,$ and $b$.
-
-**Answer**
-
-$$\mathbf{H}=\frac{I}{2\pi s}\hat{\boldsymbol{\phi}}$$
-
-Inside and outside, the field is as it would be if the cylinder was not there. Inside, the field is larger by a factor of $2$. $\chi_m=\mu/\mu_o-1=2$ for this problem and $\chi_m \gt 0$ correspsonds to a paramagnetic material, and so the increase in $B$ inside is expected. 
+**Equations**
 
 $$
-\mathbf{B}=
-\begin{cases}
-\displaystyle\frac{\mu_oI}{2\pi s}\hat{\boldsymbol{\phi}} & s<a
-\\\\
-\displaystyle 2\frac{\mu_oI}{2\pi s}\hat{\boldsymbol{\phi}} & a<s< b
-\\\\
-\displaystyle\frac{\mu_oI}{2\pi s}\hat{\boldsymbol{\phi}} & s > b
-\end{cases}
-$$
-
-$$\mathbf{M}=\chi_m\mathbf{H}=(\mu/\mu_o-1)\mathbf{H}=(\mu/\mu_o-1)\frac{I}{2\pi s}\hat{\boldsymbol{\phi}}$$
-
-$\mathbf{K}_b=\mathbf{M}\times \hat{\mathbf{n}}$
-
-On the inner surface of the cylinder, $\hat{\mathbf{n}}=-\hat{\mathbf{s}}$ and $\mathbf{M}=(\mu/\mu_o-1)\frac{I}{2\pi a}\hat{\boldsymbol{\phi}}$ so $\mathbf{K}_b = (2\mu_0/\mu_o-1)\frac{I}{2\pi a}\hat{\mathbf{z}}$.
-
-On the outer surface of the cylinder, $\hat{\mathbf{n}}=\hat{\mathbf{s}}$ and $\mathbf{M}=(\mu/\mu_o-1)\frac{I}{2\pi 2a}\hat{\boldsymbol{\phi}}$ so $\mathbf{K}_b = -(2\mu_0/\mu_o-1)\frac{I}{2\pi b}\hat{\mathbf{z}}$.
-
-Note that $\hat{\boldsymbol{\phi}}\times\hat{\mathbf{s}}=-\hat{\mathbf{z}}$.
-
-Also note that the net-bound current in the vertical direction is zero.
-
-$\mathbf{J}_b=\nabla\times \mathbf{M}=0$
-
-because
-
-$\mathbf{M}=(const)\hat{\boldsymbol{\phi}}/s$
-
-and the two terms in involving $M_\phi$ in
-
-$$\boldsymbol{\nabla} \times \mathbf{M} = \left({\frac {1}{s}}{\frac {\partial M_{z}}{\partial \phi }}-{\frac {\partial M_{\phi }}{\partial z}}\right){\hat {\boldsymbol {s}}}+\left({\frac {\partial M_{s}}{\partial z}}-{\frac {\partial M_{z}}{\partial s}}\right){\hat {\boldsymbol {\phi }}}+{\frac {1}{s}}\left({\frac {\partial \left(s M_{\phi }\right)}{\partial s}}-{\frac {\partial M_{s}}{\partial \phi }}\right){\hat {\mathbf {z} }}$$
-
-evaluate to zero.
-
-To check your answer, use Ampere's Law, $\oint \mathbf{B}\cdot d\mathbf{l}=\mu_o I_{\text{encl}}$, accounting for these bound currents as a part of $I_{\text{encl}}$ and verify that you get the same magnetic field computed earlier.
-
-## Cylinder Boundary Value Problem 
-
-A long cylinder of radius $s_o$ has a magnetization
-
-$$
-\mathbf{M}=(ps\sin 2\phi + qs\cos\phi)\hat{\mathbf s}
+\mathbf{\nabla} f = 
+{\partial f \over \partial r}\hat{\mathbf r}
 +
-(ps\cos 2\phi-2qs\sin\phi)\hat{\boldsymbol{\phi}}
-$$ 
-
-where $s$ is the cylindrical radial coordinate and $p$ and $q$ are constants. Find $\mathbf{B}$ due to the cylinder.
-
-## Cylinder with uniform $\mathbf{M}$ 
-
-A cylinder centered on the origin with radius $b$ and end caps in the $z=\pm L$ plane has a permanent magnetization $\mathbf{M}=M_o\hat{\mathbf{z}}$.
-
-1. Find the approximate magnetic potential, $\psi_m(z)$, by assuming $z\pm L\gg b$ and approximating an integrand of an appropriate integral in Section 5.9C of Jackson as a power series in the cylindrical radial coordinate $s'$ prior to integrating;
-1. Determine the exact $\psi_m(z)$; and
-1. Determine the $\mathbf{H}$ and $\mathbf{B}$ at all points on $z$-axis of the using the exact $\psi_m(z)$.
-
-## Cylinder with $\mathbf{K}=K_o(\phi)\zhat$
-
-Find $\mathbf{A}(s,\phi,s',\phi')$ for long straight wire that carries a current $I$ and passes through $\phi', s'$. Then find $\mathbf{A}(s,\phi)$ for a long cylinder aligned with the $z$ axis and centered on the origin that carries a surface current $\mathbf{K}(\phi)$.
-
-## Magnetic Moment
-
-Equation 5.50 of of Jackson 3rd Edition is
-
-$$
-\mathbf{m}=\frac{1}{2}\int \mathbf{\mathbf{x}'}\times \mathbf{J(\mathbf{x}')} d^3x'
+{1 \over r}{\partial f \over \partial \theta}\hat{\boldsymbol \theta}
++
+{1 \over r\sin\theta}{\partial f \over \partial \phi}\hat{\boldsymbol \phi}
 $$
 
-Equation 5.90 of of Griffiths 4th Edition is
- 
 $$
-\mathbf{m}=\frac{1}{2}\int \mathbf{\mathbf{r}}\times \mathbf{J} d\tau
-$$
-
-Equation 5.86 of Griffiths 3rd Edition is
-
-$$
-\mathbf{m}=I\int d\mathbf{a}
+\boldsymbol{\nabla}\cdot\mathbf{U} = 
+{1 \over r^2}{\partial \left( r^2 U_r \right) \over \partial r}
++
+{1 \over r\sin\theta}{\partial \over \partial \theta} \left(  U_\theta\sin\theta \right)
++
+{1 \over r\sin\theta}{\partial U_\phi \over \partial \phi}
 $$
 
-1. Are all of these equations equivalent? Discuss.
-2. In Griffiths, primed coordinates are used, but in Jackson they are. Discuss.
-3. Compute $\mathbf{m}$ using any of the above equations for a origin--centered uniformly charged sphere of radius $R$ rotating around the $z$ axis with angular velocity $\omega$.
+$\displaystyle
+\boldsymbol{\nabla}\times \mathbf{U} =
+{\frac {1}{r\sin \theta }}\left({\frac {\partial }{\partial \theta }}\left(U_{\phi }\sin \theta \right)
+-
+{\frac {\partial U_{\theta }}{\partial \phi }}\right) {\hat {\mathbf {r} }}
++
+{\frac {1}{r}}\left({\frac {1}{\sin \theta }}{\frac {\partial U_{r}}{\partial \phi }}
+-
+{\frac {\partial }{\partial r}}\left(rU_{\phi }\right)\right) {\hat {\boldsymbol {\theta }}}
++
+{\frac {1}{r}}\left({\frac {\partial }{\partial r}}\left(rU_{\theta }\right)
+-
+{\frac {\partial U_{r}}{\partial \theta }}\right) {\hat {\boldsymbol {\phi }}}$
 
-## Loop and Sphere
 
-(DT) A circular loop of radius $R$ lies on the $x$--$y$ plane with its center at the origin.  It carries a uniform current $I$.  A sphere of radius $a$, $a \ll R$, and permeability $\mu$ is located at $z = h$, $h \gg a$.  The sphere is above the loop along the $z$--axis. 
+$\displaystyle
+\nabla^2f={ {1 \over r^{2}}{\partial  \over \partial r}\left(r^{2}{\partial f \over \partial r}\right)+{1 \over r^{2}\sin \theta }{\partial  \over \partial \theta }\left(\sin \theta {\partial f \over \partial \theta }\right)+{1 \over r^{2}\sin ^{2}\theta }{\partial ^{2}f \over \partial \phi ^{2}}}$$
 
-1. Determine the magnetic field $\mathbf{B}$ inside and outside the sphere.
-2. Determine the magnetization $\mathbf{M}$ within the sphere.
+$\mathbf{D}=\epsilon_o\mathbf{E}+\mathbf{P}$, $\sigma_b=\mathbf{P}\bfcdot \hat{\mathbf{n}}$,
+$\rho_b=-\boldsymbol{\nabla}\bfcdot \mathbf{P}$
+
+For linear material, $\mathbf{P}=\epsilon_o\chi_e\mathbf{E}$, $\epsilon\equiv\epsilon_o(1+\chi_e)$
+
+$\mathbf{H}=\mathbf{B}/\mu_o-\mathbf{M}$, $\mathbf{K}_b=\mathbf{M}\times \hat{\mathbf{n}}$, $\mathbf{J}_b=\boldsymbol{\nabla}\times \mathbf{M}$, 
+
+For linear material, $\mathbf{M}=\chi_m\mathbf{H}$, $\mu\equiv\mu_o(1+\chi_m)$
+
+Power series expansions for $\delta \lt 1$.
+
+$$\frac{1}{(1+\delta)^n} = 1 - n\delta + \frac{n(n+1)}{2!}\delta^2- \frac{n(n+1)(n+2)}{3!}\delta^3+...$$
+
+$$\ln(1+\delta)=\delta + \frac{\delta^2}{2} + \frac{\delta^3}{3} + ...$$
+
+$$e^\delta = 1 + \frac{\delta}{1!} + \frac{\delta^2}{2!} + ...$$
+
+Green's theorem (second identity)
+
+$$\int_{\mathcal{V}} \left(\phi\nabla^2\psi -\psi\nabla^2\phi\right)d^3x=\oint_{\mathcal{S}}\left(\phi\frac{\partial \psi}{\partial n}-\psi\frac{\partial \phi}{\partial n}\right) da$$
+
+# Parallel Plate Capacitor
+
+Consider a large parallel plate capacitor with a hemispherical bulge on the grounded plate.  The bulge has radius $b$ and bulges toward the second plate.  The distance between the plates is $d$, $d\gg b$.  The second plate is at potential $V_o$. A cross--section of the geometry is shown. Assume that the capacitor plates are infinite in extent.
+
+<img width="53%" src="figures/capacitor_with_bulge.svg"/>
+
+1. Find the potential everywhere inside the capacitor when $b=0$ (no bulge; ordinary parallel plate capacitor). Indicate the coordinate axes used on a diagram.
+2. Find the potential everywhere inside the capacitor when $b \ne 0$.
+
+# Dipole in a Dielectric Sphere
+
+A perfect dipole $\mathbf{p}=p_o\hat{\mathbf{z}}$ at the origin is at the center of a dielectric sphere of radius $b$ that is centered on the origin. The dielectric constant of the sphere is $\epsilon$.
+
+Find the potential everywhere.
+
+# Magnetizable Sphere in Uniform Field
+
+An initially unmagnetized sphere of radius $b$ and permeability $\mu_i$ is placed is a region of free space (so a permeability of $\mu_o$) where there is an external magnetic field $B_{\text{ext}}\zhat$.
+
+Assume that the scalar magnetic potential, $\psi_m$, will have the form, for $r\le b$
+
+$$\psi^i_m(r,\theta)=A_1r\cos\theta\thickspace ,$$
+
+and for $r \ge b$,
+
+$$\psi^o_m(r,\theta)=-\frac{B_{\text{ext}}}{\mu_o}r\cos\theta+\frac{B_2}{r^2}\cos\theta\thinspace$$
+
+1\. Find the unknown constants $A_1$ and $B_2$.
+
+2\. Find $\mathbf{B}$ inside the sphere.
+
+3\. Find the magnetization of the sphere.
+
+# Rotating Sphere
+
+An origin--centered sphere with uniform surface charge density $\sigma$ and radius $b$ rotating around the $z$--axis with angular velocity $\omega$ results in a surface current of $\mathbf{K}=\omega b\sigma\sin\theta\hat{\boldsymbol{\phi}}$.
+
+Use
+
+$$\mathbf{A}(\mathbf{x})=\frac{\mu_o}{4\pi}\int \frac{\mathbf{K}(\mathbf{x}')}{|\mathbf{x}-\mathbf{x}'|}da'$$
+
+and
+
+$$\displaystyle\frac{1}{|\mathbf{x}-\mathbf{x}'|} = \sum_{l=0}^\infty \sum_{m=-l}^l \frac{4\pi}{2l+1}\frac{r_\lt^{l}}{r_\gt^{l+1}}Y^*\_{lm}(\theta',\phi')Y\_{lm}(\theta,\phi)$$
+
+and one or more of
+
+$\displaystyle l=0\quad\quad \displaystyle Y_{00}(\theta,\phi)=\sqrt{1\over 4\pi}=\sqrt{1\over 4\pi}P_o(\cos\theta)$
 
 
+$l=1
+\quad 
+\begin{cases}
+\displaystyle Y_{11}(\theta,\phi)=-\sqrt{3\over 8\pi} \sin\theta e^{i\phi}\\ \\
+\displaystyle Y_{10}(\theta,\phi)=\sqrt{3\over 4\pi} \cos\theta=\sqrt{3\over 4\pi} P_1(\cos\theta)\\ \\
+\displaystyle Y_{1,-1}(\theta,\phi)=-Y_{11}^{*}(\theta,\phi)
+\end{cases}
+$
 
+and
+
+$$\int_0^{2\pi}d\phi\int_0^\pi\sin\theta d\theta Y^\*\_{l'm'}(\theta',\phi')Y_{lm}(\theta,\phi)=\delta_{ll'}\delta_{mm'}$$
+
+to show that for $r \lt b$,
+
+$$\mathbf{A}=\frac{\mu_o b \omega \sigma}{3} r\sin\theta \hat{\boldsymbol{\phi}}$$
