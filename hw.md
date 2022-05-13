@@ -2682,12 +2682,16 @@ $$
 \displaystyle\frac{p_o\cos\theta}{4\pi\epsilon}\left(\frac{1}{r^2}+2\frac{\epsilon-\epsilon_o}{\epsilon+2\epsilon_o}\frac{r}{b^3}\right)
 \qquad & r\le b
 \\\\
-\displaystyle\frac{p_o\cos\theta}{4\pi\epsilon}\frac{3}{\epsilon+2\epsilon_o}\frac{1}{r^2}
+\displaystyle\frac{p_o\cos\theta}{4\pi\epsilon}\frac{3\epsilon}{\epsilon+2\epsilon_o}\frac{1}{r^2}
 \qquad &r\ge b
 \end{cases}
 $$
 
-Checks: When $\epsilon=\epsilon_o$, we have simply a dipole in free space and $\psi(r,\theta)=\mathbf{p}\bfcdot\hat{\mathbf{r}}/(4\pi\epsilon_or^2)$. 
+Checks:
+
+To make the problem a dipole in free space, replace $\epsilon$ with $\epsilon_o$. The result is, as expected,  $\psi(r,\theta)=\mathbf{p}\bfcdot\hat{\mathbf{r}}/(4\pi\epsilon_or^2)$. 
+
+%To make the problem a dipole embeded in an infinite dielectric material, , replace $\epsilon$ with $\epsilon_o$. The result is, as expected,  $\psi(r,\theta)=\mathbf{p}\bfcdot\hat{\mathbf{r}}/(4\pi\epsilon_or^2)$. 
 
 If $\chi_e$ is large (so $\epsilon$ is large), the dielectric becomes like a conductor. In this case, the electric field can be made to be zero if positive charges cluster in shell of vanishing radius around the negative charges in the dipole and if negative charges cluster around the positive charge in the dipole. In the limit that $\chi_e$ is large, $\psi(r,\theta)\rightarrow 0$, which is consistent with this.
 

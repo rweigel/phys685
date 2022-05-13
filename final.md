@@ -91,11 +91,120 @@ Consider a large parallel plate capacitor with a hemispherical bulge on the grou
 1. Find the potential everywhere inside the capacitor when $b=0$ (no bulge; ordinary parallel plate capacitor). Indicate the coordinate axes used on a diagram.
 2. Find the potential everywhere inside the capacitor when $b \ne 0$.
 
+**Answer**
+
+!!!!DRAFT!!!!
+
+1\. Origin is at center of bulge with $z$ vertically upwards.
+
+$$\psi = V_o\frac{z}{d}=V_o\frac{r}{d}\cos\theta$$
+
+2\.
+
+Let the boundary be a volume between the plates with the sides far from the bulge and far from the plate ends. One the four sides, the potential must match the solution to 1\. At the top, $z=d$, the potential must be $V_o$. 
+
+Thus, a candidate solution is the answer from 1\. and additional terms that approach zero far from the bulge.
+
+$$\psi = V_o\frac{r}{d}\cos\theta + \frac{B_0}{r}P_0 + \frac{B_1}{r^2}P_1+...$$
+
+On the bulge, we require $\psi=0$, so
+
+$$\psi(b,\theta)=0= V_o\frac{b}{d}\cos\theta + \frac{B_0}{b}P_0 + \frac{B_1}{b^2}P_1+...$$
+
+For this to be satisfied, all $B_l=0$ execept for $B_1=-V_ob^3/d$.
+
+$$\psi(r,\theta) = V_o\cos\theta\left(\frac{r}{d}-\frac{b^3}{d^3}\frac{d^2}{r^2}\right)$$
+
+(I wrote in this form to emphasize the parameter that determines the influence of the bulge is the dimensionless constant $b^3/d^3$.)
+
+Normally we would need to explicilty address the non--bulge part of the plate ($\theta=\pi/2$ and $r\gt b$), but the found solution already satisifes $\psi=0$ on that boundary. The potential on the four sides is the solution to 1\., so the side boundary condition is also satisfied because there $r\gg b$.
+
+This problem is equivalent to a grounded sphere in a constant electric field. Probably it was created by noting that placing grounded conductors at the region of space where $\psi=0$ for that problem gives a problem that looks different but must have the same solution (from uniqueness).
+
 # Dipole in a Dielectric Sphere
 
 A perfect dipole $\mathbf{p}=p_o\hat{\mathbf{z}}$ at the origin is at the center of a dielectric sphere of radius $b$ that is centered on the origin. The dielectric constant of the sphere is $\epsilon$.
 
 Find the potential everywhere.
+
+**Solution**
+
+!!!!DRAFT!!!!
+
+The problem has azimuthal symmetry and $\nabla^2\psi(r,\theta)=0$ for the inner region ($i$; $r\lt b$) and outer region ($o$; $r\gt b$). As a result, in each region the potential has the form
+
+$$\psi=\sum_{l=0}^{\infty}A_lr^lP_l(\cos\theta)+ \sum_{l=0}^{\infty}\frac{B_l}{r^{l+1}}P_l(\cos\theta)$$
+
+To clarify notation, $\epsilon_i$ is used in place of $\epsilon$.
+
+_Approach 1_
+
+As $r\rightarrow 0$ the system appears as an infinite dielectric with two oppositely charged point charges near the origin.
+A point charge in a dielectric has a field and potential with $\epsilon_o$ replaced with $\epsilon$ and a dipole potential is the sum of the potential of two point charges, so a dipole in an infinite dielectric $\epsilon_i$ will have a potential of $ (p_o\cos\theta/4\pi\epsilon_i)(1/r^2)$.
+
+Based on this, we expect that as $r\rightarrow 0$, $\psi^o \rightarrow (p_o\cos\theta/4\pi\epsilon_i)(1/r^2)$. From this it follows that $B_l=0$ for $l\ne 0$ and $B_1=p_o/4\pi\epsilon_i$ and so the inner potential should have the form
+
+%(this is a different $B_1$ than from in Approach 2). 
+
+$$\psi^i=\sum_{l=0}^{\infty}A_lr^lP_l(\cos\theta)+\frac{p_o}{4\pi\epsilon_i}\frac{\cos\theta}{r^2}$$
+
+As $r\rightarrow \infty$, the potential must approach zero (assuming we choose, as usual, that the reference location is "$r=\infty$" and the reference potential is zero). As a result, the $A_l$ terms must all be zero, so the potential for $r\gt b$ must have the form
+
+$$\psi^o=\sum_{l=0}^{\infty}\frac{B^o_l}{r^{l+1}}P_l(\cos\theta)$$
+
+The condition
+
+$\psi_i(b,\theta)=\psi_o(b,\theta)$
+
+gives $A_l=-B_l/b^{2l+1}$
+
+From $\boldsymbol{\nabla}\bfcdot\mathbf{D}=\sigma_\text{f}=0$ it follows that
+
+$(\mathbf{D}_o-\mathbf{D}_i)\bfcdot\hat{\mathbf{r}}=0$
+
+at $r=b$. Equivalently,
+
+$D_r^o(b,\theta)-D_r^i(b,\theta)=0$
+
+or, using $\mathbf{D}=\epsilon\mathbf{E}$ and $\mathbf{E}=-\boldsymbol{\nabla}\psi$ gives
+
+$$\left[-\epsilon_o\frac{\partial \psi^o}{\partial r}+\epsilon_i\frac{\partial \psi^i}{\partial r}\right]_{r=b}=0$$
+
+This condition and $A_l=-B_l/b^{2l+1}$ found from continuity gives $A_l=B_l=0$ for $l\ne 1$ and
+
+$$B_1=\frac{p_o}{2\pi\epsilon_o}\frac{\epsilon_o-\epsilon_i}{\epsilon_i-2\epsilon_o}$$
+
+$$A_1=-\frac{B_1}{b^3}$$
+
+_Check_: Both the $A_1$ and $B_1$ terms are zero when $\epsilon_i=\epsilon_o$.
+
+_Approach 2_
+
+Following the approach taken in [HW 8.3](hw.html#dipole-in-a-dielectric-sphere), we assert that inside and outside the dielectric, there will be a contribution from the dipole of $\frac{p_o}{4\pi\epsilon_o}\frac{\cos\theta}{r^2}$, which is the field of the dipole in free space. 
+
+Outside the dielectric, we have
+
+$$\psi^o=\psi_P^o+\frac{p_o}{4\pi\epsilon_o}\frac{\cos\theta}{r^2}$$
+
+For large $r$, $\psi_P^o$ must approach zero, so it will not have $A_l$ terms. So we can write
+
+$$\psi^o=\sum_{l=0}^{\infty}\frac{B_l}{r^{l+1}}P_l(\cos\theta)+\frac{p_o}{4\pi\epsilon_o}\frac{\cos\theta}{r^2}$$
+
+Inside, we have
+
+$$\psi^i=\psi_P^i+\frac{p_o}{4\pi\epsilon_o}\frac{\cos\theta}{r^2}$$
+
+It is very tempting to state that inside the dielectric, $\psi^i_P$ must be finite. In this case, it would not have $B_l$ terms. If one does this you will get a different answer from Approach 1. The reason is the embedded dipole, which has a potential that diverges at the origin, induces a bound charge distribution that diverges at the origin. To get the same answer as in Approach 1, we need to allow $\psi^i_P$ to have a $B_1/r^2$ term. This error would have been noticed upon using the $\epsilon\rightarrow \infty$ check suggeted in [HW 8.2](hw.html#dipole-in-a-dielectric-sphere).
+
+Thus, we need to use
+
+$$\psi^i=\sum_{l=0}^{\infty}A_lr^lP_l(\cos\theta)+\frac{B_1}{r^2}\cos\theta+\frac{p_o}{4\pi\epsilon_o}\frac{\cos\theta}{r^2}$$
+
+Starting $\psi^o$ given above and this $\psi^i$ will yield the same final result as in Approach 1.
+
+_Approach 3_
+
+The justification for the need of the $B_1/r^2$ terms in Approach 2 will be perhaps clearer if we modify the problem so that the dipole is in a free--space cavity of radius $\Delta$. This creates an additional region to address and more algebra, but one will see that the inner surface of the cavity produces a field of $\frac{p_o}{4\pi\epsilon_i}\frac{\cos\theta}{r^2}$ in the limit that $\Delta \rightarrow 0$.
 
 # Magnetizable Sphere in Uniform Field
 
@@ -114,6 +223,77 @@ $$\psi^o_m(r,\theta)=-\frac{B_{\text{ext}}}{\mu_o}r\cos\theta+\frac{B_2}{r^2}\co
 2\. Find $\mathbf{B}$ inside the sphere.
 
 3\. Find the magnetization of the sphere.
+
+**Answer**
+
+!!!!DRAFT!!!!
+
+1\.
+
+Continuity of $\psi$ (which follows from the continuity of tangential component of $\mathbf{H}$) is:
+
+$\psi_m^i(b,\theta)=\psi_m^o(b,\theta)$
+
+(The units of the first term $\psi^o_m$ indicate that it a scalar potential for $\mathbf{H}$ and not $\mathbf{B}$. If one assumes the scalar potential was for $\mathbf{B}$, there will be a units problem and continuity in the form above; more importantly, continuity does not apply to a scalar potential for $\mathbf{B}$ because continuity is derived from the condition that the curl of $\mathbf{H}$, not $\mathbf{B}$, is zero. I never went over this in class, but units should have have ruled out the option that $\mathbf{B}=-\boldsymbol{\nabla}\psi_m$.)
+
+This gives
+
+$$A_1b\cos\theta=-\frac{B_\text{ext}}{\mu_o}b\cos\theta + \frac{B_2}{b^2}\cos\theta$$
+
+from which it follows that
+
+$$\boxed{A_1b=-\frac{B_\text{ext}}{\mu_o}b + \frac{B_2}{b^2}}$$
+
+From $\mathbf{\nabla}\bfcdot\mathbf{B}=0$, it follows that at $r=b$
+
+$(\mathbf{B}_o-\mathbf{B}_i)\bfcdot\hat{\mathbf{r}}=0$
+
+or
+
+$(\mu_o\mathbf{H}_o-\mu_i\mathbf{H}_i)\bfcdot\hat{\mathbf{r}}=0$
+
+or
+
+$$\left[\mu_o\frac{\partial \psi_o}{\partial r}-\frac{\partial \psi_o}{\partial r}\right]_{r=b} = 0$$
+
+from which it follows that
+
+$$\boxed{-B_\text{ext}-\mu_o\frac{2B_2}{b^3}=\mu_iA_1}$$
+
+Using the two boxed equations above gives
+
+$$A_1=-\frac{B_\text{ext}}{\mu_o}\frac{3}{\mu_i/\mu_o+2}$$
+
+$$B_2=b^3\frac{B_\text{ext}}{\mu_o}\frac{\mu_i/\mu_o-1}{\mu_i/\mu_o+2}$$
+
+We could find a scalar magnetic potential because $\boldsymbol{\nabla}\times \mathbf{H}=0$, so $\mathbf{H}=-\boldsymbol{\nabla}\psi_m$. Using $\mathbf{H}=\mathbf{B}/\mu$ gives
+
+$\mathbf{B}=-\mu\boldsymbol{\nabla}\psi_m$
+
+The gradient in spherical coordinates is
+
+$$
+\mathbf{\nabla} \psi_m = 
+{\partial \psi_m \over \partial r}\hat{\mathbf r}
++
+{1 \over r}{\partial \psi_m \over \partial \theta}\hat{\boldsymbol \theta}
++
+{1 \over r\sin\theta}{\partial \psi_m \over \partial \phi}\hat{\boldsymbol \phi}
+$$
+
+Using $\psi_m^i$ gives
+
+$\mathbf{B}^i=-\mu_i\boldsymbol{\nabla}\psi_m=-\mu_iA_1(\cos\theta\hat{\mathbf r}-\sin\theta\hat{\boldsymbol \theta})=\mu_iA_1\zhat$
+
+$$\mathbf{B}^i=B_\text{ext}\frac{3\mu_i/\mu_o}{\mu_i/\mu_o+2}\zhat$$
+
+For $\mu_i=\mu_o$, we get $\mathbf{B}^i=\mathbf{B}_\text{ext}$, as expected.
+
+3\.
+
+$$\mathbf{M}^i=\chi_m^i\mathbf{H}^i=\chi_m^i\frac{\mathbf{B}^i}{\mu_i}=\left(\frac{\mu_i}{\mu_o}-1\right)\frac{\mathbf{B}^i}{\mu_i}$$
+
+For $\mu_i=\mu_o$, we get $\mathbf{M}^i=0$, as expected.
 
 # Rotating Sphere
 
@@ -148,3 +328,46 @@ $$\int_0^{2\pi}d\phi\int_0^\pi\sin\theta d\theta Y^\*\_{l'm'}(\theta',\phi')Y_{l
 to show that for $r \lt b$,
 
 $$\mathbf{A}=\frac{\mu_o b \omega \sigma}{3} r\sin\theta \hat{\boldsymbol{\phi}}$$
+
+**Partial Solution**
+
+!!!!DRAFT!!!
+
+_Key steps_
+
+Let $K_o=\omega b\sigma$
+
+Inside the sphere, $r_{\gt}=b$ and $r_{\lt}=r$.
+
+$\mathbf{K}(\mathbf{x}')=K_o\sin\theta'\hat{\boldsymbol{\phi}}'=K_o\sin\theta'(-\sin\phi'\xhat+\cos\phi'\yhat)$
+
+**Important**: $\hat{\boldsymbol{\phi}}$ depends on $\phi$! So when we switch to using primes for $\mathbf{K}$, we need to change everything in it that depends on $\phi$ to be primed. To emphasize this, I sometimes write non--cartesian unit vectors with primes as done above. See also 1.4.1 of Griffiths 4th Edition (search on "poisonous snake"; I know, snakes are venomous.) I know I mentioned this repeatedly in class. In the future, I may make a song about it to see if that prevents people from making this too--common mistake.
+
+Integration will be easier if we use Euler's identity and the given table above to re--write $\mathbf{K}$ in terms of spherical harmonics. (We did a similar thing in problems where the potential on a sphere or the charge density on a sphere was not written in terms of the Legendre polynomials. It is easier if they are re--writen in terms of the Legendre polynomials.)
+
+$$\sin\theta'\sin\phi'=\frac{Y_{1,-1}(\theta',\phi')+Y_{1,1}(\theta',\phi')}{-2i\sqrt{3/8\pi}}$$
+
+$$\sin\theta'\cos\phi'=\frac{Y_{1,-1}(\theta',\phi')-Y_{1,1}(\theta',\phi')}{2\sqrt{3/8\pi}}$$
+
+so that the orthogonality equation can be used.
+
+$$da'=b^2\sin\theta'd\theta' d\phi'$$
+
+The above with orthogonality will give
+
+$$A_x=\frac{\mu_o}{4\pi}\frac{Y_{1,-1}(\theta,\phi)+Y_{1,1}(\theta,\phi)}{-2i\sqrt{3/8\pi}}\frac{4\pi}{3}r$$
+
+which simplifies to
+
+$$A_x=-\frac{\mu_oK_o}{3}r\sin\theta\sin\phi$$
+
+Similar steps lead to 
+
+$$A_y=\frac{\mu_oK_o}{3}r\sin\theta\cos\phi$$
+
+Using again $\hat{\boldsymbol{\phi}}=-\sin\phi\xhat+\cos\phi\yhat$
+
+gives
+
+$$\mathbf{A}=\frac{\mu_oK_o}{3} r\sin\theta \hat{\boldsymbol{\phi}}$$
+
