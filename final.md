@@ -206,6 +206,10 @@ _Approach 3_
 
 The justification for the need of the $B_1/r^2$ terms in Approach 2 will be perhaps clearer if we modify the problem so that the dipole is in a free--space cavity of radius $\Delta$. This creates an additional region to address and more algebra, but one will see that the inner surface of the cavity produces a field of $\frac{p_o}{4\pi\epsilon_i}\frac{\cos\theta}{r^2}$ in the limit that $\Delta \rightarrow 0$.
 
+_Approach 4_
+
+Find the field for an off--center point charge $q$ at $z=\Delta$ in a dielectric. Do this by seeking a potential in three regions. Add this potential to the potential for $-q$ at $z=-\Delta$ and then take the limit as $\Delta \rightarrow 0$.
+
 # Magnetizable Sphere in Uniform Field
 
 An initially unmagnetized sphere of radius $b$ and permeability $\mu_i$ is placed is a region of free space (so a permeability of $\mu_o$) where there is an external magnetic field $B_{\text{ext}}\zhat$.
