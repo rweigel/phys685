@@ -2663,14 +2663,7 @@ To find the contribution from the bound charge, one could find the potentials $\
 
 A perfect dipole $\mathbf{p}=p_o\hat{\mathbf{z}}$ at the origin is at the center of a dielectric sphere of radius $b$ that is centered on the origin. The dielectric constant of the sphere is $\epsilon$.
 
-Find
-
-1. $\psi(r,\theta)$ and
-2. $\mathbf{D}(r,\theta)$,
-
-and then
-
-3. explicitly compute $\oint \mathbf{D}\bfcdot d\mathbf{a}$ for a surface of an origin--centered sphere of radius $r\lt b$. Use correct mathematical notation.
+Find 1. $\psi(r,\theta)$ and 2. $\mathbf{D}(r,\theta)$, and then 3. explicitly compute $\oint \mathbf{D}\bfcdot d\mathbf{a}$ for a surface of an origin--centered sphere of radius $r\lt b$. Use correct mathematical notation.
 
 **Solution**
 
@@ -2707,7 +2700,7 @@ It would be useful to compute $\rho_b$ to verify that it is consistent with the 
 
 An origin--centered dielectric sphere with radius $b$ has a susceptibility of $\chi_e$. A point charge is at $(x,y,z)=(0,0,z_o)$, where $z_o \gt b$. Find the potential. Note that as $\chi_e\rightarrow \infty$, the solution should match that of a point charge outside of a conducting sphere.
 
-Hints:
+Hint:
 
 The potential will be due to the point charge and the bound charges induced on the sphere. You will need to consider three regions:
 

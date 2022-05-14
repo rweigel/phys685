@@ -125,73 +125,8 @@ Find the potential everywhere.
 
 **Solution**
 
-!!!!DRAFT!!!!
+See [HW 8.2](hw.html)
 
-The problem has azimuthal symmetry and $\nabla^2\psi(r,\theta)=0$ for the inner ($i$) region ($r\lt b$) and outer ($o$) region ($r\gt b$). As a result, in each region the potential has the form
-
-$$\psi=\sum_{l=0}^{\infty}A_lr^lP_l(\cos\theta)+ \sum_{l=0}^{\infty}\frac{B_l}{r^{l+1}}P_l(\cos\theta)$$
-
-To clarify notation, $\epsilon_i$ is used in place of $\epsilon$.
-
-_Approach 1_
-
-As $r/b\rightarrow 0$ the system appears as an infinite dielectric with two oppositely charged point charges near the origin.
-A single point charge in a dielectric has a field and potential with $\epsilon_o$ replaced with $\epsilon$ and a dipole potential is the sum of the potential of two point charges, so a dipole in an infinite dielectric $\epsilon_i$ will have a potential of $ (p\cos\theta/4\pi\epsilon_i)(1/r^2)$.
-
-Based on this, we expect that as $r/b\rightarrow 0$, $\psi^i \rightarrow (p\cos\theta/4\pi\epsilon_i)(1/r^2)$. From this it follows that $B_l=0$ for $l\ne 0$ and $B_1=p/4\pi\epsilon_i$ and so the inner potential should have the form
-
-$$\psi^i=\sum_{l=0}^{\infty}A_lr^lP_l(\cos\theta)+\frac{p}{4\pi\epsilon_i}\frac{\cos\theta}{r^2}$$
-
-As $r/b\rightarrow \infty$, the potential must approach zero (assuming we choose, as usual, that the reference location is "$r=\infty$" and the reference potential is zero). As a result, the $A_l$ terms must all be zero, so the potential for $r\gt b$ must have the form
-
-$$\psi^o=\sum_{l=0}^{\infty}\frac{B_l}{r^{l+1}}P_l(\cos\theta)+\frac{p}{4\pi\epsilon_o}\frac{\cos\theta}{r^2}$$
-
-In the above, we have added a term that corresponds to the expected outer field when $b=0$. 
-
-Continuity $\psi_i(b,\theta)=\psi_o(b,\theta)$ and use of $D_r^o(b,\theta)-D_r^i(b,\theta)=0$ with $\mathbf{E}=-\boldsymbol{\nabla}\psi$ and $\mathbf{D}=\epsilon\mathbf{E}$ and algebra will give a result that matches the result quoted in [HW 8.3](hw.html#dipole-in-a-dielectric-sphere), which was the result found by starting with no second term in $\psi^i$ and $\psi^o$:
-
-$$
-\psi(r,\theta)=
-\begin{cases}
-\displaystyle\frac{p\cos\theta}{4\pi\epsilon}\left(\frac{1}{r^2}+2\frac{\epsilon-\epsilon_o}{\epsilon+2\epsilon_o}\frac{r}{b^3}\right)
-\qquad & r\le b
-\\\\
-\displaystyle\frac{p\cos\theta}{4\pi}\frac{3\epsilon}{\epsilon+2\epsilon_o}\frac{1}{r^2}
-\qquad &r\ge b
-\end{cases}
-$$
-
-_Approach 2_
-
-Following the approach taken in [HW 8.3](hw.html#dipole-in-a-dielectric-sphere), we assert that inside and outside the dielectric, there will be a contribution from the dipole of $({p}/{4\pi\epsilon_o})({\cos\theta}/{r^2})$, which is the field of the dipole in free space. 
-
-Outside the dielectric, we have
-
-$$\psi^o=\psi_P^o+\frac{p}{4\pi\epsilon_o}\frac{\cos\theta}{r^2}$$
-
-For large $r$, $\psi_P^o$ must approach zero, so it will not have $A_l$ terms. So we can write
-
-$$\psi^o=\sum_{l=0}^{\infty}\frac{B_l}{r^{l+1}}P_l(\cos\theta)+\frac{p}{4\pi\epsilon_o}\frac{\cos\theta}{r^2}$$
-
-Inside, we have
-
-$$\psi^i=\psi_P^i+\frac{p}{4\pi\epsilon_o}\frac{\cos\theta}{r^2}$$
-
-It is very tempting to state that inside the dielectric, $\psi^i_P$ must be finite. In this case, it would not have $B_l$ terms. If one does this you will get a different answer from Approach 1. The reason is the embedded dipole, which has a potential that diverges at the origin, induces a bound charge distribution that diverges at the origin. To get the same answer as in Approach 1, we need to allow $\psi^i_P$ to have a $B_1/r^2$ term. This error would have been noticed upon using the $\epsilon\rightarrow \infty$ check suggeted in [HW 8.2](hw.html#dipole-in-a-dielectric-sphere).
-
-Thus, we need to use
-
-$$\psi^i=\sum_{l=0}^{\infty}A_lr^lP_l(\cos\theta)+\frac{B_1}{r^2}\cos\theta+\frac{p}{4\pi\epsilon_o}\frac{\cos\theta}{r^2}$$
-
-Starting $\psi^o$ given above and this $\psi^i$ will yield the same final result as in Approach 1.
-
-_Approach 3_
-
-The justification for the need of the $B_1/r^2$ terms in Approach 2 will be perhaps clearer if we modify the problem so that the dipole is in a free--space cavity of radius $\Delta$. This creates an additional region to address and more algebra, but one will see that the inner surface of the cavity produces a field of $\frac{p}{4\pi\epsilon_i}\frac{\cos\theta}{r^2}$ in the limit that $\Delta \rightarrow 0$.
-
-_Approach 4_
-
-Find the field for an off--center point charge $q$ at $z=\Delta$ in a dielectric. Do this by seeking a potential in three regions. Add this potential to the potential for $-q$ at $z=-\Delta$ and then take the limit as $\Delta \rightarrow 0$.
 
 # Magnetizable Sphere in Uniform Field
 
