@@ -17,7 +17,7 @@
 
 **PHYS 685 Final Exam**
 
----> **Solve 3 of 4 problems** <---
+!!! **Solve 3 of 4 problems** !!!
 
 Wednesday, May 11th, 2022
 
@@ -84,7 +84,7 @@ $$\int_{\mathcal{V}} \left(\phi\nabla^2\psi -\psi\nabla^2\phi\right)d^3x=\oint_{
 
 # Parallel Plate Capacitor
 
-Consider a large parallel plate capacitor with a hemispherical bulge on the grounded plate.  The bulge has radius $b$ and bulges toward the second plate.  The distance between the plates is $d$, $d\gg b$.  The second plate is at potential $V_o$. A cross--section of the geometry is shown. Assume that the capacitor plates are infinite in extent.
+A large parallel plate capacitor has a small hemispherical bulge on its grounded plate. The bulge has radius $b$ and bulges toward the second plate. The distance between the plates is $d$, $d\gg b$. The second plate is at potential $V_o$. A cross--section of the geometry is shown. Assume that the capacitor plates are infinite in extent.
 
 <img width="53%" src="figures/capacitor_with_bulge.svg"/>
 
@@ -93,15 +93,13 @@ Consider a large parallel plate capacitor with a hemispherical bulge on the grou
 
 **Answer**
 
-!!!!DRAFT!!!!
-
 1\. Origin is at center of bulge with $z$ vertically upwards.
 
-$$\psi = V_o\frac{z}{d}=V_o\frac{r}{d}\cos\theta$$
+$$\psi_o = V_o\frac{z}{d}=V_o\frac{r}{d}\cos\theta$$
 
 2\.
 
-Let the boundary be a volume between the plates with the sides far from the bulge and far from the plate ends. One the four sides, the potential must match the solution to 1\. At the top, $z=d$, the potential must be $V_o$. 
+Let the boundary be a volume between the plates with the sides far from the bulge and far from the plate ends. One the four sides, the potential must match the solution to 1\. At $z=d$, the potential must be $V_o$. 
 
 Thus, a candidate solution is the answer from 1\. and additional terms that approach zero far from the bulge.
 
@@ -109,17 +107,17 @@ $$\psi = V_o\frac{r}{d}\cos\theta + \frac{B_0}{r}P_0 + \frac{B_1}{r^2}P_1+...$$
 
 On the bulge, we require $\psi=0$, so
 
-$$\psi(b,\theta)=0= V_o\frac{b}{d}\cos\theta + \frac{B_0}{b}P_0 + \frac{B_1}{b^2}P_1+...$$
+$$\psi(b,\theta)= 0 = V_o\frac{b}{d}\cos\theta + \frac{B_0}{b}P_0 + \frac{B_1}{b^2}P_1+...$$
 
-For this to be satisfied, all $B_l=0$ execept for $B_1=-V_ob^3/d$.
+For this to be satisfied, all $B_l$ must be zero except for $B_1=-V_ob^3/d$.
 
-$$\psi(r,\theta) = V_o\cos\theta\left(\frac{r}{d}-\frac{b^3}{d^3}\frac{d^2}{r^2}\right)$$
+$$\psi(r,\theta) = V_o\cos\theta\left(\frac{r}{d}-\frac{b^3}{d}\frac{1}{r^2}\right) = \psi_o\left(1-\frac{b^2}{d^2}\frac{1}{r/b}\right)$$
 
-(I wrote in this form to emphasize the parameter that determines the influence of the bulge is the dimensionless constant $b^3/d^3$.)
+(The latter form is to emphasize the parameter that determines the influence of the bulge is the dimensionless constant $b^2/d^2$ and the distance scale $r/b$, which is greater than 1.)
 
 Normally we would need to explicilty address the non--bulge part of the plate ($\theta=\pi/2$ and $r\gt b$), but the found solution already satisifes $\psi=0$ on that boundary. The potential on the four sides is the solution to 1\., so the side boundary condition is also satisfied because there $r\gg b$.
 
-This problem is equivalent to a grounded sphere in a constant electric field. Probably it was created by noting that placing grounded conductors at the region of space where $\psi=0$ for that problem gives a problem that looks different but must have the same solution (from uniqueness).
+This problem is electrically equivalent to a grounded sphere in a constant electric field. Probably it was created by noting that placing grounded conductors at the region of space where $\psi=0$ for the grounded sphere problem and a distant parallel plate at $V_o$ gives a problem that looks different but must have the same solution (from uniqueness). Another version of this problem is three parallel plates with the middle having a conducting bubble).
 
 # Dipole in a Dielectric Sphere
 
@@ -131,7 +129,7 @@ Find the potential everywhere.
 
 !!!!DRAFT!!!!
 
-The problem has azimuthal symmetry and $\nabla^2\psi(r,\theta)=0$ for the inner region ($i$; $r\lt b$) and outer region ($o$; $r\gt b$). As a result, in each region the potential has the form
+The problem has azimuthal symmetry and $\nabla^2\psi(r,\theta)=0$ for the inner ($i$) region ($r\lt b$) and outer ($o$) region ($r\gt b$). As a result, in each region the potential has the form
 
 $$\psi=\sum_{l=0}^{\infty}A_lr^lP_l(\cos\theta)+ \sum_{l=0}^{\infty}\frac{B_l}{r^{l+1}}P_l(\cos\theta)$$
 
@@ -139,44 +137,55 @@ To clarify notation, $\epsilon_i$ is used in place of $\epsilon$.
 
 _Approach 1_
 
-As $r\rightarrow 0$ the system appears as an infinite dielectric with two oppositely charged point charges near the origin.
-A point charge in a dielectric has a field and potential with $\epsilon_o$ replaced with $\epsilon$ and a dipole potential is the sum of the potential of two point charges, so a dipole in an infinite dielectric $\epsilon_i$ will have a potential of $ (p_o\cos\theta/4\pi\epsilon_i)(1/r^2)$.
+As $r/b\rightarrow 0$ the system appears as an infinite dielectric with two oppositely charged point charges near the origin.
+A single point charge in a dielectric has a field and potential with $\epsilon_o$ replaced with $\epsilon$ and a dipole potential is the sum of the potential of two point charges, so a dipole in an infinite dielectric $\epsilon_i$ will have a potential of $ (p_o\cos\theta/4\pi\epsilon_i)(1/r^2)$.
 
-Based on this, we expect that as $r\rightarrow 0$, $\psi^o \rightarrow (p_o\cos\theta/4\pi\epsilon_i)(1/r^2)$. From this it follows that $B_l=0$ for $l\ne 0$ and $B_1=p_o/4\pi\epsilon_i$ and so the inner potential should have the form
-
-%(this is a different $B_1$ than from in Approach 2). 
+Based on this, we expect that as $r/b\rightarrow 0$, $\psi^i \rightarrow (p_o\cos\theta/4\pi\epsilon_i)(1/r^2)$. From this it follows that $B_l=0$ for $l\ne 0$ and $B_1=p_o/4\pi\epsilon_i$ and so the inner potential should have the form
 
 $$\psi^i=\sum_{l=0}^{\infty}A_lr^lP_l(\cos\theta)+\frac{p_o}{4\pi\epsilon_i}\frac{\cos\theta}{r^2}$$
 
-As $r\rightarrow \infty$, the potential must approach zero (assuming we choose, as usual, that the reference location is "$r=\infty$" and the reference potential is zero). As a result, the $A_l$ terms must all be zero, so the potential for $r\gt b$ must have the form
+As $r/b\rightarrow \infty$, the potential must approach zero (assuming we choose, as usual, that the reference location is "$r=\infty$" and the reference potential is zero). As a result, the $A_l$ terms must all be zero, so the potential for $r\gt b$ must have the form
 
-$$\psi^o=\sum_{l=0}^{\infty}\frac{B^o_l}{r^{l+1}}P_l(\cos\theta)$$
+$$\psi^o=\sum_{l=0}^{\infty}\frac{B^o_l}{r^{l+1}}P_l(\cos\theta)+\frac{p_o}{4\pi\epsilon_o}\frac{\cos\theta}{r^2}$$
 
-The condition
+In the above, we have added a term that corresponds to the expected outer field when $b=0$. 
 
-$\psi_i(b,\theta)=\psi_o(b,\theta)$
+The condition $\psi_i(b,\theta)=\psi_o(b,\theta)$ gives $A_l=-B_l/b^{2l+1}$
 
-gives $A_l=-B_l/b^{2l+1}$
-
-From $\boldsymbol{\nabla}\bfcdot\mathbf{D}=\sigma_\text{f}=0$ it follows that
+From $\boldsymbol{\nabla}\bfcdot\mathbf{D}=\sigma_\text{f}$ with $\sigma_f=0$ as in this problem, at $r=b$ it follows that
 
 $(\mathbf{D}_o-\mathbf{D}_i)\bfcdot\hat{\mathbf{r}}=0$
 
-at $r=b$. Equivalently,
-
-$D_r^o(b,\theta)-D_r^i(b,\theta)=0$
-
-or, using $\mathbf{D}=\epsilon\mathbf{E}$ and $\mathbf{E}=-\boldsymbol{\nabla}\psi$ gives
+Equivalently, $D_r^o(b,\theta)-D_r^i(b,\theta)=0$ or, using $\mathbf{D}=\epsilon\mathbf{E}$ and $\mathbf{E}=-\boldsymbol{\nabla}\psi$ gives
 
 $$\left[-\epsilon_o\frac{\partial \psi^o}{\partial r}+\epsilon_i\frac{\partial \psi^i}{\partial r}\right]_{r=b}=0$$
 
-This condition and $A_l=-B_l/b^{2l+1}$ found from continuity gives $A_l=B_l=0$ for $l\ne 1$ and
+$A_l=B_l=0$ for $l\ne 1$ and
 
-$$B_1=\frac{p_o}{2\pi\epsilon_o}\frac{\epsilon_o-\epsilon_i}{\epsilon_i-2\epsilon_o}$$
+$$A_1=2B_1\qquad B_1 = \frac{p_ob}{4\pi\epsilon_o}\left(\frac{1}{\epsilon_i}-\frac{1}{\epsilon_o}\right)$$
 
-$$A_1=-\frac{B_1}{b^3}$$
+$$\psi^i=\frac{2p_o}{4\pi}\left(\frac{1}{\epsilon_i}-\frac{1}{\epsilon_o}\right)\frac{r}{b^3}\cos\theta+\frac{p_o}{4\pi\epsilon_i}\frac{\cos\theta}{r^2}$$
 
-_Check_: Both the $A_1$ and $B_1$ terms are zero when $\epsilon_i=\epsilon_o$.
+It is interesting to note that $2(1/\epsilon_i-1/\epsilon_o)=(\epsilon_o-\epsilon_i)/\bar{\epsilon}$ so that the extra term is the difference in permittivities divided by their average.
+
+_Check_: When $\epsilon_i=\epsilon_o$ we get the potential for a $z$--aligned dipole in free space. 
+
+$$\psi^o=\frac{p_ob}{4\pi\epsilon_o}\left(\frac{1}{\epsilon_i}-\frac{1}{\epsilon_o}\right)\frac{\cos\theta}{r^2}+\frac{p_o}{4\pi\epsilon_o}\frac{\cos\theta}{r^2}$$
+
+_Check_: When $b=0$ we get the potential for a $z$--aligned dipole in free space.
+
+With algebra, this matches the result quoted in [HW 8.3](hw.html#dipole-in-a-dielectric-sphere), which was the result found by starting with no second term in $\psi^i$ and $\psi^o$:
+
+$$
+\psi(r,\theta)=
+\begin{cases}
+\displaystyle\frac{p_o\cos\theta}{4\pi\epsilon}\left(\frac{1}{r^2}+2\frac{\epsilon-\epsilon_o}{\epsilon+2\epsilon_o}\frac{r}{b^3}\right)
+\qquad & r\le b
+\\\\
+\displaystyle\frac{p_o\cos\theta}{4\pi\epsilon}\frac{3\epsilon}{\epsilon+2\epsilon_o}\frac{1}{r^2}
+\qquad &r\ge b
+\end{cases}
+$$
 
 _Approach 2_
 
