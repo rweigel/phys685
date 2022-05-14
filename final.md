@@ -146,35 +146,11 @@ $$\psi^i=\sum_{l=0}^{\infty}A_lr^lP_l(\cos\theta)+\frac{p_o}{4\pi\epsilon_i}\fra
 
 As $r/b\rightarrow \infty$, the potential must approach zero (assuming we choose, as usual, that the reference location is "$r=\infty$" and the reference potential is zero). As a result, the $A_l$ terms must all be zero, so the potential for $r\gt b$ must have the form
 
-$$\psi^o=\sum_{l=0}^{\infty}\frac{B^o_l}{r^{l+1}}P_l(\cos\theta)+\frac{p_o}{4\pi\epsilon_o}\frac{\cos\theta}{r^2}$$
+$$\psi^o=\sum_{l=0}^{\infty}\frac{B_l}{r^{l+1}}P_l(\cos\theta)+\frac{p_o}{4\pi\epsilon_o}\frac{\cos\theta}{r^2}$$
 
 In the above, we have added a term that corresponds to the expected outer field when $b=0$. 
 
-The condition $\psi_i(b,\theta)=\psi_o(b,\theta)$ gives $A_l=-B_l/b^{2l+1}$
-
-From $\boldsymbol{\nabla}\bfcdot\mathbf{D}=\sigma_\text{f}$ with $\sigma_f=0$ as in this problem, at $r=b$ it follows that
-
-$(\mathbf{D}_o-\mathbf{D}_i)\bfcdot\hat{\mathbf{r}}=0$
-
-Equivalently, $D_r^o(b,\theta)-D_r^i(b,\theta)=0$ or, using $\mathbf{D}=\epsilon\mathbf{E}$ and $\mathbf{E}=-\boldsymbol{\nabla}\psi$ gives
-
-$$\left[-\epsilon_o\frac{\partial \psi^o}{\partial r}+\epsilon_i\frac{\partial \psi^i}{\partial r}\right]_{r=b}=0$$
-
-$A_l=B_l=0$ for $l\ne 1$ and
-
-$$A_1=2B_1\qquad B_1 = \frac{p_ob}{4\pi\epsilon_o}\left(\frac{1}{\epsilon_i}-\frac{1}{\epsilon_o}\right)$$
-
-$$\psi^i=\frac{2p_o}{4\pi}\left(\frac{1}{\epsilon_i}-\frac{1}{\epsilon_o}\right)\frac{r}{b^3}\cos\theta+\frac{p_o}{4\pi\epsilon_i}\frac{\cos\theta}{r^2}$$
-
-It is interesting to note that $2(1/\epsilon_i-1/\epsilon_o)=(\epsilon_o-\epsilon_i)/\bar{\epsilon}$ so that the extra term is the difference in permittivities divided by their average.
-
-_Check_: When $\epsilon_i=\epsilon_o$ we get the potential for a $z$--aligned dipole in free space. 
-
-$$\psi^o=\frac{p_ob}{4\pi\epsilon_o}\left(\frac{1}{\epsilon_i}-\frac{1}{\epsilon_o}\right)\frac{\cos\theta}{r^2}+\frac{p_o}{4\pi\epsilon_o}\frac{\cos\theta}{r^2}$$
-
-_Check_: When $b=0$ we get the potential for a $z$--aligned dipole in free space.
-
-With algebra, this matches the result quoted in [HW 8.3](hw.html#dipole-in-a-dielectric-sphere), which was the result found by starting with no second term in $\psi^i$ and $\psi^o$:
+Continuity $\psi_i(b,\theta)=\psi_o(b,\theta)$ and use of $D_r^o(b,\theta)-D_r^i(b,\theta)=0$ with $\mathbf{E}=-\boldsymbol{\nabla}\psi$ and $\mathbf{D}=\epsilon\mathbf{E}$ and algebra will give a result that matches the result quoted in [HW 8.3](hw.html#dipole-in-a-dielectric-sphere), which was the result found by starting with no second term in $\psi^i$ and $\psi^o$:
 
 $$
 \psi(r,\theta)=
@@ -189,7 +165,7 @@ $$
 
 _Approach 2_
 
-Following the approach taken in [HW 8.3](hw.html#dipole-in-a-dielectric-sphere), we assert that inside and outside the dielectric, there will be a contribution from the dipole of $\frac{p_o}{4\pi\epsilon_o}\frac{\cos\theta}{r^2}$, which is the field of the dipole in free space. 
+Following the approach taken in [HW 8.3](hw.html#dipole-in-a-dielectric-sphere), we assert that inside and outside the dielectric, there will be a contribution from the dipole of $({p_o}/{4\pi\epsilon_o})({\cos\theta}/{r^2})$, which is the field of the dipole in free space. 
 
 Outside the dielectric, we have
 
