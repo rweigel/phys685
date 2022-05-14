@@ -2657,7 +2657,7 @@ $$
 \rho_b = -\boldsymbol{\nabla}\cdot\mathbf{P} = - {1 \over s}{\partial \left( s P_s  \right) \over \partial s} = -\frac{2P_o}{s}\cos\phi\sin\phi=-{P_o \over s}\sin 2\phi
 $$
 
-To find the contribution from the bound charge, one could find the potentials $\psi(s\gt s')$ and $\psi(s\lt s')$ due to a shell with density $\sigma'=-P_o\sin 2\phi/s'$. The potential at $s$ is then the sum of the potentials due to differential shells from $0$ to $s$ and $s$ to $b$.
+To find the contribution from the bound charge, one could find the potentials $\psi(s\gt s')$ and $\psi(s\lt s')$ due to a shell with density $\sigma'=-P_o\sin 2\phi/s'$ (see problem on earlier HW). The potential at $s$ is then the sum of the potentials due to differential shells from $0$ to $s$ and $s$ to $b$.
 
 ## Dipole in a Dielectric Sphere
 
@@ -2665,12 +2665,12 @@ A perfect dipole $\mathbf{p}=p_o\hat{\mathbf{z}}$ at the origin is at the center
 
 Find
 
-1. $\psi(r,\theta)$
-2. $\mathbf{D}(r,\theta)$
+1. $\psi(r,\theta)$ and
+2. $\mathbf{D}(r,\theta)$,
 
-and
+and then
 
-3. Explicitly compute $\oint \mathbf{D}\bfcdot d\mathbf{a}$ for a surface of an origin--centered sphere of radius $r\lt b$.
+3. explicitly compute $\oint \mathbf{D}\bfcdot d\mathbf{a}$ for a surface of an origin--centered sphere of radius $r\lt b$. Use correct mathematical notation.
 
 **Solution**
 
@@ -2682,18 +2682,18 @@ $$
 \displaystyle\frac{p_o\cos\theta}{4\pi\epsilon}\left(\frac{1}{r^2}+2\frac{\epsilon-\epsilon_o}{\epsilon+2\epsilon_o}\frac{r}{b^3}\right)
 \qquad & r\le b
 \\\\
-\displaystyle\frac{p_o\cos\theta}{4\pi\epsilon}\frac{3\epsilon}{\epsilon+2\epsilon_o}\frac{1}{r^2}
+\displaystyle\frac{p_o\cos\theta}{4\pi}\frac{3\epsilon}{\epsilon+2\epsilon_o}\frac{1}{r^2}
 \qquad &r\ge b
 \end{cases}
 $$
 
 Checks:
 
-To make the problem a dipole in free space, replace $\epsilon$ with $\epsilon_o$. The result is, as expected,  $\psi(r,\theta)=\mathbf{p}\bfcdot\hat{\mathbf{r}}/(4\pi\epsilon_or^2)$. 
+To make the problem a dipole in free space, replace $\epsilon$ with $\epsilon_o$. The result is, as expected,  $\psi(r,\theta)=\mathbf{p}\bfcdot\hat{\mathbf{r}}/(4\pi\epsilon_or^2)$, which is $p_o\cos\theta/(4\pi r^2)$ when $\mathbf{p}=p_o\zhat$. 
 
 %To make the problem a dipole embeded in an infinite dielectric material, , replace $\epsilon$ with $\epsilon_o$. The result is, as expected,  $\psi(r,\theta)=\mathbf{p}\bfcdot\hat{\mathbf{r}}/(4\pi\epsilon_or^2)$. 
 
-If $\chi_e$ is large (so $\epsilon$ is large), the dielectric becomes like a conductor. In this case, the electric field can be made to be zero if positive charges cluster in shell of vanishing radius around the negative charges in the dipole and if negative charges cluster around the positive charge in the dipole. In the limit that $\chi_e$ is large, $\psi(r,\theta)\rightarrow 0$, which is consistent with this.
+If $\chi_e$ is large (so $\epsilon$ is large), the dielectric becomes like a conductor. In this case, the electric field in the dielectric region can be made to be zero if positive charges cluster in a shell of vanishing radius around the negative charges in the dipole and if negative charges cluster around the positive charge in the dipole. In the limit that $\chi_e$ is large, $\psi(r,\theta)\rightarrow 0$, which is consistent with this.
 
 It would be useful to compute $\rho_b$ to verify that it is consistent with the stated distribution of charges for large $\chi_e$. There are two ways to do this: (1) Compute $-\boldsymbol{\nabla}\bfcdot \mathbf{P}=\epsilon_o\chi_e \nabla^2\psi$. We expect that $\rho_b$ should be proportional to $\delta(\mathbf{r}-d/2\zhat) - \delta(\mathbf{r}+d/2\zhat)$ in the limit that $d\rightarrow 0$. Showing this takes a bit of delta function manupulation. Alternatively, (2), we could re--do the problem using point charges $\pm q$ at $\pm d$. In this case, we will have more terms in $\psi(r,\theta)$, but will be able to more clearly identify $\delta(\mathbf{r}-d/2\zhat)$ and $\delta(\mathbf{r}+d/2\zhat)$ when computing $\nabla^2\psi$.
 
@@ -2705,9 +2705,7 @@ It would be useful to compute $\rho_b$ to verify that it is consistent with the 
 
 ## Point Charge and Dielectric Sphere
 
-An origin--centered dielectric sphere with radius $b$ has a susceptibility of $\chi_e$. A point charge is at $(x,y,z)=(0,0,z_o)$, where $z_o \gt b$.
-
-Find the potential. Note that as $\chi_e\rightarrow \infty$, the solution should match that of a point charge outside of a conducting sphere.
+An origin--centered dielectric sphere with radius $b$ has a susceptibility of $\chi_e$. A point charge is at $(x,y,z)=(0,0,z_o)$, where $z_o \gt b$. Find the potential. Note that as $\chi_e\rightarrow \infty$, the solution should match that of a point charge outside of a conducting sphere.
 
 Hints:
 
@@ -2717,13 +2715,13 @@ The potential will be due to the point charge and the bound charges induced on t
 * Middle $b \lt r \lt z_o$
 * Outer $r\gt z_o$
 
-In the outer region, the potential due to the point charge can be expressed (from 3.38 of Jackson) as
+In the outer region, $r\gt z_o$, the potential due to the point charge can be expressed (from 3.38 of Jackson) as
 
-$$\psi_q(r\gt z_o) = \frac{q}{4\pi\epsilon_o}\frac{1}{|\mathbf{x}-\mathbf{x}'|} = \frac{q}{4\pi\epsilon_o}\sum_{l=0}^\infty \frac{z_o^l}{r^{l+1}}P_l(\cos \theta)$$
+$$\psi_q^> = \frac{q}{4\pi\epsilon_o}\frac{1}{|\mathbf{x}-\mathbf{x}'|} = \frac{q}{4\pi\epsilon_o}\sum_{l=0}^\infty \frac{z_o^l}{r^{l+1}}P_l(\cos \theta)$$
 
 In the inner and middle region, the potential due to the point charge can be expressed as
 
-$$\psi_q(r\lt z_o)=\frac{q}{4\pi\epsilon_o}\frac{1}{|\mathbf{x}-\mathbf{x}'|} = \frac{q}{4\pi\epsilon_o}\sum_{l=0}^\infty \frac{r^l}{z_o^{l+1}}P_l(\cos \theta)$$
+$$\psi_q^< =\frac{q}{4\pi\epsilon_o}\frac{1}{|\mathbf{x}-\mathbf{x}'|} = \frac{q}{4\pi\epsilon_o}\sum_{l=0}^\infty \frac{r^l}{z_o^{l+1}}P_l(\cos \theta)$$
 
 In all three regions, the contribution from the induced bound charges must have the form
 
@@ -2750,9 +2748,9 @@ $
 $
 
 $
-\mathbf{D}_i(b,\theta)-\mathbf{D}_m(b,\theta)=0
+\big(\mathbf{D}_i(b,\theta)-\mathbf{D}_m(b,\theta)\big)\bfcdot \hat{\mathbf r}=0
 \qquad
-\mathbf{D}_m(z_o,\theta)-\mathbf{D}_o(z_o,\theta)=\sigma'
+\big(\mathbf{D}_i(z_o,\theta)-\mathbf{D}_m(z_o,\theta)\big)\bfcdot \hat{\mathbf r}=\sigma'
 $
 
 where $\sigma'=q\delta(\theta)/(2\pi z_o^2\sin\theta)$. In this case, we need to find $A^i_l$, $A^m_l$, $B_l^m$, and $B_l^o$.
@@ -2760,18 +2758,18 @@ where $\sigma'=q\delta(\theta)/(2\pi z_o^2\sin\theta)$. In this case, we need to
 Using the hint, we one start with
 
 $$\psi_i(r,\theta) =
-\psi_q(r\lt z_o)
+\psi_q^<
 +
 \sum_{l=0}^{\infty}A_lr^lP_l(\cos\theta)$$
 
 $$\psi_m(r,\theta)=
-\psi_q(r\lt z_o)+
+\psi_q^<
 \sum_{l=0}^{\infty}B^m_lr^{-l-1}P_l(\cos\theta)
 $$
 
 $$
 \psi_o(r,\theta) =
-\psi_q(r\gt z_o)
+\psi_q^>
 +
 \sum_{l=0}^{\infty}B^o_lr^{-l-1}P_l(\cos\theta)
 $$
@@ -2799,7 +2797,7 @@ $$
 \sum_{l=0}^{\infty}B_lr^{-l-1}P_l(\cos\theta)
 $$
 
-$A_l$ and $B_l$ can be found using $\psi_i(b,\theta)=\psi_m(b,\theta)$ and $\mathbf{D}_i(b,\theta)-\mathbf{D}_m(b,\theta)=0$. The arguments provided obviate the need to use the boundary conditions at $r=z_o$ because they were implicitly used in simplifying the set of equations to be solved.
+$A_l$ and $B_l$ can be found using $\psi_i(b,\theta)=\psi_m(b,\theta)$ and $\big(\mathbf{D}_i(b,\theta)-\mathbf{D}_m(b,\theta)\big)\bfcdot \hat{\mathbf r}=0$. The arguments provided obviate the need to use the boundary conditions at $r=z_o$ because they were implicitly used in simplifying the set of equations to be solved.
 
 \newpage
 
