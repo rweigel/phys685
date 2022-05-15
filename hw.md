@@ -2667,7 +2667,6 @@ Find 1. $\psi(r,\theta)$ and 2. $\mathbf{D}(r,\theta)$, and then 3. explicitly c
 
 **Solution**
 
-
 The problem has azimuthal symmetry and $\nabla^2\psi(r,\theta)=0$ for the inner ($i$) region ($r\lt b$) and outer ($o$) region ($r\gt b$). As a result, in each region the potential has the form
 
 $$\psi=\sum_{l=0}^{\infty}A_lr^lP_l(\cos\theta)+ \sum_{l=0}^{\infty}\frac{B_l}{r^{l+1}}P_l(\cos\theta)$$
@@ -2873,31 +2872,36 @@ The justification for the need of the $B_1/r^2$ terms in Approach 2 will be perh
 _Approach 4_
 
 Find the field for an off--center point charge $q$ at $z=\Delta$ in a dielectric. Do this by seeking a potential in three regions. Add this potential to the potential for $-q$ at $z=-\Delta$ and then take the limit as $\Delta \rightarrow 0$.
+
 ## Point Charge and Dielectric Sphere
 
-An origin--centered dielectric sphere with radius $b$ has a susceptibility of $\chi_e$. A point charge is at $(x,y,z)=(0,0,z_o)$, where $z_o \gt b$. Find the potential. Note that as $\chi_e\rightarrow \infty$, the solution should match that of a point charge outside of a conducting sphere.
+An origin--centered dielectric sphere with radius $b$ has a susceptibility of $\epsilon_i$. A point charge is at $(x,y,z)=(0,0,z_o)$, where $z_o \gt b$. Find the potential. Note that as $\epsilon_i\rightarrow \infty$, the solution should match that of a point charge outside of a conducting sphere.
 
 Hint:
 
-The potential will be due to the point charge and the bound charges induced on the sphere. You will need to consider three regions:
+The potential will be due to the point charge and the bound charges induced on the sphere. You will need to consider three regions: 1. Inner $r\lt b$, 2. Middle $b \lt r \lt z_o$, and 3. Outer $r\gt z_o$.
 
-* Inner $r\lt b$
-* Middle $b \lt r \lt z_o$
-* Outer $r\gt z_o$
+Using 3.38 of Jackson, which is
 
-In the outer region, $r\gt z_o$, the potential due to the point charge can be expressed (from 3.38 of Jackson) as
+$$
+\frac{1}{|\mathbf{x}-\mathbf{x}'|}
+=
+\sum_{l=0}^\infty \frac{r_<^l}{r^{l+1}_>}P_l(\cos \theta)
+$$
 
-$$\psi_q^> = \frac{q}{4\pi\epsilon_o}\frac{1}{|\mathbf{x}-\mathbf{x}'|} = \frac{q}{4\pi\epsilon_o}\sum_{l=0}^\infty \frac{z_o^l}{r^{l+1}}P_l(\cos \theta)$$
+In the outer region, $r\gt z_o$, the potential due to the point charge can be expressed as
 
-In the inner and middle region, the potential due to the point charge can be expressed as
+$$\psi_q^> = \frac{q}{4\pi\epsilon_o}\sum_{l=0}^\infty \frac{z_o^l}{r^{l+1}}P_l(\cos \theta)$$
 
-$$\psi_q^< =\frac{q}{4\pi\epsilon_o}\frac{1}{|\mathbf{x}-\mathbf{x}'|} = \frac{q}{4\pi\epsilon_o}\sum_{l=0}^\infty \frac{r^l}{z_o^{l+1}}P_l(\cos \theta)$$
+In the inner and middle region,
 
-In all three regions, the contribution from the induced bound charges must have the form
+$$\psi_q^< = \frac{q}{4\pi\epsilon_o}\sum_{l=0}^\infty \frac{r^l}{z_o^{l+1}}P_l(\cos \theta)$$
+
+In all three regions, the contribution from the induced bound charges must have the form<sup>[*]</sup>
 
 $$\psi_b(r,\theta)=\sum_{l=0}^{\infty}\left(A_lr^l + B_lr^{-l-1}\right)P_l(\cos\theta)$$
 
-In the inner region, the potential due to the bound charges will not have $B_l$ terms. In the middle and outer region, the potential due to the bound charges will not have $A_l$ terms.
+In the inner region, the potential due to the bound charges will not have $B_l$ terms<sup>[\*]</sup>. In the middle and outer region, the potential due to the bound charges will not have $A_l$ terms<sup>[\*]</sup>.
 
 **Solution**
 
@@ -2923,7 +2927,7 @@ $
 \big(\mathbf{D}_i(z_o,\theta)-\mathbf{D}_m(z_o,\theta)\big)\bfcdot \hat{\mathbf r}=\sigma'
 $
 
-where $\sigma'=q\delta(\theta)/(2\pi z_o^2\sin\theta)$. In this case, we need to find $A^i_l$, $A^m_l$, $B_l^m$, and $B_l^o$.
+with $\sigma'=q\delta(\theta)/(2\pi z_o^2\sin\theta)$<sup>[\*]</sup>. In this case, we need to find $A^i_l$, $A^m_l$, $B_l^m$, and $B_l^o$.
 
 Using the hint, we one start with
 
@@ -2934,6 +2938,7 @@ $$\psi_i(r,\theta) =
 
 $$\psi_m(r,\theta)=
 \psi_q^<
++
 \sum_{l=0}^{\infty}B^m_lr^{-l-1}P_l(\cos\theta)
 $$
 
@@ -2967,7 +2972,182 @@ $$
 \sum_{l=0}^{\infty}B_lr^{-l-1}P_l(\cos\theta)
 $$
 
-$A_l$ and $B_l$ can be found using $\psi_i(b,\theta)=\psi_m(b,\theta)$ and $\big(\mathbf{D}_i(b,\theta)-\mathbf{D}_m(b,\theta)\big)\bfcdot \hat{\mathbf r}=0$. The arguments provided obviate the need to use the boundary conditions at $r=z_o$ because they were implicitly used in simplifying the set of equations to be solved.
+_Checks_ of final solution:
+
+1. When $\epsilon_i=\epsilon_o$, $\psi_i=\psi_m=\psi_q^<$ and $\psi^o = \psi_q^>$.
+2. When $\epsilon_i/\epsilon_o\rightarrow \infty$, we expect $\psi^i=0$ and $\psi^m$ and $\psi^o$ to correspond to the solution to a point charge outside of an uncharged conducting sphere.
+
+$A_l$ and $B_l$ can be found using $\psi_i(b,\theta)=\psi_m(b,\theta)$ and $\big(\mathbf{D}_i(b,\theta)-\mathbf{D}_m(b,\theta)\big)\bfcdot \hat{\mathbf r}=0$. The arguments provided obviate the need to use the boundary conditions at $r=z_o$ because they were implicitly used to arrive at this last for of the potentials in each region.
+
+$\psi_i(b,\theta)=\psi_m(b,\theta)$ gives
+
+$$\psi_q^< + \sum_{l=0}^{\infty}A_lb_lP_l = \psi_q^<  +  \sum_{l=0}^{\infty}\frac{B_l}{b^{l+1}}P_l$$
+
+from which it follows that
+
+$$\boxed{A_l=\frac{B_l}{b^{2l+1}}}$$
+
+From
+
+$\big(\mathbf{D}_i(b,\theta)-\mathbf{D}_m(b,\theta)\big)\bfcdot \hat{\mathbf r}=0$
+
+it follows that<sup>[\*]</sup>
+
+$$
+\left[\epsilon_o\frac{\partial \psi^m}{\partial r}
+-
+\epsilon_i\frac{\partial \psi^i}{\partial r}\right]_{r=b} = 0
+$$
+
+and so
+
+$$
+\epsilon_o\frac{\partial \psi^<\_q}{\partial r}\bigg|\_{r=b}
+-
+\epsilon_o\sum_{l=0}^{\infty}\frac{ (l+1)}{b^{l+2}}B_lP_l
+-
+\epsilon_i\frac{\partial \psi^<\_q}{\partial r}\bigg|\_{r=b}
+-
+\epsilon_i\sum_{l=0}^{\infty} l A_l b^{l-1}P_l
+=
+0
+$$
+
+or
+
+$$
+\epsilon_o\sum_{l=0}^{\infty}\frac{(l+1)}{b^{l+2}}B_lP_l
++
+\epsilon_i\sum_{l=0}^{\infty}l A_l b^{l-1}P_l
+=
+(\epsilon_o-\epsilon_i)\frac{\partial \psi^<\_q}{\partial r}\bigg|\_{r=b}
+$$
+
+Using $A_l$ from the boxed equation above gives
+
+$$
+\epsilon_o\sum_{l=0}^{\infty}\frac{(l+1)}{b^{l+2}}B_lP_l
++
+\epsilon_i\sum_{l=0}^{\infty} l \frac{B_l}{b^{2l+1}} b^{l-1}P_l
+=
+(\epsilon_o-\epsilon_i)\frac{\partial \psi^<\_q}{\partial r}\bigg|\_{r=b}
+$$
+
+or
+
+$$
+\sum_{l=0}^{\infty}B_l
+\left[\frac{\epsilon_o (l+1)}{b^{l+2}}
++
+\frac{\epsilon_i l }{b^{l+2}}
+\right]P_l
+=
+(\epsilon_o-\epsilon_i)\frac{\partial \psi^<\_q}{\partial r}\bigg|\_{r=b}
+$$
+
+Using the definition
+
+$$
+\psi_q^< 
+=
+\frac{q}{4\pi\epsilon_o}\sum_{l=0}^\infty \frac{r^l}{z_o^{l+1}}P_l(\cos \theta)
+$$
+
+gives
+
+$$
+\frac{\partial \psi^<\_q}{\partial r}\bigg|\_{r=b}
+=
+\frac{q}{4\pi\epsilon_o}\sum_{l=0}^\infty l\frac{b^{l-1}}{z_o^{l+1}}P_l
+$$
+
+Using this, orthogonality, and simplifying gives
+
+$$
+\boxed{
+B_l
+=
+\frac{q}{4\pi\epsilon_o}
+\frac{b^{2l+1}}{z_o^{l+1}}
+\frac{
+(\epsilon_o-\epsilon_i)l
+}
+{
+\epsilon_o(l+1) + l\epsilon_i
+}
+}
+$$
+
+$$
+\boxed{
+A_l=\frac{B_l}{b^{2l+1}}
+=
+\frac{q}{4\pi\epsilon_o}
+\frac{1}{z_o^{l+1}}
+\frac{
+(\epsilon_o-\epsilon_i)l
+}
+{
+\epsilon_o(l+1) + l\epsilon_i
+}
+}
+$$
+
+_Checks_:
+
+1\. When $\epsilon_i=\epsilon_o$, $\psi_i=\psi_m=\psi_q^<$ and $\psi^o = \psi_q^>$.
+    
+Direct substitution shows that that this is satisifed.
+
+2\. When $\epsilon_i/\epsilon_o\rightarrow \infty$, we expect $\psi^i=0$ and $\psi^m$ and $\psi^o$ to correspond to the solution to a point charge outside of an uncharged conducting sphere. In this limit,
+
+$$B_l\rightarrow -\frac{q}{4\pi\epsilon_o}\frac{b^{2l+1}}{z_o^{l+1}}$$
+
+$$A_l\rightarrow -\frac{q}{4\pi\epsilon_o}\frac{1}{z_o^{l+1}}$$
+
+It can be show that this leads to the expected result.<sup>[\*]</sup>.
+
+Substitution of these into the starting equations, which were
+
+$$\psi_i(r,\theta) =
+\frac{q}{4\pi\epsilon_o}\sum_{l=0}^\infty \frac{r^l}{z_o^{l+1}}P_l(\cos \theta)
++
+\sum_{l=0}^{\infty}A_lr^lP_l(\cos\theta)
+$$
+
+$$\psi_m(r,\theta)=
+\psi_q^<
++
+\sum_{l=0}^{\infty}B_lr^{-l-1}P_l(\cos\theta)
+$$
+
+$$
+\psi_o(r,\theta) =
+\psi_q^>
++
+\sum_{l=0}^{\infty}B_lr^{-l-1}P_l(\cos\theta)
+$$
+
+gives
+
+$$\psi_i(r,\theta) = 0;
+\quad
+\psi_m(r,\theta)=\psi_q^< + \psi_{q'};
+\quad
+\psi_o(r,\theta)=\psi_q^> + \psi_{q'}
+$$
+
+where
+
+$$
+\psi_{q'}=-\frac{q}{4\pi\epsilon_o}\sum_{l=0}^{\infty}\frac{b^{2l+1}}{z_o^{l-1}}r^{-l-1}P_l(\cos\theta)
+$$
+
+$$
+\psi_{q'}=\frac{q'}{4\pi\epsilon_o}\sum_{l=0}^{\infty}\frac{z'}{r^{l+1}}P_l(\cos\theta)
+$$
+
+where $q'=-qb/z_o$ and $z'=b^2/z_o$.
 
 \newpage
 
