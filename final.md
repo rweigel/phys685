@@ -164,7 +164,7 @@ $(\mu_o\mathbf{H}_o-\mu_i\mathbf{H}_i)\bfcdot\hat{\mathbf{r}}=0$
 
 or
 
-$$\left[\mu_o\frac{\partial \psi_o}{\partial r}-\frac{\partial \psi_o}{\partial r}\right]_{r=b} = 0$$
+$$\left[\mu_o\frac{\partial \psi_o}{\partial r}-\mu_i\frac{\partial \psi_i}{\partial r}\right]_{r=b} = 0$$
 
 from which it follows that
 

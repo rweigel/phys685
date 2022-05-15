@@ -2661,41 +2661,218 @@ To find the contribution from the bound charge, one could find the potentials $\
 
 ## Dipole in a Dielectric Sphere
 
-A perfect dipole $\mathbf{p}=p_o\hat{\mathbf{z}}$ at the origin is at the center of a dielectric sphere of radius $b$ that is centered on the origin. The dielectric constant of the sphere is $\epsilon$.
+A perfect dipole, $\mathbf{p}=p\hat{\mathbf{z}}$, at the origin is at the center of an origin--centered dielectric sphere of radius $b$. The dielectric constant of the sphere is $\epsilon$.
 
 Find 1. $\psi(r,\theta)$ and 2. $\mathbf{D}(r,\theta)$, and then 3. explicitly compute $\oint \mathbf{D}\bfcdot d\mathbf{a}$ for a surface of an origin--centered sphere of radius $r\lt b$. Use correct mathematical notation.
 
 **Solution**
 
-1.
+
+The problem has azimuthal symmetry and $\nabla^2\psi(r,\theta)=0$ for the inner ($i$) region ($r\lt b$) and outer ($o$) region ($r\gt b$). As a result, in each region the potential has the form
+
+$$\psi=\sum_{l=0}^{\infty}A_lr^lP_l(\cos\theta)+ \sum_{l=0}^{\infty}\frac{B_l}{r^{l+1}}P_l(\cos\theta)$$
+
+Bracked superscripts in the following are referenced in another problem.
+
+_Approach 1_
+
+1\. If we choose the zero of potential to be zero on a sphere of infinite radius, then $\psi^o$ can not have $A_l$ terms.
+
+As $r/b\rightarrow 0$ the system appears as an infinite dielectric with two oppositely charged point charges near the origin<sup>[a]</sup>. A single point charge in a dielectric has a field and potential with $\epsilon_o$ replaced with $\epsilon$ and a dipole potential is the sum of the potential of two point charges, so a dipole in an infinite dielectric $\epsilon_i$ will have a potential of $p\cos\theta/(4\pi\epsilon_i r^2)$. As a result, the $B_0$ term in $\psi^i$ must be zero<sup>[b]</sup>.
+
+$$
+\psi^i=\frac{p}{4\pi\epsilon_i}\frac{\cos\theta}{r^2}
++
+\sum_{l=2}^{\infty}\frac{B_l^i}{r^{l+1}}P_l(\cos\theta)
++
+\sum_{l=0}^{\infty}A_lr^lP_l(\cos\theta)
+$$
+
+$$\psi^o=\sum_{l=0}^{\infty}\frac{B_l^o}{r^{l+1}}P_l(\cos\theta)$$
+
+%To simplify the algebra, write the potentials in terms of the dimensionless radial distance $r'=r/b$, $\psi_o=p/4\pi \epsilon_o b^2$, $\epsilon_i'=\epsilon_i/\epsilon_o$, and dimensionless $\psi = \psi/\psi_o$.
+
+The continuity condition $\psi^i(b,\theta)=\psi^o(b,\theta)$ gives, for $l=1$,
+
+$$
+\frac{p}{4\pi\epsilon_i}\frac{\cos\theta}{b^2}
++
+A_1b\cos\theta
+=
+\frac{B_1^o}{b^2}\cos\theta
+$$
+
+from which it follows that<sup>[c]</sup>
+
+$$
+\frac{p}{4\pi\epsilon_i}\frac{1}{b^2}
++
+A_1b
+=
+\frac{B_1^o}{b^2}
+\qquad
+\text{or}
+\qquad
+\boxed{
+B_1^o
+=
+\frac{p}{4\pi\epsilon_i}
++
+A_1b^3
+}
+$$
+
+From $\boldsymbol{\nabla}\bfcdot\mathbf{D}=0$, at $r=b$ it follows that $(\mathbf{D}_o-\mathbf{D}_i)\bfcdot\hat{\mathbf{r}}=0$.
+
+Equivalently, $D_r^o(b,\theta)-D_r^i(b,\theta)=0$, or, using $\mathbf{D}=\epsilon\mathbf{E}$ and $\mathbf{E}=-\boldsymbol{\nabla}\psi$ gives the jump condition
+
+$$
+\left[\epsilon_o\frac{\partial \psi_o}{\partial r}
+-
+\epsilon_i\frac{\partial \psi_i}{\partial r}\right]_{r=b} = 0$$
+
+For $l=1$,
+
+$$
+-2\epsilon_o\frac{B_1^o}{b^3}\cos\theta
++
+2\epsilon_i\frac{p}{4\pi\epsilon_i}\frac{\cos\theta}{b^3}
+-
+\epsilon_iA_1\cos\theta = 0
+$$
+
+or
+
+$$
+\boxed{
+B_1^o
+=
+\frac{p}{4\pi\epsilon_o}
+-
+\frac{\epsilon_i}{2\epsilon_o}b^3 A_1
+}
+$$
+
+Equating the above two boxed equations gives
+
+$$
+\boxed{
+A_1
+=
+\frac{p}{4\pi\epsilon_i}\frac{1}{b^3}\alpha
+\quad
+\text{and}
+\quad
+B_1^o
+=
+\frac{p}{4\pi\epsilon_o}
+\left(
+1
+-
+\frac{\alpha}{2}
+\right)
+}
+$$
+
+where
+
+$$
+\quad
+\alpha\equiv\frac
+{
+\frac{\epsilon_i}{\epsilon_o}-1
+}
+{
+1+\frac{1}{2}\frac{\epsilon_i}{\epsilon_o}
+}
+=\frac{2}{3}\frac{\chi_e}{1+\frac{\chi_e}{3}}
+$$
+
+The $l\ne 1$ terms have not been addressed. They can be shown to be zero. They can also be argued to be zero: the potentials with the $A_1$ and $B_1^o$ terms given above and all other constants zero satisfy the boundary conditions and so by uniqueness we have solved for the potential.
+
+In summary,
+
+$$
+\psi^i(r,\theta)
+=
+\frac{p}{4\pi\epsilon_i}\frac{\cos\theta}{r^2}
++
+\alpha\frac{p}{4\pi \epsilon_i}
+\frac{r}{b^3}\cos\theta
+$$
+
+$$
+\psi^o(r,\theta)
+=
+\left(1-\frac{\alpha}{2}\right)
+\frac{p}{4\pi\epsilon_o}\frac{\cos\theta}{r^2}
+$$
+
+where
+$
+\displaystyle
+\alpha \equiv
+\frac
+{
+1-\frac{\epsilon_i}{\epsilon_o}
+}
+{
+1+\frac{\epsilon_i}{2\epsilon_o}
+}
+$
+
+Another way of expressing the answer is
 
 $$
 \psi(r,\theta)=
 \begin{cases}
-\displaystyle\frac{p_o\cos\theta}{4\pi\epsilon}\left(\frac{1}{r^2}+2\frac{\epsilon-\epsilon_o}{\epsilon+2\epsilon_o}\frac{r}{b^3}\right)
+\displaystyle\frac{p\cos\theta}{4\pi\epsilon_i}\left(\frac{1}{r^2}+2\frac{\epsilon_i-\epsilon_o}{\epsilon_i+2\epsilon_o}\frac{r}{b^3}\right)
 \qquad & r\le b
 \\\\
-\displaystyle\frac{p_o\cos\theta}{4\pi}\frac{3\epsilon}{\epsilon+2\epsilon_o}\frac{1}{r^2}
+\displaystyle\frac{p\cos\theta}{4\pi}\frac{3}{\epsilon_i+2\epsilon_o}\frac{1}{r^2}
 \qquad &r\ge b
 \end{cases}
 $$
 
 Checks:
 
-To make the problem a dipole in free space, replace $\epsilon$ with $\epsilon_o$. The result is, as expected,  $\psi(r,\theta)=\mathbf{p}\bfcdot\hat{\mathbf{r}}/(4\pi\epsilon_or^2)$, which is $p_o\cos\theta/(4\pi r^2)$ when $\mathbf{p}=p_o\zhat$. 
+To make the problem a dipole in free space, replace $\epsilon$ with $\epsilon_o$. The result is, as expected,  $\psi(r,\theta)=\mathbf{p}\bfcdot\hat{\mathbf{r}}/(4\pi\epsilon_or^2)$, which is $p\cos\theta/(4\pi r^2)$ when $\mathbf{p}=p\zhat$. 
 
 %To make the problem a dipole embeded in an infinite dielectric material, , replace $\epsilon$ with $\epsilon_o$. The result is, as expected,  $\psi(r,\theta)=\mathbf{p}\bfcdot\hat{\mathbf{r}}/(4\pi\epsilon_or^2)$. 
 
-If $\chi_e$ is large (so $\epsilon$ is large), the dielectric becomes like a conductor. In this case, the electric field in the dielectric region can be made to be zero if positive charges cluster in a shell of vanishing radius around the negative charges in the dipole and if negative charges cluster around the positive charge in the dipole. In the limit that $\chi_e$ is large, $\psi(r,\theta)\rightarrow 0$, which is consistent with this.
+If $\chi_e$ is large (so $\epsilon_i$ is large), the dielectric becomes like a conductor. In this case, the electric field in the dielectric region can be made to be zero if positive charges cluster in a shell of vanishing radius around the negative charges in the dipole and if negative charges cluster around the positive charge in the dipole. In the limit that $\chi_e$ is large, $\psi(r,\theta)\rightarrow 0$, which is consistent with this.
 
-It would be useful to compute $\rho_b$ to verify that it is consistent with the stated distribution of charges for large $\chi_e$. There are two ways to do this: (1) Compute $-\boldsymbol{\nabla}\bfcdot \mathbf{P}=\epsilon_o\chi_e \nabla^2\psi$. We expect that $\rho_b$ should be proportional to $\delta(\mathbf{r}-d/2\zhat) - \delta(\mathbf{r}+d/2\zhat)$ in the limit that $d\rightarrow 0$. Showing this takes a bit of delta function manupulation. Alternatively, (2), we could re--do the problem using point charges $\pm q$ at $\pm d$. In this case, we will have more terms in $\psi(r,\theta)$, but will be able to more clearly identify $\delta(\mathbf{r}-d/2\zhat)$ and $\delta(\mathbf{r}+d/2\zhat)$ when computing $\nabla^2\psi$.
+_Approach 2_
 
-%That is, for $r\lt b$, start by assuming a solution of $\psi_+ + \psi_- + \chi_e\psi_+ + \chi_e\psi_-$ added to the general solution to Laplace's equation with only $r^l$ terms, where $\psi_+$ and $\psi_-$ are the free-space solutions
+Following the approach taken in [HW 8.3](hw.html#dipole-in-a-dielectric-sphere), we assert that inside and outside the dielectric, there will be a contribution from the dipole of $({p}/{4\pi\epsilon_o})({\cos\theta}/{r^2})$, which is the field of the dipole in free space. 
 
-%2\. 
+Outside the dielectric, we have
 
-%Using $\mathbf{D}=\epsilon\mathbf{E}$ gives
+$$\psi^o=\psi_P^o+\frac{p}{4\pi\epsilon_o}\frac{\cos\theta}{r^2}$$
 
+For large $r/b$, the potential due to polarization, $\psi_P^o$, must approach zero, so it will not have $A_l$ terms. So we can write
+
+$$\psi^o_P=\sum_{l=0}^{\infty}\frac{B_l}{r^{l+1}}P_l(\cos\theta)$$
+
+Inside, we have
+
+$$\psi^i=\psi_P^i+\frac{p}{4\pi\epsilon_o}\frac{\cos\theta}{r^2}$$
+
+It is tempting to state that inside the dielectric, $\psi^i_P$ must be finite. In this case, it would not have $B_l$ terms. If one does this you will get a different answer from Approach 1. The reason is the embedded dipole, which has a potential that diverges at the origin, induces a bound charge distribution with an associated potential that diverges at the origin. To get the same answer as in Approach 1, we need to allow $\psi^i_P$ to have a $B_1/r^2$ term. (This error would have been noticed upon using the $\epsilon\rightarrow \infty$ check suggeted in [HW 8.2](hw.html#dipole-in-a-dielectric-sphere).)
+
+Thus, we need to use
+
+$$\psi^i_P=\sum_{l=0}^{\infty}A_lr^lP_l(\cos\theta)+\frac{B_1}{r^2}\cos\theta$$
+
+Starting with $\psi^o$ and $\psi_i$ given above and using the same boundary conditions will yield the same final result as in Approach 1<sup>[e]</sup>. Alternatively, one could use the final result of Approach 1 to identify $\psi_p^o$ and $\psi_p^i$<sup>[f]</sup>.
+
+_Approach 3_
+
+The justification for the need of the $B_1/r^2$ terms in Approach 2 will be perhaps clearer if we modify the problem so that the dipole is in a free--space cavity of radius $\Delta$. This creates an additional region to address and more algebra, but one will see that the inner surface of the cavity produces a field of $({p}/{4\pi\epsilon_o})({\cos\theta}/{r^2})$ in the limit that $\Delta/2 \rightarrow 0$<sup>[g]</sup>.
+
+_Approach 4_
+
+Find the field for an off--center point charge $q$ at $z=\Delta$ in a dielectric. Do this by seeking a potential in three regions. Add this potential to the potential for $-q$ at $z=-\Delta$ and then take the limit as $\Delta \rightarrow 0$.
 ## Point Charge and Dielectric Sphere
 
 An origin--centered dielectric sphere with radius $b$ has a susceptibility of $\chi_e$. A point charge is at $(x,y,z)=(0,0,z_o)$, where $z_o \gt b$. Find the potential. Note that as $\chi_e\rightarrow \infty$, the solution should match that of a point charge outside of a conducting sphere.
