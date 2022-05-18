@@ -4,6 +4,8 @@ Due on Feb. 2nd at 4:30 pm. Please turn in a physical copy unless you are absent
 
 ## Notation and Delta Function
 
+% Copied to notes 2022-05-15
+
 For a volume charge density $\rho$, the electric field at $\mathbf{r}$ is given by
 
 $$\mathbf{E}(\mathbf{r})=\frac{1}{4\pi\epsilon_o}\int\frac{\hat{\textbf{\char"0509}}}{\char"0509^2}\rho(\mathbf{r}')\thinspace d\tau'$$
@@ -60,6 +62,8 @@ To finish the problem, I replaced $a_x,a_y,a_z$ with the variables given in the 
 
 ## Delta Function I
 
+% Copied to notes 2022-05-15
+
 1. Suppose $I = \int_{-2}^{2}g(x)dx$. Find $\int_{-1}^{1}g(2x)dx$ and $\int_{-1}^{1}g(-2x)dx$ in terms of $I$. Show graphically why the result makes sense
 using $g(x)=x^2$.
 
@@ -80,6 +84,8 @@ In the case that $a=b=\infty$ and a finite integral, it follows that $\int g(bx)
 Griffiths 4th Edition example 1.15 gives an alternative solution. Another approach is to think of this as a transformation of variables problem in which the Jacobian, which involves the absolute value, is computed.
 
 ## Delta Function II
+
+% Copied to notes 2022-05-15
 
 1. Find $\int \delta(a + bx)f(x)dx$ using either
    1. identity 5. on page 26 of Jackson, 3rd Edition or
@@ -429,7 +435,6 @@ Show by direct calculation that
 $$\oint_{\mathcal{S}}\mathbf{A}\bfcdot d\mathbf{a} = \int_{\mathcal{V}} \boldsymbol{\nabla} \cdot \mathbf{A}\thinspace d^3x$$
 
 is satisfied when $\mathbf{A}=A_x(x)\xhat$ and $\mathcal{V}$ is an origin--centered cube of side length $b$ with its sides parallel to the coordinate planes.
-   
 ### Divergence Theorem
 
 Solve II-27 and II-28 of [Schey, 2005](https://drive.google.com/drive/folders/001s8T-MO_G7YfPuAiHesVK3yFNy82noAsg?usp=sharing).

@@ -1,6 +1,443 @@
-# $\delta$ and $\Theta$
+# $\delta$
 
-## Delta Function (5 pts) 
+## Motivation
+
+### Center of Mass
+
+A straight 1-D rod of mass $M$ with a uniform mass density and length $a/n$ ($n=1, 2, ...$) is aligned with the $x$--axis and centered on $x=a$. Find the center of mass by evaluating
+
+$\displaystyle \overline{x}\_n = \frac{1}{M}\int_{\text{rod}} x\lambda_n(x) dx$
+
+Explain why the value of $\overline{x}\_n$ for $n\to \infty$ makes sense.
+
+### Moment of Inertia
+
+Find the moment of inertia about the $y$--axis of the rod in the previous problem in terms of $a$, $n$, and $M$ by evaluating
+
+$\displaystyle I\_n = \int_{\text{rod}} x^2\lambda_n(x)dx$
+
+Explain why the value of $I_n$ for $n\to \infty$ makes sense.
+
+### Divergence Theorem
+
+1. Find the electric field $\mathbf{E}$ due to a non-conducting sphere with a uniform volume charge density $\rho_o$ and radius $b$ that is centered on the origin.
+2. Show by direct calculation that
+
+   $$\oint_{\mathcal{S}}\mathbf{E}\bfcdot d\mathbf{a} = \int_{\mathcal{V}} \boldsymbol{\nabla} \bfcdot \mathbf{E}\thinspace d^3x$$
+
+   when the volume of integration $\mathcal{V}$ is a sphere centered on the origin with
+
+   1. radius $b/2$
+   2. radius $2b$
+
+**Solution**
+
+As mentioned in class, this is somewhat of a simple problem but was given to motivate the use of the Dirac delta function. What I said in class is briefly summarized at the end.
+
+**1\.** The electric field is
+
+$$
+\mathbf{E} =
+\begin{cases}
+\displaystyle\frac{\rho_o}{3\epsilon_o}r\thinspace \mathbf{\hat{r}} =\frac{q}{4\pi\epsilon_o}\frac{r}{b^3}\mathbf{\hat{r}} & r\le b \\\\
+\displaystyle\frac{\rho_o}{3\epsilon_o}\frac{b^3}{r^2}\thinspace \mathbf{\hat{r}} =\frac{q}{4\pi\epsilon_o}\frac{1}{r^2}\mathbf{\hat{r}} & r \ge b
+\end{cases}
+$$
+
+
+where $q=\rho_o\thinspace 4\pi b^3/3$ was used.
+
+**2\.** In the following,
+
+$$A.\qquad\boldsymbol{\nabla}\bfcdot (f(r)\thinspace \hat{\mathbf{r}})=\frac{1}{r^2}\frac{\partial}{\partial r}\left(r^2f(r)\right)$$
+
+is used. This follows from the identity for the divergence in spherical coordinates.
+
+----
+
+For $r\le b$ and $\mathcal{S}$ a spherical surface of radius $r$ (so that the outward normal is $\hat{\mathbf{r}}$):
+
+$$\oint_{\mathcal{S}}\mathbf{E}(r\le b)\bfcdot \hat{\mathbf{n}}\thinspace da =  \int_0^{2\pi}\int_0^\pi\left(\frac{\rho_o}{3\epsilon_o}r\thinspace \hat{\mathbf{r}}\right)\bfcdot\hat{\mathbf{r}}\thinspace r^2\sin\theta\thinspace d\theta\thinspace d\phi=\frac{\rho_o}{\epsilon_o}\frac{4\pi r^3}{3}=\frac{q}{\epsilon_o}$$
+
+The divergence of $\mathbf{E}$ is, using $A.$,
+
+$$\boldsymbol{\nabla}\bfcdot \mathbf{E}(r\le b)= \boldsymbol{\nabla}\bfcdot \left(\frac{\rho_o}{3\epsilon_o}r\thinspace \hat{\mathbf{r}}\right) = \frac{1}{r^2}\frac{\partial}{\partial r}\left(r^2\left(\frac{\rho_o}{3\epsilon_o}r\right)\right)= \frac{\rho_o}{\epsilon_o}$$
+
+as expected from Gauss' law in differential form ($\boldsymbol{\nabla}\bfcdot \mathbf{E}=\rho/\epsilon_o$ with $\rho=\rho_o$). Therefore, for $r\le b$:
+
+$$\int_{\mathcal{V}} \boldsymbol{\nabla} \bfcdot \mathbf{E}\thinspace d^3x=\int_{\mathcal{V}} \frac{\rho_o}{\epsilon_o}\thinspace d^3x=\frac{\rho_o}{\epsilon_o}\frac{4\pi r^3}{3}=\frac{q}{\epsilon_o}$$
+
+Conclusion: for $r\le b$,
+
+$$\oint_{\mathcal{S}}\mathbf{E}\bfcdot \hat{\mathbf{n}}\thinspace da = \int_{\mathcal{V}} \boldsymbol{\nabla} \bfcdot \mathbf{E}\thinspace d^3x$$
+
+----
+
+For $r\gt b$ and $\mathcal{S}$ a spherical surface of radius $r$:
+
+$$\oint_{\mathcal{S}}\mathbf{E}(r\ge b)\bfcdot \hat{\mathbf{n}}\thinspace da =  \int_0^{2\pi}\int_0^\pi\left(\frac{\rho_o}{3\epsilon_o}\frac{b^3}{r^2}\thinspace \hat{\mathbf{r}}\right)\bfcdot\hat{\mathbf{r}}\thinspace r^2\sin\theta\thinspace d\theta\thinspace d\phi = \int_0^{2\pi}\int_0^\pi\left(\frac{\rho_o}{3\epsilon_o}b^3\right)\sin\theta\thinspace d\theta\thinspace d\phi=\frac{\rho_o}{\epsilon_o}\frac{4\pi b^3}{3}=\frac{q}{\epsilon_o}$$
+
+The divergence is
+
+$$\boldsymbol{\nabla}\bfcdot \mathbf{E}(r\ge b)=\frac{\rho_o b^3}{3\epsilon_o} \boldsymbol{\nabla}\bfcdot \frac{\hat{\mathbf{r}}}{r^2} = \frac{1}{r^2}\frac{\partial}{\partial r}\left(r^2\left(\frac{\rho_o b^3}{3\epsilon_o}\frac{1}{r^2}\right)\right)=\frac{\rho_o b^3}{3\epsilon_o}\frac{1}{r^2}\frac{\partial}{\partial r}\left(1\right)=0$$
+
+also as expected from Gauss' law in differential form ($\boldsymbol{\nabla}\bfcdot \mathbf{E}=\rho/\epsilon_o$ with $\rho=0$). Important: the last equality in the above equation is only true when $r\ne 0$; when $r=0$, the result is $0/0$. This issue is considered later in this solution.
+
+One must split the volume integral into two integrals, one for $r\le b$ and the other for $r\gt b$ to account for the divergence being different in the two regions. As shown earlier, in the region $r\gt b$, the divergence is zero. As a result, if the volume integral is not computed piecewise, one will get the same result (although technically this is not correct).
+
+$$
+\begin{array}{ll}
+\displaystyle\int\_{\mathcal{V}} \boldsymbol{\nabla} \bfcdot \mathbf{E}\thinspace d^3x& = & 
+\displaystyle\int\_{\mathcal{V\_{r\le b}}} \boldsymbol{\nabla} \bfcdot \mathbf{E}(r\le b)\thinspace d^3x & + &  \displaystyle\int\_{\mathcal{V\_{r\ge b}}} \boldsymbol{\nabla} \bfcdot \mathbf{E}(r\ge b)\thinspace d^3x\\\\
+& = &  \displaystyle\int_{\mathcal{V\_{r\le b}}} \frac{\rho_o}{\epsilon_o}\thinspace d^3x & + &  \displaystyle\int_{\mathcal{V\_{r\ge b}}}0\thinspace d^3x\\\\
+& = & \displaystyle\frac{\rho_o}{\epsilon_o}\frac{4\pi b^3}{3} & + & 0\\\\
+& = & \displaystyle\frac{q}{\epsilon_o}
+\end{array}
+$$
+
+Conclusion: for $r\gt b$,
+
+$$\oint_{\mathcal{S}}\mathbf{E}\bfcdot \hat{\mathbf{n}}\thinspace da = \int_{\mathcal{V}} \boldsymbol{\nabla} \bfcdot \mathbf{E}\thinspace d^3x$$
+
+----
+
+_Motivation for this problem_
+
+I gave this problem as a lead-in/follow-up for my discussion of the motivation for the delta function. For a point charge, the integrand of
+
+$\int_{\mathcal{V}} \boldsymbol{\nabla} \bfcdot \mathbf{E}_p\thinspace d^3x$ with $\mathbf{E}_p=\frac{q}{4\pi\epsilon_o}\frac{\hat{\mathbf{r}}}{r^2}$ is zero everywhere except at the origin ($r=0$) where it is indeterminate in the form of $0/0$ because
+
+$$
+\displaystyle \boldsymbol{\nabla}\bfcdot \mathbf{E}_p = \frac{q}{4\pi\epsilon_o} \boldsymbol{\nabla}\bfcdot \frac{\hat{\mathbf{r}}}{r^2} = \frac{q}{4\pi\epsilon_o}\frac{1}{r^2}\frac{\partial}{\partial r}\left(1\right) = \begin{cases}
+0/0 & \text{if }r = 0 \\ 
+0   & \text{if }r\ne 0
+\end{cases}
+$$
+
+However,
+
+$$\oint_{\mathcal{S}}\mathbf{E}_p\bfcdot \hat{\mathbf{n}}\thinspace da =\frac{q}{\epsilon_o}$$
+
+does not have an indeterminacy. Therefore, the divergence theorem
+
+$$\int_{\mathcal{V}} \boldsymbol{\nabla} \bfcdot \mathbf{E}\_p\thinspace d^3x=\oint_{\mathcal{S}}\mathbf{E}_p\bfcdot \hat{\mathbf{n}}\thinspace da$$
+
+applied to $\mathbf{E}$ for a point charge gives
+
+$$\text{indeterminate integral}=\frac{q}{\epsilon_o}$$
+
+In this problem, it has been shown that if a point charge $q$ is modeled as having a uniform density for $r\le b$ and having zero density for $r\gt b$, then the indeterminacy problem can be avoided and
+
+$$\int_{\mathcal{V}} \boldsymbol{\nabla} \bfcdot \mathbf{E}\thinspace d^3x = \oint_{\mathcal{S}}\mathbf{E}\bfcdot \hat{\mathbf{n}}\thinspace da$$
+
+for all $r$ and for arbitrarily small (but non-zero) $b$ (but see also 'other notes' below). That is, the divergence theorem gives the correct answer for a solid ball of charge that is arbitrarily small but not zero.
+
+Although the divergence theorem does not apply for $\mathbf{E}_p$, to avoid having to think about a solid ball with arbitrarily small but non zero radius we can use the convention that
+
+$$\boldsymbol{\nabla}\bfcdot \mathbf{E}_p=\frac{q}{4\pi\epsilon_o}\boldsymbol{\nabla}\bfcdot \frac{\hat{\mathbf{r}}}{r^2}=\frac{q}{\epsilon_o}\delta(\mathbf{\mathbf{r}})$$
+
+where the function $\delta(\mathbf{\mathbf{r}})$ is zero everywhere except at $\mathbf{r}=\mathbf{0}$ and integrates to 1 when the volume of integration includes $\mathbf{r}=\mathbf{0}$.
+
+$$\int_{\mathcal{V}} \boldsymbol{\nabla} \bfcdot \mathbf{E}\thinspace d^3x=\int_{\mathcal{V}}\frac{q}{4\pi\epsilon_o}\boldsymbol{\nabla}\bfcdot \frac{\hat{\mathbf{r}}}{r^2}\thinspace d^3x=\int_{\mathcal{V}}\frac{q}{\epsilon_o}\delta(\mathbf{\mathbf{r}})\thinspace d^3x=\frac{q}{\epsilon_o}$$
+
+That is,
+
+$$\boldsymbol{\nabla}\bfcdot \frac{\hat{\mathbf{r}}}{r^2}=4\pi\delta(\mathbf{\mathbf{r}})$$
+
+When you see the delta function used in an integration, you should think back to this problem and realize that the delta function is being used instead of modeling the electric field as a point charge $q$ as having a uniform density for $r\lt b$ and zero density for $r\gt b$.
+
+Griffiths takes a different approach to motivating the introduction of the delta function. He notes that the indeterminate integral of the divergence
+
+$$\int_{\mathcal{V}} \boldsymbol{\nabla} \bfcdot \mathbf{E}_p\thinspace d^3x=\text{indeterminate integral}$$
+
+must be equal to $q/\epsilon_o$ because of the divergence theorem (which technically does not apply because of the singularity in $\mathbf{E}$ at $r=0$):
+
+$$\oint_{\mathcal{S}}\mathbf{E}_p\bfcdot \hat{\mathbf{n}}\thinspace da = \frac{q}{\epsilon_o}\quad\Rightarrow\quad\int_{\mathcal{V}} \boldsymbol{\nabla} \bfcdot \mathbf{E}_p\thinspace d^3x=\frac{q}{\epsilon_o}$$
+
+He then notes that $\hat{\mathbf{r}}/r^2$ has the property that its divergence $\displaystyle\boldsymbol{\nabla}\bfcdot\frac{\hat{\mathbf{r}}}{r^2}$
+
+1. is zero everywhere except at the origin (where it is interminate)
+2. integrates to a constant ($4\pi$) over any volume $\mathcal{V}$ that includes $r=0$ (based on the assumption that the divergence theorem applies and resolves the indeterminacy)
+
+That is, although
+
+$$\int_{\mathcal{V}} \boldsymbol{\nabla} \bfcdot \mathbf{E}_p\thinspace d^3x$$
+
+has an indeterminate integrand at $r=0$, if the divergence theorem suggests this integral must be equal to the surface integral, which is ${q}/{\epsilon_o}$. Therefore,
+
+$$\boldsymbol{\nabla}\bfcdot \mathbf{E}_p=\frac{q}{\epsilon_o}\delta(\mathbf{\mathbf{r}})$$
+
+where the function $\delta(\mathbf{r})$ is defined to be zero unless $r=0$ and integrates over a volume that includes $\mathbf{r}=\mathbf{0}$ to 1. This explanation is somewhat awkward because it implicitly assumes that the divergence theorem applies even though the field $\mathbf{E}_p$ does not satisfy the requirements for the divergence theorem to apply. (The requirements for the divergence theorem to apply are that the components of the vector field and their derivatives are continuous.)
+
+In summary, the integral
+
+$$\int_{\mathcal{V}} f(\mathbf{r})\boldsymbol{\nabla} \bfcdot \mathbf{E}\thinspace d^3x$$
+
+is indeterminant when $\mathbf{E}\sim \hat{\mathbf{r}}/r^2$ and $\mathcal{V}$ includes $r=0$. If we model a point charge as having a uniform density for $r\le b$, and zero density for $r\gt b$, where $b\ne 0$ is smaller than any length scale in the problem, the indeterminacy is removed. Instead of two integrations, one for $r \le b$ and the other for $r\gt b$, we can simply replace $\boldsymbol{\nabla}\bfcdot \mathbf{E}_p$ with $(q/\epsilon_o)\delta(\mathbf{\mathbf{r}})$; the result of any integration will be the same.
+
+----
+
+A second motivation for using the delta function is that we often want to do an integral of the form
+
+$$\int_{\mathcal{V}} f(\mathbf{r})\boldsymbol{\nabla} \bfcdot \mathbf{E}_p\thinspace d^3x$$
+
+(Recall that $f(\mathbf{r})$ means $f(x,y,z)$). As before, integral is indeterminate because $\boldsymbol{\nabla} \bfcdot (\hat{\mathbf{r}}/r^2)$ is 0/0 at $r=0$. To work around this problem, we can again model the point charge as having a uniform density for $r\le b$ and zero density for $r\gt b$. Then 
+
+$$\int_{\mathcal{V}} f(\mathbf{r})\boldsymbol{\nabla} \bfcdot \mathbf{E}\thinspace d^3x=\int\_{\mathcal{V_{r\le b}}} f(\mathbf{r})\boldsymbol{\nabla} \bfcdot \mathbf{E}\_b\thinspace d^3x+\int_{\mathcal{V_{r\gt b}}} f(\mathbf{r})\boldsymbol{\nabla} \bfcdot \mathbf{E}_b\thinspace d^3x$$
+
+The second integral is identically zero because $\boldsymbol{\nabla}\bfcdot\mathbf{E}_b=0$ for $r\gt b$. If $f(\mathbf{r})$ can be expanded as a Taylor series
+
+$$f(\mathbf{r})\simeq f(\mathbf{0}) + \mathbf{r}\bfcdot\left[\boldsymbol{\nabla}f\thinspace \right]_{\mathbf{r}=0}\;+\;...$$
+
+then
+
+$$
+\begin{array}{ll}
+\displaystyle\int\_{\mathcal{V\_{r\le b}}} f(\mathbf{r})\boldsymbol{\nabla} \bfcdot \mathbf{E}\thinspace d^3x & = & \displaystyle\int\_{\mathcal{V\_{r\le b}}} \left(f(\mathbf{0})+\mathbf{r}\bfcdot\left[\boldsymbol{\nabla}f\thinspace \right]\_{\mathbf{r}=0}\thickspace+\thickspace ...\right)\boldsymbol{\nabla} \bfcdot \mathbf{E}\thinspace d^3x\\\\
+& = & \displaystyle\int\_{\mathcal{V\_{r\le b}}} f(\mathbf{0})\boldsymbol{\nabla} \bfcdot \mathbf{E}\thinspace d^3x+\displaystyle\int\_{\mathcal{V\_{r\le b}}} (\mathbf{r}\bfcdot\left[\boldsymbol{\nabla}f\thinspace \right]\_{\mathbf{r}=0}\thickspace+\thickspace...)\boldsymbol{\nabla} \bfcdot \mathbf{E}\thinspace d^3x\\\\
+& = & f(\mathbf{0})\displaystyle\int\_{\mathcal{V\_{r\le b}}} \boldsymbol{\nabla} \bfcdot \mathbf{E}\thinspace d^3x+\displaystyle\int\_{\mathcal{V\_{r\le b}}} \left(\mathbf{r}\bfcdot\left[\boldsymbol{\nabla}f\thinspace \right]\_{\mathbf{r}=0}\thickspace+\thickspace ...\right)\boldsymbol{\nabla} \bfcdot \mathbf{E}\thinspace d^3x\\\\
+& = & \frac{q}{\epsilon\_o}f(\mathbf{0})\thickspace+\thickspace\frac{q}{\epsilon\_o}\displaystyle\int\_{\mathcal{V\_{r\le b}}} \left(\mathbf{r}\bfcdot\left[\boldsymbol{\nabla}f\thinspace \right]\_{\mathbf{r}=0}\thickspace+\thickspace ...\right)d^3x\\
+\end{array}
+$$
+
+The second and higher-order terms in the last equation approach zero as $b\rightarrow 0$.  To see this, note that for small enough $b$,
+
+$$\frac{q}{\epsilon_o}\displaystyle\int_{\mathcal{V_{r\le b}}} f(\mathbf{r})\thinspace d^3x\rightarrow \frac{4\pi}{3}b^3\left<f(\mathbf{0})\right>$$
+
+where the $\left<\right>$ is the average in $\mathcal{V}$ in a sphere of radius $b$. Therefore,
+
+$$\frac{q}{\epsilon_o}\displaystyle\int_{\mathcal{V_{r\le b}}} \mathbf{r}\bfcdot\left[\boldsymbol{\nabla}f\thinspace \right]_{\mathbf{r}=0}\thinspace d^3x\xrightarrow[b\rightarrow 0]{} \frac{q}{\epsilon_o}\frac{4\pi}{3}b^3\left<\mathbf{r}\bfcdot\left[\boldsymbol{\nabla}f\thinspace \right]_{\mathbf{r}=0}\right>\xrightarrow[b\rightarrow 0]{}  0$$
+
+The same argument applies to the higher-order terms in the Taylor series expansion.
+
+Prior to the introduction of the delta function by Dirac in the 1930s, the "small ball" argument was used when an integral of the form
+
+$$\displaystyle\int_{\mathcal{V}} f(\mathbf{r})\boldsymbol{\nabla} \bfcdot \mathbf{E}\thinspace d^3x$$
+
+was encountered and $\mathbf{E}$ was that for a point charge and $\mathcal{V}$ that included the location of the point charge.
+
+With the introduction of the Dirac delta, one can simply use $\boldsymbol{\nabla}\bfcdot \mathbf{E}_p=\frac{q}{\epsilon_o}\delta(\mathbf{\mathbf{r}})$ to get the same result without needing to think about the above steps:
+
+$$
+\displaystyle \int_{\mathcal{V}} f(\mathbf{r})\boldsymbol{\nabla} \bfcdot \mathbf{E}\thinspace d^3x = \int_{\mathcal{V}} f(\mathbf{r})\frac{q}{\epsilon_o}\delta(\mathbf{\mathbf{r}})\thinspace d^3x = \begin{cases}
+f(\mathbf{0})\frac{q}{\epsilon_o} & \text{if }\mathcal{V}\text{ includes } r = 0 \\ 
+0 & \text{otherwise}
+\end{cases}
+$$
+
+That is, using the delta function for the divergence of $\mathbf{E}$ due to a point charge will give us the same answer as if we had modeled the point charge as having a uniform density for $r\le b$, zero density for $r\gt b$, Taylor series expanded $f(\mathbf{r})$, and then let $b\rightarrow 0$. 
+
+----
+
+_Other notes_
+
+In the above, I showed that the divergence theorem gave the correct result for $\mathbf{E}$ and any $r$ by direct calculation. However, the divergence theorem
+
+$$\oint_{\mathcal{S}}\mathbf{E}\bfcdot \hat{\mathbf{n}}\thinspace da = \int_{\mathcal{V}} \boldsymbol{\nabla} \bfcdot \mathbf{E}\thinspace d^3x$$
+
+requires that within $\mathcal{V}$, the components of $\mathbf{E}$ and their derivatives are piecewise continuous. In $\mathbf{E}$, $E_r$ is continuous, but $\partial E_r/\partial r$ is not. So it appears that direct calculation for $r\gt b$ gave a result that was consistent with the divergence theorem even though the assumptions required to apply the divergence theorem are not satisfied. To see why this occurred, use the divergence theorem in the two parts of $\mathcal{V}$ where the divergence theorem applies for $\mathbf{E}$. 
+
+First, consider the application of the divergence theorem for the volume between $r=0$ and $r=b$.
+
+$$\int_{\mathcal{V_{r \le b}}} \boldsymbol{\nabla} \bfcdot \mathbf{E}\thinspace d^3x = \int_\mathcal{S_{r=b}} \mathbf{E}\bfcdot \hat{\mathbf{n}}\thinspace da $$
+
+The outward normal to $\mathcal{S_{r=b}}$ for $\mathcal{V_{r \le b}}$ is $+\hat{\mathbf{r}}$, so
+
+$$I.\quad \int_{\mathcal{V_{r \le b}}} \boldsymbol{\nabla} \bfcdot \mathbf{E}\thinspace d^3x =\int_\mathcal{S_{r=b}} \mathbf{E}\bfcdot \hat{\mathbf{r}}\thinspace da$$
+
+Next, consider the application of the divergence theorem for the volume between $r=b$ and $r=2b$ (the result will apply to any $r\gt b$). In this case, there is an inner and outer surface and so the surface integral has two parts.
+
+$$\int_{\mathcal{V_{b \le r \le 2b}}} \boldsymbol{\nabla} \bfcdot \mathbf{E}\thinspace d^3x= \oint_\mathcal{S_{r=b}} \mathbf{E}\bfcdot \hat{\mathbf{n}}\thinspace da + \oint_\mathcal{S_{r=2b}} \mathbf{E}\bfcdot \hat{\mathbf{n}}\thinspace da$$
+
+The outward normal to $\mathcal{S_{r=b}}$ for this volume is $-\hat{\mathbf{r}}$ and the outward normal to $\mathcal{S_{r=2b}}$ is $+\hat{\mathbf{r}}$, so
+
+$$II.\quad \int_{\mathcal{V_{b \le r \le 2b}}} \boldsymbol{\nabla} \bfcdot \mathbf{E}\thinspace d^3x=-\oint_\mathcal{S_{r=b}} \mathbf{E}\bfcdot \hat{\mathbf{r}}\thinspace da + \oint_\mathcal{S_{r=2b}} \mathbf{E}\bfcdot \hat{\mathbf{r}}\thinspace da$$
+
+Using $I.$ and $II.$ with the volume integral expressed in two parts
+
+$$\int_{\mathcal{V_{r \le 2b}}} \boldsymbol{\nabla} \bfcdot \mathbf{E}\thinspace d^3x=\int_{\mathcal{V_{r \le b}}} \boldsymbol{\nabla} \bfcdot \mathbf{E}\thinspace d^3x + \int_{\mathcal{V_{\thinspace b \le r \le 2b}}} \boldsymbol{\nabla} \bfcdot \mathbf{E}\thinspace d^3x $$
+
+gives
+
+$$\int_{\mathcal{V_{r \le 2b}}} \boldsymbol{\nabla} \bfcdot \mathbf{E}\thinspace d^3x = \int_{\mathcal{S_{r=2b}}}\mathbf{E}\bfcdot \hat{\mathbf{n}}\thinspace da$$
+
+(The surface integrals at $r=b$ cancel because their normal directions are in opposite directions.)
+
+## Definition
+
+###
+
+1\. Evaluate
+
+$\displaystyle\lim_{n \to \infty}\Bigg[\int xD_n(x-1)dx\Bigg]$
+
+using
+
+$$
+D_n(x) = \begin{cases}
+   n &\text{if } |x| \lt \displaystyle\frac{1}{2n} \\
+   0 &\text{ otherwise}
+\end{cases}
+$$
+
+2\. Evaluate $\displaystyle\int \lim_{n \to \infty}\Bigg[xD_n(x-1)\Bigg]dx$
+
+3\. Repeat 1. using $D_n = \sqrt{\frac{n}{\pi}}e^{-nx^2}$
+
+###
+
+Evaluate
+
+$\displaystyle\lim_{n \to \infty}\Bigg[\int f(x)D_n(x)dx\Bigg]$
+
+using
+
+$$
+D_n(x) = \begin{cases}
+   n &\text{if } |x| \lt \displaystyle\frac{1}{2n} \\
+   0 &\text{ otherwise}
+\end{cases}
+$$
+
+
+by writing $f(x)$ as a Taylor series expansion around $x=0$.
+
+## Notation
+
+###
+
+For a volume charge density $\rho$, the electric field at $\mathbf{r}$ is given by
+
+$$\mathbf{E}(\mathbf{r})=\frac{1}{4\pi\epsilon_o}\int\frac{\hat{\textbf{\char"0509}}}{\char"0509^2}\rho(\mathbf{r}')\thinspace d\tau'$$
+
+where $\textbf{\char"0509}=\mathbf{r}-\mathbf{r}'$ and $\mathbf{r}'$ is the location of a charge.
+
+1. For a point charge $Q$ at the origin, $\rho(\mathbf{r})=Q\delta(x)\delta(y)\delta(z)$. Evaluate the above integral using cartesian coordinates and unit vectors and this $\rho$.
+2. For a point charge $Q$ at $\mathbf{r}'$, $\rho(\mathbf{r})=Q\delta(x-x')\delta(y-y')\delta(z-z')$. Evaluate the above integral using cartesian coordinates and unit vectors and this $\rho$.
+
+In both problems, show the steps required for integration over $x$, $y$, and $z$ explicitly.
+
+**Solution**
+
+**1\.**
+
+In two dimensions,
+
+$$\frac{\hat{\textbf{\char"0509}}}{\char"0509^2}=\frac{(x-x')\xhat+(y-y')\yhat}{\sqrt{(x-x')^2 + (y-y')^2}^3}$$
+
+The integral is over primed variables, so we must re--write the density in terms of primed variables: $\rho(\mathbf{r}')=Q\delta(x')\delta(y')\delta(z')$. The integral is then
+
+$$\begin{align*}\mathbf{E}(\mathbf{r}) = & \frac{1}{4\pi\epsilon_o}\int\int\frac{(x-x')\xhat+(y-y')\yhat}{\sqrt{(x-x')^2 + (y-y')^2}^3}Q\delta(x')\delta(y')\thinspace dx'dy' \\\\
+= & \frac{Q}{4\pi\epsilon_o}\int\delta(y')dy'\int\frac{(x-x')\xhat+(y-y')\yhat}{\sqrt{(x-x')^2 + (y-y')^2}^3}\delta(x')\thinspace dx'\\\\
+= & \frac{Q}{4\pi\epsilon_o}\int\delta(y')dy'\frac{(x-0)\xhat+(y-y')\yhat}{\sqrt{(x-0)^2 + (y-y')^2}^3}\\\\
+= & \frac{Q}{4\pi\epsilon_o}\frac{(x-0)\xhat+(y-0)\yhat}{\sqrt{(x-0)^2 + (y-0)^2}^3}\\\\
+= & \frac{Q}{4\pi\epsilon_o}\frac{x\xhat+y\yhat}{\sqrt{x^2 + y^2}^3}
+\end{align*}
+$$
+
+The generalization to the 3-D problem given is straightforward. Having done this problem, one should see the motivation for the short--hand notation of
+
+$$\int f(\mathbf{r}')\delta^3(\mathbf{r}-\mathbf{r}')d\tau'=f(\mathbf{r})$$
+
+**2\.** Here $x', y'$, and $z'$ are fixed points in space. Normally when given a charge density, we replace $x, y, z$ with $x',y',z'$ because the integration variables are primed (by convention). If we did that here, we would have $\rho(\mathbf{r}')=Q\delta(0)\delta(0)\delta(0)$, which does not depend on primed coordinates. To work around this issue, change the integration variables to be double primes. As before, in two dimensions,
+
+$$
+\begin{align*}\mathbf{E}(\mathbf{r}) = & \frac{1}{4\pi\epsilon_o}\int\int\frac{(x-x'')\xhat+(y-y'')\yhat}{\sqrt{(x-x'')^2 + (y-y'')^2}^3}Q\delta(x''-x')\delta(y''-y')\thinspace dx''dy'' \\\\
+= & \frac{Q}{4\pi\epsilon_o}\int\delta(y''-y')dy''\int\frac{(x-x'')\xhat+(y-y'')\yhat}{\sqrt{(x-x'')^2 + (y-y'')^2}^3}\delta(x''-x')\thinspace dx''\\\\
+\end{align*}
+$$
+
+In the integral above, the $x'$ is a constant with respect to integration (in the same way that in $\int\delta(x-a)dx$, $a$ is a constant) and so we replace $x''$ with this constant value.
+
+$$
+\begin{align*}\mathbf{E}(\mathbf{r}) = & \frac{Q}{4\pi\epsilon_o}\int\delta(y''-y')dy''\frac{(x-x')\xhat+(y-y'')\yhat}{\sqrt{(x-x')^2 + (y-y'')^2}^3}\\\\
+=& \frac{Q}{4\pi\epsilon_o}\frac{(x-x')\xhat+(y-y')\yhat}{\sqrt{(x-x')^2 + (y-y')^2}^3}
+\end{align*}
+$$
+
+An alternative approach is to replace $x',y',z'$ with $a_x, a_y, a_z$ so that $\rho(\mathbf{r})=Q\delta(x-a_x)\delta(y-a_y)\delta(z-a_z)$ and integrate over $x',y',z'$ as is customary:
+
+$$
+\begin{align*}\mathbf{E}(\mathbf{r}) = & \frac{1}{4\pi\epsilon_o}\int\int\frac{(x-x')\xhat+(y-y')\yhat}{\sqrt{(x-x')^2 + (y-y')^2}^3}Q\delta(x'-a_x)\delta(y'-a_y)\thinspace dx'dy'
+\end{align*}
+$$
+
+The result of integration is
+
+$$
+\mathbf{E}(\mathbf{r}) = \frac{Q}{4\pi\epsilon_o}\frac{(x-a_x)\xhat+(y-a_y)\yhat}{\sqrt{(x-a_x)^2 + (y-a_y)^2}^3}
+$$
+
+To finish the problem, I replaced $a_x,a_y,a_z$ with the variables given in the problem of $x',y',z'$ to get the same answer as when integration was done over double primed variables.
+
+Using the short--hand equation
+
+$$\int f(\mathbf{r}')\delta^3(\mathbf{r}-\mathbf{r}')d\tau'=f(\mathbf{r})$$
+
+we would use $\rho(\mathbf{r})=Q\delta(x-a_x)\delta(y-a_y)\delta(z-a_z)$ so that 
+
+$$\int f(\mathbf{r}')\delta^3(\mathbf{r}'-\mathbf{a})d\tau'=f(\mathbf{a})$$
+
+## Identities
+
+###
+
+1. Suppose $I = \int_{-2}^{2}g(x)dx$. Find $\int_{-1}^{1}g(2x)dx$ and $\int_{-1}^{1}g(-2x)dx$ in terms of $I$. Show graphically why the result makes sense
+using $g(x)=x^2$.
+
+2. Show that $\int \delta(bx)f(x)dx = \frac{f(0)}{|b|}$. (That is, show that $\delta(bx)=\delta(x)/|b|$).
+
+**Solution**
+
+**1\.**
+
+$\displaystyle \int_{-1}^{1}g(2x)dx=\int_{-1}^{1}g(-2x)dx=I/2$
+
+**2\.** The generalization of the previous result is if $I = \int_{-a}^{b}g(x)dx$, then for $\alpha \gt 0$
+
+$\displaystyle \int_{-a/\alpha}^{b/\alpha}g(\alpha x)dx=\int_{-a/\alpha}^{b/\alpha}g(-\alpha x)dx=\frac{I}{\alpha}$.
+
+In the case that $a=b=\infty$ and a finite integral, it follows that $\int g(bx)dx=\int \frac{g(x)}{|b|}dx$, which applies to $g(x)=\delta(x)$ and thus whe have shown $\delta(bx)=\delta(x)/|b|$.
+
+Griffiths 4th Edition example 1.15 gives an alternative solution. Another approach is to think of this as a transformation of variables problem in which the Jacobian, which involves the absolute value, is computed.
+
+###
+
+1. Find $\int \delta(a + bx)f(x)dx$ using either
+   1. identity 5. on page 26 of Jackson, 3rd Edition or
+   2. using the substition $u=a+bx$.
+
+2. Prove identity 5. on Page 26 of Jackson 3rd edition
+
+   $\displaystyle \delta(f(x))=\sum_i\frac{\delta(x-x_i)}{\left|\frac{df}{dx}(x_i)\right|}$
+
+   where $f(x)$ is assumed to have only simple zeros, located at $x=x_i$. Do this by either
+   1. explaing the omitted explanations in [Dennery and Krzywicki 1967, page 237](https://drive.google.com/drive/folders/0013X5HELBJvBlCsQGFauVVDEFczCLV0y9D) or
+   2. Taylor series expanding $f(x)$ around the points $x_i$ where $g(x_i)=0$.
+
+**Solution**
+
+**1.1** To avoid confusion with the $f(x)$ in the given equation, re-write the identity as
+
+$\displaystyle \delta(g(x))=\sum_i\frac{\delta(x-x_i)}{\displaystyle\left|\frac{dg}{dx}(x_i)\right|}$
+
+Here $g(x)=a+bx$, which has a single zero at $x_1=-a/b$. $dg/dx=b$, so 
+
+$\displaystyle \delta(g(x))=\frac{\delta(x-x_1)}{\displaystyle\bigg|\frac{dg}{dx}(x_1)\bigg|}=\frac{\delta(x-x_1)}{|b|}=\frac{\delta(x+a/b)}{|b|}$
+
+and so
+
+$\displaystyle \int \delta(a + bx)f(x)dx=\int dx \frac{\delta(x+a/b)}{|b|} f(x)=\frac{f(-a/b)}{|b|}$
+
+**1.2** With the substitution,
+
+$\displaystyle \int \delta(u)\frac{f((u-b)/a)}{b}du=\frac{f(-b/a)}{b}$
+
+for positive $b$ and $f(-b/a)/(-b)$ for negative $b$, so the integral is $f(-b/a)/|b|$ as before.
+
+## Finding
+
+###
 
 A charge $Q$ is uniformly distributed on the surface of a sphere of radius $b$. 
 
@@ -16,62 +453,137 @@ $$\rho = \frac{Q}{4\pi r^2}\delta(r-b)$$
 
 Both satisfy
 
-$$Q=\int\rho(\mathbf{x\thinspace d^3x = \int_{0}^{2\pi}\int_0^{\pi}\int_0^{\infty} \rho(\mathbf{x})\thinspacer^2 dr\sin\the\thinspace d\the\thinspace d\phi$$
+$$Q=\int\rho(\mathbf{x})\thinspace d^3x = \int_{0}^{2\pi}\int_0^{\pi}\int_0^{\infty} \rho(\mathbf{x})\thinspace r^2 dr\sin\theta\thinspace d\theta\thinspace d\phi$$
 
 and are zero everywhere except at $r=b$.
 
 This charge density is easy to guess and verify. Earlier in the semester, I went over the derivation for problems like this. The charge density should be zero everywhere except at $r=b$ and the integral of charge density should be $Q$. Given the problem statement, one can write
 
-$$\rho=C\delta(r-b)$$
+$\rho=C\delta(r-b)$ and determine the constant $C$ from
 
-and determine the constant $C$ from
-
-$$Q = \int \r\thinspace d^3x$$
+$$Q = \int \rho(r) d^3x$$
 
 where the integral is over all space. In spherical coordinates, for $\rho=\rho(r)$,
 
-$$Q = 4\pi\int_0^{\infty}\rho\thinspacer^2dr=4\pi\int_0^{\infty}C\delta(r-b)r^2dr=C4\pi b^2$$
+$$
+Q = 4\pi\int_0^{\infty}\rho(r)\thinspace r^2dr=4\pi\int_0^{\infty}C\delta(r-b)r^2dr=C4\pi b^2
+$$
 
 This gives $C=Q/4\pi b^2$ so that
 
 $$\rho = \frac{Q}{4\pi b^2}\delta(r-b)$$
 
-In the problem statement, I did not ask for the volume charge density. However, this is implied as the delta function is always used to write volume charge densities - part of the motivation for introducing it is so that we don't need to write three equations for the electric field - one for a line of charge, one for a surface charge, and one for a volume charge. With the delta function, only the volume charge equation is needed and the volume integral will reduce to either a surface or line integral.
+In the problem statement, I did not ask for the volume charge density. However, this is implied as the delta function is always used to write volume charge densities -- part of the motivation for introducing it is so that we don't need to write three equations for the electric field - one for a line of charge, one for a surface charge, and one for a volume charge. With the delta function, only the volume charge equation is needed and the volume integral will reduce to either a surface or line integral.
 
-## Representing $\rho$ Using $\delta$ and $\Theta$ 
+### 
 
 1. Find the volume charge density $\rho$ in cylindrical coordinates in terms of $\delta$ and/or $\Theta$ for an infinitely long cylinder of radius $b$ with a charge density per unit length of $\lambda_o$ uniformly distributed on its surface. Assume that the cylinder's centerline is along the $z$-axis.
 1. Repeat 1. assuming the cylinder is finite and extends from $z=-h/2$ to $z=h/2$.
+1. Find the volume charge density $\rho$ in cylindrical coordinates in terms of $\delta$ and/or $\Theta$ for a uniformly charged disk of radius $b$ with charge density $\sigma_o$ that lies in the $x-y$ plane and is centered on the origin. Use $s$ for the radial coordinate in cylindrical coordinates.
+1. Use identity 5. on page 26 of Jackson to convert this to spherical coordinates. Use $r$ for the radial coordinate in spherical coordinates.
 
-''Optional''
+**Solution**
 
-3. Find the volume charge density $\rho$ in cylindrical coordinates in terms of $\delta$ and/or $\Theta$ for a uniformly charged disk of radius $b$ with charge density $\sigma_o$ that lies in the $x-y$ plane and is centered on the origin. Use $s$ for the radial coordinate in cylindrical coordinates.
+1. $\displaystyle\rho = \frac{\lambda_o}{2\pi b}\delta(b-s)$
 
-4. Use identity 5. on page 26 of Jackson to convert this to spherical coordinates. Use $r$ for the radial coordinate in spherical coordinates.
 
-{| class="wikitable collapsible collapsed"
-! align="left" |&nbsp;Solution
-|-
-|
-
-1. $\rho = \frac{\lambda_o}{2\pi b}\delta(b-s)$
-
-2. $\rho=\frac{\lambda_o}{2\pi b}\delta(b-s)\Big[\Theta(z+{h}/{2})-\Theta(z-{h}/{2})\Big]$
+2. $\displaystyle\rho=\frac{\lambda_o}{2\pi b}\delta(b-s)\Big[\Theta(z+{h}/{2})-\Theta(z-{h}/{2})\Big]$
 
 Some students assumed the charge was on the surface of the cylinder. In this case, the solution is
 
-1. $\rho=\frac{\lambda_o}{\pi b^2}\Theta(b-s)$
+1. $\displaystyle\rho=\frac{\lambda_o}{\pi b^2}\Theta(b-s)$
 
-2. $\rho=\frac{\lambda_o}{\pi b^2}\Theta(b-s)\Big[\Theta(z+{h}/{2})-\Theta(z-{h}/{2})\Big]$
+
+2. $\displaystyle\rho=\frac{\lambda_o}{\pi b^2}\Theta(b-s)\Big[\Theta(z+{h}/{2})-\Theta(z-{h}/{2})\Big]$
 
 ----
 
-3. $\rho=\frac{Q}{\pi b^2}\delta(z)\Theta(b-s)$
+3. $\displaystyle\rho=\frac{Q}{\pi b^2}\delta(z)\Theta(b-s)$
 
-4. $\rho = \frac{Q}{\pi b^2}\frac{\delta(\theta-\pi/2)}{r}\Theta(b-r)$
-|}
 
-# Method of Images Review 
+4. $\displaystyle\rho = \frac{Q}{\pi b^2}\frac{\delta(\theta-\pi/2)}{r}\Theta(b-r)$
+
+###
+
+The step (or Heavyside step) function, $\Theta$, is defined by
+
+$$
+\Theta(x) = \begin{cases} 1 & x > 0\\ 0 & x \le 0\end{cases}
+$$
+
+$\Theta$ can be used to to express a charge density in a compact mathematical form. For example, instead of stating "a uniformly charged sphere centered on the origin, with total charge $Q$, and radius $b$", we can write $\rho(x,y,z)=\frac{Q}{(4/3)\pi b^3}\Theta(b-r)$. When this density is integrated over all space, the result is $Q$. To see this,
+
+$\displaystyle\int\rho(\mathbf{x})\thinspace d^3x=\frac{Q}{(4/3)\pi b^3}\int_{0}^{2\pi}d\phi\int_{0}^{\pi}\sin\theta d\theta\int_{0}^{\infty}\Theta(b-r)r^2dr
+$
+
+Because $\Theta(b-r)=0$ for $r\ge b$ and $\Theta(b-r)=1$ for $r\lt b$, the limits on the $r$ integral can be modfied and the $\Theta$ function removed:
+
+$\displaystyle\int\rho(\mathbf{x})\thinspace d^3x=\frac{Q}{(4/3)\pi b^3}\int_{0}^{2\pi}d\phi\int_{0}^{\pi}\sin\theta d\theta\int_{0}^{b}r^2dr
+$
+
+The integrals above evaluate to the volume of a sphere of radius $b$ so that 
+
+$\displaystyle\int\rho(\mathbf{x})\thinspace d^3x=Q$
+
+
+%$\displaystyle\phantom{\int\rho(\mathbf{x})\thinspace d^3x}=\frac{Q}{b^3}\int_{-b}^{b}dz\int_{-b}^{b}dy\int_{-b}^{b}dx
+%$
+
+%$\displaystyle\phantom{\int\rho(\mathbf{x})\thinspace d^3x}=\frac{Q}{b^3}b^3$
+
+1. Write the piecewise function $
+f(x) = \begin{cases} 1 & |x| \lt b\\ 0 & |x| \ge b\end{cases}$ using one or more $\Theta$ functions.
+1. Find the volume charge density $\rho$ in cylindrical coordinates in terms of $\delta$ and/or $\Theta$ for an infinitely long cylinder of radius $b$ with a charge density per unit length of $\lambda_o$ uniformly distributed on its surface. Assume that the cylinder's centerline is along the $z$-axis.
+2. Repeat 2. assuming the cylinder is finite and extends from $z=-h/2$ to $z=h/2$.
+
+**Solution**
+
+1. As mentioned in class, an easy way to solve this is to write $f(x)$ as the sum of two step functions. One shifted to the left by $b$, corresponding to $\Theta(x+b)$; the other shifted to the right and inverted, corresponding to $\Theta(x-b)$. Thus,
+
+   $f(x) = \Theta(x+b) - \Theta(x-b)$.
+   
+   Other solutions:
+
+   $f(x) = \Theta(b-|x|)$
+   
+   $f(x)=\Theta(b^2-x^2)=\Theta[(b-x)(b+x)]$
+   
+   $f(x) = \Theta(b+x) - \Theta(x-b)$
+
+   It may be interesting to use $d\Theta/dx=\delta(x)$ develop an identity for $\Theta(f(x))$ similar to identity 5. on page 26 of Jackson 4th Edition.
+
+   Checks:
+   * when $x=0$, $f(x) = \Theta(b) - \Theta(-b) = 1-0 = 1$
+   * when $x=2b$, $f(x) = \Theta(3b) - \Theta(b) = 1-1 = 0$
+   * when $x=-2b$, $f(x) = \Theta(-b) - \Theta(-3b) = 0-0 = 0$
+
+2. We want a charge distribution that is localized at a cylindrical radial distance $b$. $\rho(s) = C\delta(s-b)$ has this feature, where $C$ is a constant. We also need the integral of this charge density over all space to equal the total charge on the cylinder, which is $Q=\lambda_o h$ assuming that the length of the cylinder is $h$. Thus, we need to find $C$ such that
+
+   $\displaystyle Q=\lambda_o h = \int \rho(\mathbf{x})d^3x$
+   
+   $\displaystyle Q=\lambda_o h = \int_{-h/2}^{h/2}\int_{0}^{2\pi}\int_{0}^\infty C\delta(s-b) sdsd\phi dz$   
+
+   $\displaystyle Q=\lambda_o h = 2\pi hC\int_{0}^\infty \delta(s-b) sds=2\pi h C b \quad\Rightarrow\quad C=\lambda_o/2\pi b$
+
+  and so
+  
+  $\displaystyle \rho(\mathbf{x}) = \frac{\lambda_o}{2\pi b}\delta(s-b)$
+
+  Equivalently, we can write
+
+  $\displaystyle \rho(\mathbf{x}) = \frac{\lambda_o}{2\pi s}\delta(s-b)$
+
+  because $\delta(s-b)/s=\delta(s-b)/b$, which follows from the fact that the delta function is only non-zero at $s=b$.
+  
+3. Here we apply the result from part 1. with the replacement of $b$ in that problem with $h/2$:
+
+    $\displaystyle \rho(\mathbf{x}) = \frac{\lambda_o}{2\pi b}\delta(s-b)[\Theta(x+h/2) - \Theta(x-h/2)]$
+
+\newpage
+
+# $\Theta$
+
+# Method of Images
 
 Consider the problem of finding the potential $\Phi(\mathbf{x})$ above a grounded and infinite conducting plane when a point charge $q$ is placed above it. (Recall that $\Phi(\mathbf{x})$ is short-hand for $\Phi(x,y,z)$.) 
 
@@ -89,10 +601,8 @@ To find $\Phi(\mathbf{x})$, one finds the potential due to a alternantive charge
 1. Explain why this $\Phi(\mathbf{x})$ is the solution to the original problem.
 1. Compute $\partial \Phi(x,y,z)/\partial z$ when $z=0$.
 
-{| class="wikitable collapsible collapsed"
-! align="left" |&nbsp;Answer
-|-
-|
+**Answer**
+
 2. From 1.9 of Jackson, if a potential satisfies Poisson's equation in a volume and Dirichlet boundary conditions on the enclosing surface, then it is a unique solution. 
 
 Here the surface is the $z=0$ plane and a hemispherical surface of a large radius above this plane.
@@ -108,7 +618,6 @@ $$\nabla^2\Phi=-q\delta(\mathbf{r}-z_o\hat{\mathbf{z}})+q\delta(\mathbf{r}+z_o\h
 However, because the volume is for $z\gt 0$, the second delta term is zero and so the potential for the alternative case satisfies the same Poisson equation as the original problem.
 
 The potential for the alternative charge configuration satisfies the boundary conditions $\Phi(x,y,0)=0$ and $\Phi=0$ on a half-sphere of large radius. Because solutions to Poisson's equation in a volume bounded by a surface with given boundary conditions are unique, the potential to the alternative problem is the solution for the original problem.
-|}
 
 ## Point Charge above Infinite Plane 
 
@@ -162,11 +671,11 @@ Many students computed $\nabla^2\Psi$ and found it to be zero. This is not neces
 
 At the surface of a conductor, from Gauss' law,
 
-$$\sigma=\epsilon_o\mathbf{E}\cdot\hat{\mathbf{n}}$$
+$$\sigma=\epsilon_o\mathbf{E}\bfcdot\hat{\mathbf{n}}$$
 
 where $\hat{\mathbf{n}}$ is the normal to the surface and $\mathbf{E}$ is the field on the surface. For the plane, $\hat{\mathbf{n}}= \hat{\mathbf{z}}$, so
 
-$$\mathbf{E}\cdot\hat{\mathbf{n}}=-(\boldsymbol{\nabla}\Psi)\cdot\hat{\mathbf{z}}=-\frac{\partial \Psi}{\partial z}$$
+$$\mathbf{E}\bfcdot\hat{\mathbf{n}}=-(\boldsymbol{\nabla}\Psi)\bfcdot\hat{\mathbf{z}}=-\frac{\partial \Psi}{\partial z}$$
 
 $$\frac{\partial \Psi}{\partial z}=\frac{-(z-d)kq}{(x^2+y^2+(z-d)^2)^{3/2}}-\frac{-(z+d)kq}{(x^2+y^2+(z-d)^2)^{3/2}}=\frac{2dkq}{(x^2+y^2+(z-d)^2)^{3/2}}$$
 
@@ -232,7 +741,7 @@ $$F=\frac{kq^2}{(2z)^2}$$
 
 Integrating this force
 
-$$W_{ext}= \int\mathbf{F}_{ext}\cdot d\mathbf{l} = \int_{z=d}^{\infty}\frac{kq^2dz}{(2z)^2}=\frac{kq}{4d}$$
+$$W_{ext}= \int\mathbf{F}_{ext}\bfcdot d\mathbf{l} = \int_{z=d}^{\infty}\frac{kq^2dz}{(2z)^2}=\frac{kq}{4d}$$
 
 Note that one should get a positive answer for the work required to remove the charge - the external force on the charge $q$ is in the same direction of its movement.
 
@@ -250,13 +759,311 @@ Many students essentially copied an online solution (without citation!) that sta
 
 The problem with the statement of "We must remember that there are actually no fields within the conductor" is that no statement is made about why the calculation in 7. counts the energy of the fields in the conductor (the $z\lt 0$ region).  The other problem is copying an answer without citation.
 |}
-# Green
 
-## Reciprocity -- Discrete
+# Reciprocity
 
-#green-s-reciprocity-theorem
+## Discrete -- $3$ point charges
 
-#green-s-reciprocity-use&l=589&c=1
+For discrete charges, Green's Reciprocity Theorem for $N$ charges is
+
+$$\sum_{i=1}^{N}\Phi\_i q'\_i=\sum_{i=1}^{N}\Phi'\_i q\_i$$
+
+Consider charges $q_1,q_2$, and $q_3$ at locations $x_1,x_2$, and $x_3$, respectively, on the $x$-axis. At these locations, the potentials are $\Phi_1,\Phi_2,$ and $\Phi_3$, respectively.
+
+If a new system of charges $q'_1,q'_2$, and $q'_3$ is created by placing them at the same locations $x_1,x_2$, and $x_3$, respectively, the potentials at these locations are $\Phi'_1,\Phi'_2,$ and $\Phi'_3$, respectively.
+
+Show that 
+
+$$\sum_{i=1}^{3}\Phi\_i q'\_i=\sum_{i=1}^{3}\Phi'\_i q\_i$$
+
+**Solution**
+
+The physical interpretation of Green's Reciprocity theorem is that the work required to put charges an unprimed set of charges at $x_1,x_2,x_3$ under the influence of only the electric field of a primed set of charges $x_1,x_2,x_3$ must be the same as the work required to put a primed set of charges at $x_1,x_2,x_3$ under the influence of only the electric field of an unprimed set of charges at $x_1,x_2,x_3$.
+
+Using
+
+$\displaystyle\Phi_i=\sum_{\substack{j=1\\j\ne i}}^N \frac{q_j}{|x_j-x_i|}=\sum_{\substack{j=1\\j\ne i}}^N \frac{q_j}{d_{ji}}$
+
+gives, for $N=3$, the left-hand side terms in $\sum\_{i=1}^{3}\Phi\_i q'\_i=\sum\_{i=1}^{3}\Phi'\_i q\_i$
+
+$
+\begin{array}{rc}
+\Phi\_1q'\_1 & = & 0 & + &  \frac{q\_2q'\_1}{d\_{21}} & + & \frac{q\_3q'\_1}{d\_{31}}  \\ \\
+\Phi\_2q'\_2 & = & \frac{q\_1q'\_2}{d\_{12}} & + & 0 & + & \frac{q\_3q'\_2}{d\_{32}} \\ \\
+\Phi\_3q'\_3 & = & \frac{q\_1q'\_3}{d\_{13}} & + & \frac{q\_2q'\_3}{d\_{23}} & + & 0 &
+\end{array}
+$
+
+The right-hand side terms in $\sum_{i=1}^{3}\Phi\_i q'\_i=\sum\_{i=1}^{3}\Phi'\_i q\_i$ can be expanded as
+
+$
+\begin{array}{rc}
+\Phi'\_1q\_1 & = & 0 & + &  \frac{q'\_2q\_1}{d\_{21}} & + & \frac{q'\_3q\_1}{d\_{31}}  \\ \\
+\Phi'\_2q\_2 & = & \frac{q'\_1q\_2}{d\_{12}} & + & 0 & + & \frac{q\_2q'\_3}{d\_{32}} \\ \\
+\Phi'\_3q\_3 & = & \frac{q'\_1q\_3}{d\_{13}} & + & \frac{q'\_2q\_3}{d\_{23}} & + & 0 &
+\end{array}
+$
+
+In the above, the left-- and right--hand sides of the equation to prove were written in the form of a matrix. In this form, one can see that the matrices are transposes of each other. If we sum all elements in a matrix, the result is the same if we sum all elements of that matrix transposed.
+
+More generally, one can use
+
+$\displaystyle \sum_{i=1}^{N} q\_i\Phi'\_i = \sum_{i=1}^{N} q\_i \sum_{\substack{j=1\\j\ne i}}^N \frac{q'\_j}{d\_{ij}}=\sum_{i=1}^{N}\sum\_{\substack{j=1\\j\ne i}}^N \frac{ q'\_j q_i}{d\_{ij}}$
+
+Repeating with the primed and unprimed swapped and starting with a dummy index of $j$ instead of $i$, we have
+
+$\displaystyle \sum_{j=1}^{N} q'\_j\Phi\_j = \sum_{j=1}^{N} q'\_j \sum_{\substack{i=1\\i\ne j}}^N \frac{q\_i}{d\_{ji}}=\sum_{j=1}^{N}\sum\_{\substack{i=1\\i\ne j}}^N \frac{ q'\_j q_i}{d\_{ij}}$
+
+Where in the last step, $d_{ji}=d_{ij}$ was used.
+
+One can think of $q'\_j q_i/d\_{ij}$ as elements in a matrix. The equations
+
+$\displaystyle\sum_{i=1}^{N}\sum\_{\substack{j=1\\j\ne i}}^N \frac{ q'\_j q_i}{d\_{ij}}$ and $\displaystyle \sum_{j=1}^{N}\sum\_{\substack{i=1\\i\ne j}}^N \frac{ q'\_j q_i}{d\_{ij}}$
+
+both result in the sum of all elements of a matrix excluding the diagonals. The only difference is the order in which the elements of the matrix are summed. For a continuous charge distribution, we would use the fact that the order of integration could be changed to arrive at the result $\int dq \Phi'(x) d^3x = \int dq' \Phi(x') d^3x'$.
+
+## Discrete -- Point Charge Outside of Conductor
+
+A point charge $q$ is a distance $c$ from the center of a grounded conducting sphere of radius $b \lt c$. Find the charge induced on the sphere.
+
+## Discrete -- Point Charge Between Conductors
+
+1. In class, I partially did problem 1.13 of Jackson 3rd Edition (I only found the net charge on the upper of the plate). Find the net charge on the lower plate. Justify your steps at the level of detail given in class. (I stated an easy way of finding the net charge induced on the lower plate, but I want you to do it the long way, which requires steps similar to the ones used in class.)
+2. A point charge at a distance $r$ from the origin is between two grounded spherical conducting shells of radius $b$ and $c$ that are centered on the origin. Find the net charge induced on the surfaces at $b$ and $c$.
+
+For discussion during the next class: In my solution to part 1., I used the continous form of reciprocity. Could I have solved it using the discrete form?
+
+**Solution**
+
+**1\.** Let the unprimed system have a conducting plate in $z=0$ plane held at $\Phi=0$ and a conducting plate in the $z=d$ plane held at at $\Phi=V_o$.
+
+Let the unprimed system have a conducting plate in the $z=0$ plane held at at $\Phi'=0$, a conducting plate in the $z=d$ plane held at $\Phi'=0$, and a point charge $q'$ at $(x,y,z)=(x_o,0,0)$.
+
+One can use the equation from problem 1.11 of Jackson or start with
+
+$\displaystyle\int_{all\thinspace space}\rho'\Phi\thinspace d^3x = \int_{all\thinspace space}\rho\Phi'\thinspace d^3x$
+
+and split the charge density into surface and volume charge densities $\sigma$ and $\rho_v$, where the subscript $v$ means charge not on the conducting surfaces $\mathcal{S}$:
+
+$\displaystyle\int_{all\thinspace space}\rho_v'\Phi\thinspace d^3x+\int_{\mathcal{S}}\sigma'\Phi\thinspace da = \int_{all\thinspace space }\rho_v\Phi'\thinspace d^3x+\int_{\mathcal{S}}\sigma\Phi'\thinspace da$
+
+The first term on RHS is zero because $\rho_v=0$ (there are no charges in the unprimed system between the plates). The second term on the RHS is zero becuase $\Phi'=0$ on conducting surfaces.
+
+The first term on the LHS reduces to $q'\Phi(x_o)$ becuase $\rho_v'=q'\delta(x-x_o)\delta(y)\delta(z)$ (the notation $\rho_v'=q'\delta(\mathbf{x}-\mathbf{x_o}')$ is also acceptable; this gives $\Phi(\mathbf{x_o})$, which is the same things as $\Phi(x_o)$ notationally). 
+The potential between the plates in the unprimed system is
+
+$\displaystyle\Phi(x)=V_o\frac{x}{d}$
+
+and so the first term on the LHS is $q'V_ox_o/d$.
+
+The second term on LHS is composed of integrals over the top and bottom surfaces (assuming all of the charges in the primed system are on the plates or at $x_o$; this is discussed below). Given that $\Phi=0$ on bottom surface, we are left with an integral over upper surface ($u$) for which $\Phi=V_o$.
+
+$$\int_{\mathcal\thinspace u}\sigma'V_o\thinspace da=V_o\int_{\mathcal\thinspace u}\sigma'\thinspace da=V_oq'_u$$
+
+The equation 
+
+$\displaystyle\int_{all\thinspace space}\rho_v'\Phi\thinspace d^3x+\int_{\mathcal{S}}\sigma'\Phi\thinspace da = \int_{all\thinspace space }\rho_v\Phi'\thinspace d^3x+\int_{\mathcal{S}}\sigma\Phi'\thinspace da$
+
+thus reduces to 
+
+$\displaystyle q'V_ox_o/d + V_oq'_u = 0 \Rightarrow \boxed{q'_u=-q\frac{x_o}{d}}$
+
+One can reverse the potentials on the unprimed system to arrive at the charge $q'_l$ on the lower primed surface, which is
+
+$\boxed{q'_l=q'\left(\frac{x_o}{d}-1\right)}$
+
+Note also that the assumption that the total charge in the universe is zero
+
+$q'_u+q'_l+q=0$
+
+could have also been used to find $q'_l$ given $q'_u$. 
+
+----
+
+Note: In the solution, I assumed all free charges were on the upper and lower surfaces and there were no charges on far-away surfaces; this statement is justified post hoc by uniqueness and because computing $q'_u$ and $q'_l$ in this way gave $q'_u+q'_l+q=0$. To avoid this assumption, one would need to use equation 1.35 of Jackson with the volume being the volume between the plates. Curiously, in problem 1.11, Jackson suggests using equation 1.35 to come up with what he calls Green's reciprocation theorem, seemingly so it could be applied in problem 1.12. However, the equation in problem 1.11 does not directly apply because the surface of the volume between the plates is not all conductor (only the top and bottom parts of the volume are conductors, the sides of this volume are not). One is left with having to use equation 1.35 and the argument that because the problem is 1-dimensional, the derivatives of the potential with respect to the normal on the side surfaces of the volume are zero.
+
+----
+
+**2\.** The procedure here is nearly identical to part 1. The potential between the sphere in the unprimed system when the potential at $r=b$ is $V_o$ and the potential at $r=c$ is zero is
+
+$\displaystyle\Phi(r)=V_o\frac{b}{c-b}\left(\frac{c}{r}-1\right)$
+
+which can be found by solving the boundary value problem
+
+$\Phi(c)=0\quad \Phi(b)=V_o$
+
+$\displaystyle\nabla^2\Phi = \frac{1}{r^2}\frac{d^2 (r^2\Phi)}{dr^2}= 0 \quad \Rightarrow \quad \Phi = A + B/r$
+
+to find $A$ and $B$ or by assuming a charge $Q$ on the outer sphere and $-Q$ on the inner sphere and using Gauss' law to find $E_r$ and then $V(c)-V(b)=-\int_b^cE_r\thinspace dr$ (the $Q$ will cancel). The final result is
+
+$\displaystyle q'_{r=b}=-V_o\frac{q'b}{c-b}\left(\frac{c}{r_o}-1\right)$
+
+$\displaystyle q'_{r=c}=+V_o\frac{q'c}{c-b}\left(\frac{b}{r_o}-1\right)$
+
+## Continuous -- Green's Identity Derivation 
+
+In one of the steps required to derive his identities (discussed in 1.8 of Jackson, 3rd Edition), Green said: "Consider the divergence of a scalar function $f$ multiplied by a vector function $\mathbf{A}$".
+
+1. Show that
+
+    $$\mathbf{\nabla}\bfcdot (f\mathbf{A}) = f\thinspace \mathbf{\nabla}\bfcdot \mathbf{A} + \mathbf{A}\bfcdot(\mathbf{\nabla}f)$$
+
+    (this is equation 1.32 of Jackson)
+2. Show that
+
+   $$\int_{\mathcal{V}} f\thinspace\mathbf{\nabla}\bfcdot \mathbf{A}\thinspace d^3x = -\int_{\mathcal{V}}\mathbf{A}\bfcdot(\mathbf{\nabla}f)\thinspace d^3x+\oint_{\mathcal{S}} f\mathbf{A}\bfcdot\hat{\mathbf{n}}\thinspace da$$
+
+  where $\mathcal{V}$ is the volume enclosed by the surface $\mathcal{S}$, $\hat{\mathbf{n}}$ is the normal to a differential area element $da$ on $\mathcal{S}$, and $d^3x$ is a differential volume element. (This is needed in the following problem.)
+
+3. Verify the result in 2. by using an $f$, $\mathbf{A}$ and $\mathcal{V}$ of your choosing.
+
+**Solution**
+
+**1\.** This can be shown by writing $\boldsymbol{\nabla}$ and $\mathbf{A}$ in cartesian coordinates.
+
+**2\.** The divergence theorem
+
+$\displaystyle\oint_{\mathcal{S}}\mathbf{U}\cdot d\mathbf{a}=\int_{\mathcal{V}}\boldsymbol{\nabla}\cdot \mathbf{U}\thinspace d^3x$
+
+using $\mathbf{U}=f\mathbf{A}$ on the LHS and $\mathbf{U}=f(\mathbf{\nabla}\cdot \mathbf{A}) + \mathbf{A}\cdot(\mathbf{\nabla}f)$ the the RHS gives
+
+$\displaystyle\oint_{\mathcal{S}}f\mathbf{A}\cdot d\mathbf{a}=\int_{\mathcal{V}}\Big[\boldsymbol{\nabla}\cdot f(\mathbf{\nabla}\cdot \mathbf{A}) + \mathbf{A}\cdot(\mathbf{\nabla}f)\big]\thinspace d^3x$
+
+and rearrangement gives
+
+$\displaystyle\int_{\mathcal{V}} f(\mathbf{\nabla}\cdot \mathbf{A})\thinspace d^3x = -\int_{\mathcal{V}}\mathbf{A}\cdot(\mathbf{\nabla}f)\thinspace d^3x+\oint_{\mathcal{S}} f\mathbf{A}\cdot\hat{\mathbf{n}}\thinspace da$
+
+Note that when $\mathbf{A}=A_x(x)\hat{\mathbf{x}}$, $f=f(x)$, and $\mathcal{V}$ is a cube, this reduces to the integration by parts formula.
+
+## Continuous -- Alternative Derivation
+
+Consider the integral
+
+$$I = \int_{\mathcal V} \mathbf{E}\bfcdot\mathbf{E}'d^3x$$
+
+1. Use $\mathbf{E}=-\mathbf{\nabla}\Phi$ and the result derived in the previous problem to re-write this equation in terms of a volume integral + a surface integral.
+
+2. Repeat 1. using $\mathbf{E}'=-\mathbf{\nabla}\Phi'$
+
+3. Show how the results from 1. and 2. can be used to show
+
+$$\int_{all\space space}\Phi'\rho\thinspace d^3x = \int_{all\space space}\Phi\rho'\thinspace d^3x$$
+
+which was a result derived in class last week using the discrete form of Green's reciprocity theorem.
+
+**Solution**
+
+%From HW #2, derived using a vector identity + the divergence theorem (Several students did not cite this result from HW #2. As a general rule, if a step is not obvious, the justification or a citation to an equation in a book needs to be provided; otherwise it can appear as if you are omitting justification because you don't know what it is.):
+
+The identity from the previous problem is
+
+$$\int_{\mathcal{V}} f(\mathbf{\nabla}\cdot \mathbf{A})\thinspace d^3x = -\int_{\mathcal{V}}\mathbf{A}\cdot(\mathbf{\nabla}f)\thinspace d^3x+\oint_{\mathcal{S}} f\mathbf{A}\cdot\hat{\mathbf{n}}\thinspace da$$
+
+or, switching locations of the volume integrals,
+
+$$\int_{\mathcal{V}}\mathbf{A}\cdot(\mathbf{\nabla}f)\thinspace d^3x= -\int_{\mathcal{V}} f(\mathbf{\nabla}\cdot \mathbf{A})\thinspace d^3x+\oint_{\mathcal{S}} f\mathbf{A}\cdot\hat{\mathbf{n}}\thinspace da$$
+
+Using $f=\Phi'$ and $\mathbf{A}=\mathbf{E}$ in the identity and $\mathbf{E}'=\boldsymbol{\nabla} \Phi'$ gives
+
+$$I=\int_{\mathcal{V}}\mathbf{E}\cdot(\mathbf{\nabla}\Phi')\thinspace d^3x= -\int_{\mathcal{V}} \Phi'(\mathbf{\nabla}\cdot \mathbf{E})\thinspace d^3x+\oint_{\mathcal{S}} \Phi'\mathbf{E}\cdot\hat{\mathbf{n}}\thinspace da$$
+
+Using $f=\Phi$ and $\mathbf{A}=\mathbf{E}'$ in the identity and $\mathbf{E}=\boldsymbol{\nabla} \Phi$ gives
+
+$$I=\int_{\mathcal{V}}\mathbf{E}'\cdot(\mathbf{\nabla}\Phi)\thinspace d^3x= -\int_{\mathcal{V}} \Phi(\mathbf{\nabla}\cdot \mathbf{E}')\thinspace d^3x+\oint_{\mathcal{S}} \Phi\mathbf{E}'\cdot\hat{\mathbf{n}}\thinspace da$$
+
+(The two equations for $I$ must be equal because the integrands on the left--hand side integrals are the same because $\mathbf{E}\bfcdot\mathbf{\nabla}\Phi'= \mathbf{E}\bfcdot\mathbf{E}'=\mathbf{E}'\bfcdot\mathbf{E}=\mathbf{E}'\bfcdot\mathbf{\nabla}\Phi$.)
+
+Equating the two equations for $I$ gives
+
+$$-\int_{\mathcal{V}} \Phi'(\mathbf{\nabla}\cdot \mathbf{E})\thinspace d^3x+\oint_{\mathcal{S}} \Phi'\mathbf{E}\cdot\hat{\mathbf{n}}\thinspace da=-\int_{\mathcal{V}} \Phi(\mathbf{\nabla}\cdot \mathbf{E}')\thinspace d^3x+\oint_{\mathcal{S}} \Phi\mathbf{E}'\cdot\hat{\mathbf{n}}\thinspace da$$
+
+If the volume is all space, the area of $\mathcal{S}$ becomes infinite. If all of the charges that make up $\rho$ and $\rho'$ are confined to be in a sphere centered at the origin with a finite radius, then as the radius of $\mathcal{S}\rightarrow\infty$, $\mathbf{E}\rightarrow \hat{\mathbf{r}}/r^2$ and $\Phi\rightarrow 1/r$ and similar for $\mathbf{E}'$ and $\Phi'$.  (You needed to provide some sort of justification similar to this in you solution - saying the potential and field approaches zero is not sufficient because the surface becomes infinite and you are left with $\infty\cdot 0$). So for $\mathcal{S}$ being a spherical surface with large $r$
+
+$$\oint_{\mathcal{S}} \Phi\mathbf{E}'\cdot\hat{\mathbf{n}}\thinspace da\simeq\int_0^{2\pi}\int_0^{\pi}\frac{QQ'}{r^3}\thinspace r^2\sin\theta\thinspace d\theta\thinspace d\phi=4\pi \frac{QQ'} r$$
+
+Where $Q$ and $Q'$ are the total charges in the unprimed and primed system respectively. As a result of this argument, the surface integrals can be dropped and $\mathcal{V}$ can be replaced with $all\text{ } space$ and we are left with
+
+$$\int_{{all\space space}} \Phi'(\mathbf{\nabla}\cdot \mathbf{E})\thinspace d^3x = \int_{{all\space space}} \Phi(\mathbf{\nabla}\cdot \mathbf{E}')\thinspace d^3x$$
+
+Finally, using $\boldsymbol{\nabla}\bfcdot\mathbf{E} = -\nabla^2\Phi=\rho/\epsilon_o$ and $\boldsymbol{\nabla}\bfcdot\mathbf{E}' = -\nabla^2\Phi'=\rho'/\epsilon_o$ gives
+
+$$\int_{all\space space}\Phi'\rho\thinspace d^3x = \int_{all\space space}\Phi\rho'\thinspace d^3x$$
+
+# Green Functions
+
+### Green's Reciprocity Use
+
+1. In class, I partially did problem 1.13 of Jackson 3rd Edition (I only found the net charge on the upper of the plate). Find the net charge on the lower plate. Justify your steps at the level of detail given in class. (I stated an easy way of finding the net charge induced on the lower plate, but I want you to do it the long way, which requires steps similar to the ones used in class.)
+2. A point charge at a distance $r$ from the origin is between two grounded spherical conducting shells of radius $b$ and $c$ that are centered on the origin. Find the net charge induced on the surfaces at $b$ and $c$.
+
+For discussion during the next class: In my solution to part 1., I used the continous form of reciprocity. Could I have solved it using the discrete form?
+
+**Solution**
+
+**1\.** Let the unprimed system have a conducting plate in $z=0$ plane held at $\Phi=0$ and a conducting plate in the $z=d$ plane held at at $\Phi=V_o$.
+
+Let the unprimed system have a conducting plate in the $z=0$ plane held at at $\Phi'=0$, a conducting plate in the $z=d$ plane held at $\Phi'=0$, and a point charge $q'$ at $(x,y,z)=(x_o,0,0)$.
+
+One can use the equation from problem 1.11 of Jackson or start with
+
+$\displaystyle\int_{all\thinspace space}\rho'\Phi\thinspace d^3x = \int_{all\thinspace space}\rho\Phi'\thinspace d^3x$
+
+and split the charge density into surface and volume charge densities $\sigma$ and $\rho_v$, where the subscript $v$ means charge not on the conducting surfaces $\mathcal{S}$:
+
+$\displaystyle\int_{all\thinspace space}\rho_v'\Phi\thinspace d^3x+\int_{\mathcal{S}}\sigma'\Phi\thinspace da = \int_{all\thinspace space }\rho_v\Phi'\thinspace d^3x+\int_{\mathcal{S}}\sigma\Phi'\thinspace da$
+
+The first term on RHS is zero because $\rho_v=0$ (there are no charges in the unprimed system between the plates). The second term on the RHS is zero becuase $\Phi'=0$ on conducting surfaces.
+
+The first term on the LHS reduces to $q'\Phi(x_o)$ becuase $\rho_v'=q'\delta(x-x_o)\delta(y)\delta(z)$ (the notation $\rho_v'=q'\delta(\mathbf{x}-\mathbf{x_o}')$ is also acceptable; this gives $\Phi(\mathbf{x_o})$, which is the same things as $\Phi(x_o)$ notationally). 
+The potential between the plates in the unprimed system is
+
+$\displaystyle\Phi(x)=V_o\frac{x}{d}$
+
+and so the first term on the LHS is $q'V_ox_o/d$.
+
+The second term on LHS is composed of integrals over the top and bottom surfaces (assuming all of the charges in the primed system are on the plates or at $x_o$; this is discussed below). Given that $\Phi=0$ on bottom surface, we are left with an integral over upper surface ($u$) for which $\Phi=V_o$.
+
+$$\int_{\mathcal\thinspace u}\sigma'V_o\thinspace da=V_o\int_{\mathcal\thinspace u}\sigma'\thinspace da=V_oq'_u$$
+
+The equation 
+
+$\displaystyle\int_{all\thinspace space}\rho_v'\Phi\thinspace d^3x+\int_{\mathcal{S}}\sigma'\Phi\thinspace da = \int_{all\thinspace space }\rho_v\Phi'\thinspace d^3x+\int_{\mathcal{S}}\sigma\Phi'\thinspace da$
+
+thus reduces to 
+
+$\displaystyle q'V_ox_o/d + V_oq'_u = 0 \Rightarrow \boxed{q'_u=-q\frac{x_o}{d}}$
+
+One can reverse the potentials on the unprimed system to arrive at the charge $q'_l$ on the lower primed surface, which is
+
+$\boxed{q'_l=q'\left(\frac{x_o}{d}-1\right)}$
+
+Note also that the assumption that the total charge in the universe is zero
+
+$q'_u+q'_l+q=0$
+
+could have also been used to find $q'_l$ given $q'_u$. 
+
+----
+
+Note: In the solution, I assumed all free charges were on the upper and lower surfaces and there were no charges on far-away surfaces; this statement is justified post hoc by uniqueness and because computing $q'_u$ and $q'_l$ in this way gave $q'_u+q'_l+q=0$. To avoid this assumption, one would need to use equation 1.35 of Jackson with the volume being the volume between the plates. Curiously, in problem 1.11, Jackson suggests using equation 1.35 to come up with what he calls Green's reciprocation theorem, seemingly so it could be applied in problem 1.12. However, the equation in problem 1.11 does not directly apply because the surface of the volume between the plates is not all conductor (only the top and bottom parts of the volume are conductors, the sides of this volume are not). One is left with having to use equation 1.35 and the argument that because the problem is 1-dimensional, the derivatives of the potential with respect to the normal on the side surfaces of the volume are zero.
+
+----
+
+**2\.** The procedure here is nearly identical to part 1. The potential between the sphere in the unprimed system when the potential at $r=b$ is $V_o$ and the potential at $r=c$ is zero is
+
+$\displaystyle\Phi(r)=V_o\frac{b}{c-b}\left(\frac{c}{r}-1\right)$
+
+which can be found by solving the boundary value problem
+
+$\Phi(c)=0\quad \Phi(b)=V_o$
+
+$\displaystyle\nabla^2\Phi = \frac{1}{r^2}\frac{d^2 (r^2\Phi)}{dr^2}= 0 \quad \Rightarrow \quad \Phi = A + B/r$
+
+to find $A$ and $B$ or by assuming a charge $Q$ on the outer sphere and $-Q$ on the inner sphere and using Gauss' law to find $E_r$ and then $V(c)-V(b)=-\int_b^cE_r\thinspace dr$ (the $Q$ will cancel). The final result is
+
+$\displaystyle q'_{r=b}=-V_o\frac{q'b}{c-b}\left(\frac{c}{r_o}-1\right)$
+
+$\displaystyle q'_{r=c}=+V_o\frac{q'c}{c-b}\left(\frac{b}{r_o}-1\right)$
 
 ## Reciprocity -- Continuous
 
@@ -289,7 +1096,7 @@ I don't know of many other introductory references for this, but the following m
 
 Using the divergence theorem for a vector field $\mathbf{A}$ that can be written in the form $\mathbf{A}=\phi \nabla\psi$, show that
 
-$$\int_\mathcal{V} \left(\phi\nabla^2\psi + \nabla\phi\boldsymbol{\cdot}\nabla\psi\right)d^3x=\oint_\mathcal{S}\phi\frac{\partial \psi}{\partial n} da$$
+$$\int_\mathcal{V} \left(\phi\nabla^2\psi + \nabla\phi\boldsymbol{\bfcdot}\nabla\psi\right)d^3x=\oint_\mathcal{S}\phi\frac{\partial \psi}{\partial n} da$$
 
 where $\phi(\mathbf{x})$ and $\psi(\mathbf{x})$ are scalar functions and $\mathcal{S}$ is the surface of the volume $\mathcal{V}$.
 
@@ -297,27 +1104,27 @@ where $\phi(\mathbf{x})$ and $\psi(\mathbf{x})$ are scalar functions and $\mathc
 ! align="left" |&nbsp;Answer
 |-
 |
-$$\mathbf{\nabla}\cdot (f\mathbf{F}) = f(\mathbf{\nabla}\cdot \mathbf{F}) + \mathbf{F}\cdot(\mathbf{\nabla}f)$$
+$$\mathbf{\nabla}\bfcdot (f\mathbf{F}) = f(\mathbf{\nabla}\bfcdot \mathbf{F}) + \mathbf{F}\bfcdot(\mathbf{\nabla}f)$$
 
 integrating both sides over a volume $\mathcal{V}$
 
-$$\int_{\mathcal{V}}\mathbf{\nabla}\cdot (f\thinspace\mathbf{F})\thinspace d^3x = \int_{\mathcal{V}}\Big(f\thinspace(\mathbf{\nabla}\cdot \mathbf{F}) + \mathbf{F}\cdot(\mathbf{\nabla}f)\Big)\thinspace d^3x$$
+$$\int_{\mathcal{V}}\mathbf{\nabla}\bfcdot (f\thinspace\mathbf{F})\thinspace d^3x = \int_{\mathcal{V}}\Big(f\thinspace(\mathbf{\nabla}\bfcdot \mathbf{F}) + \mathbf{F}\bfcdot(\mathbf{\nabla}f)\Big)\thinspace d^3x$$
 
 and re-writing the LHS using the divergence theorem
 
-$$\oint_{\mathcal{S}}\mathbf{U}\cdot \hat{\mathbf{n}}\thinspace da=\int_{\mathcal{V}}\boldsymbol{\nabla}\cdot \mathbf{U}\thinspace d^3x$$
+$$\oint_{\mathcal{S}}\mathbf{U}\bfcdot \hat{\mathbf{n}}\thinspace da=\int_{\mathcal{V}}\boldsymbol{\nabla}\bfcdot \mathbf{U}\thinspace d^3x$$
 
 with $\mathbf{U}=f\thinspace\mathbf{F}$ gives
 
-$$\oint_{\mathcal{S}} f\thinspace\mathbf{F}\cdot\hat{\mathbf{n}}\thinspace da=\int_{\mathcal{V}} \Big(f\thinspace(\mathbf{\nabla}\cdot \mathbf{F}) +\mathbf{F}\cdot(\mathbf{\nabla}f)\Big)\thinspace d^3x$$
+$$\oint_{\mathcal{S}} f\thinspace\mathbf{F}\bfcdot\hat{\mathbf{n}}\thinspace da=\int_{\mathcal{V}} \Big(f\thinspace(\mathbf{\nabla}\bfcdot \mathbf{F}) +\mathbf{F}\bfcdot(\mathbf{\nabla}f)\Big)\thinspace d^3x$$
 
-Using $f = \phi$, $\mathbf{F}=\nabla\psi$, and $\nabla\psi\cdot\hat{\mathbf{n}}=\partial \psi/\partial n$ in the above gives
+Using $f = \phi$, $\mathbf{F}=\nabla\psi$, and $\nabla\psi\bfcdot\hat{\mathbf{n}}=\partial \psi/\partial n$ in the above gives
 
-$$\oint_\mathcal{S}\phi\frac{\partial \psi}{\partial n} da=\int_\mathcal{V}\Big(\phi\nabla^2\psi + \nabla\psi\boldsymbol{\cdot}\nabla\phi\Big)d^3x$$
+$$\oint_\mathcal{S}\phi\frac{\partial \psi}{\partial n} da=\int_\mathcal{V}\Big(\phi\nabla^2\psi + \nabla\psi\boldsymbol{\bfcdot}\nabla\phi\Big)d^3x$$
 
 Using the fact that the dot product commutes and swapping the LHS and RHS gives
 
-$$\int_\mathcal{V} \left(\phi\nabla^2\psi + \nabla\phi\boldsymbol{\cdot}\nabla\psi\right)d^3x=\oint_\mathcal{S}\phi\frac{\partial \psi}{\partial n} da$$
+$$\int_\mathcal{V} \left(\phi\nabla^2\psi + \nabla\phi\boldsymbol{\bfcdot}\nabla\psi\right)d^3x=\oint_\mathcal{S}\phi\frac{\partial \psi}{\partial n} da$$
 |}
 
 * Verify this equation by choosing your own (simple) scalar functions and volume. 
@@ -345,13 +1152,13 @@ Assume that $\phi(\mathbf{x})$ is a scalar function that is created by a continu
 |
 Repeat the derivation given earlier except with $\mathbf{A}=\psi \nabla\phi$ to get
 
-$$\int_\mathcal{V} \left(\psi\nabla^2\phi + \nabla\psi\boldsymbol{\cdot}\nabla\phi\right)d^3x=\oint_\mathcal{S}\psi\frac{\partial \phi}{\partial n} da$$
+$$\int_\mathcal{V} \left(\psi\nabla^2\phi + \nabla\psi\boldsymbol{\bfcdot}\nabla\phi\right)d^3x=\oint_\mathcal{S}\psi\frac{\partial \phi}{\partial n} da$$
 
 and combine with
 
-$$\int_\mathcal{V} \left(\phi\nabla^2\psi + \nabla\phi\boldsymbol{\cdot}\nabla\psi\right)d^3x=\oint_\mathcal{S}\phi\frac{\partial \psi}{\partial n} da$$
+$$\int_\mathcal{V} \left(\phi\nabla^2\psi + \nabla\phi\boldsymbol{\bfcdot}\nabla\psi\right)d^3x=\oint_\mathcal{S}\phi\frac{\partial \psi}{\partial n} da$$
 
-found earlier and the fact that the dot product commutes to eliminate the $\nabla\psi\boldsymbol{\cdot}\nabla\phi$ term.
+found earlier and the fact that the dot product commutes to eliminate the $\nabla\psi\boldsymbol{\bfcdot}\nabla\phi$ term.
 |}
 
 Assume that $\psi(\mathbf{x})=1/|\mathbf{x}-\mathbf{x'}|$ and 
@@ -727,7 +1534,7 @@ Due on April 8th before class starts.
 In [[#HW_5|HW #5]], you found $G_D(x,x')$ and used it to find the potential $\Phi$, the potential between the conductors, when the space between the conductors was filled with a non-conducting slab with a uniform charge density - $\rho(x) = \rho_o$.
 
 1. Find $\Phi$ using $G$ from [[#HW_5|HW #5]] and equation 1.44 of Jackson.
-1. Find $\Phi$ using Gauss' law and $\psi(b)-\psi(a)=\int_a^b \mathbf{E}\cdot d\mathbf{l}$. Provide diagrams and address all surfaces of your Gaussian surface. Do not use the $\Phi$ found in part 1.
+1. Find $\Phi$ using Gauss' law and $\psi(b)-\psi(a)=\int_a^b \mathbf{E}\bfcdot d\mathbf{l}$. Provide diagrams and address all surfaces of your Gaussian surface. Do not use the $\Phi$ found in part 1.
 1. Compute the surface charge density on the conductor at $x=0$ using $d\Phi/dn=-\sigma/\epsilon_o$.
 
 {| class="wikitable collapsible collapsed"
@@ -784,7 +1591,7 @@ The electric field will be in $x$ direction because conducting planes are large.
 
 Dotted lines in [https://www.mathcha.io/editor/kMNEMierUZnHDQYLZBsDZ1B36TLgxqBxh168Mvn Figure 2.] are a side view of Gaussian cylinders with caps having area $A$. The electric field is parallel to the curved surface of the cylinder so the surface integral for the flux involves only the caps:
 
-$$\oint \mathbf{E}\cdot d\mathbf{a}=\int_{l\thinspacecap}\mathbf{E}\cdot d\mathbf{a}+\int_{r\thinspacecap}\mathbf{E}\cdot d\mathbf{a}=\frac{Q_{encl}}{\epsilon_o}$$
+$$\oint \mathbf{E}\bfcdot d\mathbf{a}=\int_{l\thinspacecap}\mathbf{E}\bfcdot d\mathbf{a}+\int_{r\thinspacecap}\mathbf{E}\bfcdot d\mathbf{a}=\frac{Q_{encl}}{\epsilon_o}$$
 
 Gaussian surfaces are shown in [https://www.mathcha.io/editor/kMNEMierUZnHDQYLZBsDZ1B36TLgxqBxh168Mvn Figure 2.]
 
@@ -814,7 +1621,7 @@ $$3.\quad 0 = \sigma_l + \rho_o\frac{d}{2} + \sigma_r$$
 
 The electric field is related to a potential difference by
 
-$$\psi(b)-\psi(a)=-\int_a^b \mathbf{E}\cdot d\mathbf{l}$$
+$$\psi(b)-\psi(a)=-\int_a^b \mathbf{E}\bfcdot d\mathbf{l}$$
 
 {| class="wikitable collapsible collapsed"
 ! align="left" |&nbsp;Note
@@ -822,19 +1629,19 @@ $$\psi(b)-\psi(a)=-\int_a^b \mathbf{E}\cdot d\mathbf{l}$$
 |
 Quite often I see:
 
-$$\psi = -\int \mathbf{E}\cdot d\mathbf{l} = -\int_a^b \mathbf{E}\cdot d\mathbf{l}$$
+$$\psi = -\int \mathbf{E}\bfcdot d\mathbf{l} = -\int_a^b \mathbf{E}\bfcdot d\mathbf{l}$$
 
 This is not correct. Either use the indefinite integral
 
-$$\psi = -\int \mathbf{E}\cdot d\mathbf{l}$$
+$$\psi = -\int \mathbf{E}\bfcdot d\mathbf{l}$$
 
 and solve for the constant of integration using the potential at a location where it is known or use the definite integral 
 
-$$\psi(b)-\psi(a)=-\int_a^b \mathbf{E}\cdot d\mathbf{l}$$
+$$\psi(b)-\psi(a)=-\int_a^b \mathbf{E}\bfcdot d\mathbf{l}$$
 
 or
 
-$$\psi(x)-\psi(a)=-\int_a^x \mathbf{E}\cdot d\mathbf{l}$$
+$$\psi(x)-\psi(a)=-\int_a^x \mathbf{E}\bfcdot d\mathbf{l}$$
 
 both of which has no constant of integration.
 
@@ -881,8 +1688,8 @@ The potential has a maximum inside the charged slab at $x=3d/8$.
 
 Checks:
 
-* Just outside of conductor, $\mathbf{E}\cdot \hat{\mathbf{n}} = \sigma/\epsilon_o$ so we expect $E_l(0)=\sigma_l/\epsilon_o$, $E_r(d)=-\sigma_r/\epsilon_o$.
-* $E_r$ is constant - this is expected because $\boldsymbol{\nabla}\cdot \mathbf{E} = -\rho/\epsilon_o$ and $\rho=0$ in that region; because problem is 1-D, $\boldsymbol{\nabla}=d/dx$ giving $d E_r/dx = 0\Rightarrow E_r=const$.
+* Just outside of conductor, $\mathbf{E}\bfcdot \hat{\mathbf{n}} = \sigma/\epsilon_o$ so we expect $E_l(0)=\sigma_l/\epsilon_o$, $E_r(d)=-\sigma_r/\epsilon_o$.
+* $E_r$ is constant - this is expected because $\boldsymbol{\nabla}\bfcdot \mathbf{E} = -\rho/\epsilon_o$ and $\rho=0$ in that region; because problem is 1-D, $\boldsymbol{\nabla}=d/dx$ giving $d E_r/dx = 0\Rightarrow E_r=const$.
 * $\psi_l$ and $\psi_r$ satisfy $\psi_l(0)=0$ and $\psi_r(d)=0$ and $\psi_l(d/2)=\psi_r(d/2)$.
 * The meaning of $x=3d/8$ - at this value of $x$, the amount of charge to the left is zero: $\sigma_lA+3\rho_oAd/8=0$ as is the amount of charge to the right: $\rho_oAd/8+\sigma_rA+=0$. The slope of the potential is zero and this corresponds to a net force of zero on a test charge and  hence an electric field of zero, which was found.
 
@@ -1732,7 +2539,7 @@ $\Psi(r)=V_c+R^2\left(\frac{1}{c}-\frac{1}{r}\right)\frac{d\Psi}{dr}\Bigg|_{r=R}
 
 3. In the Gauss' law method, one assumes charges of $Q_b$ and $Q_c$. The geometry is un-changed by a rotation by $\theta$ and $\phi$ and so the field and thus charge density on the surfaces must be independent of $\theta$ and $\phi$. The field can be argued to be radial in this case because for each charge on a sphere there will be another charge which exactly cancels its non-radial component, so $E_{\theta}=E_{\phi}=0$. These arguments allow writing $\mathbf{E}(r,\theta,\phi)=E_r(r)\hat{\mathbf{r}}$. Using a spherical Gaussian surface of radius $r$ for $r\lt b$, $\hat{\mathbf{n}}=\hat{\mathbf{r}}$
 
-$\oint\mathbf{E}\cdot \hat{\mathbf{r}}\thinspace r^2 d\Omega=E_r(r)\thinspace r^2\thinspace 4\pi$
+$\oint\mathbf{E}\bfcdot \hat{\mathbf{r}}\thinspace r^2 d\Omega=E_r(r)\thinspace r^2\thinspace 4\pi$
 
 Because $Q_{encl}=0$, this gives $E_r(r)=0$ for $r\ne 0$. For r=0$, Gauss' law gives $E_r=0/0$. However, one can argue that $E_r=0$ by the cancellation discussed above.
 
@@ -2263,7 +3070,7 @@ and the two terms in involving $M_\phi = (const)/\rho$ in
 $$\nabla \times \mathbf{M} = \left({\frac {1}{\rho }}{\frac {\partial M_{z}}{\partial \phi }}-{\frac {\partial M_{\phi }}{\partial z}}\right){\hat {\boldsymbol {\rho }}}+\left({\frac {\partial M_{\rho }}{\partial z}}-{\frac {\partial M_{z}}{\partial \rho }}\right){\hat {\boldsymbol {\phi }}}+{\frac {1}{\rho }}\left({\frac {\partial \left(\rho M_{\phi }\right)}{\partial \rho }}-{\frac {\partial M_{\rho }}{\partial \phi }}\right){\hat {\mathbf {z} }}$$
 
 %evaluate to zero.
-%To check your answer, use Ampere's Law $\oint \mathbf{B}\cdot d\mathbf{l}=\mu_o I_{enclosed}$ accounting for these bound currents and verify that you get the same magnetic field computed earlier.
+%To check your answer, use Ampere's Law $\oint \mathbf{B}\bfcdot d\mathbf{l}=\mu_o I_{enclosed}$ accounting for these bound currents and verify that you get the same magnetic field computed earlier.
 ## Cylinder Boundary Value Problem 
 
 A long cylinder of radius $s_o$ has a magnetization
@@ -2280,12 +3087,12 @@ where $s$ is the cylindrical radial coordinate and $p$ and $q$ are constants. Fi
 
 $$\mathbf{M}=(p\rho\sin 2\phi + q\rho\cos\phi)\hat{\boldsymbol{\rho}}+(p\rho\cos 2\phi-2q\rho\sin\phi)\hat{\boldsymbol{\phi}}$$ 
 
-$$\boldsymbol{\nabla}\cdot\mathbf{M}=\frac{1}{s}\frac{\partial (sM_s)}{\partial s} + \frac{1}{s}\frac{\partial M_{\phi}}{\partial s}=0$$
+$$\boldsymbol{\nabla}\bfcdot\mathbf{M}=\frac{1}{s}\frac{\partial (sM_s)}{\partial s} + \frac{1}{s}\frac{\partial M_{\phi}}{\partial s}=0$$
 
 1. $\psi_m$ finite for $r=0$
 1. $\psi_m\rightarrow 0$ as $r\rightarrow\infty$
 1. $\psi_m$ is continuous
-1. $(\mathbf{B}_2-\mathbf{B_1})\boldsymbol{\cdot}\hat{\mathbf{n}}=0$
+1. $(\mathbf{B}_2-\mathbf{B_1})\boldsymbol{\bfcdot}\hat{\mathbf{n}}=0$
 
 Start with 
 
@@ -2305,11 +3112,11 @@ $$\mathbf{B}_i = \mu_o(\mathbf{H}_i+\mathbf{M}_i) = \mu_o\left(-\frac{\partial \
 
 $$\mathbf{B}_o = \mu_o(\mathbf{H}_o+\mathbf{M}_o) = -\mu_o\frac{\partial \psi_o}{\partial s}$$
 
-$$\mathbf{B}\_i\cdot\hat{\mathbf{n}}=\mu_o\left(-\frac{\partial \psi_i}{\partial s}\Bigg|_{s=s_o}+M_s(s_o,\phi)\right)$$
+$$\mathbf{B}\_i\bfcdot\hat{\mathbf{n}}=\mu_o\left(-\frac{\partial \psi_i}{\partial s}\Bigg|_{s=s_o}+M_s(s_o,\phi)\right)$$
 
-$$\mathbf{B}\_o\cdot\hat{\mathbf{n}}=-\mu_o\frac{\partial \psi_o}{\partial s}\Bigg|_{s=s_o}$$
+$$\mathbf{B}\_o\bfcdot\hat{\mathbf{n}}=-\mu_o\frac{\partial \psi_o}{\partial s}\Bigg|_{s=s_o}$$
 
-$$(\mathbf{B}_o-\mathbf{B}_i)\boldsymbol{\cdot}\hat{\mathbf{n}}=0$$
+$$(\mathbf{B}_o-\mathbf{B}_i)\boldsymbol{\bfcdot}\hat{\mathbf{n}}=0$$
 
 $$\hat{\mathbf{n}}=\hat{\mathbf{s}}$$
 
@@ -2352,27 +3159,27 @@ Therefore, the problem is equivalent to a solenoid with a finite length with a s
 
 1\. The macroscopic Maxwell equations associated with the magnetic field are 
 
-$$\boldsymbol{\nabla}\boldsymbol{\cdot}\mathbf{B}=0\quad\text{and}\quad \boldsymbol{\nabla}\times\mathbf{H}=\mathbf{J}_f$$
+$$\boldsymbol{\nabla}\boldsymbol{\bfcdot}\mathbf{B}=0\quad\text{and}\quad \boldsymbol{\nabla}\times\mathbf{H}=\mathbf{J}_f$$
 
-where $\mathbf{J}_f$ is the free current (i.e., not bound current). Using the definition of the magnetization implied by $\mathbf{B}=\mu_o(\mathbf{H}+\mathbf{M})$ and $\boldsymbol{\nabla}\boldsymbol{\cdot}\mathbf{B}=0$, the macroscopic equations can be written as
+where $\mathbf{J}_f$ is the free current (i.e., not bound current). Using the definition of the magnetization implied by $\mathbf{B}=\mu_o(\mathbf{H}+\mathbf{M})$ and $\boldsymbol{\nabla}\boldsymbol{\bfcdot}\mathbf{B}=0$, the macroscopic equations can be written as
 
-$$\boldsymbol{\nabla}\boldsymbol{\cdot}\mathbf{H}=-\boldsymbol{\nabla}\boldsymbol{\cdot}\mathbf{M}\quad\text{and}\quad \boldsymbol{\nabla}\times\mathbf{H}=\mathbf{J}_f$$
+$$\boldsymbol{\nabla}\boldsymbol{\bfcdot}\mathbf{H}=-\boldsymbol{\nabla}\boldsymbol{\bfcdot}\mathbf{M}\quad\text{and}\quad \boldsymbol{\nabla}\times\mathbf{H}=\mathbf{J}_f$$
 
 When $\mathbf{J}_f=0$, $\boldsymbol{\nabla}\times\mathbf{H}=0$ so one can write $\mathbf{H}$ as the gradient of a scalar function that will be called $\psi_m$: $\mathbf{H}=-\boldsymbol{\nabla}\psi_m$ and so
 
-$$\nabla^2\psi_m=\boldsymbol{\nabla}\boldsymbol{\cdot}\mathbf{M}$$
+$$\nabla^2\psi_m=\boldsymbol{\nabla}\boldsymbol{\bfcdot}\mathbf{M}$$
 
 From this, it follows that
 
-$$\psi_m=-\frac{1}{4\pi}\int\frac{\boldsymbol{\nabla}'\boldsymbol{\cdot}\mathbf{M}(\mathbf{x}')}{|\mathbf{x}-\mathbf{x}'|}d^3x'$$
+$$\psi_m=-\frac{1}{4\pi}\int\frac{\boldsymbol{\nabla}'\boldsymbol{\bfcdot}\mathbf{M}(\mathbf{x}')}{|\mathbf{x}-\mathbf{x}'|}d^3x'$$
 
 If $\mathbf{M}$ has a discontinuity on a surface $\mathcal{S}$ of the volume $\mathcal{V}$ such that it is zero outside of $\mathcal{V}$, this can be written as
 
-$$\psi_m=-\frac{1}{4\pi}\int_V\frac{\boldsymbol{\nabla}'\boldsymbol{\cdot}\mathbf{M}(\mathbf{x}')}{|\mathbf{x}-\mathbf{x}'|}d^3x'+\frac{1}{4\pi}\oint_S\frac{\hat{\mathbf{n}}'\boldsymbol{\cdot}\mathbf{M}(\mathbf{x}')}{|\mathbf{x}-\mathbf{x}'|}da'$$
+$$\psi_m=-\frac{1}{4\pi}\int_V\frac{\boldsymbol{\nabla}'\boldsymbol{\bfcdot}\mathbf{M}(\mathbf{x}')}{|\mathbf{x}-\mathbf{x}'|}d^3x'+\frac{1}{4\pi}\oint_S\frac{\hat{\mathbf{n}}'\boldsymbol{\bfcdot}\mathbf{M}(\mathbf{x}')}{|\mathbf{x}-\mathbf{x}'|}da'$$
 
 In this problem, the first form 
 
-$$\psi_m=-\frac{1}{4\pi}\int\frac{\boldsymbol{\nabla}'\boldsymbol{\cdot}\mathbf{M}(\mathbf{x}')}{|\mathbf{x}-\mathbf{x}'|}d^3x'$$
+$$\psi_m=-\frac{1}{4\pi}\int\frac{\boldsymbol{\nabla}'\boldsymbol{\bfcdot}\mathbf{M}(\mathbf{x}')}{|\mathbf{x}-\mathbf{x}'|}d^3x'$$
 
 can be used if $\mathbf{M}$ is represented using the Heaviside step function $\Theta$:
 
@@ -2382,7 +3189,7 @@ so that
 
 $$
 \begin{align}
-\boldsymbol{\nabla}\boldsymbol{\cdot}\mathbf{M}=&\frac{\partial}{\partial z}\left(M_o\Theta(a-s)\big[\Theta(z+L)-\Theta(z-L)\big]\right)\\
+\boldsymbol{\nabla}\boldsymbol{\bfcdot}\mathbf{M}=&\frac{\partial}{\partial z}\left(M_o\Theta(a-s)\big[\Theta(z+L)-\Theta(z-L)\big]\right)\\
 \\
 =& M_o\Theta(a-s)\big[\delta(z+L)-\delta(z-L)\big]
 \end{align}
@@ -2424,9 +3231,9 @@ _Note_
 
 The equation in the steps shown above that occurs after evaluation of the Heavyside step and Dirac delta functions is what would have been found if we had started with
 
-$$\psi_m=-\frac{1}{4\pi}\int_{\mathcal{V}}\frac{\boldsymbol{\nabla}'\boldsymbol{\cdot}\mathbf{M}(\mathbf{x}')}{|\mathbf{x}-\mathbf{x}'|}d^3x'+\frac{1}{4\pi}\oint_{\mathcal{S}}\frac{\hat{\mathbf{n}}'\boldsymbol{\cdot}\mathbf{M}(\mathbf{x}')}{|\mathbf{x}-\mathbf{x}'|}da'$$
+$$\psi_m=-\frac{1}{4\pi}\int_{\mathcal{V}}\frac{\boldsymbol{\nabla}'\boldsymbol{\bfcdot}\mathbf{M}(\mathbf{x}')}{|\mathbf{x}-\mathbf{x}'|}d^3x'+\frac{1}{4\pi}\oint_{\mathcal{S}}\frac{\hat{\mathbf{n}}'\boldsymbol{\bfcdot}\mathbf{M}(\mathbf{x}')}{|\mathbf{x}-\mathbf{x}'|}da'$$
  
-Inside $\mathcal{V}$, $\boldsymbol{\nabla}'\boldsymbol{\cdot}\mathbf{M}=0$, which leaves only the surface integral. The surface integral on the curved surface of the cylinder is zero because $\hat{\mathbf{s}}\boldsymbol{\cdot}\mathbf{M}$; the top and bottom caps of the cylinder only contribute and ($\mathbf{n}=\pm \hat{\mathbf{z}}$ on the top/bottom of the cylinder.
+Inside $\mathcal{V}$, $\boldsymbol{\nabla}'\boldsymbol{\bfcdot}\mathbf{M}=0$, which leaves only the surface integral. The surface integral on the curved surface of the cylinder is zero because $\hat{\mathbf{s}}\boldsymbol{\bfcdot}\mathbf{M}$; the top and bottom caps of the cylinder only contribute and ($\mathbf{n}=\pm \hat{\mathbf{z}}$ on the top/bottom of the cylinder.
 
 At least one student attempted to use the expansion of $1/|\mathbf{x}-\mathbf{x}'|$ for $r=z$ in terms of Legendre polynomials. This is a good idea, but there is a complication that one needs to address. The angle $\alpha$ is not $\theta$ and so $P_l(\cos\alpha$ will depend on $\phi$. This complication was discussed at length in my notes on this expansion. See the example for the offset charged ring given in section 3.3 of Jackson for how to handle this.
 
@@ -2517,7 +3324,7 @@ This observation also points to another way to check your answer. In the limit t
 $$B_z=\frac{\mu_o Ia^2}{2}\frac{1}{(a^2+z^2)^{3/2}}$$
 
 
-# Monopole
+# Monopole Expansion
 
 ## Monopole Expansion Using "Standard" Method 
 
@@ -2665,7 +3472,7 @@ $$r^2=x^2+y^2+z^2$$
 
 $$r'^2=x'^2+y'^2+z'^2$$
 
-$$\cos\gamma=\frac{\mathbf{r}\cdot\mathbf{r'}}{rr'}=\frac{xx'+yy'+zz'}{rr'}$$
+$$\cos\gamma=\frac{\mathbf{r}\bfcdot\mathbf{r'}}{rr'}=\frac{xx'+yy'+zz'}{rr'}$$
 
 $$\delta = r'^2/r^2-2(r'/r)\cos\gamma$$
 
@@ -2824,7 +3631,7 @@ As noted in class, one should check that this charge density gives $\int \rho(\m
 
 In general, $\alpha$ depends on the primed coordinates
 
-$$\cos \alpha = \frac{\mathbf{r}\cdot \mathbf{r}'}{r\thinspacer'}=\sin\theta\sin\theta'\cos\phi\cos\phi' + \sin\theta\sin\theta'\sin\phi\sin\phi'+\cos\theta\cos\theta'$$
+$$\cos \alpha = \frac{\mathbf{r}\bfcdot \mathbf{r}'}{r\thinspacer'}=\sin\theta\sin\theta'\cos\phi\cos\phi' + \sin\theta\sin\theta'\sin\phi\sin\phi'+\cos\theta\cos\theta'$$
 
 which can also be written as
 
@@ -2933,7 +3740,7 @@ $$\frac{\psi_{approx}}{\psi_{exact}}\simeq 1.02$$
 
 The following is a Python script that can be used to explore the accuracy using NumPy's Legendre polynomial functions.
 
-```Python
+```python
 import numpy as np
 
 z = 1
@@ -2988,7 +3795,7 @@ $\displaystyle\cos\big(\gamma(\theta,\phi,\theta',\phi')\big) = \sin\theta\sin\t
 
 $\displaystyle\cos\big(\gamma(x,y,z,x',y',z')\big) = \frac{xx'+yy'+zz'}{rr'}$
 
-$\displaystyle\cos(\gamma(\mathbf{x},\mathbf{x}')) =\frac{\mathbf{x}\cdot\mathbf{x}'}{|\mathbf{x}| |\mathbf{x'}|}$
+$\displaystyle\cos(\gamma(\mathbf{x},\mathbf{x}')) =\frac{\mathbf{x}\bfcdot\mathbf{x}'}{|\mathbf{x}| |\mathbf{x'}|}$
 
 $\displaystyle\cos\big(\gamma(x,y,z,x',y',z')\big) = \frac{xx'+yy'+zz'}{rr'}\quad\mbox{using }r = |\mathbf{x}|\mbox{ and }r' = |\mathbf{x'}|$
 
