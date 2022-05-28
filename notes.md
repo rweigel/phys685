@@ -1,5 +1,8 @@
 # $\delta$
 
+## Introduction
+
+
 ## Motivation
 
 ### Center of Mass
@@ -761,6 +764,10 @@ The problem with the statement of "We must remember that there are actually no f
 |}
 
 # Reciprocity
+
+## Introduction
+
+In spoke English reciprocity means an exchange between people with mutual benefit,
 
 ## Discrete -- $3$ point charges
 
