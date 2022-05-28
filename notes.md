@@ -269,7 +269,6 @@ $$\int_{\mathcal{V_{r \le 2b}}} \boldsymbol{\nabla} \bfcdot \mathbf{E}\thinspace
 ## Definition
 
 ###
-
 1\. Evaluate
 
 $\displaystyle\lim_{n \to \infty}\Bigg[\int xD_n(x-1)dx\Bigg]$
@@ -478,7 +477,7 @@ $$\rho = \frac{Q}{4\pi b^2}\delta(r-b)$$
 
 In the problem statement, I did not ask for the volume charge density. However, this is implied as the delta function is always used to write volume charge densities -- part of the motivation for introducing it is so that we don't need to write three equations for the electric field - one for a line of charge, one for a surface charge, and one for a volume charge. With the delta function, only the volume charge equation is needed and the volume integral will reduce to either a surface or line integral.
 
-### 
+###
 
 1. Find the volume charge density $\rho$ in cylindrical coordinates in terms of $\delta$ and/or $\Theta$ for an infinitely long cylinder of radius $b$ with a charge density per unit length of $\lambda_o$ uniformly distributed on its surface. Assume that the cylinder's centerline is along the $z$-axis.
 1. Repeat 1. assuming the cylinder is finite and extends from $z=-h/2$ to $z=h/2$.
@@ -622,7 +621,7 @@ However, because the volume is for $z\gt 0$, the second delta term is zero and s
 
 The potential for the alternative charge configuration satisfies the boundary conditions $\Phi(x,y,0)=0$ and $\Phi=0$ on a half-sphere of large radius. Because solutions to Poisson's equation in a volume bounded by a surface with given boundary conditions are unique, the potential to the alternative problem is the solution for the original problem.
 
-## Point Charge above Infinite Plane 
+## Point Charge above Infinite Plane
 
 A point charge $q$ is at a distance $d$ above an infinite and grounded conducting plane. Use the method of images to find:
 
@@ -829,11 +828,11 @@ $\displaystyle\sum_{i=1}^{N}\sum\_{\substack{j=1\\j\ne i}}^N \frac{ q'\_j q_i}{d
 
 both result in the sum of all elements of a matrix excluding the diagonals. The only difference is the order in which the elements of the matrix are summed. For a continuous charge distribution, we would use the fact that the order of integration could be changed to arrive at the result $\int dq \Phi'(x) d^3x = \int dq' \Phi(x') d^3x'$.
 
-## Discrete -- Point Charge Outside of Conductor
+## Discrete – Point Charge Outside of Conductor
 
 A point charge $q$ is a distance $c$ from the center of a grounded conducting sphere of radius $b \lt c$. Find the charge induced on the sphere.
 
-## Discrete -- Point Charge Between Conductors
+## Discrete – Point Charge Between Conductors
 
 1. In class, I partially did problem 1.13 of Jackson 3rd Edition (I only found the net charge on the upper of the plate). Find the net charge on the lower plate. Justify your steps at the level of detail given in class. (I stated an easy way of finding the net charge induced on the lower plate, but I want you to do it the long way, which requires steps similar to the ones used in class.)
 2. A point charge at a distance $r$ from the origin is between two grounded spherical conducting shells of radius $b$ and $c$ that are centered on the origin. Find the net charge induced on the surfaces at $b$ and $c$.
@@ -907,7 +906,7 @@ $\displaystyle q'_{r=b}=-V_o\frac{q'b}{c-b}\left(\frac{c}{r_o}-1\right)$
 
 $\displaystyle q'_{r=c}=+V_o\frac{q'c}{c-b}\left(\frac{b}{r_o}-1\right)$
 
-## Continuous -- Green's Identity Derivation 
+## Continuous – Green’s Identity Derivation
 
 In one of the steps required to derive his identities (discussed in 1.8 of Jackson, 3rd Edition), Green said: "Consider the divergence of a scalar function $f$ multiplied by a vector function $\mathbf{A}$".
 
@@ -942,7 +941,7 @@ $\displaystyle\int_{\mathcal{V}} f(\mathbf{\nabla}\cdot \mathbf{A})\thinspace d^
 
 Note that when $\mathbf{A}=A_x(x)\hat{\mathbf{x}}$, $f=f(x)$, and $\mathcal{V}$ is a cube, this reduces to the integration by parts formula.
 
-## Continuous -- Alternative Derivation
+## Continuous – Alternative Derivation
 
 Consider the integral
 
@@ -998,7 +997,7 @@ $$\int_{all\space space}\Phi'\rho\thinspace d^3x = \int_{all\space space}\Phi\rh
 
 # Green Functions
 
-### Green's Reciprocity Use
+### Green’s Reciprocity Use
 
 1. In class, I partially did problem 1.13 of Jackson 3rd Edition (I only found the net charge on the upper of the plate). Find the net charge on the lower plate. Justify your steps at the level of detail given in class. (I stated an easy way of finding the net charge induced on the lower plate, but I want you to do it the long way, which requires steps similar to the ones used in class.)
 2. A point charge at a distance $r$ from the origin is between two grounded spherical conducting shells of radius $b$ and $c$ that are centered on the origin. Find the net charge induced on the surfaces at $b$ and $c$.
@@ -1072,7 +1071,7 @@ $\displaystyle q'_{r=b}=-V_o\frac{q'b}{c-b}\left(\frac{c}{r_o}-1\right)$
 
 $\displaystyle q'_{r=c}=+V_o\frac{q'c}{c-b}\left(\frac{b}{r_o}-1\right)$
 
-## Reciprocity -- Continuous
+## Reciprocity – Continuous
 
 #green-s-identity-derivation&l=663&c=1
 
@@ -1099,7 +1098,7 @@ I don't know of many other introductory references for this, but the following m
 * Most mathematical physics textbooks will have a discussion of Green's functions.
 * [https://www.amazon.com/Elements-Greens-Functions-Propagation-Publications/dp/0198519982 Elements of Greens Functions by Barton] is a very comprehensive treatment of Green functions in physics.
 
-### Preliminaries 
+### Preliminaries
 
 Using the divergence theorem for a vector field $\mathbf{A}$ that can be written in the form $\mathbf{A}=\phi \nabla\psi$, show that
 
@@ -1503,7 +1502,7 @@ $$\Psi(\mathbf{x})=\frac{1}{4\pi\epsilon_o}\int_{\mathcal{V}}G_D(\mathbf{x},\mat
 
 gives
 
-$$\Psi(x)=\frac{\rho_o}{w\epsilon_o}\int_0^w \left[(w-x')x\Theta(x'-x)+(w-x)x'\Theta(x-x')\righ\thinspace dx'$$
+$$\Psi(x)=\frac{\rho_o}{w\epsilon_o}\int_0^w \left[(w-x')x\Theta(x'-x)+(w-x)x'\Theta(x-x')\right]\thinspace dx'$$
 
 The $\Theta$ function modifies the limits of integration
 
@@ -1598,7 +1597,7 @@ The electric field will be in $x$ direction because conducting planes are large.
 
 Dotted lines in [https://www.mathcha.io/editor/kMNEMierUZnHDQYLZBsDZ1B36TLgxqBxh168Mvn Figure 2.] are a side view of Gaussian cylinders with caps having area $A$. The electric field is parallel to the curved surface of the cylinder so the surface integral for the flux involves only the caps:
 
-$$\oint \mathbf{E}\bfcdot d\mathbf{a}=\int_{l\thinspacecap}\mathbf{E}\bfcdot d\mathbf{a}+\int_{r\thinspacecap}\mathbf{E}\bfcdot d\mathbf{a}=\frac{Q_{encl}}{\epsilon_o}$$
+$$\oint \mathbf{E}\bfcdot d\mathbf{a}=\int_{l\thinspace cap}\mathbf{E}\bfcdot d\mathbf{a}+\int_{r\thinspace cap}\mathbf{E}\bfcdot d\mathbf{a}=\frac{Q_{encl}}{\epsilon_o}$$
 
 Gaussian surfaces are shown in [https://www.mathcha.io/editor/kMNEMierUZnHDQYLZBsDZ1B36TLgxqBxh168Mvn Figure 2.]
 
@@ -1771,7 +1770,7 @@ The motivation for asking for the charge densities was as a hint of a way to che
 
 #1-d-cartesian-green-function&l=775&c=1
 
-## 1-D Spherical -- Outer boundary at $\infty$
+## 1-D Spherical – Outer boundary at ∞
 
 #1-d-spherical-green-function&l=942&c=1
 
@@ -1785,7 +1784,7 @@ The motivation for asking for the charge densities was as a hint of a way to che
 
 See HW 6.1
 
-### U-Shaped Channel 
+### U-Shaped Channel
 
 A U-shaped, conducting, and grounded channel is shown in Fig. 1a; its cross-section is shown in Fig. 1b. The channel is infinite in the $\pm z$ and the top and bottom parts extend to $x=+\infty$.
 
@@ -1907,7 +1906,7 @@ $$\Phi(x) = \frac{1}{4\pi\epsilon_o}\int_0^{\infty} G(x,x')\rho(x\thinspace d^3x
 
 Using $G$ in terms of $\psi_l$ and $\psi_r$, this is
 
-$$\Phi(x) = \frac{\rho_o}{\epsilon_o}\int_0^d \Big[\psi_l(x,x')\Theta(x'-x) + \psi_r(x,x')\Theta(x-x')\Bi\thinspace dx'$$
+$$\Phi(x) = \frac{\rho_o}{\epsilon_o}\int_0^d \Big[\psi_l(x,x')\Theta(x'-x) + \psi_r(x,x')\Theta(x-x')\Big]\thinspace dx'$$
 
 $$x\lt d$$
 
@@ -1921,7 +1920,7 @@ $$\Phi(x) = \frac{\rho_o}{\epsilon_o}\int_0^d \psi\thinspace dx'$$
 
 $$\Phi(x) = \frac{4\rho_o}{\pi^3\epsilon_o}\sum_{n=1,3,...}^{\infty}\frac{\cosh(n\pi d)-1}{n^3}e^{-n\pi x}\sin(n\pi y)$$
 
-## Long Cylinder 
+## Long Cylinder
 
 Have hand-written solutions
 
@@ -1939,7 +1938,7 @@ For a long, grounded, and hollow cylinder with radius $b$ aligned with, and cent
 
 #green-function-for-infinite-dome&l=1063&c=1
 
-## Green Functions 
+## Green Functions
 
 Green's theorem (second identity) derived earlier is
 
@@ -1993,7 +1992,7 @@ $$\int_{\mathcal{V}}\left[-4\pi\phi(\mathbf{x'})\delta(\mathbf{x}-\mathbf{x'})+\
 ! align="left" |&nbsp;Answer
 |-
 |
-$$F(\mathbf{x}',\mathbf{x})=-\frac{1}{|\mathbf{x}'-\mathbf{x}|}\quad\mbox{for}\thinspace\mathbf{x}'\mbox{on}\thinspaceS$$
+$$F(\mathbf{x}',\mathbf{x})=-\frac{1}{|\mathbf{x}'-\mathbf{x}|}\quad\mbox{for}\thinspace\mathbf{x}'\mbox{on}\thinspace S$$
 
 This corresponds to $\psi(\mathbf{x}')=0$ on $S$.
 
@@ -2050,7 +2049,7 @@ that gives $\psi(\mathbf{x})=0$ on the surface of the plane and $\nabla^2F=0$ ab
 |
 $$F(\mathbf{x},\mathbf{x}') = \frac{1}{\sqrt{(x-x')^2 + (y-y')^2 + (z+z')^2}}$$
 
-$$\nabla^2F = -4\pi\delta(x-x')\delta(y-y')\delta(z+z')=0\quad\text{for}\thinspacez\gt 0$$
+$$\nabla^2F = -4\pi\delta(x-x')\delta(y-y')\delta(z+z')=0\quad\text{for}\thinspace z\gt 0$$
 |}
 
 This function $\psi(\mathbf{x},\mathbf{x}')$ that has above-identified properties is called a Green function for an infinite plane geometry and is re-named to as $G(\mathbf{x},\mathbf{x}')$ in what follows. This function was derived with the aid of the solution to the problem of a point charge above an infinite and grounded conducting plane. The power of knowing the Green function is that it can be used to solve for the potential in a different problem - a problem where the potential is known on an infinite plane and the charge density above the plane is zero.
@@ -2300,10 +2299,11 @@ where $\sigma'(\theta,\phi)=q\delta(\cos\theta-\cos\theta')\delta(\phi-\phi')/4\
 Multiply both sides by $Y^*_{l'm'}(\theta,\phi)d\Omega$ and integrate over the solid angle. The left-hand-side is
 
 $$
-\begin{array}
-&\displaystyle\int \frac{\sigma'}{\epsilon_o}Y^*_{l'm'}(\theta,\phi)d\Omega & = \displaystyle\int \frac{q}{4\pi\epsilon_o r'^2}\delta(\cos\theta-\cos\theta')\delta(\phi-\phi') Y^*_{l'm'}(\theta,\phi)d(\cos\theta) d\phi\\
+\begin{split}
+\displaystyle\int \frac{\sigma'}{\epsilon_o}Y^*_{l'm'}(\theta,\phi)d\Omega &
+= \displaystyle\int \frac{q}{4\pi\epsilon_o r'^2}\delta(\cos\theta-\cos\theta')\delta(\phi-\phi') Y^*_{l'm'}(\theta,\phi)d(\cos\theta) d\phi \\\\
 & =\frac{q}{4\pi\epsilon_or'^2}Y^*_{l'm'}(\theta',\phi')
-\end{array}
+\end{split}
 $$
 
 The right-hand-side is
@@ -2417,13 +2417,13 @@ $$\Psi(\mathbf{x})=-\frac{1}{4\pi}\oint_{\mathcal{S}} \Psi(\mathbf{x}')\frac{\pa
 
 $G$ is proportional to potential and the surface charge density on the conductors is proportional to $\partial \Psi/\partial r$ at $r=a$; this equations is equivalent to computing the potential due to the charges on the conductor.
 
-$$\Psi(\mathbf{x})=-\frac{1}{4\pi}\int_0^{2\pi}\int_{0}^{\pi}\Psi(a)\frac{\partial G}{\partial n'}\Bigg|_{r'=a}a^2\sin\thet\thinspace d\theta'd\phi'$$
+$$\Psi(\mathbf{x})=-\frac{1}{4\pi}\int_0^{2\pi}\int_{0}^{\pi}\Psi(a)\frac{\partial G}{\partial n'}\Bigg|_{r'=a}a^2\sin\theta\thinspace d\theta'd\phi'$$
 
-$$\Psi(\mathbf{x})=-\frac{1}{4\pi}\int_0^{2\pi}d\phi'\left[\int_{0}^{\pi/2}V_o\frac{\partial G}{\partial n'}\Bigg|_{r'=a}\sin\thet\thinspace d\theta'-\int_{\pi/2}^{\pi}V_o\frac{\partial G}{\partial n'}\Bigg|_{r'=a}\sin\thet\thinspace d\theta'\right]$$
+$$\Psi(\mathbf{x})=-\frac{1}{4\pi}\int_0^{2\pi}d\phi'\left[\int_{0}^{\pi/2}V_o\frac{\partial G}{\partial n'}\Bigg|_{r'=a}\sin\theta\thinspace d\theta'-\int_{\pi/2}^{\pi}V_o\frac{\partial G}{\partial n'}\Bigg|_{r'=a}\sin\theta\thinspace d\theta'\right]$$
 
-$$\Psi(\mathbf{x})=V_o\sum_{l,m} \left(\frac{a}{r}\right)^{l+1}Y_{lm}(\theta,\phi)\int_0^{2\pi}d\phi'\left[\int_{0}^{\pi/2}Y^*_{lm}(\theta',\phi')\sin\thet\thinspace d\theta'-\int_{\pi/2}^{\pi}Y^*_{lm}(\theta',\phi')\sin\thet\thinspace d\theta'\right]$$
+$$\Psi(\mathbf{x})=V_o\sum_{l,m} \left(\frac{a}{r}\right)^{l+1}Y_{lm}(\theta,\phi)\int_0^{2\pi}d\phi'\left[\int_{0}^{\pi/2}Y^*_{lm}(\theta',\phi')\sin\theta\thinspace d\theta'-\int_{\pi/2}^{\pi}Y^*_{lm}(\theta',\phi')\sin\theta\thinspace d\theta'\right]$$
 
-$$\Psi(\mathbf{x})=V_o\sum_{l,m}\left(\frac{a}{r}\right)^{l+1}f(l)e^{im\phi}P_{lm}(\theta,\phi)\int_0^{2\pi}d\phi'\left[\int_{0}^{\pi/2}f(l)e^{-im\phi'}P^l_{m}\sin\thet\thinspace d\theta'-\int_{\pi/2}^{\pi}e^{-im\phi'}P^l_{m}\sin\thet\thinspace d\theta'\right]$$
+$$\Psi(\mathbf{x})=V_o\sum_{l,m}\left(\frac{a}{r}\right)^{l+1}f(l)e^{im\phi}P_{lm}(\theta,\phi)\int_0^{2\pi}d\phi'\left[\int_{0}^{\pi/2}f(l)e^{-im\phi'}P^l_{m}\sin\theta\thinspace d\theta'-\int_{\pi/2}^{\pi}e^{-im\phi'}P^l_{m}\sin\theta\thinspace d\theta'\right]$$
 
 Eqn. 3.53
 
@@ -2433,9 +2433,9 @@ $$f(l) = \sqrt{\frac{2l+1}{4\pi}\frac{(l-m)!}{(l+m)!}}$$
 
 $$\Psi(\mathbf{x})=V_o\sum_{l,m}\left(\frac{a}{r}\right)^{l+1}e^{im\phi}P_{l}^m(\theta,\phi)I_{lm}$$
 
-$$I_{lm} \equiv [f(l)]^2\int_0^{2\pi}d\phi'\left[\int_{0}^{\pi/2}f(l)e^{-im\phi'}P_l^{m}(\cos\theta')\sin\thet\thinspace d\theta'-\int_{\pi/2}^{\pi}e^{-im\phi'}P^m_{l}(\cos\theta')\sin\thet\thinspace d\theta'\right]$$
+$$I_{lm} \equiv [f(l)]^2\int_0^{2\pi}d\phi'\left[\int_{0}^{\pi/2}f(l)e^{-im\phi'}P_l^{m}(\cos\theta')\sin\theta\thinspace d\theta'-\int_{\pi/2}^{\pi}e^{-im\phi'}P^m_{l}(\cos\theta')\sin\theta\thinspace d\theta'\right]$$
 
-$$I_{lm} =  [f(l)]^2\int_0^{2\pi}e^{-im\phi'}d\phi'\left[\int_{0}^{\pi/2}P_l^{m}(\cos\theta')-\int_{\pi/2}^{\pi}P_l^{m}(\cos\theta')\right]\sin\thet\thinspace d\theta'$$
+$$I_{lm} =  [f(l)]^2\int_0^{2\pi}e^{-im\phi'}d\phi'\left[\int_{0}^{\pi/2}P_l^{m}(\cos\theta')-\int_{\pi/2}^{\pi}P_l^{m}(\cos\theta')\right]\sin\theta\thinspace d\theta'$$
 
 $$I_{lm} =  [f(l)]^2\int_0^{2\pi}e^{-im\phi'}d\phi'\left[\int_{0}^{1}P^m_{l}(x)dx-\int_{-1}^{0}P^m_{l}(x)dx\right]$$
 
@@ -2466,7 +2466,7 @@ Problems of this type are not addressed in much detail in Jackson; I recommend G
 
 In these problems, "Find $\Psi(\rho)$ or $\Psi(r)$" means to find the potential for all $\rho$ and $r$.
 
-## Spherical -- Potentials Given 
+## Spherical – Potentials Given
 
 1. Derive the general solution of $\nabla^2\Psi(r) = 0$ in spherical coordinates.
 
@@ -2618,7 +2618,7 @@ Physically, if the shell at $r=R$ is not at $V_c$, extra charge will need to be 
 
 Finally, note that this problem is equivalent to the problem of two spherical capacitors in series and could have been solved simply by using the formula for the capacitance of a spherical capacitor.
 
-## Spherical -- $\sigma$ Given 
+## Spherical – σ Given
 
 A non-conducting spherical shell of radius $b$ has a uniform surface charge density of $\sigma_o$. 
 
@@ -2718,23 +2718,23 @@ See also [my PHYS 305 notes](https://rweigel.github.io/phys305/boundary_value_pr
 
 See [HW #4](hw.md#2-d-cartesian-boundary-value-problem) and references therein.
 
-## Cylindrical -- $\sigma$ given
+## Cylindrical – σ given
 
 #2-d-cylindrical-boundary-value-problem&l=1272&c=1
 
-## Cylinder -- $\mathbf{E}(\infty)$ given
+## Cylinder – E(∞) given
 
 A long conducting cylinder of radius $b$ has its centerline along the $z$--axis. There is an external electric field of $\mathbf{E}=E_o\hat{\mathbf{x}}$.
 
 Find $\psi(s,\phi)$
 
-## Cylinder -- $\psi$ given
+## Cylinder – ψ given
 
 A long conducting cylinder of radius $b$ has its centerline along the $z$--axis. The cylinder is held at a potential of $V_o\sin^2\phi$.
 
 Find $\psi(s,\phi)$
 
-## Spherical -- $\psi$ given I.
+## Spherical – ψ given I.
 
 A non-conducting spherical shell of radius $b$ has on its surface of $V_o\cos\theta$.
 
@@ -2751,7 +2751,7 @@ $\psi(r,\theta) =
 \end{cases}
 $
 
-## Spherical -- $\psi$ given II.
+## Spherical – ψ given II.
 
 Find $\Phi(r,\theta)$ if  $\Phi(r=b,\theta)=V_1\cos\theta+V_2\cos^2\theta$.
 
@@ -2810,7 +2810,7 @@ $$
 \end{align*}
 $$
 
-## Spherical -- $\sigma$ given
+## Spherical – σ given
 
 A non-conducting sphere of radius $r_o$ has a surface charge density of $(3/2)\sigma_2\sin^2\theta$. Find the potential inside and outside of the sphere assuming that at $r\gg r_o$, $\Psi=0$. In your calculations, use $\epsilon_o=1$.
 
@@ -2925,11 +2925,11 @@ $\displaystyle\frac{\sigma_2r_o}{\epsilon_o}\left(\frac{1}{r_o}P_0 + \frac{1}{5}
 
 and so the jump condition is satisfied.
 
-## Spherical -- $\mathbf{E}(\infty)$ given
+## Spherical – E(∞) given
 
 See example in Griffiths
 
-## Spherical -- $\psi$ given
+## Spherical – ψ given
 
 See example in Griffiths
 
@@ -2937,7 +2937,7 @@ See example in Griffiths
 
 # Dielectric
 
-## Long Dielectric Cylinder 
+## Long Dielectric Cylinder
 
 An infinitely long dielectric cylinder of radius $b$ is placed into a vacuum region of space with an initially uniform electric field $E_o\hat{\mathbf{x}}$. The cylinder is parallel to and centered on the $z-$axis.
 
@@ -3020,7 +3020,7 @@ $$\psi_i=V_o-\frac{2E_o}{\epsilon_r+1}s\cos\phi$$
 
 Note when $\epsilon_r\rightarrow \infty$, is consistent with the solution for a conducting cylinder. For $s_o\rightarrow 0$ the solution is consistent with the solution for a line of charge with $\lambda=0$ (because all of the polarized charges are on top of each other) in an electric field $E_o\hat{\mathbf{x}}$: the inner potential, which corresponds to $\psi_i(0,\theta)$ in this limit) is $V_o$ and the outer potential is the external potential. The dielectric does not contribute to the electric field because the bound charges are on top of each other at the origin.
 
-## Spherical Dielectric with Cavity 
+## Spherical Dielectric with Cavity
 
 A spherical dielectric with permittivity $\epsilon$, inner radius $b$, and outer radius $c$ is centered on the origin. Inside and outside of the dielectric the permittivity is $\epsilon_o$.
 
@@ -3078,7 +3078,7 @@ $$\nabla \times \mathbf{M} = \left({\frac {1}{\rho }}{\frac {\partial M_{z}}{\pa
 
 %evaluate to zero.
 %To check your answer, use Ampere's Law $\oint \mathbf{B}\bfcdot d\mathbf{l}=\mu_o I_{enclosed}$ accounting for these bound currents and verify that you get the same magnetic field computed earlier.
-## Cylinder Boundary Value Problem 
+## Cylinder Boundary Value Problem
 
 A long cylinder of radius $s_o$ has a magnetization
 
@@ -3141,7 +3141,7 @@ An alternative method of solution uses direct integration of $\mathbf{K}_b$ and 
 
 # Magnetization
 
-## Cylinder with uniform $\mathbf{M}$ 
+## Cylinder with uniform M
 
 A cylinder centered on the origin with radius $b$ and end caps in the $z=\pm L$ plane has a permanent magnetization $\mathbf{M}=M_o\hat{\mathbf{z}}$.
 
@@ -3271,10 +3271,10 @@ When the absolute values are accounted for, the potential function depends on if
 
 $$
 \psi_m=\begin{cases}
-\begin{array}{ll}
-\frac{M_o}{2}\left(\sqrt{a^2+(z-L)^2}-\sqrt{a^2+(z+L)^2}+2z\right) & \mbox{if } |z| \le L \\
-\frac{M_o}{2}\left(\sqrt{a^2+(z-L)^2}-\sqrt{a^2+(z+L)^2}+2L\right) & \mbox{if } |z| \ge L
-\end{array}
+\begin{split}
+\frac{M_o}{2}\left(\sqrt{a^2+(z-L)^2}-\sqrt{a^2+(z+L)^2}+2z\right) & \qquad|z| \le L \\\\
+\frac{M_o}{2}\left(\sqrt{a^2+(z-L)^2}-\sqrt{a^2+(z+L)^2}+2L\right) & \qquad |z| \ge L
+\end{split}
 \end{cases}
 $$
 
@@ -3333,7 +3333,7 @@ $$B_z=\frac{\mu_o Ia^2}{2}\frac{1}{(a^2+z^2)^{3/2}}$$
 
 # Monopole Expansion
 
-## Monopole Expansion Using "Standard" Method 
+## Monopole Expansion Using “Standard” Method
 
 1. Write down the potential $\psi$ as a function of $(x,y,z)$ for a point charge $q$ located at $(x,y,z)=(0,0,z')$ using $kq=1$.
 
@@ -3369,8 +3369,8 @@ $$
 \begin{align}
 \frac{1}{|\mathbf{x}-\mathbf{x}'|} &=\frac{1}{\sqrt{x^2+y^2+(z-z')^2}}\\
 &=\frac{1}{\sqrt{x^2+y^2+z^2+z'^2-2zz'}}&&\text{Expand }(z-z')^2\\
-&=\frac{1}{|r|\sqrt{1+z'^2/r^2-2zz'/r^2}}&&\text{Using}\thinspacer^2=x^2+y^2+z^2\thinspace\text{and factoring out}\thinspacer\\
-&=\frac{1}{r\sqrt{1+z'^2/r^2-2(z'/r)\cos\theta}}&&\text{Using}\thinspacez=r\cos\theta\text{ and }|r|=r\\
+&=\frac{1}{|r|\sqrt{1+z'^2/r^2-2zz'/r^2}}&&\text{Using}\thinspace r^2=x^2+y^2+z^2\thinspace\text{and factoring out}\thinspace r\\
+&=\frac{1}{r\sqrt{1+z'^2/r^2-2(z'/r)\cos\theta}}&&\text{Using}\thinspace z=r\cos\theta\text{ and }|r|=r\\
 & =\frac{1}{r\sqrt{1+\delta}}&&\text{Defining }\delta\equiv z'^2/r^2-2(z'/r)\cos\theta
 \end{align}
 $$
@@ -3502,7 +3502,7 @@ $$\sum_{l=0}^\infty \frac{r^l_{<}}{r^{l+1}_{>}}P_l(\cos \gamma)=\frac{1}{r_{>}}\
 using the convention that $r_{>}$ is the larger of $r$ & $r'$ and $r_{<}$ is the smaller of $r$ and $r'$.
 |}
 
-$# Monopole Expansion Using the Azimuthal Symmetry Trick 
+## Monopole Expansion Using the Azimuthal Symmetry Trick 
 
 In section 3.3 of Jackson 3rd edition, he notes that for a problem with azimuthal symmetry, the general solution to Laplace's equation in spherical coordinates is
 
@@ -3537,7 +3537,7 @@ $$\psi(r=z,\theta=0)=\psi(z)=\sum_{l=0}^{\infty}\left(A_lz^l + B_lz^{-l-1}\right
 The equations for $\psi(z)$ in terms of $a_l$ & $b_l$ and $A_l$ & $B_l$ both satisfy Laplace's equation. If solutions to Laplace's equations are unique, then $A_l=a_l$ and $B_l=b_l$.
 |}
 
-$# Dipole Expansion 
+## Dipole Expansion 
 
 Point charges $q=\pm 1$ are located at $(x,y,z)=(0,0,\pm z')$ and $kq=1$.
 
@@ -3607,14 +3607,14 @@ Where  $r_{+}=r_{-}=z'$, $\gamma_+$ is the angle from the $+q$ charge at $\mathb
 
 Using, $\gamma_+ = \theta$, $\gamma_++\gamma_-=\pi \Rightarrow \gamma_-=\pi-\theta$, and $P_l(x)=-P_l(-x)$ for $l=1,3,...$ and $P_l(x) = P_l(-x)$ otherwise:
 
-$$\begin{eqnarray}
-\frac{1}{|\mathbf{x}-\mathbf{x_+}'|}-\frac{1}{|\mathbf{x}-\mathbf{x_-}'|} & = & \sum_{l=0}^\infty \frac{z^{'l}}{r^{l+1}} P_l(\cos \theta)-\sum_{l=0}^\infty \frac{z^{'l}}{r^{l+1}} P_l(\cos (\pi-\theta))\\
-& = & \sum_{l=0}^\infty \frac{z^{'l}}{r^{l+1}} \Big[P_l(\cos \theta) - P_l(\cos (\pi-\theta))\Big]\\
-& = & \sum_{l=0}^\infty \frac{z^{'l}}{r^{l+1}} \Big[P_l(\cos \theta) - P_l(-\cos \theta)\Big]\\
-& = & \sum_{l=1,3,...}^\infty \frac{z^{'l}}{r^{l+1}} 2P_l(\cos \theta)\\
-& = & \sum_{l=0}^\infty \frac{z^{'2l+1}}{r^{2l+2}} 2P_l(\cos \theta)\\
-& = & \frac{2}{r}\sum_{l=0}^\infty \left(\frac{z'}{r}\right)^{2l+1}P_l(\cos\theta)
-\end{eqnarray}$$
+$$\begin{align}
+\frac{1}{|\mathbf{x}-\mathbf{x_+}'|}-\frac{1}{|\mathbf{x}-\mathbf{x_-}'|} & = \sum_{l=0}^\infty \frac{z^{'l}}{r^{l+1}} P_l(\cos \theta)-\sum_{l=0}^\infty \frac{z^{'l}}{r^{l+1}} P_l(\cos (\pi-\theta))\\
+& = \sum_{l=0}^\infty \frac{z^{'l}}{r^{l+1}} \Big[P_l(\cos \theta) - P_l(\cos (\pi-\theta))\Big]\\
+& = \sum_{l=0}^\infty \frac{z^{'l}}{r^{l+1}} \Big[P_l(\cos \theta) - P_l(-\cos \theta)\Big]\\
+& = \sum_{l=1,3,...}^\infty \frac{z^{'l}}{r^{l+1}} 2P_l(\cos \theta)\\
+& = \sum_{l=0}^\infty \frac{z^{'2l+1}}{r^{2l+2}} 2P_l(\cos \theta)\\
+& = \frac{2}{r}\sum_{l=0}^\infty \left(\frac{z'}{r}\right)^{2l+1}P_l(\cos\theta)
+\end{align}$$
 
 For $r < z'$, all of the above steps apply and the result is the above equation with $r$ and $z'$ swapped.
 
@@ -3638,7 +3638,7 @@ As noted in class, one should check that this charge density gives $\int \rho(\m
 
 In general, $\alpha$ depends on the primed coordinates
 
-$$\cos \alpha = \frac{\mathbf{r}\bfcdot \mathbf{r}'}{r\thinspacer'}=\sin\theta\sin\theta'\cos\phi\cos\phi' + \sin\theta\sin\theta'\sin\phi\sin\phi'+\cos\theta\cos\theta'$$
+$$\cos \alpha = \frac{\mathbf{r}\bfcdot \mathbf{r}'}{r\thinspace r'}=\sin\theta\sin\theta'\cos\phi\cos\phi' + \sin\theta\sin\theta'\sin\phi\sin\phi'+\cos\theta\cos\theta'$$
 
 which can also be written as
 
@@ -3658,7 +3658,7 @@ $$\frac{q}{2\pi}\int(r')^nP_n(\cos\alpha)\left[\delta(r'-d)\delta(\theta')-\delt
 
 Integration over $r'$ gives
 
-$$\frac{q}{2\p\thinspace d^{\thinspacen}\int P_n(\cos\alpha)\left[\delta(\theta')-\delta(\theta'-\pi)\right]d\theta'd\phi'$$
+$$\frac{q}{2\pi}\thinspace (d^{\thickspace\prime})^n\int P_n(\cos\alpha)\left[\delta(\theta')-\delta(\theta'-\pi)\right]d\theta'd\phi'$$
 
 Recalling that
 
@@ -3672,11 +3672,11 @@ $$P_l(\cos\alpha)\delta(\theta-\pi) = P_l(\sin(\theta)\sin 0\cos(\phi-\phi')+\co
 
 allows the integration over $\theta$ to be evaluated as
 
-$$\frac{q}{2\p\thinspace d^{\thinspacen}\int P_n(\cos\alpha)\left[\delta(\theta')-\delta(\theta'-\pi)\right]d\theta'=\frac{q}{2\pi}d^{\thinspacen}[P_n(\cos\theta)-P_n(-\cos\theta)]\int d\phi'$$
+$$\frac{q}{2\pi}\thinspace d^{\thinspace n}\int P_n(\cos\alpha)\left[\delta(\theta')-\delta(\theta'-\pi)\right]d\theta'=\frac{q}{2\pi}d^{\thinspace n}[P_n(\cos\theta)-P_n(-\cos\theta)]\int d\phi'$$
 
 Integration over $\phi'$ leaves
 
-$\thinspace d^{\thinspacen}[P_n(\cos\theta)-P_n(-\cos\theta)]$$
+$\thinspace d^{\thinspace n}[P_n(\cos\theta)-P_n(-\cos\theta)]$$
 
 Thus, 
 
@@ -3684,13 +3684,13 @@ $$\psi(\mathbf{r})=\frac{1}{4\pi\epsilon_0}\sum_{n=0}^{\infty}\frac{1}{r^{n+1}}\
 
 simplifies to
 
-$$\psi(\mathbf{r})=\frac{q}{4\pi\epsilon_0}\sum_{n=0}^{\infty}\frac{d^{\thinspacen}}{r^{n+1}}[P_n(\cos\theta)-P_n(-\cos\theta)]$$
+$$\psi(\mathbf{r})=\frac{q}{4\pi\epsilon_0}\sum_{n=0}^{\infty}\frac{d^{\thinspace n}}{r^{n+1}}[P_n(\cos\theta)-P_n(-\cos\theta)]$$
 
 for $\pm q$ at $z=\pm d$
 
 The $n=0, 2, ...$ Legendre polynomials are even functions, so $P_n(x)=P_n(-x)$. The $n=1, 3, ...$ Legendre polynomials are odd functions, os $P_n(x)=-P_n(-x)$. As a result, 
 
-$$\psi(\mathbf{r})=\frac{q}{4\pi\epsilon_0}\sum_{n=1,3,...}^{\infty}\frac{d^{\thinspacen}}{r^{n+1}}[2P_n(\cos\theta)]$$
+$$\psi(\mathbf{r})=\frac{q}{4\pi\epsilon_0}\sum_{n=1,3,...}^{\infty}\frac{d^{\thinspace n}}{r^{n+1}}[2P_n(\cos\theta)]$$
 
 or, using $n=2l+1$ and switching replacing $d$ with $z'$
 
@@ -3699,7 +3699,7 @@ $$\psi(\mathbf{r})=\frac{q}{4\pi\epsilon_0}\sum_{l=0}^{\infty}\frac{z'^{2l+1}}{r
 which matches the earlier results. This process can be repeated for $r\lt z'$ and the result is the above equation with $r$ and $z'$ swapped.
 |}
 
-$# Line of Charge 
+## Line of Charge 
 
 Due on April 22nd before class starts.
 
@@ -4033,7 +4033,7 @@ $\displaystyle f(x)=\sum_{n=1}^\infty A_{n}\sin(n\pi x)\qquad\quad A_n = \int_0^
 
 See Jackson Chapter 3.
 
-## Heirarchy of $1/r$ terms
+## Heirarchy of 1/r terms
 
 Simplest charge distributions that give a potential with the lowest-order 1/r term. 
 
@@ -4078,7 +4078,7 @@ $\displaystyle\Phi(\mathbf{x})=\frac{q}{4\pi\epsilon_0}\sum_{l=0}^{\infty}\frac{
 
 2\. Repeat using equations 4.2-4.5 of Jackson.
 
-$# Comparison of Legendre and Spherical Harmonic Forms
+## Comparison of Legendre and Spherical Harmonic Forms
 
 Legendre has a single summation, spherical harmonic requires additional summation.
 
