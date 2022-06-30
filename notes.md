@@ -766,7 +766,7 @@ The problem with the statement of "We must remember that there are actually no f
 
 ## Introduction
 
-In spoke English reciprocity means an exchange between people with mutual benefit,
+In spoken English reciprocity means an exchange between people with mutual benefit,
 
 ## Discrete -- $3$ point charges
 

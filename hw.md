@@ -3598,7 +3598,7 @@ Read 5.6--5.12 of Jackson and Chapter 6 of Griffiths, and be prepared to ask que
 
 # HW 10
 
-## Amperes' Law 
+## Amperes' Law
 
 A long cylinder carries a current on its surface of density $K_o$ as shown.
 
