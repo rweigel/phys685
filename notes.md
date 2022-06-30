@@ -761,7 +761,11 @@ The problem with the statement of "We must remember that there are actually no f
 
 # Reciprocity
 
-## Discrete – 3 point charges
+## Introduction
+
+In spoken English reciprocity means an exchange between people with mutual benefit,
+
+## Discrete -- $3$ point charges
 
 For discrete charges, Green's Reciprocity Theorem for $N$ charges is
 
