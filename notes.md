@@ -1,8 +1,5 @@
 # $\delta$
 
-## Introduction
-
-
 ## Motivation
 
 ### Center of Mass
@@ -764,11 +761,7 @@ The problem with the statement of "We must remember that there are actually no f
 
 # Reciprocity
 
-## Introduction
-
-In spoke English reciprocity means an exchange between people with mutual benefit,
-
-## Discrete -- $3$ point charges
+## Discrete – 3 point charges
 
 For discrete charges, Green's Reciprocity Theorem for $N$ charges is
 
@@ -1131,7 +1124,6 @@ $$\oint_\mathcal{S}\phi\frac{\partial \psi}{\partial n} da=\int_\mathcal{V}\Big(
 Using the fact that the dot product commutes and swapping the LHS and RHS gives
 
 $$\int_\mathcal{V} \left(\phi\nabla^2\psi + \nabla\phi\boldsymbol{\bfcdot}\nabla\psi\right)d^3x=\oint_\mathcal{S}\phi\frac{\partial \psi}{\partial n} da$$
-|}
 
 * Verify this equation by choosing your own (simple) scalar functions and volume. 
 * Does the surface need to be closed? 
@@ -1173,10 +1165,9 @@ Assume that $\psi(\mathbf{x})=1/|\mathbf{x}-\mathbf{x'}|$ and
 
 $$\int_\mathcal{V} \left(-4\pi\phi(\mathbf{x'})\delta(\mathbf{x}-\mathbf{x'})+\frac{\rho(\mathbf{x'})/\epsilon_o}{|\mathbf{x}-\mathbf{x'}|}\right)d^3x'=\oint_\mathcal{S}\left(\phi\frac{\partial}{\partial n'}\frac{1}{|\mathbf{x}-\mathbf{x'}|}-\frac{1}{|\mathbf{x}-\mathbf{x'}|}\frac{\partial \phi}{\partial n'}\right) da'$$
 
-{| class="wikitable collapsible collapsed"
-! align="left" |&nbsp;Answer
-|-
-|
+
+**Answer**
+
 $\phi(\mathbf{x})$ is a scalar function that is created by a continuous scalar volume charge density $\rho(\mathbf{x})$ implies that it satisfies Poisson's equation $\nabla^2\phi=-\rho/\epsilon_0$.
 
 With a change to a primed integration variable, we need to replace $\nabla$ with $\nabla'$ and swap $\mathbf{x}$ and $\mathbf{x}'$ in the integrand. Then we can use
@@ -1186,56 +1177,39 @@ $$\nabla'^2 \left(\frac{1}{|\mathbf{x}'-\mathbf{x}|}\right) = -4\pi\delta(\mathb
 and
 
 $$\frac{1}{|\mathbf{x}'-\mathbf{x}|}=\frac{1}{|\mathbf{x}-\mathbf{x}'|}$$
-|}
 
 Explain why
 
 2. the integration in these equations were changed to be over primed variables; and
 
-{| class="wikitable collapsible collapsed"
-! align="left" |&nbsp;Answer
-|-
-|
+**Answer**
+
 This was done so that the result after integration depends on $\mathbf{x}$ - usually primed variables are used for the location of charges and unprimed at the location of the potential.
-|}
 
 3. the integrals in this equation have an integration variable and another variable.
 
-{| class="wikitable collapsible collapsed"
-! align="left" |&nbsp;Answer
-|-
-|
-
-|}
+**Answer**
 
 Also,
 
 4. can the integral on the RHS can be written with $\phi(\mathbf{x'})$ instead of $\phi$?; and
 
-{| class="wikitable collapsible collapsed"
-! align="left" |&nbsp;Answer
-|-
-|
+**Answer**
+
 Yes. I raised this question because it is something that you should notice - in various place in Jackson, he'll explicitly give the dependence of some function and not other. For example, in equation 1.42, he uses $\partial \Phi/\partial n'$ and $\Phi(\mathbf{x}')$, but for consistency perhaps $\partial \Phi(\mathbf{x}')/\partial n'$ should have been written.
-|}
 
 5. give an example geometry where you can explain what $\frac{\partial}{\partial n'}\frac{1}{|\mathbf{x}-\mathbf{x'}|}$ means.
 
-{| class="wikitable collapsible collapsed"
-! align="left" |&nbsp;Answer
-|-
-|
+**Answer**
+
 If the geometry is a point charge at $\mathbf{x}'=0$, then on a sphere centered on the origin it is proportional to $E_r$, the electric field in the radial direction (In this case $n'=r'$).
-|}
 
 6. Are there any conditions required to justify re-writing the last equation as
 
 $$\phi(\mathbf{x})=\frac{1}{4\pi\epsilon_o}\int_\mathcal{V}\frac{\rho(\mathbf{x'})}{|\mathbf{x}-\mathbf{x'}|}d^3x'-\frac{1}{4\pi}\oint_\mathcal{S}\left(\phi\frac{\partial}{\partial n'}\frac{1}{|\mathbf{x}-\mathbf{x'}|}-\frac{1}{|\mathbf{x}-\mathbf{x'}|}\frac{\partial \psi}{\partial n'}\right) da'$$
 
-{| class="wikitable collapsible collapsed"
-! align="left" |&nbsp;Answer
-|-
-|
+**Answer**
+
 By the property of the delta function that $\delta(\mathbf{x}-\mathbf{x}')=0$ when $\mathbf{x} \ne \mathbf{x}'$
 
 $$\int_\mathcal{V} -4\pi\phi(\mathbf{x'})\delta(\mathbf{x}-\mathbf{x'})\thinspace d^3x'=0$$
@@ -1243,29 +1217,20 @@ $$\int_\mathcal{V} -4\pi\phi(\mathbf{x'})\delta(\mathbf{x}-\mathbf{x'})\thinspac
 if $\mathbf{x}$ is outside the volume $\mathcal{V}$ because $\delta(\mathbf{x}-\mathbf{x'})$ will always be zero.
 
 So that constraint is that $\mathbf{x}$ is in $\mathcal{V}$.
-|}
 
 7. Explain the conditions under which this equation reduces to 
 
 $$\phi(\mathbf{x})=\frac{1}{4\pi\epsilon_o}\int_\mathcal{V} \frac{\rho(\mathbf{x}')}{|\mathbf{x}-\mathbf{x}'|}d^3x'$$
 
-{| class="wikitable collapsible collapsed"
-! align="left" |&nbsp;Answer
-|-
-|
+**Answer**
+
 This will be true if the charges in the system and a surface can be selected so the RHS is zero or if the surface is chosen to be so far away from any charges so that the integral approaches zero. Jackson notes on pg. 37 that the electric field must fall of faster than $|\mathbf{x}-\mathbf{x}'|^{-1}$. This claim is justified in the solution to the first problem in this HW.
 
 Can you think of a distribution of charges and a surface that is not at infinity so that the RHS is zero? 
-|}
 
 8. Give an example of a charge distribution $\rho$ which for which this equation is valid.
 
-{| class="wikitable collapsible collapsed"
-! align="left" |&nbsp;Answer
-|-
-|
-
-|}
+**Answer**
 
 ## 1-D
 
@@ -1303,15 +1268,11 @@ Conceptually, one can see that the first integral is a weighted sum of $G_D$, wh
 
 Notes: You will need to use the fact that $\Theta$ modifies the limits of integration, $d\Theta(x)/dx=\delta(x)$, and $d\Theta(-x)/dx=-\delta(x)$. You can check your answer either using Gauss' law or the boundary value method to find $\Psi(x)$.
 
-{| class="wikitable collapsible collapsed"
-! align="left" |&nbsp;Answer
-|-
-|
+**Answer**
+
 Let subscript $l$ refer to quantities for $x\lt x'$ and subscript $r$ refer to quantities for $x\gt x'$.
 
-1.
-
-One can answer this question by assuming a surface charge of $\sigma_l$ and $\sigma_r$ is induced on the plates at $x=0$ and $x=w$. Then use the formula $\sigma/2\epsilon_o$ for the electric field of the sheets of charge at $x=0$, $x=x'$, and $x=w$ to get the total field $E_l$ and $E_r$.  The two unknowns, $\sigma_l$ and $\sigma_r$, can be found by using the fact that the electric field in either of the conductors is zero - this yields $\sigma' = -(\sigma_l+\sigma_r)$, which is expected because the net charge in the universe is zero. The second equation needed to find $\sigma_l$ and $\sigma_r$ in terms of $\sigma'$ is
+1\. One can answer this question by assuming a surface charge of $\sigma_l$ and $\sigma_r$ is induced on the plates at $x=0$ and $x=w$. Then use the formula $\sigma/2\epsilon_o$ for the electric field of the sheets of charge at $x=0$, $x=x'$, and $x=w$ to get the total field $E_l$ and $E_r$.  The two unknowns, $\sigma_l$ and $\sigma_r$, can be found by using the fact that the electric field in either of the conductors is zero - this yields $\sigma' = -(\sigma_l+\sigma_r)$, which is expected because the net charge in the universe is zero. The second equation needed to find $\sigma_l$ and $\sigma_r$ in terms of $\sigma'$ is
 
 $$\psi(w)-\psi(0) = 0 = -\int_0^w E\thinspace dx=-\int_0^{x'}E_ldx-\int_{x'}^wE_rdx$$
 
@@ -1367,9 +1328,7 @@ $$\psi_r=\frac{\sigma'}{\epsilon_o}\left(1-\frac{x}{w}\right)x'$$
 
 Note that swapping $x$ and $x'$ in $\psi_l$ gives the equation for $\psi_r$, and vice-versa. That is, $\psi_l(x',x)=\psi_r(x,x')$.
 
-2.
-
-$$\psi=\psi_l(x)\Theta(x'-x)+\psi_r(x)\Theta(x-x')$$
+2\. $\psi=\psi_l(x)\Theta(x'-x)+\psi_r(x)\Theta(x-x')$
 
 Checks: 
 * When $x\lt x'$, $\Theta(x'-x)=1$ and $\Theta(x-x')=0$, giving $\psi=\psi_l$.
@@ -1457,9 +1416,7 @@ gives
 
 $$G_D(x,x') = \frac{4\pi\epsilon_o}{A\sigma'}\psi$$
 
-4.
-
-Now that we have $G_D$ for this geometry, we can use it for any $\rho$ and any boundary condition. Take the volume $\mathcal{V}$ to have a volume of $Aw$. Its surface has 6 faces. Four of the faces have normal directions that are perpendicular to the $\hat{\mathbf{x}}$ direction and so $\partial G_D/\partial n'=0$ on these faces (e.g.,  $\partial G_D/\partial y'=\partial G_D/\partial z'=0$). 
+4. Now that we have $G_D$ for this geometry, we can use it for any $\rho$ and any boundary condition. Take the volume $\mathcal{V}$ to have a volume of $Aw$. Its surface has 6 faces. Four of the faces have normal directions that are perpendicular to the $\hat{\mathbf{x}}$ direction and so $\partial G_D/\partial n'=0$ on these faces (e.g.,  $\partial G_D/\partial y'=\partial G_D/\partial z'=0$). 
 
 In the new problem, we are given that $\psi=0$ at $x=0$ and $x=d$ and so $\psi=0$ on the two faces with a normals in the $\pm x$ direction. As a result, the surface integral term in
 
@@ -1469,12 +1426,9 @@ is zero. This leaves
 
 $$\Psi(\mathbf{x})=\frac{1}{4\pi\epsilon_o}\int_{\mathcal{V}}G_D(\mathbf{x},\mathbf{x}')\rho(\mathbf{x'}) d^3x'$$
 
-{| class="wikitable collapsible collapsed"
-! align="left" |&nbsp;Note
-|-
-|
+_Note_
+
 It is at this point that we can recognize that because $G_D$ is proportional to $\psi$, this integral represents the summation of the potentials due to sheets of charge that are continuously distributed between $0$ and $w$ such that they form a continuous charge density $\rho$. In fact, without knowledge of Green's functions, one may have concluded that to find the potential due to a continuous $\rho$, one only needed to do a weighted sum of potentials due a single sheet of charge at $x'$. That is, you could use the replacement $\sigma'=\rho(x\thinspace dx'$ and then $\Psi(x)=\int_0^w (\psi(x')/\sigma')\rho(x\thinspace dx'$.
-|}
 
 One can also check this equation by using $\rho=\sigma'\delta(x-x')$ and $G_D$ found above and verifying that the resulting $\Psi$ matches the potential $\psi$ used to form $G_D$.
 
@@ -1529,24 +1483,17 @@ Using $\Psi(0)=\Psi(w)=0$ to find $C_0$ and $C_1$ gives
 $$\Psi(x) = \frac{\rho_ow^2}{2\epsilon_o}\left[\frac{x}{w}-\frac{x^2}{w^2}\right]$$
 
 Alternatively, one can solve this problem using Gauss' law to find the electric field (it is easiest to use a Gaussian cylinder centered on $x=w/2$ with a height of $w-2x$).
-|}
-
-<div style="page-break-before: always"> </div>
 
 ### Parallel Plates with Charged Slab II
 
-Due on April 8th before class starts.
-
-In [[#HW_5|HW #5]], you found $G_D(x,x')$ and used it to find the potential $\Phi$, the potential between the conductors, when the space between the conductors was filled with a non-conducting slab with a uniform charge density - $\rho(x) = \rho_o$.
+Previously, you found $G_D(x,x')$ and used it to find the potential $\Phi$, the potential between the conductors, when the space between the conductors was filled with a non-conducting slab with a uniform charge density - $\rho(x) = \rho_o$.
 
 1. Find $\Phi$ using $G$ from [[#HW_5|HW #5]] and equation 1.44 of Jackson.
 1. Find $\Phi$ using Gauss' law and $\psi(b)-\psi(a)=\int_a^b \mathbf{E}\bfcdot d\mathbf{l}$. Provide diagrams and address all surfaces of your Gaussian surface. Do not use the $\Phi$ found in part 1.
 1. Compute the surface charge density on the conductor at $x=0$ using $d\Phi/dn=-\sigma/\epsilon_o$.
 
-{| class="wikitable collapsible collapsed"
-! align="left" |&nbsp;Answer
-|-
-|
+**Answer**
+
 In the following, subscript $r$ corresponds to potentials and fields for $0\lt x\le d/2$; subscript $r$ corresponds to $d/2\le x\lt d$. For surface charge densities, the subscript indicates the surface at $x=0$ or $x=d$.
 
 '''Boundary Value Method'''
@@ -1629,10 +1576,8 @@ The electric field is related to a potential difference by
 
 $$\psi(b)-\psi(a)=-\int_a^b \mathbf{E}\bfcdot d\mathbf{l}$$
 
-{| class="wikitable collapsible collapsed"
-! align="left" |&nbsp;Note
-|-
-|
+_Note_
+
 Quite often I see:
 
 $$\psi = -\int \mathbf{E}\bfcdot d\mathbf{l} = -\int_a^b \mathbf{E}\bfcdot d\mathbf{l}$$
@@ -1652,7 +1597,6 @@ $$\psi(x)-\psi(a)=-\int_a^x \mathbf{E}\bfcdot d\mathbf{l}$$
 both of which has no constant of integration.
 
 Also, avoid writing $\psi$ with no argument; use $\psi(x)$ to indicate a potential that depends on position and $\psi(b)$ to indicate the potential at a fixed position, where $b$ is a constant.
-|}
 
 The potential difference between the conducting plates is
 
@@ -1764,7 +1708,6 @@ $$\sigma_l=-\epsilon_o\frac{\partial \Psi_l}{\partial x}=-\frac{3}{8}\rho_od$$
 $$\sigma_r=\epsilon_o\frac{\partial \Psi_r}{\partial x}=-\frac{1}{8}\rho_od$$
 
 The motivation for asking for the charge densities was as a hint of a way to check your answer.
-|}
 
 ## Parallel Plates with Charged Slab III
 
@@ -1804,10 +1747,8 @@ Extra credit: Show that the result of 2. evaluated at $d=0$ is equivalent to the
 
 Note: Initial version had $x'$ in part 3. and extra credit statement instead of $d$.
 
-{| class="wikitable collapsible collapsed"
-! align="left" |&nbsp;Answer
-|-
-|
+**Answer**
+
 In the following, I used $x'$ instead of $d$ for the location of $\sigma'$. The motivation for using $d$ in the problem statement was to make sure that you knew to change $d$ to $x'$ in $\psi$ when doing the integral for part 4.
 
 Justifications for steps that are the same as used in the previous problem are not repeated.
@@ -1956,10 +1897,7 @@ $$\psi(\mathbf{x})=\frac{1}{|\mathbf{x}-\mathbf{x}'|}+F(\mathbf{x},\mathbf{x}')$
 
 $$\int_{\mathcal{V}} \left(-4\pi\phi(\mathbf{x'})\delta(\mathbf{x}-\mathbf{x}')+\psi(\mathbf{x}')\rho(\mathbf{x'})/\epsilon_o\right)d^3x'=\oint_{\mathcal{S}}\left(\phi\frac{\partial \psi}{\partial n'}-\psi\frac{\partial \phi}{\partial n'}\right) da'$$
 
-{| class="wikitable collapsible collapsed"
-! align="left" |&nbsp;Answer
-|-
-|
+**Answer**
 
 $$\nabla^2F(\mathbf{x},\mathbf{x}')=0$$
 
@@ -1982,16 +1920,13 @@ $$I = \int_{\mathcal{V}} \left[\phi(\mathbf{x'})\nabla'^2\psi(\mathbf{x'}) -\psi
 as
 
 $$I=\int_{\mathcal{V}} \left[-4\pi\phi(\mathbf{x'})\delta(\mathbf{x}-\mathbf{x'})+\psi(\mathbf{x}')\rho(\mathbf{x'})/\epsilon_o\right]d^3x'$$
-|}
 
 10. What is an additional constraint on $F$ so that one can write
 
 $$\int_{\mathcal{V}}\left[-4\pi\phi(\mathbf{x'})\delta(\mathbf{x}-\mathbf{x'})+\psi(\mathbf{x}')\rho(\mathbf{x'})/\epsilon_o\right]d^3x'=\oint_{\mathcal{S}}\phi\frac{\partial \psi}{\partial n'} da'$$
 
-{| class="wikitable collapsible collapsed"
-! align="left" |&nbsp;Answer
-|-
-|
+**Answer**
+
 $$F(\mathbf{x}',\mathbf{x})=-\frac{1}{|\mathbf{x}'-\mathbf{x}|}\quad\mbox{for}\thinspace\mathbf{x}'\mbox{on}\thinspace S$$
 
 This corresponds to $\psi(\mathbf{x}')=0$ on $S$.
@@ -2009,7 +1944,6 @@ so that
 $$F(\mathbf{x}',\mathbf{x})=-\frac{1}{|\mathbf{x}'-\mathbf{x}|}$$
 
 on $S$. Note that this gives $\psi(\mathbf{x}')=0$ on $S$, but inside of $\mathcal{V}$, $\psi(\mathbf{x}')$ is in general zero.
-|}
 
 Evaluation of the first term in the volume integral and rearrangement gives
 
@@ -2017,10 +1951,8 @@ $$\phi(\mathbf{x})=\frac{1}{4\pi\epsilon_o}\int_{\mathcal{V}}\psi(\mathbf{x}')\r
 
 11. Explain how this equation justifies the statement that if one knows how charge is distributed inside of a volume and something about the potential $\phi$ on the surface of the volume, one can compute the potential everywhere inside of the volume.
 
-{| class="wikitable collapsible collapsed"
-! align="left" |&nbsp;Answer
-|-
-|
+**Answer**
+
 This equation was derived under the assumption that $\mathbf{x}$ was inside $V$. The first term involves charges inside the volume; the second term involves the potential on the surface of the volume. According to this equation, we don't need information about the charges outside the volume to compute the potential inside of the volume! (Provided that we know ${\partial \psi}/{\partial n}$ on the surface.)
 
 Note that there is an additional constraint. We need to have a function $F$ with the two properties identified above.
@@ -2033,7 +1965,6 @@ In summary, one can compute the potential inside of a volume $V$ given
 Finding the function $F$ is not trivial. It happens that one method of finding this function, which allows us to solve many electrostatic problems, is to solve a specific electrostatic problem involving a point charge and a grounded conductor. If we can solve that specific problem, we can then solve many any problem where we are given ${\partial \psi}/{\partial n}$ on the surface of a volume and $\rho$ inside the volume.
 
 Keep in mind that "solve" in the previous paragraph means that we can find the potential using integration. In many cases the integrals do not have a known analytic solution and must be solved numerically.
-|}
 
 Consider flat and infinite plane.  
 
@@ -2043,14 +1974,11 @@ $$\psi(\mathbf{x})=\frac{1}{|\mathbf{x}-\mathbf{x}'|}+F(\mathbf{x},\mathbf{x}')$
 
 that gives $\psi(\mathbf{x})=0$ on the surface of the plane and $\nabla^2F=0$ above the plane? Recall that you found a function that had this property in a previous homework problem in which you computed the potential when a point charge was placed at a distance $d$ above an infinite, flat, and grounded plane. For generality, assume the point charge is at $\mathbf{x}'=x'\hat{\mathbf{x}}+y'\hat{\mathbf{y}}+z'\hat{\mathbf{z}}$ instead of $z_o\hat{\mathbf{z}}$.
 
-{| class="wikitable collapsible collapsed"
-! align="left" |&nbsp;Answer
-|-
-|
+**Answer**
+
 $$F(\mathbf{x},\mathbf{x}') = \frac{1}{\sqrt{(x-x')^2 + (y-y')^2 + (z+z')^2}}$$
 
 $$\nabla^2F = -4\pi\delta(x-x')\delta(y-y')\delta(z+z')=0\quad\text{for}\thinspace z\gt 0$$
-|}
 
 This function $\psi(\mathbf{x},\mathbf{x}')$ that has above-identified properties is called a Green function for an infinite plane geometry and is re-named to as $G(\mathbf{x},\mathbf{x}')$ in what follows. This function was derived with the aid of the solution to the problem of a point charge above an infinite and grounded conducting plane. The power of knowing the Green function is that it can be used to solve for the potential in a different problem - a problem where the potential is known on an infinite plane and the charge density above the plane is zero.
 
@@ -2072,10 +2000,8 @@ Using for $G(\mathbf{x},\mathbf{x}')$ the function $\psi(\mathbf{x},\mathbf{x}')
 
 $$\phi(x,y,z)=\frac{1}{4\pi}\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}\phi(x',y',z'=0)\frac{2z}{\left((x-x')^2+(y-y')^2+z^2\right)^{3/2}} dx'dy'$$
 
-{| class="wikitable collapsible collapsed"
-! align="left" |&nbsp;Answer
-|-
-|
+**Answer**
+
 The derivative calculation is straight-forward and was done in a previous problem. Starting with
 
 $$\phi(\mathbf{x})=\frac{1}{4\pi\epsilon_o}\int_{\mathcal{V}}G(\mathbf{x}',\mathbf{x})\rho(\mathbf{x'}) d^3x'-\frac{1}{4\pi}\oint_{\mathcal{S}}\phi\frac{\partial G(\mathbf{x}',\mathbf{x})}{\partial n'} da'$$
@@ -2083,16 +2009,12 @@ $$\phi(\mathbf{x})=\frac{1}{4\pi\epsilon_o}\int_{\mathcal{V}}G(\mathbf{x}',\math
 The first term on the right-hand side is zero assuming that there are no other charges in the system - we are only given a plane with the potential specified on the surface.
 
 We are given $\phi$ in the $z=0$ plane - and this plane does not form a closed surface. To close the surface, consider the system to be a hemisphere with the flat part in the $z=0$ plane. The integral given above is over the flat part of the hemisphere. To write the above equation, one must assume the potential on the hemisphere is zero (this is not often explicitly stated when this problem is given). This is consistent with $G$, which has the property of being zero for large $r$. 
-|}
 
 14. Show that if the potential is in the plane is given by $\phi(x,y,z=0)=V_o$ for $x^2+y^2\le a^2$ and  $\phi(x,y,z=0)=0$ otherwise, then the potential along the $z-$axis is
 
 $$\phi(z)=V_o\left(1-\frac{z}{\sqrt{z^2+a^2}}\right)$$
 
-{| class="wikitable collapsible collapsed"
-! align="left" |&nbsp;Answer
-|-
-|
+**Answer**
 
 Set $x=y=0$ and use polar coordinates with a radial coordinate $s'=\sqrt{x'^2+y'^2}$.
 
@@ -2103,16 +2025,13 @@ $$\phi(z)=V_o\left(\frac{z}{|z|}-\frac{z}{\sqrt{z^2+a^2}}\right)$$
 For $z\gt 0$, $z/|z|=1$, which gives
 
 $$\phi(z)=V_o\left(1-\frac{z}{\sqrt{z^2+a^2}}\right)$$
-|}
 
 15. Show that for the same boundary potential  $\phi(x,y,z=0)$ and for $r^2\equiv x^2+y^2+z^2\gg a^2$, the off-axis potential can be approximated as
 
 $$\phi(x,y,z)\approx\frac{V_oa^2}{2}\frac{z}{r^3}\left(1-\frac{3a^2}{4r^2}\right)$$
 
-{| class="wikitable collapsible collapsed"
-! align="left" |&nbsp;Answer
-|-
-|
+**Answer**
+
 To show this, re-write
 
 $$\frac{1}{\left((x-x')^2+(y-y')^2+z^2\right)^{3/2}}$$
@@ -2159,8 +2078,6 @@ integration gives
 
 $$\phi(x,y,z)\approx\frac{V_oa^2}{2}\frac{z}{r^3}\left(1-\frac{3a^2}{4r^2}\right)$$
 
-|}
-
 For the $z$-axis solution of
 
 $$\phi(z)=V_o\left(1-\frac{z}{\sqrt{z^2+a^2}}\right)$$
@@ -2179,16 +2096,13 @@ $$\frac{q}{4\pi\epsilon_o}\frac{1}{|z-d|}-\frac{q}{4\pi\epsilon_o}\frac{1}{|z+d|
 
 16. Explain this.
 
-{| class="wikitable collapsible collapsed"
-! align="left" |&nbsp;Answer
-|-
-|
+**Answer**
+
 With the addition of the point charge, charges will appear on the conducting plane. The simple addition of the potential due only the point charges does not account for the charges that are induced on the conducting plane. Adding
 
 $$\frac{1}{4\pi\epsilon_o}\frac{1}{|z-d|}-\frac{1}{4\pi\epsilon_o}\frac{1}{|z+d|}$$
 
 is equivalent to the superposition of the potential created by the disk at potential $a$ and the potential due to a point charge above an infinite plane.
-|}
 
 ## Between Spherical Shells
 
@@ -2196,10 +2110,8 @@ is equivalent to the superposition of the potential created by the disk at poten
 1. Show that equation 3.114 can be obtained using the same technique used to find the Green function in the previous problem (the Long Tube problem). Do this by assuming a shell of charge at $r=r'$ with density $\sigma'(\theta,\phi)$ and finding the potential in two regions: $a \le r \lt r'$ and $r\gt r'$. To obtain 3.114 of Jackson, you will need to use $\sigma'(\theta,\phi)=q\delta(\cos\theta-\cos\theta')\delta(\phi-\phi')/4\pi r'^2$.
 1. Use equation 3.114 and equation 1.44 of Jackson to find the potential outside of a sphere of radius $a$ for which the upper hemisphere ($z\gt 0$) is held at a potential of $V_o$ and the lower hemisphere ($z\lt 0$) is held at $-V_o$.
 
-{| class="wikitable collapsible collapsed"
-! align="left" |&nbsp;Answer
-|-
-|
+**Answer**
+
 1.
 
 Equation 2.16 is
@@ -2401,7 +2313,7 @@ Key steps given only for now. See previous problems with similar steps for justi
 
 $$G = G_{r\lt r'}\Theta(r'-r) + G_{r\gt r'}\Theta(r-r')$$
 
-$$\frac{\partial G}{\partial n'} = -\frac{\partial G}{\partial r'}=-\frac{\partial G_{r\lt r'}}{\partial r'}\Theta(r'-r)-\frac{\partial G_{r\gt r'}}{\partial r'}\Theta(r-r')$$
+$$\frac{\partial G}{\partial n'} = -\frac{\partial }{\partial r'}=-\frac{\partial G_{r\lt r'}}{\partial r'}\Theta(r'-r)-\frac{\partial G_{r\gt r'}}{\partial r'}\Theta(r-r')$$
 
 Keep first term because $r'=a$ means $r\ge a$.
 
@@ -2450,9 +2362,6 @@ $$\Psi(r,\theta)=V_o\sum_{l=1,3,...} \frac{a^{l+1}}{r^{l+1}}P_{l}(\theta)A_{l}$$
 $$\Psi(r,\theta)\simeq V_o\left[\frac{3}{2}\left(\frac{a}{r}\right)^2P_1(\cos\theta)-\frac{7}{8}\left(\frac{r}{a}\right)^4P_3(\cos\theta)+\frac{11}{16}\left(\frac{r}{a}\right)^6P_5(\cos\theta)\right]$$
 
 Same as eqn. 3.36 with replacement of $(r/a)^l$ with $(a/r)^{l+1}$.  Far away, the system looks like a dipole (due to opposite-sign charge density on each hemisphere), so we expect only odd $l$ terms, as found.
-|}
-
-\newpage
 
 # BV - Electric
 

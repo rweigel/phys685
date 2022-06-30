@@ -1,6 +1,6 @@
 # Introduction
 
-After years of experimentation, I have found the following class approach results in the most learning. It is quite different from the usual formula of 1. A lecture (covering topics that can be found in many textbooks), 2. A homework with some problems related to the lecture.
+From experimentation, I have found the following class approach results in the most learning. It is quite different from the usual formula of 1. A lecture (covering topics that can be found in many textbooks), 2. A homework with some problems related to the lecture.
 
 I'd like some feedback on this approach. Please read through the following and fill out the course evaluations (before Sunday at 11:59 pm). You should have a link in your email. I am _most_ interested in written comments, especially on ideas for variations on the approach described below.
 
