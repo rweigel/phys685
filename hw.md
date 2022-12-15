@@ -768,6 +768,8 @@ A point charge is at a distance $r$ from the center of a conducting sphere of ra
 
 ## 1-D Cartesian Green Function
 
+% Copied to notes 2022-09-05
+
 Two infinite and grounded conducting sheets are in the $x=0$ and $x=w$ plane. In the $x=x'$ plane, there is an infinite non-conducting sheet with surface charge density $\sigma'$.
 
 1. Find the potential, $\psi_l(x)$, on the left ($0\le x\le x'$) and to the right ($x'\le x\le w$), $\psi_r(x)$, of the non-conducting sheet using any method (Gauss's law or the boundary value method can be used; you should be able to do it using both methods, but you need to only show your work using one method).
@@ -935,6 +937,8 @@ $\displaystyle \Phi(x)=V_o\frac{x}{w}$
 
 ## 1-D Spherical Green Function
 
+% Copied to notes 2022-09-22
+
 Two conducting and grounded spherical shells of radius $b$ and $c$ are centered on the origin, and $c\gt b$.
 
 A nonconducting spherical shell is centered on the origin and has a charge density of $\sigma'$ and radius $r'$, with $b \lt r' \lt c$.
@@ -1007,6 +1011,8 @@ We can conclude that the sum of the potentials for isolated charges at any posit
 Another way of justifying superposition is to note that for the isolated $dq'$ problem, the net force on the charges induced on the conductors is zero. If $dq''$ is introduced the net force on all of the induced charges will still be zero.
 
 ## Jackson Equation 1.42
+
+% Copied to notes 2022-09-05
 
 Before stating Equation 1.42, Jackson (3rd edition) notes that with Equation 1.35 and 1.39, it is simple to obtain a generalization of Equation 1.36.
 

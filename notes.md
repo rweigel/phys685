@@ -994,7 +994,7 @@ $$\int_{all\space space}\Phi'\rho\thinspace d^3x = \int_{all\space space}\Phi\rh
 
 # Green Functions
 
-### Green’s Reciprocity Use
+## Green’s Reciprocity Use
 
 1. In class, I partially did problem 1.13 of Jackson 3rd Edition (I only found the net charge on the upper of the plate). Find the net charge on the lower plate. Justify your steps at the level of detail given in class. (I stated an easy way of finding the net charge induced on the lower plate, but I want you to do it the long way, which requires steps similar to the ones used in class.)
 2. A point charge at a distance $r$ from the origin is between two grounded spherical conducting shells of radius $b$ and $c$ that are centered on the origin. Find the net charge induced on the surfaces at $b$ and $c$.
@@ -1076,7 +1076,48 @@ $\displaystyle q'_{r=c}=+V_o\frac{q'c}{c-b}\left(\frac{b}{r_o}-1\right)$
 
 ## Green Function Solution General Equation I
 
-#jackson-equation-1-42&l=1017&c=1
+
+Before stating Equation 1.42, Jackson (3rd edition) notes that with Equation 1.35 and 1.39, it is simple to obtain a generalization of Equation 1.36.
+
+Show the "simple" steps need to arrive at Equation 1.42.
+
+Be very careful with notation. You'll need to think a bit about the justification and validity of swapping $x$ and $x'$ and/or changing the dummy variable used in integration. When you do either of these, provide a justification so that I know you are not applying the "answer operator".
+
+
+**Solution**
+
+In [HW 3.1](#1-d-spherical-green-function), the use of Green's second identity resulted in a potential that depended on the primed variable because integration was performed over an unprimed area or volume. In that problem, an argument was given for why the prime variable could be simply replaced with the unprimed variable. In principle, one could always use the approach used in  [HW 3.1](#1-d-spherical-green-function) to find $\Phi(\mathbf{x}')$ and then make an argument for why $\Phi(\mathbf{x})$ is the equation for $\Phi(\mathbf{x}')$ with the prime removed. In this problem, we follow Jackson's logic for Equation 1.42 for which the result of integration is $\Phi(\mathbf{x})$, which depends on the unprimed variable.
+
+Equation 1.35 is
+
+$\displaystyle\int_V \left(\phi\nabla^2\psi -\psi\nabla^2\phi\right)d^3x=\oint_S\left(\phi\frac{\partial \psi}{\partial n}-\psi\frac{\partial \phi}{\partial n}\right) da$
+
+
+Using, $\phi=\Phi(\mathbf{x})$, $\displaystyle\psi=G(\mathbf{x},\mathbf{x}')$, and $\displaystyle\nabla^2\Phi=-\frac{\rho}{\epsilon_o}$ gives
+
+$\displaystyle\int_{\mathcal{V}} \left(\Phi(\mathbf{x})\nabla^2G(\mathbf{x},\mathbf{x}') + G(\mathbf{x},\mathbf{x}')\frac{\rho(\mathbf{x})}{\epsilon_o}\right)d^3x=\oint_{\mathcal{S}}\left(\Phi(\mathbf{x})\frac{\partial G(\mathbf{x},\mathbf{x}')}{\partial n}-G(\mathbf{x},\mathbf{x}')\frac{\partial \Phi(\mathbf{x})}{\partial n}\right) da$
+
+We want the result after integration to depend on $\mathbf{x}$, so change the integration variable to be primed. The derivatives must also be changed to be primed and $G(\mathbf{x},\mathbf{x}')$ must be replaced with $G(\mathbf{x}',\mathbf{x})$.
+
+$\displaystyle\int_{\mathcal{V}} \left(\Phi(\mathbf{x}')\nabla'^2G(\mathbf{x}',\mathbf{x}) + G(\mathbf{x}',\mathbf{x})\frac{\rho(\mathbf{x}')}{\epsilon_o}\right)d^3x'=\oint_{\mathcal{S}}\left(\Phi(\mathbf{x}')\frac{\partial G(\mathbf{x}',\mathbf{x})}{\partial n'}-G(\mathbf{x}',\mathbf{x})\frac{\partial \Phi(\mathbf{x}')}{\partial n'}\right) da'$
+
+Equation 1.39 is
+
+$\displaystyle\nabla'^2G(\mathbf{x},\mathbf{x}')=-4\pi\delta(\mathbf{x}-\mathbf{x}')$
+
+where the prime means the partial derivatives are taken with respect to primed coordinates. In the above integral, we have $\nabla'^2G(\mathbf{x}',\mathbf{x})$. For now, assume that  $\nabla'^2G(\mathbf{x}',\mathbf{x}) = \nabla'^2G(\mathbf{x},\mathbf{x}')$. The first then term evaluates to
+
+$\displaystyle\int_{\mathcal{V}}\Phi(\mathbf{x}')\left(-4\pi\delta(\mathbf{x}-\mathbf{x}')\right)d^3x'=-4\pi\Phi(\mathbf{x})$
+
+with this and rearrangement, we can write
+
+$\displaystyle \Phi(\mathbf{x}) = \frac{1}{4\pi\epsilon_o}\int_{\mathcal{V}}G(\mathbf{x}',\mathbf{x})\rho(\mathbf{x}')d^3x'+\frac{1}{4\pi}\oint_S\left(G(\mathbf{x}',\mathbf{x})\frac{\partial \Phi(\mathbf{x}')}{\partial n'}-\Phi(\mathbf{x}')\frac{\partial G(\mathbf{x}',\mathbf{x})}{\partial n'}\right) da'$
+
+To get equation 1.42, one must justify
+
+$G(\mathbf{x},\mathbf{x}')=G(\mathbf{x}',\mathbf{x})$
+
+For a general function, say, $g(x,y) = xy^2$, $g(x,y) = xy^2\ne g(y,x) = yx^2$. Showing $G(\mathbf{x},\mathbf{x}')=G(\mathbf{x}',\mathbf{x})$ in general is non-trivial and Jackson problem 1.14 gives a suggestion for the proof as does the second paragrapha of page 40. A footnote on page 40 gives a reference of the proof for 1.14(b). So ideally one would have cited the statement on page 40 of Jackson to justify the use of $G(\mathbf{x},\mathbf{x}')=G(\mathbf{x}',\mathbf{x})$.
 
 ## Green Function Solution General Equation II
 
@@ -1103,10 +1144,8 @@ $$\int_\mathcal{V} \left(\phi\nabla^2\psi + \nabla\phi\boldsymbol{\bfcdot}\nabla
 
 where $\phi(\mathbf{x})$ and $\psi(\mathbf{x})$ are scalar functions and $\mathcal{S}$ is the surface of the volume $\mathcal{V}$.
 
-{| class="wikitable collapsible collapsed"
-! align="left" |&nbsp;Answer
-|-
-|
+**Answer**
+
 $$\mathbf{\nabla}\bfcdot (f\mathbf{F}) = f(\mathbf{\nabla}\bfcdot \mathbf{F}) + \mathbf{F}\bfcdot(\mathbf{\nabla}f)$$
 
 integrating both sides over a volume $\mathcal{V}$
@@ -1133,10 +1172,8 @@ $$\int_\mathcal{V} \left(\phi\nabla^2\psi + \nabla\phi\boldsymbol{\bfcdot}\nabla
 * Does the surface need to be closed? 
 * Can the volume have a cavity?
 
-{| class="wikitable collapsible collapsed"
-! align="left" |&nbsp;Answer
-|-
-|
+**Answer**
+
 * This should work for any functions for which the divergence theorem applies.
 * Surface needs to be closed. This is implied by the notation, but the notation is required because the divergence theorem was used.
 * Volume can have a cavity. The divergence theorem still applies. Given a cavity, there will be two surfaces, and outer and inner. The normal direction points outward for the surfaces, so a sphere with a cavity centered on the origin will have an outside surface normal in the $\hat{\mathbf{r}}$ direction and an inside surface normal in the $-\hat{\mathbf{r}}$ direction.
@@ -1236,654 +1273,6 @@ Can you think of a distribution of charges and a surface that is not at infinity
 
 **Answer**
 
-## 1-D
-
-### Parallel Plates with Charged Slab I
-
-Equation 1.44 of Jackson states that the potential within a volume $\mathcal{V}$ enclosed by surface $\mathcal{S}$ can be computed using
-
-$$\Psi(\mathbf{x})=\frac{1}{4\pi\epsilon_o}\int_{\mathcal{V}}G_D(\mathbf{x},\mathbf{x}')\rho(\mathbf{x'}) d^3x'-\frac{1}{4\pi}\oint_{\mathcal{S}}\Psi(\mathbf{x}')\frac{\partial G_D}{\partial n'} da'$$
-
-provided that a Green function $G_D$ is known that satisfies
-
-$$\nabla'^2G_D=-4\pi\delta(\mathbf{x}-\mathbf{x}')\qquad\text{for}\thinspace\mathbf{x}'\thinspace\thinspace\text{in}\thinspace\thinspace\mathcal{V}$$
-
-and
-
-$$G_D(\mathbf{x},\mathbf{x}') = 0\qquad\text{for}\thinspace\mathbf{x}'\thinspace\thinspace\text{on}\thinspace\thinspace\mathcal{S}$$
-
-Previously, Green functions were found using the method of images. In this problem, you will find the Green function using an alternative method.
-
-Consider two infinite, parallel, and grounded conducting sheets in the $x=0$ and $x=d$ plane. In the $x=x'$ plane, there is an infinite non-conducting sheet with surface charge density $\sigma'$.
-
-1. Find the potentials to the left, $\psi_l$, and right, $\psi_r$, of the non-conducting sheet using any method.
-
-2. Write the potential $\psi(x)$ for $0\le x\le d$ as a single function using $\psi_l$ and $\psi_r$ and the Heavyside step function $\Theta$.
-
-3. Show that $\psi(0)=0$, $\psi(d)=0$, and $\nabla'^2\psi \sim \delta(x-x')$ and so this $\psi$ is proportional to $G_D$, and find the proportionality constant.
-
-Now that $G_D$ is known, the potential between the two conducting planes given any charge distribution $\rho$ can be computed using
-
-$$\Psi(\mathbf{x})=\frac{1}{4\pi\epsilon_o}\int_{\mathcal{V}}G_D(\mathbf{x},\mathbf{x}')\rho(\mathbf{x'}) d^3x'-\frac{1}{4\pi}\oint_{\mathcal{S}}\Psi(\mathbf{x}')\frac{\partial G_D}{\partial n'} da'$$
-
-Conceptually, one can see that the first integral is a weighted sum of $G_D$, which is proportional to the potential for a single sheet of charge between the plates at $x'$. This integral sums the potentials for a continuous set of sheets.
-
-4. Suppose the conducting planes are grounded and a non-conducting slab with charge density $\rho_o$ exists between them. Use the above equation to find $\Psi(\mathbf{x})$ between the conducting planes. 
-
-Notes: You will need to use the fact that $\Theta$ modifies the limits of integration, $d\Theta(x)/dx=\delta(x)$, and $d\Theta(-x)/dx=-\delta(x)$. You can check your answer either using Gauss' law or the boundary value method to find $\Psi(x)$.
-
-**Answer**
-
-Let subscript $l$ refer to quantities for $x\lt x'$ and subscript $r$ refer to quantities for $x\gt x'$.
-
-1\. One can answer this question by assuming a surface charge of $\sigma_l$ and $\sigma_r$ is induced on the plates at $x=0$ and $x=w$. Then use the formula $\sigma/2\epsilon_o$ for the electric field of the sheets of charge at $x=0$, $x=x'$, and $x=w$ to get the total field $E_l$ and $E_r$.  The two unknowns, $\sigma_l$ and $\sigma_r$, can be found by using the fact that the electric field in either of the conductors is zero - this yields $\sigma' = -(\sigma_l+\sigma_r)$, which is expected because the net charge in the universe is zero. The second equation needed to find $\sigma_l$ and $\sigma_r$ in terms of $\sigma'$ is
-
-$$\psi(w)-\psi(0) = 0 = -\int_0^w E\thinspace dx=-\int_0^{x'}E_ldx-\int_{x'}^wE_rdx$$
-
-Some students wrote their final answers in terms of $\sigma_l$ and $\sigma_r$. These were not parameters given in the problem statement and so such a solution is incomplete.
-
-Alternatively, one can use the fact that $\nabla^2 \psi(x)=0$ has solutions of the form $\psi=a+bx$, the two boundary conditions and the continuity and jump conditions at $x=x'$.
-
-$$\psi_l=A_l+B_lx$$
-
-$$\psi_r=A_r+B_rx$$
-
-Boundary conditions:
-
-$$\psi_l(0)=0\Rightarrow A_l=0$$
-
-$$\psi_r(w)=0=A_r+B_rw\Rightarrow A_r=-B_rw$$
-
-This leaves
-
-$$\psi_l=B_lx$$
-
-$$\psi_r=B_r(x-w)$$
-
-Continuity:
-
-$$\psi_l(x')=\psi_r(x')\Rightarrow B_lx'=B_r(x'-w)$$
-
-Jump:
-
-$$\left[-\frac{\partial \psi_r}{\partial x}+\frac{\partial \psi_l}{\partial x}\right]_{x=x'}=\frac{\sigma'}{\epsilon_o}$$
-
-$$-B_r+B_l=\frac{\sigma'}{\epsilon_o}\Rightarrow B_l=B_r+\frac{\sigma'}{\epsilon_o}$$
-
-The three equations left are
-
-$$A_r=-B_rw$$
-
-$$B_lx'=B_r(x'-w)$$
-
-$$B_l=B_r+\frac{\sigma'}{\epsilon_o}$$
-
-Solving gives
-
-$$B_l=-\frac{\sigma'}{\epsilon_o}\left(\frac{x'}{w}-1\right)$$
-
-$$B_r=-\frac{\sigma'}{\epsilon_o}\frac{x'}{w}$$
-
-So the final solution is
-
-$$\psi_l=\frac{\sigma'}{\epsilon_o}\left(1-\frac{x'}{w}\right)x$$
-
-$$\psi_r=\frac{\sigma'}{\epsilon_o}\left(1-\frac{x}{w}\right)x'$$
-
-Note that swapping $x$ and $x'$ in $\psi_l$ gives the equation for $\psi_r$, and vice-versa. That is, $\psi_l(x',x)=\psi_r(x,x')$.
-
-2\. $\psi=\psi_l(x)\Theta(x'-x)+\psi_r(x)\Theta(x-x')$
-
-Checks: 
-* When $x\lt x'$, $\Theta(x'-x)=1$ and $\Theta(x-x')=0$, giving $\psi=\psi_l$.
-* When $x\gt x'$, $\Theta(x'-x)=0$ and $\Theta(x-x')=1$, giving $\psi=\psi_lr$.
-
-3.
-
-$$\frac{d\psi}{dx} = \psi_l(x)\frac{d}{dx}\Theta(x'-x) + \Theta(x'-x)\frac{d\psi_l(x)}{dx} + \psi_r(x)\frac{d}{dx}\Theta(x-x')+\Theta(x-x')\frac{d\psi_r(x)}{dx}$$
-
-If one plots $\psi(x)$, you will see that its derivative has a jump downwards at $x=x'$ of $\sigma'/\epsilon_o$ and so we expect the terms in $d\psi/dx$ with the derivative of the Heavyside step function, which is the delta function, to be zero. So the two terms involving derivatives of $\Theta$ will be addressed first.
-
-The first term can be rewritten using
-
-$$\frac{d}{dx}\Theta(x'-x)=-\delta(x'-x)=-\delta(x-x')$$
-
-The first equality follows from the identity given in the problem statement: $d\Theta(-x)/dx=-\delta(x)$. The second equality is a standard delta function identity.
-
-The second term is
-
-$$\frac{d}{dx}\Theta(x-x')=\delta(x-x')$$
-
-The following two equalities follow from the fact that $\delta(x-x')$ is zero except at $x=x'$:
-
-$$-\psi_l(x)\delta(x-x')=-\psi_l(x')\delta(x-x')$$
-
-$$\psi_r(x)\delta(x-x')=\psi_r(x')\delta(x-x')$$
-
-As a result of these considerations, the two terms in $d\psi/dx$ involving derivatives of $\Theta$ cancel, leaving
-
-$$\frac{d\psi}{dx} = \Theta(x'-x)\frac{d\psi_l(x)}{dx} +\Theta(x-x')\frac{d\psi_r(x)}{dx}$$
-
-Straightforward calculation and use of the same identities as above gives
-
-$$\frac{d^2\psi}{dx^2}=-\frac{\sigma'}{\epsilon_o}\delta(x-x')$$
-
-This matches expectations. For a sheet of charge in the $x=x'$ plane, the volume charge density is
-
-$$\rho=\sigma'\delta(x-x')$$
-
-and Poisson's equation is
-
-$$\nabla^2\psi=-\frac{\rho}{\epsilon_o}$$
-
-(Recall that the units of $\delta(x)$ are inverse length. This follows from part of the definition of the delta function: $\int\delta(x)dx=1$).
-
-We need $G_D$ such that
-
-$$\nabla'^2G_D=-4\pi\delta(\mathbf{x}-\mathbf{x}')\qquad\text{for}\thinspace\mathbf{x}'\thinspace\thinspace\text{in}\thinspace\thinspace\mathcal{V}$$
-
-The units of $\delta(\mathbf{x})$ are 1/length$^3$. This follows from part of the definition of the 3-D delta function: $\int\delta(\mathbf{x})dx=1$. It is somewhat unconventional for a function with a scalar argument to have different units than when it has a vector argument and so some authors use $^3\delta(\mathbf{x})$ instead of $\delta(\mathbf{x})$. 
-
-In one dimension, $\delta(\mathbf{x}-\mathbf{x}')=\delta(x-x')/A$, so
-
-$$\nabla'^2G_D=-4\pi\delta(x-x')/A$$
-
-where $A$ is the area of the sheets. 
-
-The $A$ here plays a role similar to the $4\pi b^2$ found in the example done in class for the Green function associated with the interior of a sphere of radius $b$. 
-
-Due to the property $G_D(x,x')=G_D(x',x)$, we can equivalently write 
-
-$$\nabla^2G_D=-4\pi\delta(x-x')$$
-
-Several students thought that $\nabla'^2G_D$ in the problem statement was a typo and that it should have been $\nabla^2G_D$. Because $G_D(x,x')=G_D(x,x')$, either can be used. I used the primed version to be consistent with the derivation of equation 1.42 of Jackson, which uses the primed version in equation 1.39.
-
-----
-
-If you are uncomfortable with the appearance of $A$ here, go back to the derivation of equation 1.42 of Jackson, but repeat assuming $\psi$ and $\phi$ in equation 1.35 only on $x$. Another way of concluding (\nabla'^2G_D=-4\pi\delta(x-x')/A$ is to integrate $\nabla'^2G_D(x,x')=-4\pi\delta(\mathbf{x}-\mathbf{x}')=-4\pi\delta(x-x')\delta(y-y')\delta(z-z')$ over the non-varying dimensions :
-
-$$\int\int dy'dz'\nabla'^2G_D(x,x')=-4\pi\int \int dy'dz'\delta(x-x')\delta(y-y')\delta(z-z')=-4\pi\delta(x-x')$$
-
-$$AG_D(x,x')=-4\pi\delta(x-x')$$
-
-----
-
-Comparison of 
-
-$$\nabla'^2G_D=-4\pi\delta(x-x')/A$$
-
-with 
-
-$$\frac{d^2\psi}{dx^2}=-\frac{\sigma'}{\epsilon_o}\delta(x-x')$$
-
-gives
-
-$$G_D(x,x') = \frac{4\pi\epsilon_o}{A\sigma'}\psi$$
-
-4. Now that we have $G_D$ for this geometry, we can use it for any $\rho$ and any boundary condition. Take the volume $\mathcal{V}$ to have a volume of $Aw$. Its surface has 6 faces. Four of the faces have normal directions that are perpendicular to the $\hat{\mathbf{x}}$ direction and so $\partial G_D/\partial n'=0$ on these faces (e.g.,  $\partial G_D/\partial y'=\partial G_D/\partial z'=0$). 
-
-In the new problem, we are given that $\psi=0$ at $x=0$ and $x=d$ and so $\psi=0$ on the two faces with a normals in the $\pm x$ direction. As a result, the surface integral term in
-
-$$\Psi(\mathbf{x})=\frac{1}{4\pi\epsilon_o}\int_{\mathcal{V}}G_D(\mathbf{x},\mathbf{x}')\rho(\mathbf{x'}) d^3x'-\frac{1}{4\pi}\oint_{\mathcal{S}}\Psi(\mathbf{x}')\frac{\partial G_D}{\partial n'} da'$$
-
-is zero. This leaves
-
-$$\Psi(\mathbf{x})=\frac{1}{4\pi\epsilon_o}\int_{\mathcal{V}}G_D(\mathbf{x},\mathbf{x}')\rho(\mathbf{x'}) d^3x'$$
-
-_Note_
-
-It is at this point that we can recognize that because $G_D$ is proportional to $\psi$, this integral represents the summation of the potentials due to sheets of charge that are continuously distributed between $0$ and $w$ such that they form a continuous charge density $\rho$. In fact, without knowledge of Green's functions, one may have concluded that to find the potential due to a continuous $\rho$, one only needed to do a weighted sum of potentials due a single sheet of charge at $x'$. That is, you could use the replacement $\sigma'=\rho(x\thinspace dx'$ and then $\Psi(x)=\int_0^w (\psi(x')/\sigma')\rho(x\thinspace dx'$.
-
-One can also check this equation by using $\rho=\sigma'\delta(x-x')$ and $G_D$ found above and verifying that the resulting $\Psi$ matches the potential $\psi$ used to form $G_D$.
-
-Rewriting the Green function
-
-$$G_D(x,x') = \frac{4\pi\epsilon_o}{A\sigma'}\psi$$
-
-Using
-
-$$\psi=\psi_l(x)\Theta(x'-x)+\psi_r(x)\Theta(x-x')$$
-
-and
-
-$$\psi_l=\frac{\sigma'}{\epsilon_o}\left(1-\frac{x'}{w}\right)x$$
-
-$$\psi_r=\frac{\sigma'}{\epsilon_o}\left(1-\frac{x}{w}\right)x'$$
-
-gives
-
-$$G_D(x,x') = \frac{4\pi}{Aw}\left[(w-x')x\Theta(x'-x)+(w-x)x'\Theta(x-x')\right]$$
-
-Using $\rho=\rho_o$ and $G_D$ in
-
-$$\Psi(\mathbf{x})=\frac{1}{4\pi\epsilon_o}\int_{\mathcal{V}}G_D(\mathbf{x},\mathbf{x}')\rho(\mathbf{x'}) d^3x'$$
-
-gives
-
-$$\Psi(x)=\frac{\rho_o}{w\epsilon_o}\int_0^w \left[(w-x')x\Theta(x'-x)+(w-x)x'\Theta(x-x')\right]\thinspace dx'$$
-
-The $\Theta$ function modifies the limits of integration
-
-$$\Psi(x)=\frac{\rho_o}{w\epsilon_o} \left[\int_x^w(w-x'\thinspace dx' +\int_0^x(w-x)\thinspace dx'\right]$$
-
-and integration gives
-
-$$\Psi(x) = \frac{\rho_ow^2}{2\epsilon_o}\left[\frac{x}{w}-\frac{x^2}{w^2}\right]$$
-
-As a final check, note that $\Psi(0)=\Psi(w)=0$ and $d^2\Psi/x^2=-\rho_o/\epsilon_o$.
-
-(For practice with the $\Theta$ function, try this problem using $\rho=\rho_o\Theta(x-w/2)$ so that only half of the space is filled with a charged slab. In this case, there will be two $\Psi(x)$ functions, one for $x\lt w/2$ and the other for $x\gt w/2$. One student noted that the problem statement did not say that $\rho_o$ filled the space and tried to solve this assuming a conducting slab with an arbitrary thickness - however, the slab thickness was not given as a parameter in the problem statement so it is safe to assume that $\rho_o$ fills the space.)
-
-An alternative way of computing $\Psi$ is to start with
-
-$$\frac{d^2\Psi}{dx^2} = -\frac{\rho_o}{\epsilon_o}$$
-
-Direct integration gives
-
-$$\Psi(x) = -\frac{\rho_o}{\epsilon_o}\frac{x^2}{2} + C_1x + C_0$$
-
-Using $\Psi(0)=\Psi(w)=0$ to find $C_0$ and $C_1$ gives
-
-$$\Psi(x) = \frac{\rho_ow^2}{2\epsilon_o}\left[\frac{x}{w}-\frac{x^2}{w^2}\right]$$
-
-Alternatively, one can solve this problem using Gauss' law to find the electric field (it is easiest to use a Gaussian cylinder centered on $x=w/2$ with a height of $w-2x$).
-
-### Parallel Plates with Charged Slab II
-
-Previously, you found $G_D(x,x')$ and used it to find the potential $\Phi$, the potential between the conductors, when the space between the conductors was filled with a non-conducting slab with a uniform charge density - $\rho(x) = \rho_o$.
-
-1. Find $\Phi$ using $G$ from [[#HW_5|HW #5]] and equation 1.44 of Jackson.
-1. Find $\Phi$ using Gauss' law and $\psi(b)-\psi(a)=\int_a^b \mathbf{E}\bfcdot d\mathbf{l}$. Provide diagrams and address all surfaces of your Gaussian surface. Do not use the $\Phi$ found in part 1.
-1. Compute the surface charge density on the conductor at $x=0$ using $d\Phi/dn=-\sigma/\epsilon_o$.
-
-**Answer**
-
-In the following, subscript $r$ corresponds to potentials and fields for $0\lt x\le d/2$; subscript $r$ corresponds to $d/2\le x\lt d$. For surface charge densities, the subscript indicates the surface at $x=0$ or $x=d$.
-
-'''Boundary Value Method'''
-
-The following solution is written in dimensionless form using the replacements
-
-$\psi \rightarrow \psi/(\rho_od^2/\epsilon_o)$, $x\rightarrow x/d$, $E \rightarrow E/(\rho_od/\epsilon_o)$, and $\sigma \rightarrow \sigma/(\rho_od)$.
-
-Two solutions are computed. For $0\le x\le d/2$, we need to solve Poisson's equation. For $d/2\le x\le d$, we need to solve Laplace's equation. The two solutions are connected using boundary conditions at $x=d/2$.
-
-The Poisson equation $\nabla^2\psi_l=-1$ has the general solution
-
-$$\psi_l = -\frac{1}{2}x^2 + Ax + B$$
-
-Laplace's equation $\nabla^2\psi_r=0$ has the general solution
-
-$$\psi_r = Cx + D$$
-
-Boundary conditions:
-1. $\psi_l(0) = 0$
-1. $\psi_r(d) = 0$
-1. $\psi_l(1/2) = \psi_r(1/2)$
-1. $\left[-\partial \psi_r/\partial x + \partial \psi_l/\partial x\right]_{x=1/2}=0$
-
-BC 1. gives $B=0$; BC 2. gives $D=-C$. The potentials can then be written as
-
-$$\psi_l = -\frac{1}{2}x^2 + A\qquad\quad \psi_r = C(x - 1)$$
-
-BC 3. gives
-
-$$-\frac{1}{8}+A\frac{1}{2} = -C\frac{1}{2}\qquad\Rightarrow\qquad \frac{1}{4}-A = C$$
-
-BC 4. gives
-
-$$\frac{1}{2} - A + C = 0\qquad\Rightarrow\qquad -\frac{1}{2} + A = C$$
-
-After solving for $A$ and $C$ using these last two equations,
-
-$$\psi_l(x)=\frac{x}{2}\left(\frac{3}{4}-x\right)$$
-
-$$\psi_r(x)=\frac{1}{8}(1-x)$$
-
-This potential is plotted in [https://www.mathcha.io/editor/kMNEMierUZnHDQYLZBsDZ1B36TLgxqBxh168Mvn Figure 3.]
-
-'''Gauss' Law Method'''
-
-The electric field will be in $x$ direction because conducting planes are large.
-
-Dotted lines in [https://www.mathcha.io/editor/kMNEMierUZnHDQYLZBsDZ1B36TLgxqBxh168Mvn Figure 2.] are a side view of Gaussian cylinders with caps having area $A$. The electric field is parallel to the curved surface of the cylinder so the surface integral for the flux involves only the caps:
-
-$$\oint \mathbf{E}\bfcdot d\mathbf{a}=\int_{l\thinspace cap}\mathbf{E}\bfcdot d\mathbf{a}+\int_{r\thinspace cap}\mathbf{E}\bfcdot d\mathbf{a}=\frac{Q_{encl}}{\epsilon_o}$$
-
-Gaussian surfaces are shown in [https://www.mathcha.io/editor/kMNEMierUZnHDQYLZBsDZ1B36TLgxqBxh168Mvn Figure 2.]
-
-Gaussian surface 1.
-
-$$\epsilon_oE_{lc}A + \epsilon_oE_lA = \sigma_lA + \rho_oxA$$
-
-$E_{lc}$, the electric field inside the left conductor, is zero so this simplifies to
-
-$$1.\quad\epsilon_oE_l = \sigma_l + \rho_ox$$
-
-Gaussian surface 2.
-
-$$\epsilon_oE_{lc}A + \epsilon_oE_rA = \sigma_lA + \rho_o\frac{d}{2}A$$
-
-Using $E_{lc}=0$ this simplifies to
-
-$$2.\quad\epsilon_oE_r = \sigma_l + \rho_o\frac{d}{2}$$
-
-Gaussian surface 3.
-
-$$\epsilon_oE_{lc}A + \epsilon_oE_{rc}A = \sigma_lA + \rho_o\frac{d}{2}A + \sigma_rA$$
-
-$E_{rc}$, the electric field inside the right conductor, is zero so this simplifies to
-
-$$3.\quad 0 = \sigma_l + \rho_o\frac{d}{2} + \sigma_r$$
-
-The electric field is related to a potential difference by
-
-$$\psi(b)-\psi(a)=-\int_a^b \mathbf{E}\bfcdot d\mathbf{l}$$
-
-_Note_
-
-Quite often I see:
-
-$$\psi = -\int \mathbf{E}\bfcdot d\mathbf{l} = -\int_a^b \mathbf{E}\bfcdot d\mathbf{l}$$
-
-This is not correct. Either use the indefinite integral
-
-$$\psi = -\int \mathbf{E}\bfcdot d\mathbf{l}$$
-
-and solve for the constant of integration using the potential at a location where it is known or use the definite integral 
-
-$$\psi(b)-\psi(a)=-\int_a^b \mathbf{E}\bfcdot d\mathbf{l}$$
-
-or
-
-$$\psi(x)-\psi(a)=-\int_a^x \mathbf{E}\bfcdot d\mathbf{l}$$
-
-both of which has no constant of integration.
-
-Also, avoid writing $\psi$ with no argument; use $\psi(x)$ to indicate a potential that depends on position and $\psi(b)$ to indicate the potential at a fixed position, where $b$ is a constant.
-
-The potential difference between the conducting plates is
-
-$$\psi(d) - \psi(0) = -\int_0^dE(\thinspace dx = -\int_0^{d/2}E_l(\thinspace dx - \int_{d/2}^dE\thinspace dx$$
-
-Both plates are grounded so $\phi(0)=\phi(d)=0$ and
-
-$$0 - 0 = -\int_0^{d/2}E_l(\thinspace dx - \frac{d}{2}E_r$$
-
-where the fact that $E_r$ is constant from equation 2. was used. Substituting $E_l$ and $E_r$ found using Gaussian surfaces 1. and 2. gives
-
-$$0 = -\left[\sigma_lx + \rho_o\frac{x^2}{2}\right]_0^{d/2} - \frac{d}{2}\left(\sigma_l + \rho_o\frac{d}{2}\right)$$
-
-This gives
-
-$$\sigma_l=-\frac{3}{8}\rho_od$$
-
-Using $0 = \sigma_l + \frac{1}{2}\rho_od + \sigma_r$ found using Gaussian surface 3.,
-
-$$\sigma_r=-\frac{1}{8}\rho_od$$
-
-Substitution of $\sigma_l$ into equations 1. and 2. gives
-
-$$\epsilon_oE_l = -\frac{3}{8}\rho_od+ \rho_ox$$
-
-$$\epsilon_oE_r = -\frac{3}{8}\rho_od + \frac{1}{2}\rho_od=\frac{1}{8}\rho_od$$
-
-Because the functional form electric field changes at $x=d/2$, we need to find expressions for the potential in each region.
-
-For $x \le d/2$, $\psi_l(x)-\psi(0) = \psi_l(x)=-\int_0^x E_l(x\thinspace dx'$. Integration gives
-
-$$\psi_l(x)=\frac{\rho_o}{\epsilon_o}\frac{x}{2}\left(\frac{3}{4}d-x\right)\qquad x\le d/2$$
-
-For $x \ge d/2$, $\psi_r(x)-\psi(0) = -\int_0^{d/2} E_l(x\thinspace dx'-\int_{d/2}^x E\thinspace dx'$. Integration gives
-
-$$\psi_r(x)=\frac{\rho_o}{\epsilon_o}\frac{d}{8}(d-x)\qquad d/2 \le x\le d$$
-
-The potential has a maximum inside the charged slab at $x=3d/8$.
-
-Checks:
-
-* Just outside of conductor, $\mathbf{E}\bfcdot \hat{\mathbf{n}} = \sigma/\epsilon_o$ so we expect $E_l(0)=\sigma_l/\epsilon_o$, $E_r(d)=-\sigma_r/\epsilon_o$.
-* $E_r$ is constant - this is expected because $\boldsymbol{\nabla}\bfcdot \mathbf{E} = -\rho/\epsilon_o$ and $\rho=0$ in that region; because problem is 1-D, $\boldsymbol{\nabla}=d/dx$ giving $d E_r/dx = 0\Rightarrow E_r=const$.
-* $\psi_l$ and $\psi_r$ satisfy $\psi_l(0)=0$ and $\psi_r(d)=0$ and $\psi_l(d/2)=\psi_r(d/2)$.
-* The meaning of $x=3d/8$ - at this value of $x$, the amount of charge to the left is zero: $\sigma_lA+3\rho_oAd/8=0$ as is the amount of charge to the right: $\rho_oAd/8+\sigma_rA+=0$. The slope of the potential is zero and this corresponds to a net force of zero on a test charge and  hence an electric field of zero, which was found.
-
-'''Gauss' Law + Reciprocity Method'''
-
-The reciprocity equation stated in problem 1.12 of Jackson can be used to determine the charge density $\sigma_l$ on the left conductor (see [[#HW_2|HW #2]]). In this case, steps 3. and 4. in the Gauss' Law method are not needed. One can use the equations for $E_r$ and $E_l$ from Gaussian surfaces 1. and 2. in the Gauss' Law method, which depend on only one unknown: $\sigma_l$. The potentials are then found in the same way as before, using
-
-For $x \le d/2$
-
-$$\psi_l(x)-\psi(0) = -\int_0^x E_l dx$$
-
-For $x \ge d/2$
-
-$$\psi_r(x)-\psi(0) = -\int_0^{d/2} E\thinspace dx-\int_{d/2}^x E\thinspace dx$$
-
-'''Green Function Method'''
-
-From HW 5.1, with the replacement of $w$ with $d$,
-
-$$G_D(x,x') = \frac{4\pi}{Ad}\Big[(d-x')x\Theta(x'-x)+(d-x)x'\Theta(x-x')\Big]$$
-
-Let $\mathcal{V}$ be the volume between the plates. On four of the surfaces of $\mathcal{V}$, $\partial G/\partial n'=0$. On two of the surfaces, $\Psi=0$. As a result, the second term in
-
-$$\Psi(\mathbf{x})=\frac{1}{4\pi\epsilon_o}\int_{\mathcal{V}}G_D(\mathbf{x},\mathbf{x}')\rho(\mathbf{x'}) d^3x'-\frac{1}{4\pi}\oint_{\mathcal{S}}\Psi(\mathbf{x}')\frac{\partial G_D}{\partial n'} da'$$
-
-is zero leaving. $G$ does not depend on $y$ and $z$, so this simplifies to
-
-$$\Psi(x)=\frac{A}{4\pi\epsilon_o}\int_0^dG_D(x,x')\rho(x') dx'$$
-
-Using $\rho(x')=\rho_o\Theta(d/2-x')$, the limits of integration are modified
-
-$$\Psi(x)=\frac{A\rho_o}{4\pi\epsilon_o}\int_0^{d/2}G_D(x,x') dx'$$
-
-Substitution of $G_D(x,x')$ in this equation gives
-
-$$\Psi(x)=\frac{\rho_o}{d\epsilon_o}\int_0^{d/2}\Big[(d-x')x\Theta(x'-x)+(d-x)x'\Theta(x-x')\Big] dx'$$
-
-The arguments to the $\Theta$ depend on $x$. By plotting $\Theta(x'-x)$ and $\Theta(x-x')$, one can see that that the limits of integration will depend on $x$.
-
-If $x \gt d/2$, and for the limits of integration that correspond to $x'=[0,d/2]$,
-
-$\Theta(x'-x)=0$ and $\Theta(x-x')=1$ for all $x'$.
-
-Calling the potential for $x \gt d/2$ $\Psi_r$, the required integration is of the second term in $G$:
-
-$$\Psi_r(x)=\frac{\rho_o}{d\epsilon_o}\int_0^{d/2}(d-x)\thinspace dx'$$
-
-$$\Psi_r(x)=\frac{\rho_o}{\epsilon_o}\frac{d}{8}(d-x)$$
-
-If $x \lt d/2$, and for the limits of integration that correspond to $x'=[0,d/2]$, 
-
-$\Theta(x'-x)=1$ only when $x'\gt x$ and
-
-$\Theta(x-x')=1$ only when $x'\lt x$. 
-
-Using this to modify the limits of integration gives the required integration of
-
-$$\Psi_l(x)=\frac{\rho_o}{d\epsilon_o}\left[\int_x^{d/2}(d-x'\thinspace dx'+\int_0^{x}(d-x)\thinspace dx'\right]$$
-
-$$\Psi_l(x)=\frac{\rho_o}{\epsilon_o}\frac{x}{2}\left(\frac{3}{4}d-x\right)$$
-
-The surface charge densities can be computed and compared with previous answers:
-
-$$\sigma_l=-\epsilon_o\frac{\partial \Psi_l}{\partial x}=-\frac{3}{8}\rho_od$$
-
-$$\sigma_r=\epsilon_o\frac{\partial \Psi_r}{\partial x}=-\frac{1}{8}\rho_od$$
-
-The motivation for asking for the charge densities was as a hint of a way to check your answer.
-
-## Parallel Plates with Charged Slab III
-
-#1-d-cartesian-green-function&l=775&c=1
-
-## 1-D Spherical – Outer boundary at ∞
-
-#1-d-spherical-green-function&l=942&c=1
-
-## 2-D
-
-### Long Tube with Sheet of Charge
-
-#long-rectangular-tube-with-sheet-of-charge&l=1240&c=1
-
-### Long Tube with Line of Charge
-
-See HW 6.1
-
-### U-Shaped Channel
-
-A U-shaped, conducting, and grounded channel is shown in Fig. 1a; its cross-section is shown in Fig. 1b. The channel is infinite in the $\pm z$ and the top and bottom parts extend to $x=+\infty$.
-
-An infinitely long (in the $\pm z$-direction) non-conducting sheet of charge with a surface charge density of $\sigma'$ is placed inside the tube at $x=d$ as shown.
-
-[[Image:Uchannel2.png|500px]]
-
-1. Find $\psi(x,y)$
-
-2. Find an equation for the surface charge density at $(x,y)=(0,1/2)$ in the form of an infinite series.
-
-3. For $d=0$, uses Gauss' law to find an expression for the surface charge density at $(x,y)=(0,1/2)$ that is not in the form of an infinite series. Provide a diagram and discuss all surfaces of your Gaussian surface.
-
-4. Find $\psi(x,y)$ when an infinitely long (in the $\pm z$-direction) non-conducting slab of charge with a volume charge density $\rho'$ fill the region between $x=0$ to $x=d$ and $y=0$ to $y=1$
-
-Extra credit: Show that the result of 2. evaluated at $d=0$ is equivalent to the result of 3.
-
-Note: Initial version had $x'$ in part 3. and extra credit statement instead of $d$.
-
-**Answer**
-
-In the following, I used $x'$ instead of $d$ for the location of $\sigma'$. The motivation for using $d$ in the problem statement was to make sure that you knew to change $d$ to $x'$ in $\psi$ when doing the integral for part 4.
-
-Justifications for steps that are the same as used in the previous problem are not repeated.
-
-Outside of the channel, the potential is zero. (The conductor shields the outside from electric fields.) To see this formally, consider a [https://www.mathcha.io/editor/K4BjWfWBUm3TGdOEdHkNBgDcZzznM2CwVxxdl large sphere that encloses the channel] but has a slot corresponding to the surface of the channel. Laplace's equation is satified in the shaded volume. The part of the volume that touches the channel is at a potential of zero. As the radius of the sphere approaches infinity, the surface of the sphere is far away from all charges and so the potential on the outer surface is zero. The potential $\psi=0$ satisfies Laplace's equations and the boundary conditions on the surface of the volume, so the solution for the potential in the volume is zero. 
-
-1.
-
-$$\psi_l(x,y) = \sum_{n=1}^{\infty} A_n\sin(n\pi y)\sinh(n\pi x)$$
-
-$$\psi_r(x,y) = \sum_{n=1}^{\infty} B_n\sin(n\pi y)e^{-n\pi x}$$
-
-$$\psi_l(x',y) = \psi_r(x',y)$$
-
-$$\sum_{n=1}^{\infty} \sin(n\pi y)\Big[A_n\sinh(n\pi x')-B_ne^{-n\pi x'}\Big] = 0$$
-
-$$A_n = B_n\frac{e^{-n\pi x'}}{\sinh(n\pi x')}$$
-
-$$\psi_l = \sum_{n=1}^{\infty} B_ne^{-n\pi x'}\frac{\sinh(n\pi x)}{\sinh(n\pi x')}\sin(n\pi y)$$
-
-$$\psi_r = \sum_{n=1}^{\infty} B_ne^{-n\pi x}\sin(n\pi y)$$
-
-$$\left[-\frac{\partial \psi_r}{\partial x}+\frac{\partial \psi_l}{\partial x}\right]_{x=x'}=\frac{\sigma'}{\epsilon_o}$$
-
-$$\sum_{n=1}^{\infty} B_n\sin(n\pi y)\left[n\pi e^{-n\pi x'}+n\pi e^{-n\pi x'}\frac{\cosh(n\pi x')}{\sinh(n\pi x')}\right]=\frac{\sigma'}{\epsilon_o}$$
-
-Using $\sinh(u)+\cosh(u)=e^u$, this can be written as
-
-$$\sum_{n=1}^{\infty} B_n\left(\frac{n\pi }{\sinh(n\pi x')}\right)\sin(n\pi y)=\frac{\sigma'}{\epsilon_o}$$
-
-Multiply both sides by $\sin(l\pi \thinspace dy$ and integrate from $y=0$ to $y=1$ and use
-
-$$
-\int_0^1\sin(l\pi y)\sin(n\pi \thinspace dy=
-\begin{cases}
-\frac{1}{2} & \text{if $n=l$}\\
-0 & \text{otherwise}
-\end{cases}
-$$
-
-$$
-\int_0^1\sin(l\pi \thinspace dy=
-\begin{cases}
-\frac{2}{l\pi} & l=1,3,...\\
-0 & \text{otherwise}
-\end{cases}
-$$
-
-$$\psi_l = \frac{4\sigma'}{\pi^2\epsilon_o}\sum_{n=1,3,...}^{\infty} \frac{e^{-n\pi x'}}{n^2} \sinh(n\pi x)\sin(n\pi y)$$
-
-$$\psi_r = \frac{4\sigma'}{\pi^2\epsilon_o}\sum_{n=1,3,...}^{\infty} \frac{e^{-n\pi x}}{n^2} \sinh(n\pi x')\sin(n\pi y)$$
-
-Notice that $\psi_l(x,y;x')=\psi_r(x',y;x)$.
-
-2.
-
-$$\sigma_l(y) = -\epsilon_o\frac{\partial \psi_l}{\partial x}\Bigg|_{x=0}$$
-
-$$\sigma_l(y) = -\frac{4\sigma'}{\pi}\sum_{n=1,3,...}^{\infty} e^{-n\pi x'} \cosh(n\pi 0) \sin(n\pi y) $$
-
-$$\sigma_l(1/2; x'=0) = -\frac{4\sigma'}{\pi}\sum_{n=1,3,...}^{\infty} e^{-n\pi 0}{\cosh(n\pi 0)} \sin(n\pi/2) $$
-
-$$\sigma(1/2; x'=0) = -\frac{4\sigma'}{\pi}\sum_{l=0}^{\infty} \frac{(-1)^l}{2l+1}$$
-
-This sum is a well-known way to generate $\pi$ and it evaluates to $\pi/4$ giving
-
-$$\sigma(1/2; x'=0) = -\sigma'$$
-
-3.
-
-A [https://www.mathcha.io/editor/K4BjWfWBUm3TGdOEdHkNBgDcZzznM2CwVxxdl Gaussian cylinder] centered on $y=1/2$ with one end-cap in the conductor and the other at any $x$ has an enclosed charge of $\sigma'A + \sigma(1/2)$. When $x'=0$, one can compute the field using $\psi_r$ and show that $E_x(x,y)=E_y(x,y)=0$ and so there is no flux through the cylinder. Gauss' law then gives
-
-$$0 = \sigma'A + \sigma A$$
-
-$$\sigma = -\sigma'\qquad\text{(for all }y\text{)}$$
-
-When the sheet of charge is next to the left surface, the surface charge density on that surface is equal and opposite to the surface charge density on the charged sheet. The field everywhere is zero.
-
-If $x'\ne 0$, one would need to account for the flux through the curved surface because $\mathbf{E}\ne 0$ and Gauss' law will not give a simple answer as was the case here.
-
-4.
-
-$$G=\frac{4\pi\epsilon_o}{\sigma' A}[\psi_l(x,x')\Theta(x'-x) + \psi_r(x,x')\Theta(x-x')]$$
-
-If the volume is the volume inside the channel, then the potential is zero on three surfaces of this volume; $\partial G/\partial z$ is zero on two surfaces. The fact that $\partial G/\partial x=0$ on the surface at $x=\infty$ can be shown by direct calculation.
-
-$$\Phi(x) = \frac{1}{4\pi\epsilon_o}\int_0^{\infty} G(x,x')\rho(x\thinspace d^3x'$$
-
-Using
-
-$$\rho(x')=\rho_o\Theta(d-x')$$
-
-this is
-
-$$\Phi(x) = \frac{1}{4\pi\epsilon_o}\int_0^{\infty} G(x,x')\rho(x\thinspace d^3x'$$
-
-Using $G$ in terms of $\psi_l$ and $\psi_r$, this is
-
-$$\Phi(x) = \frac{\rho_o}{\epsilon_o}\int_0^d \Big[\psi_l(x,x')\Theta(x'-x) + \psi_r(x,x')\Theta(x-x')\Big]\thinspace dx'$$
-
-$$x\lt d$$
-
-$$\Phi(x) = \frac{\rho_o}{\epsilon_o}\left[\int_0^d \psi_l(x,x\thinspace dx' + \int_0^x \psi_r(x,x\thinspace dx'\right]$$
-
-$$\Phi(x) = \frac{4\rho_o}{\pi^3\epsilon_o}\sum_{n=1,3,...}^{\infty}\frac{\sin(n\pi y)}{n^3}[1-e^{-n\pi x} - e^{-n\pi d}\sinh(n\pi x)]$$
-
-$$x\gt d$$
-
-$$\Phi(x) = \frac{\rho_o}{\epsilon_o}\int_0^d \psi\thinspace dx'$$
-
-$$\Phi(x) = \frac{4\rho_o}{\pi^3\epsilon_o}\sum_{n=1,3,...}^{\infty}\frac{\cosh(n\pi d)-1}{n^3}e^{-n\pi x}\sin(n\pi y)$$
-
-## Long Cylinder
-
-Have hand-written solutions
-
-For a long, grounded, and hollow cylinder with radius $b$ aligned with, and centered on, the $z$-axis,
-
-1. find $G(s,\phi;s',\phi')$ using the solution to an appropriate method of images problem (as was done in [[S2020/Problems#Sphere|HW 7.2.1]] for a sphere);
-1. find $G(s,\phi;s',\phi')$ by finding equations for the potential outside of the cylinder when it is surrounded by a co-aligned cylindrical shell of radius $s'$ with a charge density that is proportional to $\delta(\phi-\phi')$ (similar to what was done in [[S2020/Problems#Sphere|HW 7.2.2]] for a sphere); and
-1. use Equation 1.44 of Jackson and a Green function to find the potential outside of the cylinder when it is held at a potential of $V_u$ for $0\lt \phi \lt \pi$ and $V_l$ for $\pi \lt \phi\lt 2\pi$.
-
-4. Find the potential outside of the cylinder for the boundary potential given in part 3. using the boundary value method.
-
-## 3-D
-
-### Infinite Dome or Infinite Plane
-
-#green-function-for-infinite-dome&l=1063&c=1
-
-## Green Functions
 
 Green's theorem (second identity) derived earlier is
 
@@ -2108,7 +1497,890 @@ $$\frac{1}{4\pi\epsilon_o}\frac{1}{|z-d|}-\frac{1}{4\pi\epsilon_o}\frac{1}{|z+d|
 
 is equivalent to the superposition of the potential created by the disk at potential $a$ and the potential due to a point charge above an infinite plane.
 
-## Between Spherical Shells
+## 1-D
+
+### Parallel Plates with Charged Sheet
+
+Equation 1.44 of Jackson states that the potential within a volume $\mathcal{V}$ enclosed by surface $\mathcal{S}$ can be computed using
+
+$$\Psi(\mathbf{x})=\frac{1}{4\pi\epsilon_o}\int_{\mathcal{V}}G_D(\mathbf{x},\mathbf{x}')\rho(\mathbf{x'}) d^3x'-\frac{1}{4\pi}\oint_{\mathcal{S}}\Psi(\mathbf{x}')\frac{\partial G_D}{\partial n'} da'$$
+
+provided that a Green function $G_D$ is known that satisfies
+
+$$\nabla'^2G_D=-4\pi\delta(\mathbf{x}-\mathbf{x}')\qquad\text{for}\thinspace\mathbf{x}'\thinspace\thinspace\text{in}\thinspace\thinspace\mathcal{V}$$
+
+and
+
+$$G_D(\mathbf{x},\mathbf{x}') = 0\qquad\text{for}\thinspace\mathbf{x}'\thinspace\thinspace\text{on}\thinspace\thinspace\mathcal{S}$$
+
+Previously, Green functions were found using the method of images. In this problem, you will find the Green function using an alternative method.
+
+Consider two infinite, parallel, and grounded conducting sheets in the $x=0$ and $x=d$ plane. In the $x=x'$ plane, there is an infinite non-conducting sheet with surface charge density $\sigma'$.
+
+1. Find the potentials to the left, $\psi_l$, and right, $\psi_r$, of the non-conducting sheet using any method.
+
+2. Write the potential $\psi(x)$ for $0\le x\le d$ as a single function using $\psi_l$ and $\psi_r$ and the Heavyside step function $\Theta$.
+
+3. Show that $\psi(0)=0$, $\psi(d)=0$, and $\nabla'^2\psi \sim \delta(x-x')$ and so this $\psi$ is proportional to $G_D$, and find the proportionality constant.
+
+Now that $G_D$ is known, the potential between the two conducting planes given any charge distribution $\rho$ can be computed using
+
+$$\Psi(\mathbf{x})=\frac{1}{4\pi\epsilon_o}\int_{\mathcal{V}}G_D(\mathbf{x},\mathbf{x}')\rho(\mathbf{x'}) d^3x'-\frac{1}{4\pi}\oint_{\mathcal{S}}\Psi(\mathbf{x}')\frac{\partial G_D}{\partial n'} da'$$
+
+Conceptually, one can see that the first integral is a weighted sum of $G_D$, which is proportional to the potential for a single sheet of charge between the plates at $x'$. This integral sums the potentials for a continuous set of sheets.
+
+4. Suppose the conducting planes are grounded and a non-conducting slab with charge density $\rho_o$ exists between them. Use the above equation to find $\Psi(\mathbf{x})$ between the conducting planes. 
+
+Notes: You will need to use the fact that $\Theta$ modifies the limits of integration, $d\Theta(x)/dx=\delta(x)$, and $d\Theta(-x)/dx=-\delta(x)$. You can check your answer either using Gauss' law or the boundary value method to find $\Psi(x)$.
+
+**Answer**
+
+Let subscript $l$ refer to quantities for $x\lt x'$ and subscript $r$ refer to quantities for $x\gt x'$.
+
+1\. One can answer this question by assuming a surface charge of $\sigma_l$ and $\sigma_r$ is induced on the plates at $x=0$ and $x=w$. Then use the formula $\sigma/2\epsilon_o$ for the electric field of the sheets of charge at $x=0$, $x=x'$, and $x=w$ to get the total field $E_l$ and $E_r$.  The two unknowns, $\sigma_l$ and $\sigma_r$, can be found by using the fact that the electric field in either of the conductors is zero - this yields $\sigma' = -(\sigma_l+\sigma_r)$, which is expected because the net charge in the universe is zero. The second equation needed to find $\sigma_l$ and $\sigma_r$ in terms of $\sigma'$ is
+
+$$\psi(w)-\psi(0) = 0 = -\int_0^w E\thinspace dx=-\int_0^{x'}E_ldx-\int_{x'}^wE_rdx$$
+
+Some students wrote their final answers in terms of $\sigma_l$ and $\sigma_r$. These were not parameters given in the problem statement and so such a solution is incomplete.
+
+Alternatively, one can use the fact that $\nabla^2 \psi(x)=0$ has solutions of the form $\psi=a+bx$, the two boundary conditions and the continuity and jump conditions at $x=x'$.
+
+$$\psi_l=A_l+B_lx$$
+
+$$\psi_r=A_r+B_rx$$
+
+Boundary conditions:
+
+$$\psi_l(0)=0\Rightarrow A_l=0$$
+
+$$\psi_r(w)=0=A_r+B_rw\Rightarrow A_r=-B_rw$$
+
+This leaves
+
+$$\psi_l=B_lx$$
+
+$$\psi_r=B_r(x-w)$$
+
+Continuity:
+
+$$\psi_l(x')=\psi_r(x')\Rightarrow B_lx'=B_r(x'-w)$$
+
+Jump:
+
+$$\left[-\frac{\partial \psi_r}{\partial x}+\frac{\partial \psi_l}{\partial x}\right]_{x=x'}=\frac{\sigma'}{\epsilon_o}$$
+
+$$-B_r+B_l=\frac{\sigma'}{\epsilon_o}\Rightarrow B_l=B_r+\frac{\sigma'}{\epsilon_o}$$
+
+The three equations left are
+
+$$A_r=-B_rw$$
+
+$$B_lx'=B_r(x'-w)$$
+
+$$B_l=B_r+\frac{\sigma'}{\epsilon_o}$$
+
+Solving gives
+
+$$B_l=-\frac{\sigma'}{\epsilon_o}\left(\frac{x'}{w}-1\right)$$
+
+$$B_r=-\frac{\sigma'}{\epsilon_o}\frac{x'}{w}$$
+
+So the final solution is
+
+$$\psi_l=\frac{\sigma'}{\epsilon_o}\left(1-\frac{x'}{w}\right)x$$
+
+$$\psi_r=\frac{\sigma'}{\epsilon_o}\left(1-\frac{x}{w}\right)x'$$
+
+Note that swapping $x$ and $x'$ in $\psi_l$ gives the equation for $\psi_r$, and vice-versa. That is, $\psi_l(x',x)=\psi_r(x,x')$.
+
+2\. $\psi=\psi_l(x)\Theta(x'-x)+\psi_r(x)\Theta(x-x')$
+
+Checks: 
+* When $x\lt x'$, $\Theta(x'-x)=1$ and $\Theta(x-x')=0$, giving $\psi=\psi_l$.
+* When $x\gt x'$, $\Theta(x'-x)=0$ and $\Theta(x-x')=1$, giving $\psi=\psi_lr$.
+
+3.
+
+$$\frac{d\psi}{dx} = \psi_l(x)\frac{d}{dx}\Theta(x'-x) + \Theta(x'-x)\frac{d\psi_l(x)}{dx} + \psi_r(x)\frac{d}{dx}\Theta(x-x')+\Theta(x-x')\frac{d\psi_r(x)}{dx}$$
+
+If one plots $\psi(x)$, you will see that its derivative has a jump downwards at $x=x'$ of $\sigma'/\epsilon_o$ and so we expect the terms in $d\psi/dx$ with the derivative of the Heavyside step function, which is the delta function, to be zero. So the two terms involving derivatives of $\Theta$ will be addressed first.
+
+The first term can be rewritten using
+
+$$\frac{d}{dx}\Theta(x'-x)=-\delta(x'-x)=-\delta(x-x')$$
+
+The first equality follows from the identity given in the problem statement: $d\Theta(-x)/dx=-\delta(x)$. The second equality is a standard delta function identity.
+
+The second term is
+
+$$\frac{d}{dx}\Theta(x-x')=\delta(x-x')$$
+
+The following two equalities follow from the fact that $\delta(x-x')$ is zero except at $x=x'$:
+
+$$-\psi_l(x)\delta(x-x')=-\psi_l(x')\delta(x-x')$$
+
+$$\psi_r(x)\delta(x-x')=\psi_r(x')\delta(x-x')$$
+
+As a result of these considerations, the two terms in $d\psi/dx$ involving derivatives of $\Theta$ cancel, leaving
+
+$$\frac{d\psi}{dx} = \Theta(x'-x)\frac{d\psi_l(x)}{dx} +\Theta(x-x')\frac{d\psi_r(x)}{dx}$$
+
+Straightforward calculation and use of the same identities as above gives
+
+$$\frac{d^2\psi}{dx^2}=-\frac{\sigma'}{\epsilon_o}\delta(x-x')$$
+
+This matches expectations. For a sheet of charge in the $x=x'$ plane, the volume charge density is
+
+$$\rho=\sigma'\delta(x-x')$$
+
+and Poisson's equation is
+
+$$\nabla^2\psi=-\frac{\rho}{\epsilon_o}$$
+
+(Recall that the units of $\delta(x)$ are inverse length. This follows from part of the definition of the delta function: $\int\delta(x)dx=1$).
+
+We need $G_D$ such that
+
+$$\nabla'^2G_D=-4\pi\delta(\mathbf{x}-\mathbf{x}')\qquad\text{for}\thinspace\mathbf{x}'\thinspace\thinspace\text{in}\thinspace\thinspace\mathcal{V}$$
+
+The units of $\delta(\mathbf{x})$ are 1/length$^3$. This follows from part of the definition of the 3-D delta function: $\int\delta(\mathbf{x})dx=1$. It is somewhat unconventional for a function with a scalar argument to have different units than when it has a vector argument and so some authors use $^3\delta(\mathbf{x})$ instead of $\delta(\mathbf{x})$. 
+
+In one dimension, $\delta(\mathbf{x}-\mathbf{x}')=\delta(x-x')/A$, so
+
+$$\nabla'^2G_D=-4\pi\delta(x-x')/A$$
+
+where $A$ is the area of the sheets. 
+
+The $A$ here plays a role similar to the $4\pi b^2$ found in the example done in class for the Green function associated with the interior of a sphere of radius $b$. 
+
+Due to the property $G_D(x,x')=G_D(x',x)$, we can equivalently write 
+
+$$\nabla^2G_D=-4\pi\delta(x-x')$$
+
+Several students thought that $\nabla'^2G_D$ in the problem statement was a typo and that it should have been $\nabla^2G_D$. Because $G_D(x,x')=G_D(x,x')$, either can be used. I used the primed version to be consistent with the derivation of equation 1.42 of Jackson, which uses the primed version in equation 1.39.
+
+----
+
+If you are uncomfortable with the appearance of $A$ here, go back to the derivation of equation 1.42 of Jackson, but repeat assuming $\psi$ and $\phi$ in equation 1.35 only on $x$. Another way of concluding $\nabla'^2G_D=-4\pi\delta(x-x')/A$ is to integrate $\nabla'^2G_D(x,x')=-4\pi\delta(\mathbf{x}-\mathbf{x}')=-4\pi\delta(x-x')\delta(y-y')\delta(z-z')$ over the non-varying dimensions :
+
+$$\int\int dy'dz'\nabla'^2G_D(x,x')=-4\pi\int \int dy'dz'\delta(x-x')\delta(y-y')\delta(z-z')=-4\pi\delta(x-x')$$
+
+$$AG_D(x,x')=-4\pi\delta(x-x')$$
+
+----
+
+Comparison of 
+
+$$\nabla'^2G_D=-4\pi\delta(x-x')/A$$
+
+with 
+
+$$\frac{d^2\psi}{dx^2}=-\frac{\sigma'}{\epsilon_o}\delta(x-x')$$
+
+gives
+
+$$G_D(x,x') = \frac{4\pi\epsilon_o}{A\sigma'}\psi$$
+
+4. Now that we have $G_D$ for this geometry, we can use it for any $\rho$ and any boundary condition. Take the volume $\mathcal{V}$ to have a volume of $Aw$. Its surface has 6 faces. Four of the faces have normal directions that are perpendicular to the $\hat{\mathbf{x}}$ direction and so $\partial G_D/\partial n'=0$ on these faces (e.g.,  $\partial G_D/\partial y'=\partial G_D/\partial z'=0$). 
+
+In the new problem, we are given that $\psi=0$ at $x=0$ and $x=d$ and so $\psi=0$ on the two faces with a normals in the $\pm x$ direction. As a result, the surface integral term in
+
+$$\Psi(\mathbf{x})=\frac{1}{4\pi\epsilon_o}\int_{\mathcal{V}}G_D(\mathbf{x},\mathbf{x}')\rho(\mathbf{x'}) d^3x'-\frac{1}{4\pi}\oint_{\mathcal{S}}\Psi(\mathbf{x}')\frac{\partial G_D}{\partial n'} da'$$
+
+is zero. This leaves
+
+$$\Psi(\mathbf{x})=\frac{1}{4\pi\epsilon_o}\int_{\mathcal{V}}G_D(\mathbf{x},\mathbf{x}')\rho(\mathbf{x'}) d^3x'$$
+
+_Note_
+
+It is at this point that we can recognize that because $G_D$ is proportional to $\psi$, this integral represents the summation of the potentials due to sheets of charge that are continuously distributed between $0$ and $w$ such that they form a continuous charge density $\rho$. In fact, without knowledge of Green's functions, one may have concluded that to find the potential due to a continuous $\rho$, one only needed to do a weighted sum of potentials due a single sheet of charge at $x'$. That is, you could use the replacement $\sigma'=\rho(x\thinspace dx'$ and then $\Psi(x)=\int_0^w (\psi(x')/\sigma')\rho(x\thinspace dx'$.
+
+One can also check this equation by using $\rho=\sigma'\delta(x-x')$ and $G_D$ found above and verifying that the resulting $\Psi$ matches the potential $\psi$ used to form $G_D$.
+
+Rewriting the Green function
+
+$$G_D(x,x') = \frac{4\pi\epsilon_o}{A\sigma'}\psi$$
+
+Using
+
+$$\psi=\psi_l(x)\Theta(x'-x)+\psi_r(x)\Theta(x-x')$$
+
+and
+
+$$\psi_l=\frac{\sigma'}{\epsilon_o}\left(1-\frac{x'}{w}\right)x$$
+
+$$\psi_r=\frac{\sigma'}{\epsilon_o}\left(1-\frac{x}{w}\right)x'$$
+
+gives
+
+$$G_D(x,x') = \frac{4\pi}{Aw}\left[(w-x')x\Theta(x'-x)+(w-x)x'\Theta(x-x')\right]$$
+
+Using $\rho=\rho_o$ and $G_D$ in
+
+$$\Psi(\mathbf{x})=\frac{1}{4\pi\epsilon_o}\int_{\mathcal{V}}G_D(\mathbf{x},\mathbf{x}')\rho(\mathbf{x'}) d^3x'$$
+
+gives
+
+$$\Psi(x)=\frac{\rho_o}{w\epsilon_o}\int_0^w \left[(w-x')x\Theta(x'-x)+(w-x)x'\Theta(x-x')\right]\thinspace dx'$$
+
+The $\Theta$ function modifies the limits of integration
+
+$$\Psi(x)=\frac{\rho_o}{w\epsilon_o} \left[\int_x^w(w-x'\thinspace dx' +\int_0^x(w-x)\thinspace dx'\right]$$
+
+and integration gives
+
+$$\Psi(x) = \frac{\rho_ow^2}{2\epsilon_o}\left[\frac{x}{w}-\frac{x^2}{w^2}\right]$$
+
+As a final check, note that $\Psi(0)=\Psi(w)=0$ and $d^2\Psi/x^2=-\rho_o/\epsilon_o$.
+
+(For practice with the $\Theta$ function, try this problem using $\rho=\rho_o\Theta(x-w/2)$ so that only half of the space is filled with a charged slab. In this case, there will be two $\Psi(x)$ functions, one for $x\lt w/2$ and the other for $x\gt w/2$. One student noted that the problem statement did not say that $\rho_o$ filled the space and tried to solve this assuming a conducting slab with an arbitrary thickness - however, the slab thickness was not given as a parameter in the problem statement so it is safe to assume that $\rho_o$ fills the space.)
+
+An alternative way of computing $\Psi$ is to start with
+
+$$\frac{d^2\Psi}{dx^2} = -\frac{\rho_o}{\epsilon_o}$$
+
+Direct integration gives
+
+$$\Psi(x) = -\frac{\rho_o}{\epsilon_o}\frac{x^2}{2} + C_1x + C_0$$
+
+Using $\Psi(0)=\Psi(w)=0$ to find $C_0$ and $C_1$ gives
+
+$$\Psi(x) = \frac{\rho_ow^2}{2\epsilon_o}\left[\frac{x}{w}-\frac{x^2}{w^2}\right]$$
+
+Alternatively, one can solve this problem using Gauss' law to find the electric field (it is easiest to use a Gaussian cylinder centered on $x=w/2$ with a height of $w-2x$).
+
+### Parallel Plates with Charged Slab I
+
+Previously, you found $G_D(x,x')$ and used it to find the potential $\Phi$, the potential between the conductors, when the space between the conductors was filled with a non-conducting slab with a uniform charge density - $\rho(x) = \rho_o$.
+
+1. Find $\Phi$ using $G$ from [[#HW_5|HW #5]] and equation 1.44 of Jackson.
+1. Find $\Phi$ using Gauss' law and $\psi(b)-\psi(a)=\int_a^b \mathbf{E}\bfcdot d\mathbf{l}$. Provide diagrams and address all surfaces of your Gaussian surface. Do not use the $\Phi$ found in part 1.
+1. Compute the surface charge density on the conductor at $x=0$ using $d\Phi/dn=-\sigma/\epsilon_o$.
+
+**Answer**
+
+In the following, subscript $r$ corresponds to potentials and fields for $0\lt x\le d/2$; subscript $r$ corresponds to $d/2\le x\lt d$. For surface charge densities, the subscript indicates the surface at $x=0$ or $x=d$.
+
+*Boundary Value Method*
+
+The following solution is written in dimensionless form using the replacements
+
+$\psi \rightarrow \psi/(\rho_od^2/\epsilon_o)$, $x\rightarrow x/d$, $E \rightarrow E/(\rho_od/\epsilon_o)$, and $\sigma \rightarrow \sigma/(\rho_od)$.
+
+Two solutions are computed. For $0\le x\le d/2$, we need to solve Poisson's equation. For $d/2\le x\le d$, we need to solve Laplace's equation. The two solutions are connected using boundary conditions at $x=d/2$.
+
+The Poisson equation $\nabla^2\psi_l=-1$ has the general solution
+
+$$\psi_l = -\frac{1}{2}x^2 + Ax + B$$
+
+Laplace's equation $\nabla^2\psi_r=0$ has the general solution
+
+$$\psi_r = Cx + D$$
+
+Boundary conditions:
+1. $\psi_l(0) = 0$
+1. $\psi_r(d) = 0$
+1. $\psi_l(1/2) = \psi_r(1/2)$
+1. $\left[-\partial \psi_r/\partial x + \partial \psi_l/\partial x\right]_{x=1/2}=0$
+
+BC 1. gives $B=0$; BC 2. gives $D=-C$. The potentials can then be written as
+
+$$\psi_l = -\frac{1}{2}x^2 + A\qquad\quad \psi_r = C(x - 1)$$
+
+BC 3. gives
+
+$$-\frac{1}{8}+A\frac{1}{2} = -C\frac{1}{2}\qquad\Rightarrow\qquad \frac{1}{4}-A = C$$
+
+BC 4. gives
+
+$$\frac{1}{2} - A + C = 0\qquad\Rightarrow\qquad -\frac{1}{2} + A = C$$
+
+After solving for $A$ and $C$ using these last two equations,
+
+$$\psi_l(x)=\frac{x}{2}\left(\frac{3}{4}-x\right)$$
+
+$$\psi_r(x)=\frac{1}{8}(1-x)$$
+
+This potential is plotted in [https://www.mathcha.io/editor/kMNEMierUZnHDQYLZBsDZ1B36TLgxqBxh168Mvn Figure 3.]
+
+'''Gauss' Law Method'''
+
+The electric field will be in $x$ direction because conducting planes are large.
+
+Dotted lines in [https://www.mathcha.io/editor/kMNEMierUZnHDQYLZBsDZ1B36TLgxqBxh168Mvn Figure 2.] are a side view of Gaussian cylinders with caps having area $A$. The electric field is parallel to the curved surface of the cylinder so the surface integral for the flux involves only the caps:
+
+$$\oint \mathbf{E}\bfcdot d\mathbf{a}=\int_{l\thinspace cap}\mathbf{E}\bfcdot d\mathbf{a}+\int_{r\thinspace cap}\mathbf{E}\bfcdot d\mathbf{a}=\frac{Q_{encl}}{\epsilon_o}$$
+
+Gaussian surfaces are shown in [https://www.mathcha.io/editor/kMNEMierUZnHDQYLZBsDZ1B36TLgxqBxh168Mvn Figure 2.]
+
+Gaussian surface 1.
+
+$$\epsilon_oE_{lc}A + \epsilon_oE_lA = \sigma_lA + \rho_oxA$$
+
+$E_{lc}$, the electric field inside the left conductor, is zero so this simplifies to
+
+$$1.\quad\epsilon_oE_l = \sigma_l + \rho_ox$$
+
+Gaussian surface 2.
+
+$$\epsilon_oE_{lc}A + \epsilon_oE_rA = \sigma_lA + \rho_o\frac{d}{2}A$$
+
+Using $E_{lc}=0$ this simplifies to
+
+$$2.\quad\epsilon_oE_r = \sigma_l + \rho_o\frac{d}{2}$$
+
+Gaussian surface 3.
+
+$$\epsilon_oE_{lc}A + \epsilon_oE_{rc}A = \sigma_lA + \rho_o\frac{d}{2}A + \sigma_rA$$
+
+$E_{rc}$, the electric field inside the right conductor, is zero so this simplifies to
+
+$$3.\quad 0 = \sigma_l + \rho_o\frac{d}{2} + \sigma_r$$
+
+The electric field is related to a potential difference by
+
+$$\psi(b)-\psi(a)=-\int_a^b \mathbf{E}\bfcdot d\mathbf{l}$$
+
+_Note_
+
+Quite often I see:
+
+$$\psi = -\int \mathbf{E}\bfcdot d\mathbf{l} = -\int_a^b \mathbf{E}\bfcdot d\mathbf{l}$$
+
+This is not correct. Either use the indefinite integral
+
+$$\psi = -\int \mathbf{E}\bfcdot d\mathbf{l}$$
+
+and solve for the constant of integration using the potential at a location where it is known or use the definite integral 
+
+$$\psi(b)-\psi(a)=-\int_a^b \mathbf{E}\bfcdot d\mathbf{l}$$
+
+or
+
+$$\psi(x)-\psi(a)=-\int_a^x \mathbf{E}\bfcdot d\mathbf{l}$$
+
+both of which has no constant of integration.
+
+Also, avoid writing $\psi$ with no argument; use $\psi(x)$ to indicate a potential that depends on position and $\psi(b)$ to indicate the potential at a fixed position, where $b$ is a constant.
+
+The potential difference between the conducting plates is
+
+$$\psi(d) - \psi(0) = -\int_0^dE(\thinspace dx = -\int_0^{d/2}E_l(\thinspace dx - \int_{d/2}^dE\thinspace dx$$
+
+Both plates are grounded so $\phi(0)=\phi(d)=0$ and
+
+$$0 - 0 = -\int_0^{d/2}E_l(\thinspace dx - \frac{d}{2}E_r$$
+
+where the fact that $E_r$ is constant from equation 2. was used. Substituting $E_l$ and $E_r$ found using Gaussian surfaces 1. and 2. gives
+
+$$0 = -\left[\sigma_lx + \rho_o\frac{x^2}{2}\right]_0^{d/2} - \frac{d}{2}\left(\sigma_l + \rho_o\frac{d}{2}\right)$$
+
+This gives
+
+$$\sigma_l=-\frac{3}{8}\rho_od$$
+
+Using $0 = \sigma_l + \frac{1}{2}\rho_od + \sigma_r$ found using Gaussian surface 3.,
+
+$$\sigma_r=-\frac{1}{8}\rho_od$$
+
+Substitution of $\sigma_l$ into equations 1. and 2. gives
+
+$$\epsilon_oE_l = -\frac{3}{8}\rho_od+ \rho_ox$$
+
+$$\epsilon_oE_r = -\frac{3}{8}\rho_od + \frac{1}{2}\rho_od=\frac{1}{8}\rho_od$$
+
+Because the functional form electric field changes at $x=d/2$, we need to find expressions for the potential in each region.
+
+For $x \le d/2$, $\psi_l(x)-\psi(0) = \psi_l(x)=-\int_0^x E_l(x\thinspace dx'$. Integration gives
+
+$$\psi_l(x)=\frac{\rho_o}{\epsilon_o}\frac{x}{2}\left(\frac{3}{4}d-x\right)\qquad x\le d/2$$
+
+For $x \ge d/2$, $\psi_r(x)-\psi(0) = -\int_0^{d/2} E_l(x\thinspace dx'-\int_{d/2}^x E\thinspace dx'$. Integration gives
+
+$$\psi_r(x)=\frac{\rho_o}{\epsilon_o}\frac{d}{8}(d-x)\qquad d/2 \le x\le d$$
+
+The potential has a maximum inside the charged slab at $x=3d/8$.
+
+Checks:
+
+* Just outside of conductor, $\mathbf{E}\bfcdot \hat{\mathbf{n}} = \sigma/\epsilon_o$ so we expect $E_l(0)=\sigma_l/\epsilon_o$, $E_r(d)=-\sigma_r/\epsilon_o$.
+* $E_r$ is constant - this is expected because $\boldsymbol{\nabla}\bfcdot \mathbf{E} = -\rho/\epsilon_o$ and $\rho=0$ in that region; because problem is 1-D, $\boldsymbol{\nabla}=d/dx$ giving $d E_r/dx = 0\Rightarrow E_r=const$.
+* $\psi_l$ and $\psi_r$ satisfy $\psi_l(0)=0$ and $\psi_r(d)=0$ and $\psi_l(d/2)=\psi_r(d/2)$.
+* The meaning of $x=3d/8$ - at this value of $x$, the amount of charge to the left is zero: $\sigma_lA+3\rho_oAd/8=0$ as is the amount of charge to the right: $\rho_oAd/8+\sigma_rA+=0$. The slope of the potential is zero and this corresponds to a net force of zero on a test charge and  hence an electric field of zero, which was found.
+
+_Gauss' Law + Reciprocity Method_
+
+The reciprocity equation stated in problem 1.12 of Jackson can be used to determine the charge density $\sigma_l$ on the left conductor (see [[#HW_2|HW #2]]). In this case, steps 3. and 4. in the Gauss' Law method are not needed. One can use the equations for $E_r$ and $E_l$ from Gaussian surfaces 1. and 2. in the Gauss' Law method, which depend on only one unknown: $\sigma_l$. The potentials are then found in the same way as before, using
+
+For $x \le d/2$
+
+$$\psi_l(x)-\psi(0) = -\int_0^x E_l dx$$
+
+For $x \ge d/2$
+
+$$\psi_r(x)-\psi(0) = -\int_0^{d/2} E\thinspace dx-\int_{d/2}^x E\thinspace dx$$
+
+'''Green Function Method'''
+
+From HW 5.1, with the replacement of $w$ with $d$,
+
+$$G_D(x,x') = \frac{4\pi}{Ad}\Big[(d-x')x\Theta(x'-x)+(d-x)x'\Theta(x-x')\Big]$$
+
+Let $\mathcal{V}$ be the volume between the plates. On four of the surfaces of $\mathcal{V}$, $\partial G/\partial n'=0$. On two of the surfaces, $\Psi=0$. As a result, the second term in
+
+$$\Psi(\mathbf{x})=\frac{1}{4\pi\epsilon_o}\int_{\mathcal{V}}G_D(\mathbf{x},\mathbf{x}')\rho(\mathbf{x'}) d^3x'-\frac{1}{4\pi}\oint_{\mathcal{S}}\Psi(\mathbf{x}')\frac{\partial G_D}{\partial n'} da'$$
+
+is zero leaving. $G$ does not depend on $y$ and $z$, so this simplifies to
+
+$$\Psi(x)=\frac{A}{4\pi\epsilon_o}\int_0^dG_D(x,x')\rho(x') dx'$$
+
+Using $\rho(x')=\rho_o\Theta(d/2-x')$, the limits of integration are modified
+
+$$\Psi(x)=\frac{A\rho_o}{4\pi\epsilon_o}\int_0^{d/2}G_D(x,x') dx'$$
+
+Substitution of $G_D(x,x')$ in this equation gives
+
+$$\Psi(x)=\frac{\rho_o}{d\epsilon_o}\int_0^{d/2}\Big[(d-x')x\Theta(x'-x)+(d-x)x'\Theta(x-x')\Big] dx'$$
+
+The arguments to the $\Theta$ depend on $x$. By plotting $\Theta(x'-x)$ and $\Theta(x-x')$, one can see that that the limits of integration will depend on $x$.
+
+If $x \gt d/2$, and for the limits of integration that correspond to $x'=[0,d/2]$,
+
+$\Theta(x'-x)=0$ and $\Theta(x-x')=1$ for all $x'$.
+
+Calling the potential for $x \gt d/2$ $\Psi_r$, the required integration is of the second term in $G$:
+
+$$\Psi_r(x)=\frac{\rho_o}{d\epsilon_o}\int_0^{d/2}(d-x)\thinspace dx'$$
+
+$$\Psi_r(x)=\frac{\rho_o}{\epsilon_o}\frac{d}{8}(d-x)$$
+
+If $x \lt d/2$, and for the limits of integration that correspond to $x'=[0,d/2]$, 
+
+$\Theta(x'-x)=1$ only when $x'\gt x$ and
+
+$\Theta(x-x')=1$ only when $x'\lt x$. 
+
+Using this to modify the limits of integration gives the required integration of
+
+$$\Psi_l(x)=\frac{\rho_o}{d\epsilon_o}\left[\int_x^{d/2}(d-x'\thinspace dx'+\int_0^{x}(d-x)\thinspace dx'\right]$$
+
+$$\Psi_l(x)=\frac{\rho_o}{\epsilon_o}\frac{x}{2}\left(\frac{3}{4}d-x\right)$$
+
+The surface charge densities can be computed and compared with previous answers:
+
+$$\sigma_l=-\epsilon_o\frac{\partial \Psi_l}{\partial x}=-\frac{3}{8}\rho_od$$
+
+$$\sigma_r=\epsilon_o\frac{\partial \Psi_r}{\partial x}=-\frac{1}{8}\rho_od$$
+
+The motivation for asking for the charge densities was as a hint of a way to check your answer.
+
+### Parallel Plates with Charged Slab II
+
+
+Two infinite and grounded conducting sheets are in the $x=0$ and $x=w$ plane. In the $x=x'$ plane, there is an infinite non-conducting sheet with surface charge density $\sigma'$.
+
+1. Find the potential, $\psi_l(x)$, on the left ($0\le x\le x'$) and to the right ($x'\le x\le w$), $\psi_r(x)$, of the non-conducting sheet using any method (Gauss's law or the boundary value method can be used; you should be able to do it using both methods, but you need to only show your work using one method).
+
+2. Write the potential $\psi(x)$ for $0\le x\le w$ as a single function using $\psi_l$ and $\psi_r$ and the Heavyside step function $\Theta$. (In the future this $\psi$ (with $\sigma'/\epsilon_o$ set to 1), will be called a Green function, which is the motivation for the title of this problem.)
+
+3. Show that $\nabla^2\psi(x) = -\frac{\sigma'}{\epsilon_o}\delta(x-x')$. You will need to use the fact that $d\Theta(x)/dx=\delta(x)$, and $d\Theta(-x)/dx=-\delta(x)$. Also compute $\nabla'^2\psi(x)$, where the prime means to take derivatives with respect to primed variables. (This may seem odd because $x'$ was defined to be a constant; here you are being asked to treat it as a variable. You should get an answer that is proportional to $\delta(x-x')$).
+
+As discussed in class, the motivation for solving this problem is that its potential, $\psi$, can be used in Green's second identity (eqation 1.35), which is a form of reciprocity, to solve the most general problem for this geometry. The most general problem is to find the potential $\Phi(x)$ when $\rho=\rho(x)$ between $x=a$ and $x=b$, the left plane is grounded, and the right plane is at potential $V_o$. Instead of using $\psi$ found above to solve the most general problem, first use it to solve an easier problem:
+
+4. Use Equation 1.35 and $\psi(x)$ to find the potential $\Phi(x)$ when $\rho(x)=0$ between the conductors and $\Phi(0)=0$ and $\Phi(w)=V_o$. Include a sketch or a sentence where you define $\mathcal{V}$ and $\mathcal{S}$ when you use Equation 1.35. There will be a subtilty with notation here -- if you use Equation 1.35 as written, you'll end up with $\Phi(x')$ and not the desired $\Phi(x)$.
+
+%5. Suppose the conducting planes are grounded and a non-conducting slab with charge density $\rho_o$ exists between them. Use the above equation to find $\Psi(\mathbf{x})$ between the conducting planes. 
+
+**Solution**
+
+**1\.** One can answer this question by assuming a surface charge of $\sigma_l$ and $\sigma_r$ is induced on the plates at $x=0$ and $x=w$. Then use the formula $\sigma/2\epsilon_o$ for the electric field of the sheets of charge at $\sigma_l$ at $x=0$, $\sigma'$ at $x=x'$, and $\sigma_r$ at $x=w$ to get the total field $E_l$ and $E_r$.  The two unknowns, $\sigma_l$ and $\sigma_r$, can be found by using the fact that the electric field in either of the conductors is zero - this yields $\sigma' = -(\sigma_l+\sigma_r)$, which is expected because the net charge in the universe is zero. The second equation needed to find $\sigma_l$ and $\sigma_r$ in terms of $\sigma'$ is
+
+$\displaystyle\psi(w)-\psi(0) = 0 = -\int_0^w E\thinspace dx=-\int_0^{x'}E_ldx-\int_{x'}^wE_rdx$
+
+Alternatively, one can use the fact that $\nabla^2 \psi(x)=0$ has solutions of the form $\psi=A+Bx$, the two boundary conditions and the continuity and jump conditions at $x=x'$.
+
+$\psi_l=A_l+B_lx\qquad\psi_r=A_r+B_rx$
+
+Boundary conditions:
+
+$\psi_l(0)=0\Rightarrow A_l=0$
+
+$\psi_r(w)=0=A_r+B_rw\Rightarrow A_r=-B_rw$
+
+This leaves
+
+$\psi_l=B_lx$ and $\psi_r=B_r(x-w)$
+
+Continuity:
+
+$\psi_l(x')=\psi_r(x')\Rightarrow B_lx'=B_r(x'-w)$
+
+Jump:
+
+The jump condition follows from Gauss's law with a Gaussian cylinder with one end cap to the left of $x'$ and the other to the right. It also follows from integrating $\nabla^2\psi=d(d\psi/dx)/dx=-\sigma'\delta(x-x')/\epsilon_o$ once with respect to $x$.
+The condition is
+
+$\displaystyle E_r-E_l=\frac{\sigma'}{\epsilon_o}$
+
+or
+
+$\displaystyle\left[-\frac{\partial \psi_r}{\partial x}+\frac{\partial \psi_l}{\partial x}\right]_{x=x'}=\frac{\sigma'}{\epsilon_o}$
+
+$\displaystyle-B_r+B_l=\frac{\sigma'}{\epsilon_o}\Rightarrow B_l=B_r+\frac{\sigma'}{\epsilon_o}$
+
+The three equations left are
+
+$A_r=-B_rw\qquad B_lx'=B_r(x'-w)\qquad B_l=B_r+\frac{\sigma'}{\epsilon_o}$
+
+Solving gives
+
+$\displaystyle B_l=-\frac{\sigma'}{\epsilon_o}\left(\frac{x'}{w}-1\right)$ and $B_r=-\frac{\sigma'}{\epsilon_o}\frac{x'}{w}$
+
+So the final solution is
+
+$\boxed{\displaystyle\psi_l=\frac{\sigma'}{\epsilon_o}\left(1-\frac{x'}{w}\right)x\quad\quad\displaystyle\psi_r=\frac{\sigma'}{\epsilon_o}\left(1-\frac{x}{w}\right)x'}$
+
+Note that swapping $x$ and $x'$ in $\psi_l$ gives the equation for $\psi_r$, and vice-versa. That is, $\psi_l(x',x)=\psi_r(x,x')$.
+
+**2\.**
+
+$\boxed{\psi=\psi_l(x)\Theta(x'-x)+\psi_r(x)\Theta(x-x')}$
+
+Checks: 
+* When $x\lt x'$, $\Theta(x'-x)=1$ and $\Theta(x-x')=0$, giving $\psi=\psi_l$.
+* When $x\gt x'$, $\Theta(x'-x)=0$ and $\Theta(x-x')=1$, giving $\psi=\psi_r$.
+
+**3\.**
+
+$\begin{array}{ll}
+\displaystyle\frac{d\psi}{dx} & = \displaystyle\thickspace \psi_l(x)\frac{d}{dx}\Theta(x'-x) + \Theta(x'-x)\frac{d\psi_l(x)}{dx} \\\\
+& \displaystyle+\thickspace\psi_r(x)\frac{d}{dx}\Theta(x-x')+\Theta(x-x')\frac{d\psi_r(x)}{dx}
+\end{array}
+$
+
+If one plots $\psi(x)$, you will see that its derivative has a jump downwards at $x=x'$ of $\sigma'/\epsilon_o$ and so we expect the terms in $d\psi/dx$ with the derivative of the Heavyside step function, which is the delta function, to be zero. So the two terms involving derivatives of $\Theta$ will be addressed first.
+
+The first term can be rewritten using
+
+$\displaystyle\frac{d}{dx}\Theta(x'-x)=-\delta(x'-x)=-\delta(x-x')$
+
+The first equality follows from the identity given in the problem statement: $d\Theta(-x)/dx=-\delta(x)$. The second equality is a standard delta function identity.
+
+The second term is
+
+$\displaystyle\frac{d}{dx}\Theta(x-x')=\delta(x-x')$
+
+The following two equalities follow from the fact that $\delta(x-x')$ is zero except at $x=x'$:
+
+$\psi_l(x)\delta(x-x')=\psi_l(x')\delta(x-x')$
+
+$\psi_r(x)\delta(x-x')=\psi_r(x')\delta(x-x')$
+
+Given that $\psi_r(x')=\psi_l(x')$, the two terms in $d\psi/dx$ involving derivatives of $\Theta$ cancel, leaving
+
+$\displaystyle\frac{d\psi}{dx} = \Theta(x'-x)\frac{d\psi_l(x)}{dx} +\Theta(x-x')\frac{d\psi_r(x)}{dx}$
+
+Straightforward calculation and use of the same identities as above gives
+
+$\displaystyle\frac{d^2\psi}{dx^2}=-\frac{\sigma'}{\epsilon_o}\delta(x-x')$
+
+This matches expectations. For a sheet of charge in the $x=x'$ plane, the volume charge density is
+
+$\rho=\sigma'\delta(x-x')$
+
+and Poisson's equation is $\displaystyle\nabla^2\psi=-\frac{\rho}{\epsilon_o}$
+
+(Recall that the units of $\delta(x)$ are inverse length. This follows from part of the definition of the delta function: $\int\delta(x)dx=1$).
+
+4\. Equation 1.35 with $\phi$ replaced with $\Phi$ is
+
+$$\int_{\mathcal{V}} \left(\Phi\nabla^2\psi -\psi\nabla^2\Phi\right)d^3x=\oint_{\mathcal{S}}\left(\Phi\frac{\partial \psi}{\partial n}-\psi\frac{\partial \Phi}{\partial n}\right) da$$
+
+Let $\mathcal{V}$ be the volume spanned by $x=[0,w]$, $y=[0,b]$, and $z=[0,b]$, where $b$ is arbitrary. This volume has six surfaces and so the surface integral will have six parts.
+
+In the volume integral, the term with $\nabla^2\Phi=0$ because there is no charge in the volume of the $\Phi$ system. Subtitution of $\nabla^2\psi=-(\sigma'/\epsilon_o)\delta(x-x')$ gives
+
+$\displaystyle (\sigma'/\epsilon_o)\int_{\mathcal{V}} \Phi\delta(x-x')d^3x=\oint_{\mathcal{S}}\left(\Phi\frac{\partial \psi}{\partial n}-\psi\frac{\partial \Phi}{\partial n}\right) da$
+
+Integration over $x$ gives
+
+$\displaystyle -\frac{\sigma'}{\epsilon_o}\Phi(x')\int dydz=\oint_{\mathcal{S}}\left(\Phi\frac{\partial \psi}{\partial n}-\psi\frac{\partial \Phi}{\partial n}\right) da$
+
+Of the six sides of the surface, $\Phi=0$ on all except the one in the $x=w$ plane for which the outward normal is $n=x$. So
+
+$\displaystyle\oint_{\mathcal{S}}\Phi\frac{\partial \psi}{\partial n}da=\int V_o\left[\frac{\partial \psi_r}{\partial x}\right]_{x=w}dydz=V_o\int \left[-\frac{\sigma'}{\epsilon_o}\frac{x'}{w}\right]dydz=-V_o \frac{\sigma'}{\epsilon_o}\frac{x'}{w}\int dydz$
+
+where $\psi_r=\frac{\sigma'}{\epsilon_o}\left(1-\frac{x}{w}\right)x'$ found in part 1. was used.
+
+One could assert that we expect $\Phi$ to depend only on $x$, so $\frac{\partial \Phi}{\partial n}=0$ on the other four faces, for which $n=-y,y,-z,z$. Alternatively, one can use symmetry make the same conclusion:
+
+----
+
+The sides of $\mathcal{V}$ that are in the $x=0$ and $x=w$ plane have $\psi=0$, so two of the surface integrals of $\oint \psi\frac{\partial \Phi}{\partial n} da$ are zero. 
+
+On the surface in the $y=0$ plane, $n = -y$, so we need to evaluate
+
+$-\displaystyle \int_0^w\int_0^b \Psi(x,0,z)\frac{\partial \Phi}{\partial z}\Bigg|_{y=0}dxdz$
+
+On the surface in the $y=b$ plane, $n = y$, so we need to evaluate
+
+$\displaystyle \int_0^w\int_0^b \psi(x,b,z)\frac{\partial \Phi}{\partial z}\Bigg|_{y=b}dxdz$
+
+Because the geometry is invariant with respect to $y$, the two partial derivatives are equal and the sum of these two surface integrals is zero. An idential argument can be made for the surfaces at $z=0$ and $z=b$.
+
+----
+
+All of the parts of the volume and surface integrals have not been evaluated and so equation 1.35 reduces to
+
+$\displaystyle -\frac{\sigma'}{\epsilon_o}\Phi(x')\int dydz = -V_o \frac{\sigma'}{\epsilon_o}\frac{x'}{w}\int dydz$
+
+or
+
+$\displaystyle \Phi(x')=V_o\frac{x'}{w}$
+
+In the problem statement $\Phi(x)$ was requested. In the above equation, we have $\Phi$ as a function of $x'$, which was a constant in the $\psi$ problem. Given that both $x'$ $0$ and $w$, we can find any value of $\Phi$ in this range by solving a problem with $x'$ set to that value. Thus, we can equivantly replace $x'$ with $x$ and so we have shown  
+
+$\displaystyle \Phi(x)=V_o\frac{x}{w}$
+
+### 1-D Spherical – Outer boundary at ∞
+
+### 1-D Spherical
+
+Two conducting and grounded spherical shells of radius $b$ and $c$ are centered on the origin, and $c\gt b$.
+
+A nonconducting spherical shell is centered on the origin and has a charge density of $\sigma'$ and radius $r'$, with $b \lt r' \lt c$.
+
+1. Find $\psi_i(r)$, the potential between the inner conducting shell and the charged shell and $\psi_o(r)$, the potential between the charged shell and the outer conducting shell. (Read the subscript $i$ as "inner" and $o$ as "outer".)
+2. Find the surface charge densities on the inner and outer conductor.
+3. Verify that Gauss's law is satisfied for a Gaussian sphere centered on the origin and with a radius that is between the charged shell and the outer conducting shell.
+2. Write the potential $\psi(r)$ for $b\le r\le c$ as a single function using $\psi_i$ and $\psi_o$ and the Heavyside step function $\Theta$.
+
+**Solution**
+
+**1\.** Instead of starting with $\psi_i=A_i+B_i/r$ and $\psi_o=A_o+B_o/r$, we immediately write
+
+$\displaystyle\psi_i=C_i\left(\frac{1}{r}-\frac{1}{b}\right)$ and $\displaystyle\psi_o=C_o\left(\frac{1}{r}-\frac{1}{c}\right)$
+
+because we know the potential must have a $1/r$ dependence and the above two equations satisfy $\psi_i(b)=0$ and $\psi_o(c)=0$. What is left then is to use the conditions $\psi_i(r')=\psi_o(r')$ and $E_o(r')-E_i(r')=\sigma'/\epsilon_o$ to find the two unknows $C_i$ and $C_o$. The result is
+
+$\displaystyle\psi_i=-\frac{\sigma'r'^2}{\epsilon_o}\left(\frac{1}{\frac{1}{b}-\frac{1}{c}}\right)\left(\frac{1}{r'}-\frac{1}{c}\right)\left(\frac{1}{r}-\frac{1}{b}\right)$
+
+$\displaystyle\psi_o=-\frac{\sigma'r'^2}{\epsilon_o}\left(\frac{1}{\frac{1}{b}-\frac{1}{c}}\right)\left(\frac{1}{r'}-\frac{1}{b}\right)\left(\frac{1}{r}-\frac{1}{c}\right)$
+ 
+Written in terms of the total charge $q'$ on the shell with charge density $\sigma'$ at $r=r'$, this is
+
+$\displaystyle\psi_i=-\frac{q'}{4\pi\epsilon_o}\left(\frac{1}{\frac{1}{b}-\frac{1}{c}}\right)\left(\frac{1}{r'}-\frac{1}{c}\right)\left(\frac{1}{r}-\frac{1}{b}\right)$
+
+$\displaystyle\psi_o=-\frac{q'}{4\pi\epsilon_o}\left(\frac{1}{\frac{1}{b}-\frac{1}{c}}\right)\left(\frac{1}{r'}-\frac{1}{b}\right)\left(\frac{1}{r}-\frac{1}{c}\right)$
+
+As before, there is symmetry with respect to swapping the spatial coordinate $r$ with a parameter $r'$: $\psi_i(r,r')=\psi_o(r',r)$ (note that this is only after writing the potentials in terms of the charge on the shell at $r=r'$).
+
+**2\.** From Gauss's law, near the surface of a conductor $\sigma=-\epsilon_o d\psi/dn$, where $n$ is in the direction perpendicular to the conductor and outwards. For the inner conductor, $n=r$; for the outer, $n=-r$. (Note that in Green's second identity, the convention is that $n$ is in the direction perpendicular to $\mathcal{V}$ and outwards.) Evaluation givves
+
+$\displaystyle\sigma_i=-\frac{q'}{4\pi}\left(\frac{1}{\frac{1}{b}-\frac{1}{c}}\right)\left(\frac{1}{r'}-\frac{1}{c}\right)\left[\frac{1}{b^2}\right]$
+
+$\displaystyle\sigma_o=+\frac{q'}{4\pi}\left(\frac{1}{\frac{1}{b}-\frac{1}{c}}\right)\left(\frac{1}{r'}-\frac{1}{b}\right)\left[\frac{1}{c^2}\right]$
+
+The charge induced on the inner and outer surface is
+
+$\displaystyle q_i=-q'\left(\frac{1}{\frac{1}{b}-\frac{1}{c}}\right)\left(\frac{1}{r'}-\frac{1}{c}\right)$
+
+$\displaystyle q_o=+q'\left(\frac{1}{\frac{1}{b}-\frac{1}{c}}\right)\left(\frac{1}{r'}-\frac{1}{b}\right)$
+
+Checks:
+
+1\. As $r'\rightarrow b$, $q_i\rightarrow -q'$ and $q_o\rightarrow 0$.
+
+2\. As $r'\rightarrow c$, $q_i\rightarrow 0$ and $q_o\rightarrow -q'$.
+
+3\. In [HW #2.3.2](#green-s-reciprocity-use), we found the charge induced when a point charge was at $r'$. We can use that answer and superposition to find the total charge induced if point charges are distributed uniformly on a sphere. This should match the total charge induced found in this problem. From #2.3.2, the answers were (with $r_o$ replaced with $r'$):
+
+$\displaystyle q'_{r=b}=-\frac{q'b}{c-b}\left(\frac{c}{r'}-1\right)=-q'\left(\frac{1}{\frac{1}{b}-\frac{1}{c}}\right)\left(\frac{1}{r'}-\frac{1}{c}\right)$
+
+$\displaystyle q'_{r=c}=+\frac{q'c}{c-b}\left(\frac{b}{r_o}-1\right)=+q'\left(\frac{1}{\frac{1}{b}-\frac{1}{c}}\right)\left(\frac{1}{r'}-\frac{1}{b}\right)$
+
+The "superposition" argument requires a bit more justification. Consider two separate problems. In one problem there is $dq'$ at $(r',\theta',\phi')$; call the potential for this single $dq$ problem $\psi'(r,\theta,\phi;r',\theta',\phi')$. This potential will satisfy
+
+$\nabla^2\psi'(r,\theta,\phi;r',\theta',\phi')=-dq'\delta(\mathbf{r}-\mathbf{r}')$ with $\psi'=0$ at $r=b$ and $\psi'=0$ at $r=c$
+
+In another problem, there is $dq''$ at $(r',\theta'',\phi'')$; call the potential for this single $dq''$ problem $\psi(r,\theta,\phi;r'',\theta'',\phi'')$. This potential will satisy
+
+$\nabla^2\psi''(r,\theta,\phi;r'',\theta'',\phi'')=-dq'\delta(\mathbf{r}-\mathbf{r}'')$ with $\psi''=0$ at $r=b$ and $\psi''=0$ at $r=c$
+
+The sum $\psi' + \psi''$ satisfies
+
+$\nabla^2(\psi'+\psi'')=-dq'\delta(\mathbf{r}-\mathbf{r}')-dq'\delta(\mathbf{r}-\mathbf{r}'')$ with $\psi'+\psi''=0$ at $r=b$ and $\psi'+\psi''=0$ at $r=c$
+
+This argument can be extended for an arbitrary number of differential charges on a sphere of radius $r'$.
+
+We can conclude that the sum of the potentials for isolated charges at any position on a surface of radius $r'$ and $r''$ satsifies Poisson's equation and the boundary conditions, which is the same condictions that we require for the combined charge problem. The charge density obeys superposition: $\sigma/epsilon_o = -d\psi/dn =  -(d\psi'/dn + d\psi''/dn)$ so that the charge densities on the conductors for two charge case is the sum of the charge densities for from each individual case.
+
+Another way of justifying superposition is to note that for the isolated $dq'$ problem, the net force on the charges induced on the conductors is zero. If $dq''$ is introduced the net force on all of the induced charges will still be zero.
+
+## 2-D
+
+### Long Tube with Sheet of Charge
+
+#long-rectangular-tube-with-sheet-of-charge&l=1240&c=1
+
+### Long Tube with Line of Charge
+
+See HW 6.1
+
+### U-Shaped Channel
+
+A U-shaped, conducting, and grounded channel is shown in Fig. 1a; its cross-section is shown in Fig. 1b. The channel is infinite in the $\pm z$ and the top and bottom parts extend to $x=+\infty$.
+
+An infinitely long (in the $\pm z$-direction) non-conducting sheet of charge with a surface charge density of $\sigma'$ is placed inside the tube at $x=d$ as shown.
+
+[[Image:Uchannel2.png|500px]]
+
+1. Find $\psi(x,y)$
+
+2. Find an equation for the surface charge density at $(x,y)=(0,1/2)$ in the form of an infinite series.
+
+3. For $d=0$, uses Gauss' law to find an expression for the surface charge density at $(x,y)=(0,1/2)$ that is not in the form of an infinite series. Provide a diagram and discuss all surfaces of your Gaussian surface.
+
+4. Find $\psi(x,y)$ when an infinitely long (in the $\pm z$-direction) non-conducting slab of charge with a volume charge density $\rho'$ fill the region between $x=0$ to $x=d$ and $y=0$ to $y=1$
+
+Extra credit: Show that the result of 2. evaluated at $d=0$ is equivalent to the result of 3.
+
+Note: Initial version had $x'$ in part 3. and extra credit statement instead of $d$.
+
+**Answer**
+
+In the following, I used $x'$ instead of $d$ for the location of $\sigma'$. The motivation for using $d$ in the problem statement was to make sure that you knew to change $d$ to $x'$ in $\psi$ when doing the integral for part 4.
+
+Justifications for steps that are the same as used in the previous problem are not repeated.
+
+Outside of the channel, the potential is zero. (The conductor shields the outside from electric fields.) To see this formally, consider a [https://www.mathcha.io/editor/K4BjWfWBUm3TGdOEdHkNBgDcZzznM2CwVxxdl large sphere that encloses the channel] but has a slot corresponding to the surface of the channel. Laplace's equation is satified in the shaded volume. The part of the volume that touches the channel is at a potential of zero. As the radius of the sphere approaches infinity, the surface of the sphere is far away from all charges and so the potential on the outer surface is zero. The potential $\psi=0$ satisfies Laplace's equations and the boundary conditions on the surface of the volume, so the solution for the potential in the volume is zero. 
+
+1.
+
+$$\psi_l(x,y) = \sum_{n=1}^{\infty} A_n\sin(n\pi y)\sinh(n\pi x)$$
+
+$$\psi_r(x,y) = \sum_{n=1}^{\infty} B_n\sin(n\pi y)e^{-n\pi x}$$
+
+$$\psi_l(x',y) = \psi_r(x',y)$$
+
+$$\sum_{n=1}^{\infty} \sin(n\pi y)\Big[A_n\sinh(n\pi x')-B_ne^{-n\pi x'}\Big] = 0$$
+
+$$A_n = B_n\frac{e^{-n\pi x'}}{\sinh(n\pi x')}$$
+
+$$\psi_l = \sum_{n=1}^{\infty} B_ne^{-n\pi x'}\frac{\sinh(n\pi x)}{\sinh(n\pi x')}\sin(n\pi y)$$
+
+$$\psi_r = \sum_{n=1}^{\infty} B_ne^{-n\pi x}\sin(n\pi y)$$
+
+$$\left[-\frac{\partial \psi_r}{\partial x}+\frac{\partial \psi_l}{\partial x}\right]_{x=x'}=\frac{\sigma'}{\epsilon_o}$$
+
+$$\sum_{n=1}^{\infty} B_n\sin(n\pi y)\left[n\pi e^{-n\pi x'}+n\pi e^{-n\pi x'}\frac{\cosh(n\pi x')}{\sinh(n\pi x')}\right]=\frac{\sigma'}{\epsilon_o}$$
+
+Using $\sinh(u)+\cosh(u)=e^u$, this can be written as
+
+$$\sum_{n=1}^{\infty} B_n\left(\frac{n\pi }{\sinh(n\pi x')}\right)\sin(n\pi y)=\frac{\sigma'}{\epsilon_o}$$
+
+Multiply both sides by $\sin(l\pi \thinspace dy$ and integrate from $y=0$ to $y=1$ and use
+
+$$
+\int_0^1\sin(l\pi y)\sin(n\pi \thinspace dy=
+\begin{cases}
+\frac{1}{2} & \text{if $n=l$}\\
+0 & \text{otherwise}
+\end{cases}
+$$
+
+$$
+\int_0^1\sin(l\pi \thinspace dy=
+\begin{cases}
+\frac{2}{l\pi} & l=1,3,...\\
+0 & \text{otherwise}
+\end{cases}
+$$
+
+$$\psi_l = \frac{4\sigma'}{\pi^2\epsilon_o}\sum_{n=1,3,...}^{\infty} \frac{e^{-n\pi x'}}{n^2} \sinh(n\pi x)\sin(n\pi y)$$
+
+$$\psi_r = \frac{4\sigma'}{\pi^2\epsilon_o}\sum_{n=1,3,...}^{\infty} \frac{e^{-n\pi x}}{n^2} \sinh(n\pi x')\sin(n\pi y)$$
+
+Notice that $\psi_l(x,y;x')=\psi_r(x',y;x)$.
+
+2.
+
+$$\sigma_l(y) = -\epsilon_o\frac{\partial \psi_l}{\partial x}\Bigg|_{x=0}$$
+
+$$\sigma_l(y) = -\frac{4\sigma'}{\pi}\sum_{n=1,3,...}^{\infty} e^{-n\pi x'} \cosh(n\pi 0) \sin(n\pi y) $$
+
+$$\sigma_l(1/2; x'=0) = -\frac{4\sigma'}{\pi}\sum_{n=1,3,...}^{\infty} e^{-n\pi 0}{\cosh(n\pi 0)} \sin(n\pi/2) $$
+
+$$\sigma(1/2; x'=0) = -\frac{4\sigma'}{\pi}\sum_{l=0}^{\infty} \frac{(-1)^l}{2l+1}$$
+
+This sum is a well-known way to generate $\pi$ and it evaluates to $\pi/4$ giving
+
+$$\sigma(1/2; x'=0) = -\sigma'$$
+
+3.
+
+A [https://www.mathcha.io/editor/K4BjWfWBUm3TGdOEdHkNBgDcZzznM2CwVxxdl Gaussian cylinder] centered on $y=1/2$ with one end-cap in the conductor and the other at any $x$ has an enclosed charge of $\sigma'A + \sigma(1/2)$. When $x'=0$, one can compute the field using $\psi_r$ and show that $E_x(x,y)=E_y(x,y)=0$ and so there is no flux through the cylinder. Gauss' law then gives
+
+$$0 = \sigma'A + \sigma A$$
+
+$$\sigma = -\sigma'\qquad\text{(for all }y\text{)}$$
+
+When the sheet of charge is next to the left surface, the surface charge density on that surface is equal and opposite to the surface charge density on the charged sheet. The field everywhere is zero.
+
+If $x'\ne 0$, one would need to account for the flux through the curved surface because $\mathbf{E}\ne 0$ and Gauss' law will not give a simple answer as was the case here.
+
+4.
+
+$$G=\frac{4\pi\epsilon_o}{\sigma' A}[\psi_l(x,x')\Theta(x'-x) + \psi_r(x,x')\Theta(x-x')]$$
+
+If the volume is the volume inside the channel, then the potential is zero on three surfaces of this volume; $\partial G/\partial z$ is zero on two surfaces. The fact that $\partial G/\partial x=0$ on the surface at $x=\infty$ can be shown by direct calculation.
+
+$$\Phi(x) = \frac{1}{4\pi\epsilon_o}\int_0^{\infty} G(x,x')\rho(x\thinspace d^3x'$$
+
+Using
+
+$$\rho(x')=\rho_o\Theta(d-x')$$
+
+this is
+
+$$\Phi(x) = \frac{1}{4\pi\epsilon_o}\int_0^{\infty} G(x,x')\rho(x\thinspace d^3x'$$
+
+Using $G$ in terms of $\psi_l$ and $\psi_r$, this is
+
+$$\Phi(x) = \frac{\rho_o}{\epsilon_o}\int_0^d \Big[\psi_l(x,x')\Theta(x'-x) + \psi_r(x,x')\Theta(x-x')\Big]\thinspace dx'$$
+
+$$x\lt d$$
+
+$$\Phi(x) = \frac{\rho_o}{\epsilon_o}\left[\int_0^d \psi_l(x,x\thinspace dx' + \int_0^x \psi_r(x,x\thinspace dx'\right]$$
+
+$$\Phi(x) = \frac{4\rho_o}{\pi^3\epsilon_o}\sum_{n=1,3,...}^{\infty}\frac{\sin(n\pi y)}{n^3}[1-e^{-n\pi x} - e^{-n\pi d}\sinh(n\pi x)]$$
+
+$$x\gt d$$
+
+$$\Phi(x) = \frac{\rho_o}{\epsilon_o}\int_0^d \psi\thinspace dx'$$
+
+$$\Phi(x) = \frac{4\rho_o}{\pi^3\epsilon_o}\sum_{n=1,3,...}^{\infty}\frac{\cosh(n\pi d)-1}{n^3}e^{-n\pi x}\sin(n\pi y)$$
+
+### Long Cylinder
+
+Have hand-written solutions
+
+For a long, grounded, and hollow cylinder with radius $b$ aligned with, and centered on, the $z$-axis,
+
+1. find $G(s,\phi;s',\phi')$ using the solution to an appropriate method of images problem (as was done in [[S2020/Problems#Sphere|HW 7.2.1]] for a sphere);
+1. find $G(s,\phi;s',\phi')$ by finding equations for the potential outside of the cylinder when it is surrounded by a co-aligned cylindrical shell of radius $s'$ with a charge density that is proportional to $\delta(\phi-\phi')$ (similar to what was done in [[S2020/Problems#Sphere|HW 7.2.2]] for a sphere); and
+1. use Equation 1.44 of Jackson and a Green function to find the potential outside of the cylinder when it is held at a potential of $V_u$ for $0\lt \phi \lt \pi$ and $V_l$ for $\pi \lt \phi\lt 2\pi$.
+
+4. Find the potential outside of the cylinder for the boundary potential given in part 3. using the boundary value method.
+
+## 3-D
+
+### Infinite Dome or Infinite Plane
+
+#green-function-for-infinite-dome&l=1063&c=1
+
+
+### Between Spherical Shells
 
 1. Show the steps required to obtain equation 3.114 from equation 2.16 (both in Jackson 3rd edition).
 1. Show that equation 3.114 can be obtained using the same technique used to find the Green function in the previous problem (the Long Tube problem). Do this by assuming a shell of charge at $r=r'$ with density $\sigma'(\theta,\phi)$ and finding the potential in two regions: $a \le r \lt r'$ and $r\gt r'$. To obtain 3.114 of Jackson, you will need to use $\sigma'(\theta,\phi)=q\delta(\cos\theta-\cos\theta')\delta(\phi-\phi')/4\pi r'^2$.
